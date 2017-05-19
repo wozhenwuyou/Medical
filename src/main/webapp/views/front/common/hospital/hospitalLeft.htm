@@ -1,0 +1,59 @@
+<div class="w_229">
+	<div class="t_229 pointer"
+		onclick="location.href='/hospital/hospitalHome'">诊所首页</div>
+	<div id="leftMenuList" class="pz_SideLayer">
+		<li id="lm_hospitalHome" class="l1"><a
+			href="/hospital/${hospital.attrStr}" target="_blank">诊所介绍页</a></li>
+		<li id="lm_announcement" class="l1"><a
+			href="/hospital/announcement">诊所公告</a></li>
+		<li id="lm_doctor" class="l1"><a href="/hospital/hospitalDoctor">医生库</a></li>
+		<li id="lm_nurse" class="l1"><a
+			href="/hospital/hospitalNurseList">护士库</a></li>
+		<li id="lm_diagnose" class="l1"><a href="/hospital/diagnoseList">病历夹</a></li>
+		<li id="lm_diagnoseTemplate" class="l1"><a
+			href="/hospital/diagnoseTemplate">病历模版</a></li>
+		<li id="lm_report" class="l1"><a
+			href="/hospital/hospitalUserReportList">检测档案</a></li>
+		<li id="lm_patient" class="l1"><a
+			href="/hospital/hospitalPatient">患者库</a></li>
+		<li id="lm_medicationRepertory" class="l1"><a
+			href="/hospital/medicationRepertory">药品库管理</a></li>
+		<li id="lm_medicationSum" class="l1"><a
+			href="/hospital/medicationSumList">药品销售汇总</a></li>
+		<li id="lm_medicationLog" class="l1"><a
+			href="/hospital/medicationLog">药品记录</a></li>
+		<li id="lm_diagnoseSum" class="l1"><a
+			href="/hospital/diagnoseSumList">医生诊疗汇总</a></li>
+		<li id="lm_bespeak" class="l1"><a
+			href="/hospital/hospitalBespeak">预约</a></li>
+		<li id="lm_diagnoseApply" class="l1"><a
+			href="/hospital/hospitalDiagnoseApply">授权记录</a></li>
+		<li id="lm_internalMessage" class="l1"><a id="internalMessage"
+			href="/hospital/internalMessage">站内信</a></li>
+		<!-- <li class="l1"><a href="javascript:;">统计分析</a></li> -->
+	</div>
+	<!-- 
+    <div class="Search">
+    	<input type="text" class="input3" placeholder="查找医生/诊所" />
+        <input type="image" src="/images/front/main26.jpg" width="43" height="35" class="input4" />
+    </div>
+    -->
+	<div id="slideBox" class="Box">
+		<div class="hd" id="hospitalAdvertisement"></div>
+		<div class="bd">
+			<ul>
+				<c:if test="${!empty advertisementList}">
+					<c:forEach var="advertisement" items="${advertisementList}">
+						<li><a href="${advertisement.linkUrl}" target="_blank"><img
+								onerror="this.src='/images/front/main27.jpg'"
+								src="${advertisement.picPath}" width="229" height="131" /></a></li>
+					</c:forEach>
+				</c:if>
+				<c:if test="${empty advertisementList}">
+					<li><a href="javascript:;" target="_blank"><img
+							src='/images/front/main27.jpg' width="229" height="131" /></a></li>
+				</c:if>
+			</ul>
+		</div>
+	</div>
+</div>
