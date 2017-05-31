@@ -34,6 +34,7 @@ lh.config = {
 }
 
 $(function() {
+	
 	$('#opt_outer_div').css('width', lh.dom.clientSafeWidth-1);
 	lh.initConfig(lh.config);
 	//loadGrid();
@@ -165,10 +166,13 @@ function openMainObjWin(index, operation){
 		if(!flag)return;
 	}
 	
-	initFormComponent();//初始化组件
-	lh.$mainObjWin.window('open');
 	$form.form('clear');
+	initFormComponent();//初始化组件
+	
 	$form.form('disableValidation');
+	
+	lh.$mainObjWin.window('open');
+	
 	lh.$mainObjTip.html('');
 	
 	if(operation == 'add'){//添加

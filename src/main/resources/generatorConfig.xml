@@ -13,11 +13,6 @@
 		<property name="beginningDelimiter" value="`" />
 		<property name="endingDelimiter" value="`" />
 
-		<commentGenerator type="${mapper.MyCommentGenerator}"><!-- type="com.lhfeiyu.util.MyCommentGenerator" -->
-			<property name="suppressAllComments" value="false" />
-			<property name="suppressDate" value="true" />
-		</commentGenerator>
-
 		<!-- <plugin type="${mapper.plugin}"> <property name="mappers" value="${mapper.Mapper}"/> 
 			</plugin> -->
 
@@ -36,10 +31,10 @@
 
 		<!-- 采用泛型Mapper,不再需要自动生成 <javaClientGenerator type="XMLMAPPER" targetPackage="${targetMapperPackage}" 
 			targetProject="${targetJavaProject}"/> -->
-		<table tableName="%" enableCountByExample="false"
-			enableUpdateByExample="false" enableDeleteByExample="false"
-			enableSelectByExample="false" selectByExampleQueryId="false"
-			selectByPrimaryKeyQueryId="false">
+		<table tableName="phr_basic_info" enableCountByExample="true"
+			enableUpdateByExample="true" enableDeleteByExample="true"
+			enableSelectByExample="true" selectByExampleQueryId="true"
+			selectByPrimaryKeyQueryId="true">
 			<generatedKey column="id" sqlStatement="JDBC" />
 		</table>
 	</context>

@@ -159,6 +159,28 @@ public class DoctorAction {
 		return new ModelAndView(path,modelMap);
 	}
 	
+	@RequestMapping(value="/patientLibrary4Select")
+	public ModelAndView  patientLibrary4Select(ModelMap modelMap,HttpServletRequest request){
+		String path = PagePath.patientLibrary4select;
+		try{
+			Doctor session_doctor = ActionUtil.checkSession4Doctor(request.getSession());//验证session中的user，存在即返回
+			if(null == session_doctor)return Result.userSessionInvalid(modelMap,PagePath.doDctorLogin,"doctor");
+			modelMap = doctorService.getFansData(modelMap,session_doctor,null);
+			Map<String,Object> map = new HashMap<String,Object>();
+			map.put("higherIdISNULL", 1);
+			map.put("mainStatus", 1);
+			map.put("orderBy", "id");
+			map.put("ascOrdesc", "ASC");
+			List<ProvinceCityArea> provinceCityAreaList = provinceCityAreaService.selectListByCondition(map);
+			modelMap.put("provinceCityAreaList", provinceCityAreaList);
+			//modelMap.put("doctorId", value)
+		}catch(Exception e){
+			path = PagePath.error;
+			Result.catchError(e, logger, "LH_ERROR-Doctor-PAGE-/patientLibrary-加载患者库出现异常", modelMap);
+		}
+		return new ModelAndView(path,modelMap);
+	}
+	
 	@RequestMapping(value="/doctorDiagnoseApply")
 	public ModelAndView  doctorDiagnoseApply(ModelMap modelMap,HttpServletRequest request){
 		String path = PagePath.doctorDiagnoseApply;

@@ -32,6 +32,7 @@ public class PagePath {
     public static final String diagnoseTemplate = "/front/domain/doctor/diagnoseTemplate";//病历模板详情
     public static final String diagnoseRead = "/front/domain/doctor/diagnoseRead";//病历查看
     public static final String patientLibrary = "/front/domain/doctor/patientLibrary";//患者库
+    public static final String patientLibrary4select = "/front/domain/doctor/patientLibrary4select";//患者库
     public static final String doctorArticle = "/front/domain/doctor/article";//文章
     public static final String doctorArticleDetails = "/front/domain/doctor/articleDetails";//文章详情
     public static final String doctorInformation = "/front/domain/doctor/information";//资讯
@@ -237,6 +238,14 @@ public class PagePath {
     
     public static final String backSysArticle = "/back/base/article/sysArticle";
     public static final String backAddOrUpdateSysArticle = "/back/base/article/addOrUpdateSysArticle";
+    
+    //健康档案相关
+    public static final String BACK_DOMAIN_PHR_LIST = "/back/domain/phr/list";
+    public static final String BACK_DOMAIN_PHR_BSAICINFOFORM = "/back/domain/phr/phrBasicInfoForm";
+    public static final String FRONT_DOMAIN_DOCTOR_PHR_LIST = "/front/domain/doctor/phrList";//病历夹列表
+    public static final String FRONT_DOMAIN_DOCTOR_PHR_ADD = "/front/domain/doctor/phrAdd";//病历夹列表
+    public static final String FRONT_DOMAIN_DOCTOR_PHR_DETAIL = "/front/domain/doctor/phrDetail";//病历夹列表
+    public static final String FRONT_DOMAIN_DOCTOR_PHR_EDIT = "/front/domain/doctor/phrEdit";//病历夹列表
     
     /** 后台页面 结束 */
 	
