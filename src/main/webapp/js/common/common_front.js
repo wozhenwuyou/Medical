@@ -19,7 +19,6 @@ lh.showRepeatTip = function (tip){
 	lh.alert(tip);
 }
 
-
 function logout(){
 	$.post('/logout',null,function(rsp){
 	     if(rsp.status == 'success'){     	

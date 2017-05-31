@@ -172,6 +172,8 @@
 	<%@ include file="/views/common/common_js.htm"%>
 	<%@ include file="/views/common/common_back_js.htm"%>
 	<script type="text/javascript" src="/js/back/base/main.js" title="v"></script>
+	<script type="text/javascript"
+		src="/third-party/layer/layer.js" title="v"></script>
 
 </body>
 </html>
