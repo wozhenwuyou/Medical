@@ -7,8 +7,7 @@
 <head>
 <%@ include file="/views/common/meta_info.htm"%>
 <%@ include file="/views/common/common_back_css.htm"%>
-<link rel="stylesheet" type="text/css" href="/css/back/back.css"
-	title="v" />
+<link rel="stylesheet" type="text/css" href="/css/back/back.css" title="v" />
 </head>
 <body style="min-width: 1000px;">
 	<!-- 查询条件  开始 -->
@@ -36,6 +35,8 @@
 		<div class="fl_opt_div">
 			<button role="opt_1" onclick="fnAddPhrBasicInfo(null, '添加');"
 				class="button button-primary button-rounded button-small" id="btn_add">添加</button>
+			<a href="javascript:void(0)" id="btn_othertable" class="easyui-menubutton"     
+        data-options="menu:'#mm',iconCls:'icon-add'">添加附表</a>
 			<button role="opt_2" id="btn_batchRecover"
 				onclick="fnBatchRecover()"
 				class="hide button button-primary button-rounded button-small">批量恢复</button>
@@ -52,6 +53,15 @@
 	<div id='datagrid_div'>
 		<table id="datagrid"></table>
 	</div>
+	
+	<!-- 下拉菜单 -->
+	<div id="mm" style="width:150px;">   
+	    <div data-options="iconCls:'icon-save'" onclick="javascript:fnAddHealthCheckTable(this, '添加');">健康体检表</div>
+	    <div class="menu-sep"></div>   
+	    <div data-options="iconCls:'icon-save'">高血压表</div>
+	</div>  
+
+	
 	<%@ include file="/views/common/common_js.htm"%>
 	<%@ include file="/views/common/common_back_js.htm"%>
 	<%@ include file="/views/common/common_upload_js.htm"%>

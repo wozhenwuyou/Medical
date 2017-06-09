@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
@@ -28,10 +29,14 @@ import com.lhfeiyu.po.PhrBasicInfo;
 import com.lhfeiyu.po.User;
 import com.lhfeiyu.service.DoctorService;
 import com.lhfeiyu.service.PhrBasicInfoService;
+import com.lhfeiyu.service.PhrCoverService;
+import com.lhfeiyu.service.PhrHealthCheckService;
 import com.lhfeiyu.service.UserService;
 import com.lhfeiyu.tools.ActionUtil;
 import com.lhfeiyu.tools.Result;
 import com.lhfeiyu.vo.PhrBasicInfoCmd;
+import com.lhfeiyu.vo.PhrCoverCmd;
+import com.lhfeiyu.vo.PhrHealthCheckCmd;
 
 /**
  * 健康档案管理控制器
@@ -48,9 +53,13 @@ public class PhrAction {
 	@Autowired
 	private PhrBasicInfoService phrBasicInfoService;// 业务支持
 	@Autowired
+	private PhrHealthCheckService phrHealthCheckService;// 健康体检业务支持
+	@Autowired
+	private PhrCoverService phrCoverService;// 健康体检业务支持
+	@Autowired
 	private DoctorService doctorService;// 医生
 	@Autowired
-	private UserService userService;//用户业务
+	private UserService userService;// 用户业务
 
 	@InitBinder
 	public void initBinder(ServletRequestDataBinder bin) {
@@ -97,14 +106,14 @@ public class PhrAction {
 			Doctor session_doctor = ActionUtil.checkSession4Doctor(request.getSession());// 验证session中的user，存在即返回
 			if (null == session_doctor)
 				return Result.userSessionInvalid(json, "doctor");
-			
+
 			List<PhrBasicInfo> hospitalList = phrBasicInfoService.selectListByCondition(cmd);
-			if(hospitalList != null && hospitalList.size() > 0){
-				for(PhrBasicInfo one : hospitalList){
+			if (hospitalList != null && hospitalList.size() > 0) {
+				for (PhrBasicInfo one : hospitalList) {
 					one.setMine(session_doctor.getId().equals(one.getDoctorId()));
 				}
 			}
-			
+
 			Integer total = phrBasicInfoService.selectCountByCondition(cmd);
 			Result.gridData(hospitalList, total, json);
 			Result.success(json, "健康档案管理页面加载成功", null);
@@ -151,8 +160,8 @@ public class PhrAction {
 			Doctor session_doctor = ActionUtil.checkSession4Doctor(request.getSession());// 验证session中的user，存在即返回
 			if (null == session_doctor)
 				return Result.userSessionInvalid(modelMap, PagePath.doDctorLogin);
-			
-			//加载基本信息
+
+			// 加载基本信息
 			PhrBasicInfo basicInfo = phrBasicInfoService.findById(id);
 			modelMap.put("phrBasicInfo", basicInfo);
 		} catch (Exception e) {
@@ -161,7 +170,7 @@ public class PhrAction {
 		}
 		return new ModelAndView(path, modelMap);
 	}
-	
+
 	/**
 	 * 编辑页面GET请求
 	 * 
@@ -176,8 +185,8 @@ public class PhrAction {
 			Doctor session_doctor = ActionUtil.checkSession4Doctor(request.getSession());// 验证session中的user，存在即返回
 			if (null == session_doctor)
 				return Result.userSessionInvalid(modelMap, PagePath.doDctorLogin);
-			
-			//加载基本信息
+
+			// 加载基本信息
 			PhrBasicInfo basicInfo = phrBasicInfoService.findById(id);
 			modelMap.put("phrBasicInfo", basicInfo);
 		} catch (Exception e) {
@@ -186,7 +195,7 @@ public class PhrAction {
 		}
 		return new ModelAndView(path, modelMap);
 	}
-	
+
 	/**
 	 * 编辑POST请求
 	 * 
@@ -195,25 +204,25 @@ public class PhrAction {
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping(value = "/phr/doctor/phrEdit/{id}", method=RequestMethod.POST)
+	@RequestMapping(value = "/phr/doctor/phrEdit/{id}", method = RequestMethod.POST)
 	public JSONObject phrEditPOST(PhrBasicInfoCmd cmd, HttpServletRequest request, @PathVariable("id") Integer id) {
 		JSONObject json = new JSONObject();
 		try {
 			Doctor db_doctor = ActionUtil.checkSession4Doctor(request.getSession());// 验证session中的user，存在即返回
 			if (null == db_doctor)
 				return Result.userSessionInvalid(json, "doctor");
-			cmd.setCreateUserId(db_doctor.getId());//创建者id
-			cmd.setDoctorId(db_doctor.getId());//医生id
-			cmd.setLastUpdateTime(new Date());//最后修改时间
-			cmd.setId(id);//设置id
-			//设置患者的信息
+			cmd.setCreateUserId(db_doctor.getId());// 创建者id
+			cmd.setDoctorId(db_doctor.getId());// 医生id
+			cmd.setLastUpdateTime(new Date());// 最后修改时间
+			cmd.setId(id);// 设置id
+			// 设置患者的信息
 			phrBasicInfoService.savePhrBasicInfo(cmd);
 		} catch (Exception e) {
 			Result.catchError(e, logger, "LH_ERROR-DoctorPatient-AJAX-/phr/doctor/phrEdit-修改健康档案出现异常", json);
 		}
 		return Result.success(json);
 	}
-	
+
 	/**
 	 * 添加页面POST请求
 	 * 
@@ -230,18 +239,18 @@ public class PhrAction {
 			Doctor db_doctor = ActionUtil.checkSession4Doctor(request.getSession());// 验证session中的user，存在即返回
 			if (null == db_doctor)
 				return Result.userSessionInvalid(json, "doctor");
-			cmd.setCreateUserId(db_doctor.getId());//创建者id
-			cmd.setDoctorId(db_doctor.getId());//医生id
-			cmd.setCreateTime(new Date());//创建时间
-			cmd.setLastUpdateTime(cmd.getCreateTime());//最后修改时间
-			//设置患者的信息
+			cmd.setCreateUserId(db_doctor.getId());// 创建者id
+			cmd.setDoctorId(db_doctor.getId());// 医生id
+			cmd.setCreateTime(new Date());// 创建时间
+			cmd.setLastUpdateTime(cmd.getCreateTime());// 最后修改时间
+			// 设置患者的信息
 			phrBasicInfoService.savePhrBasicInfo(cmd);
 		} catch (Exception e) {
 			Result.catchError(e, logger, "LH_ERROR-DoctorPatient-AJAX-/phr/doctor/phrAdd-添加健康档案出现异常", json);
 		}
 		return Result.success(json);
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/phr/doctor/phrDelete/{id}")
 	public JSONObject phrAddPOST(HttpServletRequest request, @PathVariable Integer id) {
@@ -250,14 +259,14 @@ public class PhrAction {
 			Doctor db_doctor = ActionUtil.checkSession4Doctor(request.getSession());// 验证session中的user，存在即返回
 			if (null == db_doctor)
 				return Result.userSessionInvalid(json, "doctor");
-			//设置患者的信息
+			// 设置患者的信息
 			phrBasicInfoService.deletePhrBasicInfo(id);
 		} catch (Exception e) {
 			Result.catchError(e, logger, "LH_ERROR-DoctorPatient-AJAX-/phr/doctor/phrAdd-添加健康档案出现异常", json);
 		}
 		return Result.success(json);
 	}
-	
+
 	// -------------------------------------------back---------------------------------------------------------------------------------------------------------------------------------
 
 	/**
@@ -291,17 +300,17 @@ public class PhrAction {
 			Admin admin = ActionUtil.checkSession4Admin(request.getSession());// 验证session中的user，存在即返回
 			if (null == admin)
 				return Result.userSessionInvalid(json, "admin");
-			cmd.setCreateUserId(admin.getId());//创建者id
-			cmd.setCreateTime(new Date());//创建时间
-			cmd.setLastUpdateTime(cmd.getCreateTime());//最后修改时间
-			//设置患者的信息
+			cmd.setCreateUserId(admin.getId());// 创建者id
+			cmd.setCreateTime(new Date());// 创建时间
+			cmd.setLastUpdateTime(cmd.getCreateTime());// 最后修改时间
+			// 设置患者的信息
 			phrBasicInfoService.savePhrBasicInfo(cmd);
 		} catch (Exception e) {
 			Result.catchError(e, logger, "LH_ERROR-DoctorPatient-AJAX-/back/phr/phrAdd添加健康档案出现异常", json);
 		}
 		return Result.success(json);
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/back/phr/phrDelete/{id}")
 	public JSONObject phrDelete(HttpServletRequest request, @PathVariable Integer id) {
@@ -310,15 +319,15 @@ public class PhrAction {
 			Admin admin = ActionUtil.checkSession4Admin(request.getSession());// 验证session中的user，存在即返回
 			if (null == admin)
 				return Result.userSessionInvalid(json, "admin");
-			//设置患者的信息
+			// 设置患者的信息
 			phrBasicInfoService.deletePhrBasicInfo(id);
 		} catch (Exception e) {
 			Result.catchError(e, logger, "LH_ERROR-DoctorPatient-AJAX-/back/phr/phrDelete/{id}-删除健康档案出现异常", json);
 		}
 		return Result.success(json);
 	}
-	
-	//-恢复
+
+	// -恢复
 	@ResponseBody
 	@RequestMapping(value = "/back/phr/phrRecover")
 	public JSONObject phrRecover(HttpServletRequest request) {
@@ -328,26 +337,20 @@ public class PhrAction {
 			if (null == admin)
 				return Result.userSessionInvalid(json, "admin");
 			String ids = request.getParameter("ids");
-			//设置患者的信息
+			// 设置患者的信息
 			phrBasicInfoService.recoverPhrBasicInfo(ids);
 		} catch (Exception e) {
 			Result.catchError(e, logger, "LH_ERROR-DoctorPatient-AJAX-/back/phr/phrRecover-phr恢复出现异常", json);
 		}
 		return Result.success(json);
 	}
-	
-	
+
 	@RequestMapping(value = "/back/phr/phrBasicInfoForm", method = RequestMethod.GET)
 	public ModelAndView phrBasicInfoForm(HttpServletRequest request, ModelMap modelMap) {
 		String path = PagePath.BACK_DOMAIN_PHR_BSAICINFOFORM;
 		try {
-			Admin admin = ActionUtil.checkSession4Admin(request.getSession());// 验证session中的user，存在即返回
-			if (admin.getRoleId() == 3) {
-				modelMap.put("notAdmin", 1);
-			}
-			
 			String id = request.getParameter("id");
-			if(StringUtils.isNotBlank(id)){
+			if (StringUtils.isNotBlank(id)) {
 				modelMap.put("model", phrBasicInfoService.findById(Integer.valueOf(id)));
 				modelMap.put("openType", request.getParameter("openType"));
 			}
@@ -358,8 +361,6 @@ public class PhrAction {
 		return new ModelAndView(path, modelMap);
 	}
 
-	
-	
 	/**
 	 * 健康档案列表页面
 	 * 
@@ -390,8 +391,7 @@ public class PhrAction {
 		}
 		return json;
 	}
-	
-	
+
 	/**
 	 * 得到患者的信息
 	 * 
@@ -401,7 +401,7 @@ public class PhrAction {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/phr/doctor/getPatient/{id}", method = RequestMethod.POST)
-	public JSONObject getPatientById(@PathVariable("id")Integer id, HttpServletRequest request) {
+	public JSONObject getPatientById(@PathVariable("id") Integer id, HttpServletRequest request) {
 
 		JSONObject json = new JSONObject();
 
@@ -417,6 +417,169 @@ public class PhrAction {
 			Result.catchError(e, logger, "LH_ERROR-Hospital-AJAX-/back/list-健康档案管理页面出现异常", json);
 		}
 		return json;
+	}
+
+	// back健康体检表
+	@RequestMapping(value = "/back/phr/phrHealthCheck", method = RequestMethod.GET)
+	public ModelAndView phrHealthCheckBack(HttpServletRequest request, ModelMap modelMap) {
+		String path = PagePath.BACK_DOMAIN_PHR_HEALTHCHECK;
+		try {
+			Admin admin = ActionUtil.checkSession4Admin(request.getSession());// 验证session中的user，存在即返回
+			if (admin.getRoleId() == 3) {
+				modelMap.put("notAdmin", 1);
+			}
+
+			String id = request.getParameter("id");
+			if (StringUtils.isNotBlank(id)) {
+				modelMap.put("model", phrHealthCheckService.findById(Integer.valueOf(id)));
+				modelMap.put("openType", request.getParameter("openType"));
+			}
+		} catch (Exception e) {
+			path = PagePath.error;
+			Result.catchError(e, logger, "LH_ERROR-Hospital-PAGE-/back/phr/phrHealthCheck-出现异常", modelMap);
+		}
+		return new ModelAndView(path, modelMap);
+	}
+
+	// front健康体检表
+	@RequestMapping(value = "/front/phr/phrHealthCheck", method = RequestMethod.GET)
+	public ModelAndView phrHealthCheckFront(HttpServletRequest request, ModelMap modelMap) {
+		String path = PagePath.BACK_DOMAIN_PHR_HEALTHCHECK;
+		try {
+			Doctor session_doctor = ActionUtil.checkSession4Doctor(request.getSession());
+			if (null == session_doctor)
+				return Result.userSessionInvalid(modelMap, PagePath.doDctorLogin);
+
+			String id = request.getParameter("id");
+			if (StringUtils.isNotBlank(id)) {
+				modelMap.put("model", phrHealthCheckService.findById(Integer.valueOf(id)));
+				modelMap.put("openType", request.getParameter("openType"));
+			}
+		} catch (Exception e) {
+			path = PagePath.error;
+			Result.catchError(e, logger, "LH_ERROR-Hospital-PAGE-/front/phr/phrHealthCheck-出现异常", modelMap);
+		}
+		return new ModelAndView(path, modelMap);
+	}
+	
+	// front健康体检表
+		@RequestMapping(value = "/front/phr/phrCover", method = RequestMethod.GET)
+		public ModelAndView phrCover(HttpServletRequest request, ModelMap modelMap) {
+			String path = PagePath.BACK_DOMAIN_PHR_COVER;
+			try {
+				String basicInfoId = request.getParameter("basicInfoId");
+				if (StringUtils.isNotBlank(basicInfoId)) {
+					modelMap.put("model", phrCoverService.findById(Integer.valueOf(basicInfoId)));
+					modelMap.put("openType", request.getParameter("openType"));
+				}
+			} catch (Exception e) {
+				path = PagePath.error;
+				Result.catchError(e, logger, "LH_ERROR-Hospital-PAGE-/front/phr/phrCover-出现异常", modelMap);
+			}
+			return new ModelAndView(path, modelMap);
+		}
+	
+	@RequestMapping(value = "/back/phr/phrHealthCheck/save", method = RequestMethod.POST)
+	public ModelAndView phrHealthCheckSave(PhrHealthCheckCmd cmd, ModelMap modelMap, HttpSession session) {
+		
+		String path =  PagePath.BACK_DOMAIN_PHR_LIST;
+		
+		boolean front = StringUtils.isNotBlank(cmd.getRequestFrom()) && "doctor".equalsIgnoreCase(cmd.getRequestFrom());
+		
+		if(front){
+			path = PagePath.FRONT_DOMAIN_DOCTOR_PHR_LIST;// 添加或保存完成返回到列表页面
+		}
+		
+		try {
+			
+			if(!front){
+				Admin admin = ActionUtil.checkSession4Admin(session);
+				if (admin.getRoleId() == 3) {
+					modelMap.put("notAdmin", 1);
+				}
+				cmd.setCreateUserId(admin.getId());// 创建用户
+			}else{
+				Doctor doctor = ActionUtil.checkSession4Doctor(session);
+				if (null == doctor){
+					return Result.userSessionInvalid(modelMap, PagePath.doDctorLogin);
+				}
+				cmd.setCreateUserId(doctor.getId());// 创建用户
+			}
+
+			if (cmd.getId() == null || cmd.getId().intValue() < 0) {
+				cmd.setCreatetime(new Date());// 创建时间
+			}
+			
+			cmd.setDeleteflag(false);// 未删除
+			cmd.setLastupdatetime(new Date());// 最后修改时间
+			// 基本信息id
+			PhrBasicInfo basicInfo = phrBasicInfoService.findById(cmd.getPhrBasicInfoId());
+			if (basicInfo != null) {
+				if (basicInfo.getDoctorId() != null && basicInfo.getDoctorId().intValue() > 0) {
+					Doctor doctor = doctorService.selectByPrimaryKey(basicInfo.getDoctorId());
+					cmd.setDoctorId(doctor.getId());// 医生id
+					cmd.setHospitalId(doctor.getHospitalId());// 诊所id
+				}
+				if (basicInfo.getPatientId() != null && basicInfo.getPatientId().intValue() > 0) {
+					cmd.setPatientId(basicInfo.getPatientId());// 患者id
+				}
+			}
+			phrHealthCheckService.save(cmd);
+		} catch (Exception e) {
+			path = PagePath.error;
+			Result.catchError(e, logger, "LH_ERROR-Hospital-PAGE-/back/phr/phrHealthCheck/save-出现异常", modelMap);
+		}
+		return new ModelAndView(path, modelMap);
+	}
+	
+	
+	@RequestMapping(value = "/back/phr/phrCover/save", method = RequestMethod.POST)
+	public ModelAndView phrCoverSave(PhrCoverCmd cmd, ModelMap modelMap, HttpSession session) {
+		
+		String path = PagePath.FRONT_DOMAIN_DOCTOR_PHR_LIST;
+		
+		boolean front = StringUtils.isNotBlank(cmd.getRequestFrom()) && "doctor".equalsIgnoreCase(cmd.getRequestFrom());
+		
+		if(!front){
+			path = PagePath.BACK_DOMAIN_PHR_LIST;
+		}
+		
+		try {
+			
+			if(!front){
+				Admin admin = ActionUtil.checkSession4Admin(session);
+				if (admin.getRoleId() == 3) {
+					modelMap.put("notAdmin", 1);
+				}
+				cmd.setCreateUserId(admin.getId());// 创建用户
+			}else{
+				Doctor doctor = ActionUtil.checkSession4Doctor(session);
+				if (null == doctor){
+					return Result.userSessionInvalid(modelMap, PagePath.doDctorLogin);
+				}
+				cmd.setCreateUserId(doctor.getId());// 创建用户
+			}
+
+			// 基本信息id
+			PhrBasicInfo basicInfo = phrBasicInfoService.findById(cmd.getBasicInfoId());
+			if (basicInfo != null) {
+				if (basicInfo.getDoctorId() != null && basicInfo.getDoctorId().intValue() > 0) {
+					Doctor doctor = doctorService.selectByPrimaryKey(basicInfo.getDoctorId());
+					cmd.setDoctorId(doctor.getId());// 医生id
+					cmd.setHospitalId(doctor.getHospitalId());// 诊所id
+				}
+				if (basicInfo.getPatientId() != null && basicInfo.getPatientId().intValue() > 0) {
+					cmd.setPatientId(basicInfo.getPatientId());// 患者id
+				}
+			}
+			phrCoverService.save(cmd);
+			basicInfo.setHasCover((byte)1);
+			phrBasicInfoService.savePhrBasicInfo(basicInfo);
+		} catch (Exception e) {
+			path = PagePath.error;
+			Result.catchError(e, logger, "LH_ERROR-Hospital-PAGE-/back/phr/phrCover/save-出现异常", modelMap);
+		}
+		return new ModelAndView(path, modelMap);
 	}
 	
 }

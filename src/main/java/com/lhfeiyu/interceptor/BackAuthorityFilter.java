@@ -36,6 +36,12 @@ public class BackAuthorityFilter implements Filter {
 				if(!uri.startsWith("/back") || uri.contains("login") || uri.contains("Login")){
 	        		chain.doFilter(request, response);
 	        	}else{
+	        		
+	        		if(uri.contains("/phrBasicInfoForm") || uri.contains("phrCover") || uri.contains("phrHealthCheck")){
+	        			chain.doFilter(request, response);
+						return;
+	        		}
+	        		
 	        		Object adminIdObj = request.getSession().getAttribute("adminId");
 	        		if (adminIdObj != null) {
 						chain.doFilter(request, response);

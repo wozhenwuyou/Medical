@@ -62,11 +62,13 @@
 	</div>
 	<%@ include file="/views/common/common_js.htm"%>
 	<%@ include file="/views/common/common_front_js.htm"%>
-	<script type="text/javascript"
-		src="/js/front/domain/doctor/doctorCommon.js" title="v"></script>
-	<script type="text/javascript"
-		src="/js/front/domain/doctor/phrList.js" title="v"></script>
+	<script type="text/javascript" src="/third-party/z.js" title="v"></script>
+	<script type="text/javascript" src="/third-party/layer/layer.js" title="v"></script>
+	<script type="text/javascript" src="/js/front/domain/doctor/doctorCommon.js" title="v"></script>
+	<script type="text/javascript" src="/js/front/domain/doctor/phrList.js" title="v"></script>
 
+<!-- <button type="button" onclick="location.href='/phr/doctor/phrDetail/{{id}}'" class="btn btn-success">查看</button> -->
+<!-- <button type="button" onclick="location.href='/phr/doctor/phrEdit/{{id}}'" class="btn btn-warning">编辑</button> -->
 	<script id="template" type="x-tmpl-mustache"><!-- -->
 		<tr height="53" align="center" style="font-size:14px; color:#63a13f">
         	<td width="85">姓名</td>
@@ -74,7 +76,6 @@
 			<td width="85">编号</td>
             <td width="155">身份证号</td>
 			<td width="100">电话</td>
-            <td width="120">创建时间</td>
             <td width="180" align="left">操作</td>
         </tr>
 		{{#rows}}
@@ -84,12 +85,23 @@
 	        <td width="85">{{userNo}}</td>
 	        <td width="155">{{idCardNo}}</td>
 	        <td width="100">{{tel}}</td>
-			<td width="120">{{&createTime}}</td>
-	        <td width="180" align="left">
-				<button type="button" onclick="location.href='/phr/doctor/phrDetail/{{id}}'" class="btn btn-success">查看</button>
+	        <td width="210" align="left">
+				<button type="button" onclick="fnView('{{id}}', '{{name}}')" class="btn btn-success">查看</button>
 				{{#mine}}
-					<button type="button" onclick="location.href='/phr/doctor/phrEdit/{{id}}'" class="btn btn-warning">编辑</button>
+					<button type="button" onclick="fnEdit('{{id}}', '{{name}}')" class="btn btn-warning">编辑</button>
 					<button type="button" onclick="lh.confirm({content: '是否确定删除？', clickYes:deletePhrBasicInfo, clickYesParam:{{id}}});" class="btn btn-danger">删除</button>
+<div class="btn-group">
+  	<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   	+附表<span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+	<li><a href="javascript:void(0);" onclick="fnAddCoverTable(this, '添加', '', {{id}}, {{hasCover}});">封面</a></li>
+	<li role="separator" class="divider"></li>
+    <li><a href="javascript:void(0);" onclick="fnAddHealthCheckTable(this, '添加', '', {{id}});">体检表</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">高血压表</a></li>
+  </ul>
+</div>
 				{{/mine}}
 	        </td>
 	    </tr>

@@ -37,11 +37,11 @@ function fnAddPhrBasicInfo(id, openType) {
 			top.layer.close(index);
 		}
 	});
+	
 }
 
 // 执行添加方法
 function doSave(table, cb) {
-	debugger;
 	var o = {};
 	o.id = getValueByIdOrName("id");
 	o.patientId = getValueByIdOrName("patientId");
@@ -243,11 +243,11 @@ function loadGrid(type) {
 		width : lh.dom.clientSafeWidth - 1,
 		height : lh.dom.clientHeight - 160,
 		columns : [ [
-				{
+				/*{
 					field : 'checkbox',
 					title : '多选框',
 					checkbox : true
-				},
+				},*/
 				{
 					field : 'id',
 					title : '',
@@ -263,7 +263,7 @@ function loadGrid(type) {
 						return '<span class="opt_alive">\
 						<span onclick="fnAddPhrBasicInfo('+row.id+', \'查看\')" style="cursor: pointer;color: green">查看</span>|\
 						<span onclick="fnAddPhrBasicInfo('+row.id+', \'编辑\')" style="cursor: pointer;color: green">编辑</span>|\
-						<span onclick="fnDeletePhrBasicInfo('+row.id+', \'删除\')" style="cursor: pointer;color: green">删除</span>\
+						<span onclick="fnDeletePhrBasicInfo('+row.id+', \'删除\')" style="cursor: pointer;color: green">删除</span>|\
 					</span>';
 					}
 				}, {
@@ -326,11 +326,13 @@ function loadGrid(type) {
 	
 	if(type && type == 'hsz'){//回收
 		$('#btn_add').addClass('hide');//添加隐藏
+		$('#btn_othertable').addClass('hide');//添加隐藏
 		$("#btn_batchRecover").removeClass('hide');//恢复显示
 		$("#btn_trash").addClass('hide');//返回显示
 		$("#btn_trashBack").removeClass('hide');
 	}else{
 		$('#btn_add').removeClass('hide');//添加显示
+		$('#btn_othertable').removeClass('hide');//添加隐藏
 		$("#btn_batchRecover").addClass('hide');
 		$("#btn_trash").removeClass('hide');
 		$("#btn_trashBack").addClass('hide');
@@ -348,4 +350,46 @@ function fnDeletePhrBasicInfo(id){
 			top.layer.alert(rsp.msg);
 		}
 	}, 'json');
+}
+
+
+//--添加健康体检表
+//btn打开按钮
+//openType 打开方式，默认是添加，还可以是编辑和查看
+//id表示体检表的id
+function fnAddHealthCheckTable(btn, openType, id){
+	
+	var selected = $("#datagrid").datagrid('getSelected');
+	
+	if(!selected){
+		top.layer.alert('请选择要添加健康表的表格行');
+		return;
+	}
+	
+	var openT = 'add';
+	if(openType == '编辑'){
+		openT = 'edit';
+	}else if(openType == '查看'){
+		openT = 'detail';
+	}
+	
+	var index = top.layer.open({
+		title : openType + '体检表窗口',
+		type : 2,
+		area : [ '950px', '520px' ],
+		btn : openT == 'detail' ? [] : [ '保存', '取消' ],
+		content : '/back/phr/phrHealthCheck?id=' + (id || '') + "&openType=" + openT,
+		yes : function() {
+			var body = top.layer.getChildFrame('body');
+			//提交表单，将主表的id提交过去
+			var form = body.find("form:first");
+			form.append("<input type='hidden' name='phrBasicInfoId' id='phrBasicInfoId' value='"+selected.id+"'>");			
+			form.submit();
+			top.layer.close(index);
+		},
+		btn2 : function() {
+			top.layer.close(index);
+		}
+	});
+	
 }

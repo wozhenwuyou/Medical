@@ -9,7 +9,16 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd
 http://www.springframework.org/schema/mvc
 http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
-	<mvc:annotation-driven />
+	<mvc:annotation-driven conversion-service="conversionService" />
+
+	<bean id="conversionService"
+		class="org.springframework.context.support.ConversionServiceFactoryBean">
+		<property name="converters">
+			<set>
+				<ref bean="arrayParamToStringConvert" />
+			</set>
+		</property>
+	</bean>
 
 	<context:component-scan base-package="com.lhfeiyu.action" />
 
@@ -32,16 +41,6 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 		<property name="contentType" value="text/html;charset=UTF-8" />
 	</bean>
 
-	<!-- <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer"> 
-		<property name="resourceLoaderPath"> <value>/views/</value> </property> <property 
-		name="velocityProperties"> <props> <prop key="input.encoding">utf-8</prop> 
-		<prop key="output.encoding">utf-8</prop> <prop key="contentType">text/html;charset=utf-8</prop> 
-		</props> </property> </bean> <bean id="velocityViewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver"> 
-		<property name="cache" value="false" /> <property name="prefix" value="" 
-		/> <property name="suffix" value=".vm" /> <property name="toolboxConfigLocation" 
-		value="/WEB-INF/toolbox.xml" /> <property name="viewClass" value="com.lhfeiyu.util.VelocityToolbox20View" 
-		/> <property name="contentType"><value>text/html;charset=UTF-8</value></property> 
-		</bean> -->
 	<!-- SpringMVC上传文件时，需要配置MultipartResolver处理器 -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<table width="900" border="1" cellspacing="0" cellpadding="0">
+<table width="900" border="1" cellspacing="0" cellpadding="0" align="center">
 	<input type="hidden" value="${model.patientId }" id="patientId" />
 	<input type="hidden" value="${model.id }" id="id" />
   <tbody>

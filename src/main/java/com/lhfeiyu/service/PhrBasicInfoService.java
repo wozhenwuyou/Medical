@@ -85,6 +85,7 @@ public class PhrBasicInfoService {
 
 	public void savePhrBasicInfo(PhrBasicInfoCmd cmd) {
 
+		cmd.setHasCover((byte)1);
 		cmd.setDelFlag(false);
 
 		PhrBasicInfo entity = new PhrBasicInfo();
@@ -93,6 +94,7 @@ public class PhrBasicInfoService {
 			if (cmd.getId() != null && cmd.getId().intValue() > 0) {
 				PhrBasicInfo old = phrBasicInfoMapper.selectByPrimaryKey(cmd.getId());
 				entity.setCreateTime(old.getCreateTime());
+				entity.setHasCover(old.getHasCover());
 				phrBasicInfoMapper.updateByPrimaryKey(entity);
 			} else {
 				phrBasicInfoMapper.insert(entity);
@@ -125,5 +127,9 @@ public class PhrBasicInfoService {
 				}
 			}
 		}
+	}
+
+	public void savePhrBasicInfo(PhrBasicInfo basicInfo) {
+		phrBasicInfoMapper.updateByPrimaryKey(basicInfo);
 	}
 }

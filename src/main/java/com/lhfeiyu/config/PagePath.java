@@ -246,7 +246,9 @@ public class PagePath {
     public static final String FRONT_DOMAIN_DOCTOR_PHR_ADD = "/front/domain/doctor/phrAdd";//病历夹列表
     public static final String FRONT_DOMAIN_DOCTOR_PHR_DETAIL = "/front/domain/doctor/phrDetail";//病历夹列表
     public static final String FRONT_DOMAIN_DOCTOR_PHR_EDIT = "/front/domain/doctor/phrEdit";//病历夹列表
-    
+    //提交表
+    public static final String BACK_DOMAIN_PHR_HEALTHCHECK = "/back/domain/phr/phrHealthCheck";
+    public static final String BACK_DOMAIN_PHR_COVER = "/back/domain/phr/phrCover";
     /** 后台页面 结束 */
 	
 	
