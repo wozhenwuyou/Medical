@@ -44,6 +44,19 @@ public class PhrBasicInfoService {
 			if (StringUtils.isNotBlank(cmd.getTel())) {
 				c.andTelLike("%" + cmd.getTel() + "%");
 			}
+			if (cmd.getQueryScope() != null) {
+				if (new Integer(1).equals(cmd.getQueryScope())) {// 我的
+					if(cmd.getDoctor() != null){
+						c.andDoctorIdIsNotNull().andDoctorIdEqualTo(cmd.getDoctor().getId());
+					}
+				} else if (new Integer(2).equals(cmd.getQueryScope())) {// 本诊所
+					if(cmd.getDoctor() != null){
+						c.andHospitalIdEqualTo(cmd.getDoctor().getHospitalId());
+					}
+				} else if (new Integer(3).equals(cmd.getQueryScope())) {// 全部
+
+				}
+			}
 			if (cmd.getPage() > 0 && cmd.getRows() > 0) {
 				example.setStart((cmd.getPage() - 1) * cmd.getRows());
 				example.setLimit(cmd.getRows());
@@ -79,13 +92,26 @@ public class PhrBasicInfoService {
 			if (StringUtils.isNotBlank(cmd.getTel())) {
 				c.andTelLike("%" + cmd.getTel() + "%");
 			}
+			if (cmd.getQueryScope() != null) {
+				if (new Integer(1).equals(cmd.getQueryScope())) {// 我的
+					if(cmd.getDoctor() != null){
+						c.andDoctorIdIsNotNull().andDoctorIdEqualTo(cmd.getDoctor().getId());
+					}
+				} else if (new Integer(2).equals(cmd.getQueryScope())) {// 本诊所
+					if(cmd.getDoctor() != null){
+						c.andHospitalIdEqualTo(cmd.getDoctor().getHospitalId());
+					}
+				} else if (new Integer(3).equals(cmd.getQueryScope())) {// 全部
+
+				}
+			}
 		}
 		return phrBasicInfoMapper.countByExample(example);
 	}
 
 	public void savePhrBasicInfo(PhrBasicInfoCmd cmd) {
 
-		cmd.setHasCover((byte)1);
+		cmd.setHasCover((byte) 0);
 		cmd.setDelFlag(false);
 
 		PhrBasicInfo entity = new PhrBasicInfo();
@@ -95,6 +121,9 @@ public class PhrBasicInfoService {
 				PhrBasicInfo old = phrBasicInfoMapper.selectByPrimaryKey(cmd.getId());
 				entity.setCreateTime(old.getCreateTime());
 				entity.setHasCover(old.getHasCover());
+				entity.setHospitalId(old.getHospitalId());
+				entity.setCreateUserId(old.getCreateUserId());
+				entity.setCreateTime(old.getCreateTime());
 				phrBasicInfoMapper.updateByPrimaryKey(entity);
 			} else {
 				phrBasicInfoMapper.insert(entity);
@@ -116,11 +145,11 @@ public class PhrBasicInfoService {
 	}
 
 	public void recoverPhrBasicInfo(String ids) {
-		if(StringUtils.isNoneBlank(ids)){
-			for(String id : ids.split("[,，;；]")){
-				
+		if (StringUtils.isNoneBlank(ids)) {
+			for (String id : ids.split("[,，;；]")) {
+
 				PhrBasicInfo one = findById(Integer.valueOf(id));
-				if(one != null){
+				if (one != null) {
 					one.setDelFlag(false);
 					one.setLastUpdateTime(new Date());
 					phrBasicInfoMapper.updateByPrimaryKey(one);

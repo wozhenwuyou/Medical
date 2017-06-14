@@ -261,8 +261,8 @@ function loadGrid(type) {
 					align : 'center',
 					formatter : function(value, row, index) {
 						return '<span class="opt_alive">\
-						<span onclick="fnAddPhrBasicInfo('+row.id+', \'查看\')" style="cursor: pointer;color: green">查看</span>|\
-						<span onclick="fnAddPhrBasicInfo('+row.id+', \'编辑\')" style="cursor: pointer;color: green">编辑</span>|\
+						<span onclick="fnView('+row.id+', \''+row.name+'\')" style="cursor: pointer;color: green">查看</span>|\
+						<span onclick="fnEdit('+row.id+', \''+row.name+'\')" style="cursor: pointer;color: green">编辑</span>|\
 						<span onclick="fnDeletePhrBasicInfo('+row.id+', \'删除\')" style="cursor: pointer;color: green">删除</span>|\
 					</span>';
 					}
@@ -392,4 +392,55 @@ function fnAddHealthCheckTable(btn, openType, id){
 		}
 	});
 	
+}
+
+
+function fnView(basicInfoId, name){
+	var index = top.layer.open({
+		  type: 2,
+		  shade: false,
+		  scrollbar: false,
+		  title: '查看<font color=red>【{0}】</font>的档案信息'.format(name), //不显示标题
+		  area : [ '1000px', '680px' ],
+		  content: '/views/front/domain/doctor/catalog.jsp?openType=detail&basicInfoId=' + basicInfoId, 
+		  cancel: function(){
+		  }
+	});
+	top.layer.full(index);
+}
+
+function fnEdit(basicInfoId, name){
+	var index = top.layer.open({
+		  type: 2,
+		  shade: false,
+		  scrollbar: false,
+		  btn : [ '保存', '取消' ],
+		  title: '编辑<font color=red>【{0}】</font>的档案信息'.format(name), //不显示标题
+		  area : [ '1000px', '680px' ],
+		  content: '/views/front/domain/doctor/catalog.jsp?openType=edit&basicInfoId=' + basicInfoId, 
+		  yes : function() {
+			var body = $(top.window.frames[1].frames[0].document.body);
+			var form = body.find("form:first");
+			if(form.length > 0){//说明是封面信息或者是健康体检信息
+				form.append("<input type='hidden' name='requestFrom' id='requestFrom' value='admin'>");
+				form.append("<input type='hidden' name='phrBasicInfoId' id='phrBasicInfoId' value='"+basicInfoId+"'>");
+				form.append("<input type='hidden' name='basicInfoId' id='basicInfoId' value='"+basicInfoId+"'>");
+				form.submit();
+				top.layer.close(index);
+				top.layer.msg('保存成功');
+			}else{//说明是基本信息，基本信息
+				//fnAddPhrBasicInfo(basicInfoId, '编辑');
+				var table = body.find("table");
+				doSave(table, function(){
+					top.layer.close(index);
+					top.layer.msg('保存成功');
+					loadGrid();
+				});
+			}
+		  },
+		  btn2 : function() {
+			top.layer.close(index);
+		  }
+	});
+	top.layer.full(index);
 }

@@ -29,14 +29,22 @@
 					<div class="t_851_3">
 						<table cellpadding="0" cellspacing="0" border="0">
 							<tr height="44" valign="middle">
-								<td width="64">姓名：</td>
-								<td width="100"><input type="text" class="text_input1"
+								<td width="60">姓名：</td>
+								<td width="80"><input type="text" class="text_input1"
 									id="name" /></td>
-								<td width="64">&nbsp;&nbsp;编号：</td>
-								<td width="100"><input type="text" class="text_input1"
+								<td width="60">&nbsp;编号：</td>
+								<td width="80"><input type="text" class="text_input1"
 									id="userNo" /></td>
-								<td width="75">&nbsp;&nbsp;身份证：</td>
-								<td width="220"><input type="text" class="text_input2" id="idCardNo" /></td>
+								<td width="90">&nbsp;身份证：</td>
+								<td width="80"><input type="text" class="text_input1" id="idCardNo" /></td>
+								<td width="60">&nbsp;范围：</td>
+								<td width="80">
+									<select class="text_input1" id="queryScope">
+										<option value="1">我建立的</option>
+										<option value="2" selected>本诊所</option>
+										<option value="3">全部</option>
+									</select>
+								</td>
 								<td width="64"><input type="submit" class="sub_1"
 									value="搜索" onclick="loadGridData()" /></td>
 								<td width="64"><input type="submit" class="sub_1"
@@ -69,7 +77,7 @@
 
 <!-- <button type="button" onclick="location.href='/phr/doctor/phrDetail/{{id}}'" class="btn btn-success">查看</button> -->
 <!-- <button type="button" onclick="location.href='/phr/doctor/phrEdit/{{id}}'" class="btn btn-warning">编辑</button> -->
-	<script id="template" type="x-tmpl-mustache"><!-- -->
+	<script id="template" type="x-tmpl-mustache">
 		<tr height="53" align="center" style="font-size:14px; color:#63a13f">
         	<td width="85">姓名</td>
 			<td width="50">性别</td>
@@ -95,7 +103,7 @@
    	+附表<span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
-	<li><a href="javascript:void(0);" onclick="fnAddCoverTable(this, '添加', '', {{id}}, {{hasCover}});">封面</a></li>
+	<li id="li_phrCover"><a href="javascript:void(0);" onclick="fnAddCoverTable(this, '添加', '', {{id}}, {{hasCover}});">封面</a></li>
 	<li role="separator" class="divider"></li>
     <li><a href="javascript:void(0);" onclick="fnAddHealthCheckTable(this, '添加', '', {{id}});">体检表</a></li>
     <li role="separator" class="divider"></li>

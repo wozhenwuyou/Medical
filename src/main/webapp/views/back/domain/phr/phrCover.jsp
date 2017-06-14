@@ -1,3 +1,10 @@
+<%@page import="com.lhfeiyu.po.User"%>
+<%@page import="com.lhfeiyu.po.Admin"%>
+<%@page import="com.lhfeiyu.tools.ActionUtil"%>
+<%@page import="com.lhfeiyu.po.Doctor"%>
+<%@page import="com.lhfeiyu.po.Hospital"%>
+<%@page import="com.lhfeiyu.service.DoctorService"%>
+<%@page import="com.lhfeiyu.service.HospitalService"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.lhfeiyu.po.PhrCover"%>
@@ -7,8 +14,7 @@
 <%@page import="com.lhfeiyu.service.PhrHealthCheckService"%>
 <%@page import="org.springframework.web.context.support.WebApplicationContextUtils"%>
 <%@page import="org.springframework.context.ApplicationContext"%>
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
@@ -23,20 +29,44 @@
 	if("add".equals(openType)){
 		ServletContext context = request.getSession().getServletContext();
 		ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(context);  
-		//得到基本信息的id
+		//得到档案信息id
 		Integer basicInfoId = Integer.valueOf(request.getParameter("basicInfoId"));
-		//找到体检表的id
+		//找到档案基本信息
 		PhrBasicInfoService service = ctx.getBean(PhrBasicInfoService.class);
 		PhrBasicInfo basicInfo = service.findById(basicInfoId);
+		//找到医生和诊所
+		HospitalService hs = ctx.getBean(HospitalService.class);
+		Hospital hospital = hs.selectByPrimaryKey(basicInfo.getHospitalId());
+		DoctorService ds = ctx.getBean(DoctorService.class);
+		Doctor doctor = ds.selectByPrimaryKey(basicInfo.getDoctorId());
 		
 		PhrCover model = new PhrCover();
-		model.setName(basicInfo.getName());
-		model.setJdrq(new Date());
-		model.setLxdh(basicInfo.getTel());
-		
+		model.setName(basicInfo.getName());//姓名
+		model.setJdrq(new Date());//建档日期
+		model.setLxdh(basicInfo.getTel());//联系电话
+		if(hospital != null){
+			model.setJddw(hospital.getAddress() + hospital.getWholeName());//建档单位
+		}
+		if(doctor != null){
+			model.setZrys(doctor.getRealname());//责任医生
+		}
+		//建档人
+		User currentUser = ActionUtil.checkSession4User(session);
+		if(currentUser != null){
+			model.setJdr(currentUser.getRealName());
+		}
+		Admin currentAdmin = ActionUtil.checkSession4Admin(session);
+		if(currentAdmin != null){
+			model.setJdr(currentAdmin.getUsername());
+		}
+		Doctor currentDoctor = ActionUtil.checkSession4Doctor(session);
+		if(currentDoctor != null){
+			model.setJdr(currentDoctor.getRealname());
+		}
 		request.setAttribute("model", model);
 	}
 	
+	request.setAttribute("openType", openType);
 %>
 </head>
 
@@ -100,22 +130,24 @@
 	<script type="text/javascript"
 		src="/third-party/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 	<script type="text/javascript">
+		function bindDateField(selector) {
+			$(selector).datetimepicker({
+				bootcssVer : 3,
+				format : 'yyyy-mm-dd',
+				todayBtn : true,
+				language : 'zh-CN',
+				startView : 2,
+				viewSelect : 'year',
+				minView : 2, //选择日期后，不会再跳转去选择时分秒
+				autoclose : true//选择日期后自动关闭
+			});
+		}
 		$(document).ready(function() {
-
-			bindDateField("#jdrq");
-
-			function bindDateField(selector) {
-				$(selector).datetimepicker({
-					bootcssVer : 3,
-					format : 'yyyy-mm-dd',
-					todayBtn : true,
-					language : 'zh-CN',
-					startView : 2,
-					viewSelect : 'year',
-					minView : 2, //选择日期后，不会再跳转去选择时分秒 
-					autoclose : true
-				//选择日期后自动关闭 
-				});
+			bindDateField("#jdrq");//绑定日期字段
+			var openType = '${openType}';
+			if('detail' == openType){
+				$("input[type=checkbox], input[type=radio]").attr('disabled', true);
+				$("input[type=text]").attr('readonly', true);
 			}
 		});
 	</script>

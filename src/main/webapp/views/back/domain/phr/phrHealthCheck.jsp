@@ -90,7 +90,10 @@ div.WordSection1 {
 }
 -->
 </style>
-
+<%
+String openType = request.getParameter("openType");
+request.setAttribute("openType", openType);
+%>
 </head>
 
 <body lang=ZH-CN style='text-justify-trim: punctuation'>
@@ -336,7 +339,7 @@ div.WordSection1 {
 						<p class=MsoNormal align=right
 							style='margin-right: 10.5pt; text-align: right; line-height: 16.0pt'>
 							<b><span style='font-family: 宋体; color: blue'> <input
-									type="text" name="ybqkTw" width="80px" id="ybqkTw" value="${model.ybqkTw }">
+									type="text" name="ybqkTw" style="width:80px;" id="ybqkTw" value="${model.ybqkTw }">
 									℃
 							</span></b>
 						</p>
@@ -376,7 +379,7 @@ div.WordSection1 {
 						<p class=MsoNormal align=right
 							style='margin-right: 10.5pt; text-align: right; line-height: 16.0pt'>
 							<b><span style='font-family: 宋体; color: blue'> <input
-									type="text" name="ybqkHxpl" id="ybqkHxpl" value="${model.ybqkHxpl }" width="80px">
+									type="text" name="ybqkHxpl" id="ybqkHxpl" value="${model.ybqkHxpl }" style="width:40px;">
 									次
 							</span></b><b><span lang=EN-US
 								style='font-family: 仿宋_GB2312; color: blue'>/</span></b><b><span
@@ -406,10 +409,10 @@ div.WordSection1 {
 						<p class=MsoNormal align=right
 							style='margin-right: 6.2pt; text-align: right; line-height: 16.0pt'>
 							<b><span style="font-family: 宋体; color: blue"> <input
-									type="text" name="ybqkXwZc1" id="ybqkXwZc1" value="${model.ybqkXwZc1 }" width="80px">
+									type="text" name="ybqkXwZc1" id="ybqkXwZc1" value="${model.ybqkXwZc1 }" style="width:60px">
 							</span><span lang=EN-US style='font-family: 仿宋_GB2312; color: blue'>/&nbsp;&nbsp;</span><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="ybqkXwZc2" id="ybqkXwZc2" value="${model.ybqkXwZc2 }" width="80px">
+									name="ybqkXwZc2" id="ybqkXwZc2" value="${model.ybqkXwZc2 }" style="width:60px">
 							</span><span lang=EN-US style='font-family: 仿宋_GB2312; color: blue'>&nbsp;&nbsp;&nbsp;&nbsp;
 									mmHg</span></b>
 						</p>
@@ -431,9 +434,9 @@ div.WordSection1 {
 							style='margin-right: 6.2pt; text-align: right; line-height: 16.0pt'>
 							<span lang=EN-US style='font-family: 仿宋_GB2312'><b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="ybqkXwYc1" id="ybqkXwYc1" width="80px" value="${model.ybqkXwYc1 }">
+										name="ybqkXwYc1" id="ybqkXwYc1" style="width:60px" value="${model.ybqkXwYc1 }">
 								</span></b>/&nbsp;&nbsp;<b><span style="font-family: 宋体; color: blue">
-										<input type="text" name="ybqkXwYc2" id="ybqkXwYc2" width="80px" value="${model.ybqkXwYc2 }"
+										<input type="text" name="ybqkXwYc2" id="ybqkXwYc2" style="width:60px" value="${model.ybqkXwYc2 }"
 										width="80px">
 								</span></b>&nbsp;&nbsp;&nbsp;&nbsp; mmHg</span>
 						</p>
@@ -454,7 +457,7 @@ div.WordSection1 {
 						<p class=MsoNormal align=right
 							style='margin-right: 10.5pt; text-align: right; line-height: 16.0pt'>
 							<b><span style="font-family: 宋体; color: blue"> <input
-									type="text" name="ybqkSg" id="ybqkSg" value="${model.ybqkSg }" width="80px">
+									type="text" name="ybqkSg" id="ybqkSg" value="${model.ybqkSg }" style="width:80px;">
 							</span><span lang=EN-US style='font-family: 仿宋_GB2312; color: blue'>cm</span></b>
 						</p>
 					</td>
@@ -472,7 +475,7 @@ div.WordSection1 {
 						<p class=MsoNormal align=right
 							style='margin-right: 6.2pt; text-align: right; line-height: 16.0pt'>
 							<b><span style="font-family: 宋体; color: blue"> <input
-									type="text" name="ybqkTz" id="ybqkTz" value="${model.ybqkTz }" width="80px">
+									type="text" name="ybqkTz" id="ybqkTz" value="${model.ybqkTz }" style="width:80px;">
 							</span><span lang=EN-US style='font-family: 仿宋_GB2312; color: blue'>Kg</span></b>
 						</p>
 					</td>
@@ -492,7 +495,7 @@ div.WordSection1 {
 						<p class=MsoNormal align=right
 							style='margin-right: 10.5pt; text-align: right; line-height: 16.0pt'>
 							<b><span style="font-family: 宋体; color: blue"> <input
-									type="text" name="ybqkYw" id="ybqkYw" value="${model.ybqkYw }" width="80px">
+									type="text" name="ybqkYw" id="ybqkYw" value="${model.ybqkYw }" style="width:80px;">
 							</span><span lang=EN-US style='font-family: 仿宋_GB2312; color: blue'>cm</span></b>
 						</p>
 					</td>
@@ -773,7 +776,7 @@ div.WordSection1 {
 						<p class=MsoNormal align=right
 							style='margin-right: 10.5pt; text-align: right; line-height: 16.0pt; layout-grid-mode: char'>
 							<b><span style="font-family: 宋体; color: blue"> <input
-									type="text" name="shfsTydlMcdlsj" id="shfsTydlMcdlsj" width="40px" value="${model.shfsTydlMcdlsj }">
+									type="text" name="shfsTydlMcdlsj" id="shfsTydlMcdlsj" style="width:40px;" value="${model.shfsTydlMcdlsj }">
 							</span><span style='font-family: 宋体; color: blue'>分钟</span></b>
 						</p>
 					</td>
@@ -923,7 +926,7 @@ div.WordSection1 {
 							class=MsoNormal style='text-indent: 57.75pt; line-height: 20.0pt'>
 							<span style='font-family: 宋体'><b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="shfsXyqkKsxynl" id="shfsXyqkKsxynl" width="40px" value="${model.shfsXyqkKsxynl }">
+										name="shfsXyqkKsxynl" id="shfsXyqkKsxynl" style="width:80px;" value="${model.shfsXyqkKsxynl }">
 								</span></b>岁</span>
 						</p></td>
 					<td width=113 colspan=5
@@ -1057,7 +1060,7 @@ div.WordSection1 {
 					<td width=95 colspan=5
 						style='width: 71.15pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 0cm 0cm 0cm; height: 15.7pt'>
 						<input type="text" name="shfsYjqkKsyjnl" id="shfsYjqkKsyjnl"
-						width="40px" value="${model.shfsYjqkKsyjnl }"> 岁
+						style="width:80px;" value="${model.shfsYjqkKsyjnl }"> 岁
 					</td>
 					<td width=132 colspan=7
 						style='width: 98.65pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 15.7pt'>
@@ -4012,6 +4015,12 @@ div.WordSection1 {
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<span style="font-family: 仿宋_GB2312"> <input
+								type="checkbox" name="jkzdDes" value="定期随访" ${fn:contains(model.jkzdDes, '定期随访') ? 'checked' : '' }>
+							</span><span style='font-family: 宋体'>纳入慢性病患者健康管理</span>
+						</p>
+						<p class=MsoNormal align=left
+							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
+							<span style="font-family: 仿宋_GB2312"> <input
 								type="checkbox" name="jkzdDes" value="纳入慢性病患者健康管理" ${fn:contains(model.jkzdDes, '纳入慢性病患者健康管理') ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>纳入慢性病患者健康管理</span>
 						</p>
@@ -4127,22 +4136,31 @@ div.WordSection1 {
 	<script type="text/javascript">
 		$(document).ready(function() {
 
-			bindDateField("#tjrq");
-
-			function bindDateField(selector) {
-				$(selector).datetimepicker({
-					bootcssVer : 3,
-					format : 'yyyy-mm-dd',
-					todayBtn : true,
-					language : 'zh-CN',
-					startView : 2,
-					viewSelect : 'year',
-					minView : 2, //选择日期后，不会再跳转去选择时分秒 
-					autoclose : true
-				//选择日期后自动关闭 
-				});
+			var openType = '${openType}';
+			
+			if(openType != 'detail'){
+				bindDateField("#tjrq");
+			}
+			
+			
+			if(openType == 'detail'){
+				$("input[type=checkbox], input[type=radio]").attr('disabled', true);
+				$("input[type=text]").attr('readonly', true);
 			}
 		});
+		function bindDateField(selector) {
+			$(selector).datetimepicker({
+				bootcssVer : 3,
+				format : 'yyyy-mm-dd',
+				todayBtn : true,
+				language : 'zh-CN',
+				startView : 2,
+				viewSelect : 'year',
+				minView : 2, //选择日期后，不会再跳转去选择时分秒 
+				autoclose : true
+			//选择日期后自动关闭 
+			});
+		}
 	</script>
 </body>
 

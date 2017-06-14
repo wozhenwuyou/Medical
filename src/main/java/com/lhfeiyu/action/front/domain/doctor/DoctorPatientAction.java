@@ -1,5 +1,6 @@
 package com.lhfeiyu.action.front.domain.doctor;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -9,8 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.ServletRequestDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -53,6 +57,12 @@ public class DoctorPatientAction {
 	private DictService dictService;
 	
 	private static Logger logger = Logger.getLogger("R");
+	
+	@InitBinder
+	public void initBinder(ServletRequestDataBinder bin) {
+		CustomDateEditor cust = new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true);
+		bin.registerCustomEditor(Date.class, cust);
+	}
 	
 	@RequestMapping(value = "/patientAddOrUpdate")
 	public ModelAndView addOrUpdatePatient(ModelMap modelMap,HttpServletRequest request

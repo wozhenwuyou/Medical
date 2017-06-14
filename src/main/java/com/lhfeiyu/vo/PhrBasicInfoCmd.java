@@ -1,5 +1,6 @@
 package com.lhfeiyu.vo;
 
+import com.lhfeiyu.po.Doctor;
 import com.lhfeiyu.po.PhrBasicInfo;
 
 /**
@@ -15,6 +16,18 @@ public class PhrBasicInfoCmd extends PhrBasicInfo {
 	
 	private String type;
 	
+	private Integer queryScope;
+	
+	private Doctor doctor;
+	
+	public Doctor getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
+	}
+
 	public String getType() {
 		return type;
 	}
@@ -53,6 +66,14 @@ public class PhrBasicInfoCmd extends PhrBasicInfo {
 
 	public void setOrder(String order) {
 		this.order = order;
+	}
+
+	public Integer getQueryScope() {
+		return queryScope;
+	}
+
+	public void setQueryScope(Integer queryScope) {
+		this.queryScope = queryScope;
 	}
 
 }

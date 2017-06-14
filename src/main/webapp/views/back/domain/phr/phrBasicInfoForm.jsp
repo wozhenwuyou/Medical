@@ -9,6 +9,10 @@
 <meta charset="utf-8">
 <link type="text/css" rel="stylesheet" href="/third-party/bootstrap/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="/third-party/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" />
+<%
+String openType = request.getParameter("openType");
+request.setAttribute("openType", openType);
+%>
 </head>
 
 <body>

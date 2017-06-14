@@ -24,13 +24,15 @@ function loadGridData(page, size, count) {
 	var name = $.trim($("#name").val());
 	var userNo = $.trim($("#userNo").val());
 	var idCardNo = $.trim($("#idCardNo").val());
+	var queryScope = $.trim($("#queryScope").val());
 	
 	lh.post('front', '/phr/doctor/phrList', {
 		page : page,
 		rows : size,
 		name : name,
 		userNo : userNo,
-		idCardNo : idCardNo
+		idCardNo : idCardNo,
+		queryScope : queryScope
 	}, function(rsp) {
 		if (rsp.success) {
 			var totalNumber = rsp.total || 0;
@@ -55,6 +57,7 @@ function resetQuery() {
 	$("#name").val('');
 	$("#idCardNo").val('');
 	$("#userNo").val('');
+	$("#queryScope").val('2');
 	loadGridData();
 }
 
@@ -149,9 +152,9 @@ function fnView(basicInfoId, name){
 		  type: 2,
 		  shade: false,
 		  scrollbar: false,
-		  title: '<font color=red>【{0}】</font>的档案信息'.format(name), //不显示标题
+		  title: '查看<font color=red>【{0}】</font>的档案信息'.format(name), //不显示标题
 		  area : [ '1000px', '680px' ],
-		  content: '/views/front/domain/doctor/catalog.jsp?basicInfoId=' + basicInfoId, 
+		  content: '/views/front/domain/doctor/catalog.jsp?openType=detail&basicInfoId=' + basicInfoId, 
 		  cancel: function(){
 		  }
 	});
@@ -164,9 +167,9 @@ function fnEdit(basicInfoId, name){
 		  shade: false,
 		  scrollbar: false,
 		  btn : [ '保存', '取消' ],
-		  title: '<font color=red>【{0}】</font>的档案信息'.format(name), //不显示标题
+		  title: '编辑<font color=red>【{0}】</font>的档案信息'.format(name), //不显示标题
 		  area : [ '1000px', '680px' ],
-		  content: '/views/front/domain/doctor/catalog.jsp?basicInfoId=' + basicInfoId, 
+		  content: '/views/front/domain/doctor/catalog.jsp?openType=edit&basicInfoId=' + basicInfoId, 
 		  yes : function() {
 			var body = $(window.frames[1].frames[0].document.body);
 			var form = body.find("form:first");
@@ -234,7 +237,7 @@ function fnAddCoverTable(btn, openType, id, basicInfoId, hasCover){
 	}
 	
 	var index = top.layer.open({
-		title : openType + '体检表窗口',
+		title : openType + '档案封面窗口',
 		type : 2,
 		scrollbar: false,
 		area : [ '980px', '620px' ],

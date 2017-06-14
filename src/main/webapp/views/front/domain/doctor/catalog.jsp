@@ -23,6 +23,11 @@
 	PhrHealthCheckService phrHealthCheckService = ctx.getBean(PhrHealthCheckService.class);
 	List<Integer> healthCheckIds = phrHealthCheckService.getPhrHealthCheckByBasicInfoId(basicInfoId);
 	request.setAttribute("healthCheckIds", healthCheckIds);
+	
+	
+	String openType = request.getParameter("openType");
+	request.setAttribute("openType", openType);
+	
 %>
 </head>
 <body>
@@ -30,17 +35,17 @@
 	<div class="row clearfix">
 		<div class="col-md-2 column" style="padding-top:5px;">
 				<ul class="nav nav-pills nav-stacked nav-stacked">
-					<li role="presentation" class="active"><a href="/front/phr/phrCover?basicInfoId=<%=request.getParameter("basicInfoId")%>" target="contentIframe">封面</a></li>
-					<li role="presentation"><a href="/back/phr/phrBasicInfoForm?id=<%=request.getParameter("basicInfoId")%>" target="contentIframe">基本信息表</a></li>
+					<li role="presentation" class="active"><a href="/front/phr/phrCover?openType=${openType }&basicInfoId=<%=request.getParameter("basicInfoId")%>" target="contentIframe">封面</a></li>
+					<li role="presentation"><a href="/back/phr/phrBasicInfoForm?openType=${openType }&id=<%=request.getParameter("basicInfoId")%>" target="contentIframe">基本信息表</a></li>
 					<c:if test="${healthCheckIds != null }">
 						<c:forEach var="one" items="${healthCheckIds }" varStatus="varStatus">
-							<li role="presentation"><a href="/front/phr/phrHealthCheck?id=${one }" target="contentIframe">体检表${varStatus.count }</a></li>
+							<li role="presentation"><a href="/front/phr/phrHealthCheck?openType=${openType }&id=${one }" target="contentIframe">体检表${varStatus.count }</a></li>
 						</c:forEach>
 					</c:if>
 				</ul>
 		</div>
 		<div class="col-md-10 column" style="padding-top:5px;">
-			<iframe src="/front/phr/phrCover?basicInfoId=<%=request.getParameter("basicInfoId")%>" name="contentIframe" width="100%" height="530px;" frameborder="0" style="border:0px;"></iframe>
+			<iframe src="/front/phr/phrCover?openType=${openType }&basicInfoId=<%=request.getParameter("basicInfoId")%>" name="contentIframe" width="100%" height="530px;" frameborder="0" style="border:0px;"></iframe>
 		</div>
 	</div>
 </div>

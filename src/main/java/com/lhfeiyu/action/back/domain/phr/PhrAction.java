@@ -107,6 +107,8 @@ public class PhrAction {
 			if (null == session_doctor)
 				return Result.userSessionInvalid(json, "doctor");
 
+			cmd.setDoctor(session_doctor);
+			
 			List<PhrBasicInfo> hospitalList = phrBasicInfoService.selectListByCondition(cmd);
 			if (hospitalList != null && hospitalList.size() > 0) {
 				for (PhrBasicInfo one : hospitalList) {
@@ -243,6 +245,7 @@ public class PhrAction {
 			cmd.setDoctorId(db_doctor.getId());// 医生id
 			cmd.setCreateTime(new Date());// 创建时间
 			cmd.setLastUpdateTime(cmd.getCreateTime());// 最后修改时间
+			cmd.setHospitalId(db_doctor.getHospitalId());
 			// 设置患者的信息
 			phrBasicInfoService.savePhrBasicInfo(cmd);
 		} catch (Exception e) {
@@ -446,9 +449,9 @@ public class PhrAction {
 	public ModelAndView phrHealthCheckFront(HttpServletRequest request, ModelMap modelMap) {
 		String path = PagePath.BACK_DOMAIN_PHR_HEALTHCHECK;
 		try {
-			Doctor session_doctor = ActionUtil.checkSession4Doctor(request.getSession());
-			if (null == session_doctor)
-				return Result.userSessionInvalid(modelMap, PagePath.doDctorLogin);
+			//Doctor session_doctor = ActionUtil.checkSession4Doctor(request.getSession());
+			//if (null == session_doctor)
+				//return Result.userSessionInvalid(modelMap, PagePath.doDctorLogin);
 
 			String id = request.getParameter("id");
 			if (StringUtils.isNotBlank(id)) {
