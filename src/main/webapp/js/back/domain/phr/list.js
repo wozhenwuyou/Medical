@@ -425,6 +425,19 @@ function fnEdit(basicInfoId, name){
 				form.append("<input type='hidden' name='requestFrom' id='requestFrom' value='admin'>");
 				form.append("<input type='hidden' name='phrBasicInfoId' id='phrBasicInfoId' value='"+basicInfoId+"'>");
 				form.append("<input type='hidden' name='basicInfoId' id='basicInfoId' value='"+basicInfoId+"'>");
+				var td_jzs = form.find("#td_jzs");
+				if(td_jzs.length > 0){
+					var zybwhysjcs = $.trim(form.find("#zybwhysjcs").html());//职业病史
+					var fmyghyfjzsDes = $.trim(form.find("#td_jzs").html());//接种史
+					var zysDes = $.trim(form.find("#td_zys").html());//住院史
+					var jtbcsDes = $.trim(form.find("#td_jtbcsDes").html());//家庭病床
+					var yyqkDes = $.trim(form.find("#td_yy").html());//家庭病床
+					form.append("<input type='hidden' name='shfsZybwhysjcs' value='"+zybwhysjcs+"'>");
+					form.append("<input type='hidden' name='fmyghyfjzsDes' value='"+fmyghyfjzsDes+"'>");
+					form.append("<input type='hidden' name='zysDes' value='"+zysDes+"'>");
+					form.append("<input type='hidden' name='jtbcsDes' value='"+jtbcsDes+"'>");
+					form.append("<input type='hidden' name='yyqkDes' value='"+yyqkDes+"'>");
+				}
 				form.submit();
 				top.layer.close(index);
 				top.layer.msg('保存成功');

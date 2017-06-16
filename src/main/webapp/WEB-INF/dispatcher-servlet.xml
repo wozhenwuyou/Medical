@@ -16,6 +16,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 		<property name="converters">
 			<set>
 				<ref bean="arrayParamToStringConvert" />
+				<ref bean="stringParamToDateConvert" />
 			</set>
 		</property>
 	</bean>

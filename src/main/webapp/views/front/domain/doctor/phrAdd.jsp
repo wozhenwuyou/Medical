@@ -1,3 +1,8 @@
+<%@page import="com.lhfeiyu.util.ArchiveUtils"%>
+<%@page import="com.lhfeiyu.tools.ActionUtil"%>
+<%@page import="com.lhfeiyu.po.Admin"%>
+<%@page import="com.lhfeiyu.po.Doctor"%>
+<%@page import="com.lhfeiyu.po.PhrBasicInfo"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -11,6 +16,21 @@
 	title="v" />
 <link rel="stylesheet" type="text/css"
 	href="/third-party/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" />
+<%
+	PhrBasicInfo model = new PhrBasicInfo();
+	Doctor doctor = ActionUtil.checkSession4Doctor(session);
+	if(doctor == null){
+		Admin admin = ActionUtil.checkSession4Admin(session);
+		if(admin == null){
+			model.setUserNo(ArchiveUtils.generateArchiveNum(null, null));
+		}else{
+			model.setUserNo(ArchiveUtils.generateArchiveNum("A", admin.getId()));
+		}
+	}else{
+		model.setUserNo(ArchiveUtils.generateArchiveNum("D", doctor.getId()));
+	}
+	request.setAttribute("model", model);
+%>
 </head>
 <body>
 	<%@ include file="/views/front/common/doctor/top.htm"%>
@@ -32,7 +52,7 @@
 									id="name" placeholder='双击可关联患者' /></td>
 								<td width="67" style="line-height: 30px;"><span
 									style="color: red; font-weight: bolder;">*</span>编号</td>
-								<td width="310"><input type="text" class="input14"
+								<td width="310"><input type="text" readonly="readonly" class="input14" value="${model.userNo }"
 									id="userNo" /></td>
 							</tr>
 							<tr height="40" valign="bottom">

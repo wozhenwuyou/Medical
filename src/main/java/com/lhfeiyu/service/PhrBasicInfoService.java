@@ -124,6 +124,7 @@ public class PhrBasicInfoService {
 				entity.setHospitalId(old.getHospitalId());
 				entity.setCreateUserId(old.getCreateUserId());
 				entity.setCreateTime(old.getCreateTime());
+				entity.setDoctorId(old.getDoctorId());
 				phrBasicInfoMapper.updateByPrimaryKey(entity);
 			} else {
 				phrBasicInfoMapper.insert(entity);

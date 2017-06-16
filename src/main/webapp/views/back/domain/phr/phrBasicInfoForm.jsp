@@ -1,3 +1,8 @@
+<%@page import="com.lhfeiyu.po.Admin"%>
+<%@page import="com.lhfeiyu.tools.ActionUtil"%>
+<%@page import="com.lhfeiyu.po.Doctor"%>
+<%@page import="com.lhfeiyu.util.ArchiveUtils"%>
+<%@page import="com.lhfeiyu.po.PhrBasicInfo"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -11,6 +16,22 @@
 <link rel="stylesheet" type="text/css" href="/third-party/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" />
 <%
 String openType = request.getParameter("openType");
+if("add".equals(openType)){
+	PhrBasicInfo model = new PhrBasicInfo();
+	Doctor doctor = ActionUtil.checkSession4Doctor(session);
+	if(doctor == null){
+		Admin admin = ActionUtil.checkSession4Admin(session);
+		if(admin == null){
+			model.setUserNo(ArchiveUtils.generateArchiveNum(null, null));
+		}else{
+			model.setUserNo(ArchiveUtils.generateArchiveNum("A", admin.getId()));
+		}
+	}else{
+		model.setUserNo(ArchiveUtils.generateArchiveNum("D", doctor.getId()));
+	}
+	
+	request.setAttribute("model", model);
+}
 request.setAttribute("openType", openType);
 %>
 </head>
@@ -26,7 +47,7 @@ request.setAttribute("openType", openType);
       <td height="40" colspan="2" align="left" valign="middle"><input type="text" value="${model.name }" id="name"></td>
       <td height="40" align="left" valign="middle"><span
 										style="color: red; font-weight: bolder;">*</span>编号</td>
-      <td height="40" colspan="2" align="left" valign="middle"><input type="text" value="${model.userNo }" id="userNo"></td>
+      <td height="40" colspan="2" align="left" valign="middle"><input type="text" value="${model.userNo }" id="userNo" style="width:280px;" readonly="readonly"></td>
     </tr>
     <tr>
       <td height="40" colspan="2" align="center" valign="middle">性别</td>

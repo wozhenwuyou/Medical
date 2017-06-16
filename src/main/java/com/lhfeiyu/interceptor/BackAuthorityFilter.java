@@ -37,7 +37,7 @@ public class BackAuthorityFilter implements Filter {
 	        		chain.doFilter(request, response);
 	        	}else{
 	        		
-	        		if(uri.contains("/phrBasicInfoForm") || uri.contains("phrCover") || uri.contains("phrHealthCheck")){
+	        		if(uri.contains("phr")){
 	        			chain.doFilter(request, response);
 						return;
 	        		}

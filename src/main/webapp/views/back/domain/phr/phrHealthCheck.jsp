@@ -1130,22 +1130,13 @@ request.setAttribute("openType", openType);
 							style='text-align: center; layout-grid-mode: char'>
 							<span style='font-family: 宋体'>职业病危害因素接触史</span>
 						</p>
+						<p class=MsoNormal align=center style='text-align: center; layout-grid-mode: char'>
+							<input type="button" value="+" class="btn-info" onclick='fnAddShfsZybwhysjcs(this);'>
+						</p>
 					</td>
-					<td width=388 colspan=18
+					<td width=388 colspan=18 id="zybwhysjcs"
 						style='width: 291.15pt; border: none; border-bottom: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 69.55pt'>
-						<c:if test="${model.shfsZybwhysjcs != null && fn:length(model.shfsZybwhysjcs) > 0}">
-							<c:forEach var="rows" items="${fn:split(model.shfsZybwhysjcs, ',') }" varStatus="varStatus">
-								<p>工种<input value="${fn:split(row, ';')[0] }" type="text" name="gz${varStatus.count }" style="width:40px">，从业时间<input value="${fn:split(row, ';')[1] }" type="text" name="cysj${varStatus.count }" style="width:40px">年，毒物种类<input value="${fn:split(row, ';')[2] }" type="text" name="dwzl${varStatus.count }" style="width:40px">，防护错误<input value="${fn:split(row, ';')[3] }" type="text" name="fhcs${varStatus.count }" style="width:40px"></p>
-							</c:forEach>			
-						</c:if>
-						<c:if test="${model.shfsZybwhysjcs == null || fn:length(model.shfsZybwhysjcs) <= 0}">
-							<p>工种<input type="text" name="gz1" style="width:40px">，从业时间<input type="text" name="cysj1" style="width:40px">年，毒物种类<input type="text" name="dwzl1" style="width:40px">，防护错误<input type="text" name="fhcs1" style="width:40px"></p>
-							<p>工种<input type="text" name="gz2" style="width:40px">，从业时间<input type="text" name="cysj2" style="width:40px">年，毒物种类<input type="text" name="dwzl2" style="width:40px">，防护错误<input type="text" name="fhcs2" style="width:40px"></p>
-							<p>工种<input type="text" name="gz3" style="width:40px">，从业时间<input type="text" name="cysj3" style="width:40px">年，毒物种类<input type="text" name="dwzl3" style="width:40px">，防护错误<input type="text" name="fhcs3" style="width:40px"></p>
-							<p>工种<input type="text" name="gz4" style="width:40px">，从业时间<input type="text" name="cysj4" style="width:40px">年，毒物种类<input type="text" name="dwzl4" style="width:40px">，防护错误<input type="text" name="fhcs4" style="width:40px"></p>
-							<p>工种<input type="text" name="gz5" style="width:40px">，从业时间<input type="text" name="cysj5" style="width:40px">年，毒物种类<input type="text" name="dwzl5" style="width:40px">，防护错误<input type="text" name="fhcs5" style="width:40px"></p>
-						</c:if>
-						
+						${model.shfsZybwhysjcs }
 					</td>
 					<td width=41 colspan=1
 						style='width: 30.75pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 69.55pt'>
@@ -3301,6 +3292,10 @@ request.setAttribute("openType", openType);
 							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
 							<span style='font-family: 宋体'>住院史</span>
 						</p>
+						<p class=MsoNormal align=center
+							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
+							<input type="button" value="+" class="btn-info" onclick="javascript:fnAddZys(this);">
+						</p>
 					</td>
 					<td width=159 colspan=4
 						style='width: 119.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
@@ -3336,104 +3331,18 @@ request.setAttribute("openType", openType);
 					</td>
 				</tr>
 				
-				<c:choose>
-					<c:when test="${model.zysDes != null && fn:length(model.zysDes) > 0 }">
-						<c:forEach var="row" items="${fn:split(model.zysDes, ',') }" varStatus="varStatus">
-							<tr style='page-break-inside: avoid; height: 18.45pt'>
-					<td width=159 colspan=4
-						style='width: 119.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
-						<p class=MsoNormal align=center
-							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'><input value="${fn:split(row, ';')[0] }" type="text" name="rzyrq${varStatus.count }"></span>
-						</p>
-					</td>
-					<td width=84 colspan=4
-						style='width: 62.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
-						<p class=MsoNormal align=center
-							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'><input value="${fn:split(row, ';')[1] }" type="text" name="rzyyy${varStatus.count }"></span>
-						</p>
-					</td>
-					<td width=108 colspan=7
-						style='width: 80.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
-						<p class=MsoNormal align=center
-							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'><input value="${fn:split(row, ';')[2] }" type="text" name="rzyyljg${varStatus.count }"></span>
-						</p>
-					</td>
-					<td width=79 colspan=4
-						style='width: 59.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
-						<p class=MsoNormal align=center
-							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'><input value="${fn:split(row, ';')[3] }" type="text" name="rzybah${varStatus.count }"></span>
-						</p>
-					</td>
-				</tr>
-						</c:forEach>			
-					</c:when>
-					<c:otherwise>
-						<tr style='page-break-inside: avoid; height: 18.45pt'>
-					<td width=159 colspan=4
-						style='width: 119.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
-						<p class=MsoNormal align=center
-							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'><input type="text" name="rzyrq1"></span>
-						</p>
-					</td>
-					<td width=84 colspan=4
-						style='width: 62.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
-						<p class=MsoNormal align=center
-							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'><input type="text" name="rzyyy1"></span>
-						</p>
-					</td>
-					<td width=108 colspan=7
-						style='width: 80.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
-						<p class=MsoNormal align=center
-							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'><input type="text" name="rzyyljg1"></span>
-						</p>
-					</td>
-					<td width=79 colspan=4
-						style='width: 59.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
-						<p class=MsoNormal align=center
-							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'><input type="text" name="rzybah1"></span>
-						</p>
-					</td>
-				</tr>
 				<tr style='page-break-inside: avoid; height: 18.45pt'>
-					<td width=159 colspan=4
-						style='width: 119.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
-						<p class=MsoNormal align=center
-							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'><input type="text" name="rzyrq2"></span>
-						</p>
-					</td>
-					<td width=84 colspan=4
-						style='width: 62.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
-						<p class=MsoNormal align=center
-							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'><input type="text" name="rzyyy2"></span>
-						</p>
-					</td>
-					<td width=108 colspan=7
-						style='width: 80.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
-						<p class=MsoNormal align=center
-							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'><input type="text" name="rzyyljg2"></span>
-						</p>
-					</td>
-					<td width=79 colspan=4
-						style='width: 59.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
-						<p class=MsoNormal align=center
-							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'><input type="text" name="rzybah2"></span>
-						</p>
+					<td width=159 colspan=19 id="td_zys"
+						style='width: 119.05pt; border-top: none; border-left: none; border-bottom: none; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
+						${model.zysDes }
 					</td>
 				</tr>
-					</c:otherwise>
-				</c:choose>
+				<tr style='page-break-inside: avoid;'>
+					<td width=159 colspan=19
+						style='width: 119.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
+					&nbsp;
+					</td>
+				</tr>
 				
 				<tr style='page-break-inside: avoid; height: 18.45pt'>
 					<td width=102 colspan=2 rowspan=3
@@ -3447,6 +3356,10 @@ request.setAttribute("openType", openType);
 						<p class=MsoNormal align=center
 							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
 							<span style='font-family: 宋体'>病床史</span>
+						</p>
+						<p class=MsoNormal align=center
+							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
+							<input type="button" value="+" class="btn-info" onclick="javascript:fnAddJtbcs(this);">
 						</p>
 					</td>
 					<td width=159 colspan=4
@@ -3483,63 +3396,15 @@ request.setAttribute("openType", openType);
 					</td>
 				</tr>
 				<tr style='page-break-inside: avoid; height: 18.45pt'>
-					<td width=159 colspan=4
-						style='width: 119.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
-						<p class=MsoNormal align=center
-							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=84 colspan=4
-						style='width: 62.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
-						<p class=MsoNormal align=center
-							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=108 colspan=7
-						style='width: 80.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
-						<p class=MsoNormal align=center
-							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=79 colspan=4
-						style='width: 59.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
-						<p class=MsoNormal align=center
-							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
+					<td width=159 colspan=19 id="td_jtbcsDes"
+						style='width: 119.05pt; border-top: none; border-left: none; border-bottom: none; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
+					${model.jtbcsDes }
 					</td>
 				</tr>
 				<tr style='page-break-inside: avoid; height: 18.45pt'>
-					<td width=159 colspan=4
+					<td width=159 colspan=19
 						style='width: 119.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
-						<p class=MsoNormal align=center
-							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=84 colspan=4
-						style='width: 62.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
-						<p class=MsoNormal align=center
-							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=108 colspan=7
-						style='width: 80.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
-						<p class=MsoNormal align=center
-							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=79 colspan=4
-						style='width: 59.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
-						<p class=MsoNormal align=center
-							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
+					&nbsp;
 					</td>
 				</tr>
 				<tr style='page-break-inside: avoid; height: 38.9pt'>
@@ -3552,6 +3417,10 @@ request.setAttribute("openType", openType);
 						<p class=MsoNormal align=center
 							style='text-align: center; line-height: 16.0pt'>
 							<span style='font-family: 宋体'>情况</span>
+						</p>
+						<p class=MsoNormal align=center
+							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
+							<input type="button" value="+" class="btn-info" onclick="javascript:fnAddYyqk(this);">
 						</p>
 					</td>
 					<td width=102 colspan=2
@@ -3600,224 +3469,53 @@ request.setAttribute("openType", openType);
 					</td>
 				</tr>
 				<tr style='page-break-inside: avoid; height: 22.7pt'>
-					<td width=102 colspan=2
-						style='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>1</span>
-						</p>
+					<td width=102 colspan=21 id="td_yy"
+						style='width: 76.85pt; border-top: none; border-left: none; border-bottom: none; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
+						${model.yyqkDes }
 					</td>
-					<td width=131 colspan=2
-						style='width: 98.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
+				</tr>
+				<tr style='page-break-inside: avoid; height: 22.7pt'>
+					<td width=102 colspan=21
+						style='width: 76.85pt; border-top: none; border-left: none; border-bottom: none; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=58 colspan=4
-						style='width: 43.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=79 colspan=4
-						style='width: 59.4pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=160 colspan=9
-						style='width: 120.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
+							&nbsp;
 						</p>
 					</td>
 				</tr>
 				<tr style='page-break-inside: avoid; height: 22.7pt'>
-					<td width=102 colspan=2
-						style='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
+					<td width=102 colspan=21
+						style='width: 76.85pt; border-top: none; border-left: none; border-bottom: none; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>2</span>
-						</p>
-					</td>
-					<td width=131 colspan=2
-						style='width: 98.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=58 colspan=4
-						style='width: 43.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=79 colspan=4
-						style='width: 59.4pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=160 colspan=9
-						style='width: 120.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
+							&nbsp;
 						</p>
 					</td>
 				</tr>
 				<tr style='page-break-inside: avoid; height: 22.7pt'>
-					<td width=102 colspan=2
-						style='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
+					<td width=102 colspan=21
+						style='width: 76.85pt; border-top: none; border-left: none; border-bottom: none; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>3</span>
-						</p>
-					</td>
-					<td width=131 colspan=2
-						style='width: 98.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=58 colspan=4
-						style='width: 43.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=79 colspan=4
-						style='width: 59.4pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=160 colspan=9
-						style='width: 120.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
+							&nbsp;
 						</p>
 					</td>
 				</tr>
 				<tr style='page-break-inside: avoid; height: 22.7pt'>
-					<td width=102 colspan=2
-						style='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
+					<td width=102 colspan=21
+						style='width: 76.85pt; border-top: none; border-left: none; border-bottom: none; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>4</span>
-						</p>
-					</td>
-					<td width=131 colspan=2
-						style='width: 98.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=58 colspan=4
-						style='width: 43.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=79 colspan=4
-						style='width: 59.4pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=160 colspan=9
-						style='width: 120.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
+							&nbsp;
 						</p>
 					</td>
 				</tr>
 				<tr style='page-break-inside: avoid; height: 22.7pt'>
-					<td width=102 colspan=2
+					<td width=102 colspan=21
 						style='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>5</span>
-						</p>
-					</td>
-					<td width=131 colspan=2
-						style='width: 98.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=58 colspan=4
-						style='width: 43.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=79 colspan=4
-						style='width: 59.4pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=160 colspan=9
-						style='width: 120.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-				</tr>
-				<tr style='page-break-inside: avoid; height: 22.7pt'>
-					<td width=102 colspan=2
-						style='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>6</span>
-						</p>
-					</td>
-					<td width=131 colspan=2
-						style='width: 98.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=58 colspan=4
-						style='width: 43.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=79 colspan=4
-						style='width: 59.4pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=160 colspan=9
-						style='width: 120.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
+							&nbsp;
 						</p>
 					</td>
 				</tr>
@@ -3831,6 +3529,10 @@ request.setAttribute("openType", openType);
 						<p class=MsoNormal align=center
 							style='text-align: center; line-height: 12.0pt'>
 							<span style='font-family: 宋体'>规划预防接种史</span>
+						</p>
+						<p class=MsoNormal align=center
+							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
+							<input type="button" value="+" class="btn-info" onclick="javascript:fnAddJzs(this);">
 						</p>
 					</td>
 					<td width=102 colspan=2
@@ -3856,72 +3558,21 @@ request.setAttribute("openType", openType);
 					</td>
 				</tr>
 				<tr style='page-break-inside: avoid; height: 22.7pt'>
-					<td width=102 colspan=2
-						style='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>1</span>
-						</p>
-					</td>
-					<td width=131 colspan=2
-						style='width: 98.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=298 colspan=17
-						style='width: 223.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
+					<td width=102 colspan=21 id="td_jzs"
+						style='width: 76.85pt; border-top: none; border-left: none; border-bottom: none; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
+						${model.fmyghyfjzsDes }
 					</td>
 				</tr>
 				<tr style='page-break-inside: avoid; height: 22.7pt'>
-					<td width=102 colspan=2
-						style='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>2</span>
-						</p>
-					</td>
-					<td width=131 colspan=2
-						style='width: 98.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=298 colspan=17
-						style='width: 223.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
+					<td width=102 colspan=21
+						style='width: 76.85pt; border-top: none; border-left: none; border-bottom: none; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
+						&nbsp;
 					</td>
 				</tr>
 				<tr style='page-break-inside: avoid; height: 22.7pt'>
-					<td width=102 colspan=2
+					<td width=102 colspan=21
 						style='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>3</span>
-						</p>
-					</td>
-					<td width=131 colspan=2
-						style='width: 98.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
-					</td>
-					<td width=298 colspan=17
-						style='width: 223.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
+						&nbsp;
 					</td>
 				</tr>
 				<tr style='page-break-inside: avoid; height: 109.5pt'>
@@ -4016,7 +3667,7 @@ request.setAttribute("openType", openType);
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<span style="font-family: 仿宋_GB2312"> <input
 								type="checkbox" name="jkzdDes" value="定期随访" ${fn:contains(model.jkzdDes, '定期随访') ? 'checked' : '' }>
-							</span><span style='font-family: 宋体'>纳入慢性病患者健康管理</span>
+							</span><span style='font-family: 宋体'>定期随访</span>
 						</p>
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
@@ -4127,9 +3778,10 @@ request.setAttribute("openType", openType);
 		<p class=MsoNormal>
 			<span lang=EN-US>&nbsp;</span>
 		</p>
-
+		
 	</div>
 	<script src="/third-party/jquery/jquery-1.11.3.min.js"></script>
+	<script src="/third-party/z.js"></script>
 	<script type="text/javascript" src="/third-party/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/third-party/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
 	<script type="text/javascript" src="/third-party/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
@@ -4158,8 +3810,116 @@ request.setAttribute("openType", openType);
 				viewSelect : 'year',
 				minView : 2, //选择日期后，不会再跳转去选择时分秒 
 				autoclose : true
-			//选择日期后自动关闭 
 			});
+		}
+		function fnAddJzs(btn){
+			var index = top.layer.open({
+				  title: '添加非免疫性接种史',
+				  area: ['700px', '180px'],
+				  btn : ['确定', '取消'],
+				  content: '名称：<input style="width:80px;" type="text" name="_jzs1">&nbsp;接种日期：<input style="width:80px;" type="text" name="_jzs2">&nbsp;接种机构：<input style="width:80px;" type="text" name="_jzs3">',
+				  success : function(){
+				  },
+				  yes : function(){
+					  var v0 = top.$("input[name='_jzs1']").val();
+					  var v1 = top.$("input[name='_jzs2']").val();
+					  var v2 = top.$("input[name='_jzs3']").val();
+					  var tpl = '<p>名称：{0}，接种日期：{1}，接种机构：{2}。&nbsp;<input value="x" type="button" class="btn-danger" onclick="$(this).parent().remove();"></p>';
+					  $("#td_jzs").append(tpl.format([v0, v1, v2]));
+					  top.layer.close(index);
+				  },
+				  btn2 : function(){
+					  top.layer.close(index);
+				  }
+				});
+		}
+		function fnAddYyqk(btn){
+			var index = top.layer.open({
+				  title: '添加用药情况',
+				  area: ['800px', '180px'],
+				  btn : ['确定', '取消'],
+				  content: '药物名称：<input style="width:80px;" type="text" name="_yy1">&nbsp;用法：<input style="width:80px;" type="text" name="_yy2">&nbsp;用量：<input style="width:80px;" type="text" name="_yy3">&nbsp;用药时间：<input style="width:80px;" type="text" name="_yy4">&nbsp;<select style="width:80px;" name="_yy5"><option value="规律">规律</option><option value="间断">间断</option><option value="不服药">不服药</option></select>',
+				  success : function(){
+				  },
+				  yes : function(){
+					  var v0 = top.$("input[name='_yy1']").val();
+					  var v1 = top.$("input[name='_yy2']").val();
+					  var v2 = top.$("input[name='_yy3']").val();
+					  var v3 = top.$("input[name='_yy4']").val();
+					  var v4 = top.$("select[name='_yy5']").val();
+					  var tpl = '<p>药物名称：{0}，用法：{1}，用量：{2}，用药时间：{3}，服药依从性：{4}。&nbsp;<input class="btn-danger" value="x" type="button" onclick="$(this).parent().remove();"></p>';
+					  $("#td_yy").append(tpl.format([v0, v1, v2, v3, v4]));
+					  top.layer.close(index);
+				  },
+				  btn2 : function(){
+					  top.layer.close(index);
+				  }
+				});
+		}
+		function fnAddJtbcs(btn){
+			var index = top.layer.open({
+				  title: '添加家庭病床史',
+				  area: ['750px', '180px'],
+				  btn : ['确定', '取消'],
+				  content: '建/撤床日期：<input style="width:80px;" type="text" name="_jt1">&nbsp;原因：<input style="width:80px;" type="text" name="_jt2">&nbsp;医疗机构名称：<input style="width:80px;" type="text" name="_jt3">&nbsp;病案号：<input style="width:80px;" type="text" name="_jt4">',
+				  success : function(){
+				  },
+				  yes : function(){
+					  var v0 = top.$("input[name='_jt1']").val();
+					  var v1 = top.$("input[name='_jt2']").val();
+					  var v2 = top.$("input[name='_jt3']").val();
+					  var v3 = top.$("input[name='_jt4']").val();
+					  var tpl = '<p>建/撤床日期：{0}，原因：{1}，医疗机构名称：{2}，病案号：{3}。&nbsp;<input value="x" class="btn-danger" type="button" onclick="$(this).parent().remove();"></p>';
+					  $("#td_jtbcsDes").append(tpl.format([v0, v1, v2, v3]));
+					  top.layer.close(index);
+				  },
+				  btn2 : function(){
+					  top.layer.close(index);
+				  }
+				});
+		}
+		function fnAddZys(btn){
+			var index = top.layer.open({
+				  title: '添加住院史',
+				  area: ['750px', '180px'],
+				  btn : ['确定', '取消'],
+				  content: '入/出院日期：<input style="width:80px;" type="text" name="_zysj">&nbsp;原因：<input style="width:80px;" type="text" name="_zyyy">&nbsp;医疗机构名称：<input style="width:80px;" type="text" name="_yljgmc">&nbsp;病案号：<input style="width:80px;" type="text" name="_bah">',
+				  success : function(){
+				  },
+				  yes : function(){
+					  var v0 = top.$("input[name='_zysj']").val();
+					  var v1 = top.$("input[name='_zyyy']").val();
+					  var v2 = top.$("input[name='_yljgmc']").val();
+					  var v3 = top.$("input[name='_bah']").val();
+					  var tpl = '<p>入/出院日期：{0}，原因：{1}，医疗机构名称：{2}，病案号：{3}。&nbsp;<input value="x" class="btn-danger" type="button" onclick="$(this).parent().remove();"></p>';
+					  $("#td_zys").append(tpl.format([v0, v1, v2, v3]));
+					  top.layer.close(index);
+				  },
+				  btn2 : function(){
+					  top.layer.close(index);
+				  }
+				});
+		}
+		//添加xx接触史
+		function fnAddShfsZybwhysjcs(btn){
+			var index = top.layer.open({
+				  title: '添加职业病史',
+				  area: ['700px', '180px'],
+				  btn : ['确定', '取消'],
+				  content: '工种：<input style="width:80px;" type="text" name="_gz">&nbsp;从业时间：<input style="width:80px;" type="text" name="_cysj">年，毒物种类：<input style="width:80px;" type="text" name="_dwzl">&nbsp;防护措施：<input style="width:80px;" type="text" name="_fhcs">',
+				  yes : function(){
+					  var v0 = top.$("input[name='_gz']").val();
+					  var v1 = top.$("input[name='_cysj']").val();
+					  var v2 = top.$("input[name='_dwzl']").val();
+					  var v3 = top.$("input[name='_fhcs']").val();
+					  var tpl = '<p>工种{0}，从业时间{1}年，毒物种类{2}，防护措施{3}&nbsp;<input value="x" type="button" class="btn-danger" onclick="$(this).parent().remove();"></p>';
+					  $("#zybwhysjcs").append(tpl.format([v0, v1, v2, v3]));
+					  top.layer.close(index);
+				  },
+				  btn2 : function(){
+					  top.layer.close(index);
+				  }
+				});
 		}
 	</script>
 </body>

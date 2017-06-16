@@ -82,10 +82,11 @@ function setMainObj(lower, data, operation){
 
 /** 提交主对象数据 */
 function saveMainObj(lower){
+	
 	if(lh.preventRepeat()){//防止重复提交
-		//lh[lower].$mainObjForm.submit();
+		lh[lower].$mainObjForm.submit();
 	}else{
-		//lh.showRepeatTip();//提示重复提交
+		lh.showRepeatTip();//提示重复提交
 	}
 }
 

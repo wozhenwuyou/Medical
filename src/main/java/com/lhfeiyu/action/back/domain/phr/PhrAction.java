@@ -301,9 +301,14 @@ public class PhrAction {
 		JSONObject json = new JSONObject();
 		try {
 			Admin admin = ActionUtil.checkSession4Admin(request.getSession());// 验证session中的user，存在即返回
-			if (null == admin)
-				return Result.userSessionInvalid(json, "admin");
-			cmd.setCreateUserId(admin.getId());// 创建者id
+			if (null == admin){
+				Doctor doctor = ActionUtil.checkSession4Doctor(request.getSession());// 验证session中的user，存在即返回
+				if(doctor != null){
+					cmd.setCreateUserId(doctor.getId());// 创建者id
+				}
+			}else{
+				cmd.setCreateUserId(admin.getId());// 创建者id
+			}
 			cmd.setCreateTime(new Date());// 创建时间
 			cmd.setLastUpdateTime(cmd.getCreateTime());// 最后修改时间
 			// 设置患者的信息
