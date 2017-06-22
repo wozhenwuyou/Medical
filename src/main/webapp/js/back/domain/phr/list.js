@@ -7,7 +7,22 @@ lh.config = {
 
 $(function() {
 	loadGrid();
+	initQueryForm();
 });
+
+function initQueryForm(){
+	
+	$('#sc_createUserId').combobox({
+		valueField : 'id',
+		textField : 'name',
+		editable : false,
+		multiple : false,
+		//required : true,
+		panelHeight : 200,
+		url : "/back/getAdminArray"
+	});
+	
+}
 
 // 添加信息
 function fnAddPhrBasicInfo(id, openType) {
@@ -238,16 +253,11 @@ function loadGrid(type) {
 		pagination : true,
 		url : url,
 		queryParams : lh.config.queryObj,// 查询参数
-		pageSize : lh.grid.pageSize,// 每页数据条数
+		pageSize : 20,// 每页数据条数
 		pageList : lh.grid.pageList,// 每页数据条数选择数组
 		width : lh.dom.clientSafeWidth - 1,
-		height : lh.dom.clientHeight - 160,
+		height : lh.dom.clientHeight - 100,
 		columns : [ [
-				/*{
-					field : 'checkbox',
-					title : '多选框',
-					checkbox : true
-				},*/
 				{
 					field : 'id',
 					title : '',
@@ -290,7 +300,12 @@ function loadGrid(type) {
 					field : 'birthday',
 					title : '出生日期',
 					width : 120,
-					align : 'center'
+					align : 'center',
+					formatter : function(value, row, index) {
+						if(value){
+							return value.toDate().fmt('yyyy-MM-dd');
+						}
+					}
 				}, {
 					field : 'workUnit',
 					title : '工作单位',
@@ -311,6 +326,26 @@ function loadGrid(type) {
 					title : '联系人电话',
 					width : 100,
 					align : 'center'
+				},{
+					field : 'jddw',
+					title : '建档单位',
+					width : 100,
+					align : 'center'
+				},{
+					field : 'jdr',
+					title : '建档人',
+					width : 100,
+					align : 'center'
+				},{
+					field : 'createTime',
+					title : '建档日期',
+					width : 100,
+					align : 'center',
+					formatter : function(value, row, index) {
+						if(value){
+							return value.toDate().fmt('yyyy-MM-dd');
+						}
+					}
 				} ] ],
 		onLoadError : function(data) {
 			lh.backDatagridErrorCheck(data);

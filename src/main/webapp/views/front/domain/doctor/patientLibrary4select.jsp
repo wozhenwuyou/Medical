@@ -16,13 +16,14 @@
 	<div class="t_851_3" style="width: 500px;">
 		<table cellpadding="0" cellspacing="0" border="0">
 			<tr height="44" valign="middle">
-				<td width="60">区域：</td>
-				<td width="118"><select class="text_input1" id="province">
-						<option value="">请选择</option>
-						<c:forEach items="${provinceCityAreaList}" var="provinceCityArea">
-							<option value="${provinceCityArea.id}">${provinceCityArea.areaName}</option>
-						</c:forEach>
-				</select></td>
+				<td width="130">查询范围：</td>
+				<td width="118">
+					<select class="text_input1" id="queryScope">
+						<option value="1">我建立的</option>
+						<option value="2" selected>本诊所</option>
+						<option value="3">全部</option>
+					</select>
+				</td>
 				<td width="130">患者姓名：</td>
 				<td width="199"><input type="text" class="text_input1"
 					id="username" /></td>
@@ -32,7 +33,7 @@
 		</table>
 	</div>
 	<div class="d_851_1" style="width: 520px;">
-		<table cellpadding="0" cellspacing="0" border="0" width="515">
+		<table cellpadding="0" cellspacing="0" border="1" width="515">
 			<tbody id="dataListContainer">
 			</tbody>
 		</table>
@@ -45,20 +46,30 @@
 	<script type="text/javascript"
 		src="/js/front/domain/doctor/doctorCommon.js" title="v"></script>
 	<script type="text/javascript"
-		src="/js/front/domain/doctor/patientLibrary.js" title="v"></script>
+		src="/js/front/domain/doctor/patientLibrary4select.js" title="v"></script>
 	<script id="template" type="x-tmpl-mustache">
-		<tr height="53" align="center" style="font-size:14px; color:#63a13f">
+		<tr height="30" align="center" style="font-size:14px; color:#63a13f">
 			<td width=100">姓名</td>
             <td width="100">电话</td>
 			<td width="100">选择</td>
         </tr>
 		{{#rows}}
-			<tr height="53" align="center" style="font-size:14px; color:#63a13f">
+			<tr height="30" align="center" style="font-size:14px;">
 			<td width="100">{{realName}}</td>
             <td width="100">{{phone}}</td>
 			<td width="100"><input type="radio" name="patientRadio" value="{{id}}"></td>
         </tr>
 		{{/rows}}
+	</script>
+	
+	<script type="text/javascript">
+		$(function(){
+			setTimeout(function(){
+				$('#dataListContainer').find('tr').click(function(){
+					$(this).find("input[type=radio]").prop('checked', true);
+				});
+			}, 900);
+		});
 	</script>
 </body>
 </html>

@@ -57,7 +57,7 @@ function initForm(){
 	$("#name").dblclick(function(){
 		var index = layer.open({
 		  type: 2, 
-		  area: ['600px', '400px'],
+		  area: ['550px', '670px'],
 		  btn : ['选择', '关闭'],
 		  content: '/patientLibrary4Select',
 		  yes : function(){

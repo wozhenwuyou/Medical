@@ -66,13 +66,8 @@ function buildDom(data) {
 	var sessionDoctorId = data.doctorId;
 	var obj = {
 		rows : rows,
-		isOwner : function() {
-			return sessionDoctorId == this.doctorId;
-		},
-		createDate : function() {
-			return lh.formatDate({
-				date : this.diagnoseTime
-			});
+		fmtCreateTime : function() {
+			return this.createTime.toDate().fmt('yyyy-MM-dd');
 		}
 	}
 	var template = $('#template').html();
@@ -154,7 +149,7 @@ function fnView(basicInfoId, name){
 		  scrollbar: false,
 		  title: '查看<font color=red>【{0}】</font>的档案信息'.format(name), //不显示标题
 		  area : [ '1000px', '680px' ],
-		  content: '/views/front/domain/doctor/catalog.jsp?openType=detail&basicInfoId=' + basicInfoId, 
+		  content: '/views/front/domain/doctor/catalog.jsp?openType=detail&basicInfoId=' + basicInfoId,
 		  cancel: function(){
 		  }
 	});

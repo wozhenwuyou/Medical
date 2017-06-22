@@ -22,6 +22,19 @@
 					id="sc_idCardNo" class="domain-input easyui-textbox width100" /></td>
 				<td class="td_pad"><span>电话：</span><input role="textbox"
 					id="sc_tel" class="domain-input easyui-textbox width100" /></td>
+				<td class="td_pad">&nbsp;</td>
+			</tr>
+			<tr class="tr_ht" align="right">
+				<td class="td_pad"><span>建档单位：</span><input role="textbox"
+					id="sc_jddw" class="domain-input easyui-textbox width100" /></td>
+				<td class="td_pad"><span>录入人：</span><input role="textbox"
+					id="sc_createUserId" class="domain-input easyui-textbox width100" /></td>
+				<td class="td_pad"><span>录入日期从：</span><input role="datebox"
+					id="sc_createTimeBegin" class="domain-input easyui-datebox width100"
+					data-options="editable:false" /></td>
+				<td class="td_pad"><span>到：</span><input role="datebox"
+					id="sc_createTimeEnd" class="domain-input easyui-datebox width100"
+					data-options="editable:false" /></td>
 				<td class="td_pad"><button id="searchYes"
 						onclick="doSearch();return false;"
 						class="button button-primary button-rounded button-small">查

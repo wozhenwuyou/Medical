@@ -1,5 +1,7 @@
 package com.lhfeiyu.vo;
 
+import java.util.Date;
+
 import com.lhfeiyu.po.Admin;
 import com.lhfeiyu.po.Doctor;
 import com.lhfeiyu.po.PhrBasicInfo;
@@ -22,6 +24,25 @@ public class PhrBasicInfoCmd extends PhrBasicInfo {
 	private Doctor doctor;
 	private Admin admin;
 	
+	private Date createTimeBegin;
+	private Date createTimeEnd;
+	
+	public Date getCreateTimeBegin() {
+		return createTimeBegin;
+	}
+
+	public void setCreateTimeBegin(Date createTimeBegin) {
+		this.createTimeBegin = createTimeBegin;
+	}
+
+	public Date getCreateTimeEnd() {
+		return createTimeEnd;
+	}
+
+	public void setCreateTimeEnd(Date createTimeEnd) {
+		this.createTimeEnd = createTimeEnd;
+	}
+
 	public Admin getAdmin() {
 		return admin;
 	}

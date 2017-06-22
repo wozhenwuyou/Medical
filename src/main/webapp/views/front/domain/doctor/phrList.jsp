@@ -75,8 +75,6 @@
 	<script type="text/javascript" src="/js/front/domain/doctor/doctorCommon.js" title="v"></script>
 	<script type="text/javascript" src="/js/front/domain/doctor/phrList.js" title="v"></script>
 
-<!-- <button type="button" onclick="location.href='/phr/doctor/phrDetail/{{id}}'" class="btn btn-success">查看</button> -->
-<!-- <button type="button" onclick="location.href='/phr/doctor/phrEdit/{{id}}'" class="btn btn-warning">编辑</button> -->
 	<script id="template" type="x-tmpl-mustache">
 		<tr height="53" align="center" style="font-size:14px; color:#63a13f">
         	<td width="85">姓名</td>
@@ -84,6 +82,8 @@
 			<td width="85">编号</td>
             <td width="155">身份证号</td>
 			<td width="100">电话</td>
+			<td width="100">录入时间</td>
+			<td width="100">建档人</td>
             <td width="180" align="left">操作</td>
         </tr>
 		{{#rows}}
@@ -93,8 +93,40 @@
 	        <td width="85">{{userNo}}</td>
 	        <td width="155">{{idCardNo}}</td>
 	        <td width="100">{{tel}}</td>
-	        <td width="210" align="left">
-				<button type="button" onclick="fnView('{{id}}', '{{name}}')" class="btn btn-success">查看</button>
+			<td width="100">{{fmtCreateTime}}</td>
+			<td width="100">{{jdr}}</td>
+	        <td width="180" align="left">
+<div class="btn-group">
+  	<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   	操作<span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="javascript:void(0);" onclick="fnView('{{id}}', '{{name}}');">查看</a></li>
+{{#mine}}
+	<li><a href="javascript:void(0);" onclick="fnEdit('{{id}}', '{{name}}');">编辑</a></li>
+	<li role="separator" class="divider"></li>
+	<li><a href="javascript:void(0);" onclick="lh.confirm({content: '是否确定删除？', clickYes:deletePhrBasicInfo, clickYesParam:{{id}}});">删除</a></li>
+{{/mine}}
+  </ul>
+</div>
+				{{#mine}}
+<div class="btn-group">
+  	<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   	+附表<span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="javascript:void(0);" onclick="fnAddHealthCheckTable(this, '添加', '', {{id}});">体检表</a></li>
+  </ul>
+</div>
+				{{/mine}}
+	        </td>
+	    </tr>
+		{{/rows}}		 		 
+	</script>
+	
+	<!-- 
+	
+	<button type="button" onclick="fnView('{{id}}', '{{name}}')" class="btn btn-success">查看</button>
 				{{#mine}}
 					<button type="button" onclick="fnEdit('{{id}}', '{{name}}')" class="btn btn-warning">编辑</button>
 					<button type="button" onclick="lh.confirm({content: '是否确定删除？', clickYes:deletePhrBasicInfo, clickYesParam:{{id}}});" class="btn btn-danger">删除</button>
@@ -104,16 +136,11 @@
   </button>
   <ul class="dropdown-menu">
     <li><a href="javascript:void(0);" onclick="fnAddHealthCheckTable(this, '添加', '', {{id}});">体检表</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">高血压表</a></li>
   </ul>
 </div>
 				{{/mine}}
-	        </td>
-	    </tr>
-		{{/rows}}		 		 
-	</script>
-	<!-- <li role="separator" class="divider"></li><li id="li_phrCover"><a href="javascript:void(0);" onclick="fnAddCoverTable(this, '添加', '', {{id}}, {{hasCover}});">封面</a></li> -->
+	
+	 -->
 </body>
 </html>
 

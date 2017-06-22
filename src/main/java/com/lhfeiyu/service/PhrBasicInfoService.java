@@ -12,6 +12,7 @@ import com.lhfeiyu.dao.PhrBasicInfoMapper;
 import com.lhfeiyu.dao.PhrCoverMapper;
 import com.lhfeiyu.po.Admin;
 import com.lhfeiyu.po.Doctor;
+import com.lhfeiyu.po.Hospital;
 import com.lhfeiyu.po.PhrBasicInfo;
 import com.lhfeiyu.po.PhrBasicInfoExample;
 import com.lhfeiyu.po.PhrCover;
@@ -24,6 +25,8 @@ public class PhrBasicInfoService {
 	private PhrBasicInfoMapper phrBasicInfoMapper;
 	@Autowired
 	private PhrCoverMapper phrCoverMapper;
+	@Autowired
+	private HospitalService hopitalService;
 
 	public List<PhrBasicInfo> selectListByCondition(PhrBasicInfoCmd cmd) {
 
@@ -50,6 +53,19 @@ public class PhrBasicInfoService {
 			if (StringUtils.isNotBlank(cmd.getTel())) {
 				c.andTelLike("%" + cmd.getTel() + "%");
 			}
+			if(StringUtils.isNotBlank(cmd.getJddw())){
+				c.andJddwLike("%" + cmd.getJddw() + "%");
+			}
+			if(cmd.getCreateUserId() != null && cmd.getCreateUserId() > 0){
+				c.andDoctorIdIsNull().andCreateUserIdEqualTo(cmd.getCreateUserId());
+			}
+			if(cmd.getCreateTimeBegin() != null){
+				c.andCreateTimeGreaterThanOrEqualTo(cmd.getCreateTimeBegin());
+			}
+			if(cmd.getCreateTimeEnd() != null){
+				c.andCreateTimeLessThanOrEqualTo(cmd.getCreateTimeEnd());
+			}
+			
 			if (cmd.getQueryScope() != null) {
 				if (new Integer(1).equals(cmd.getQueryScope())) {// 我的
 					if(cmd.getDoctor() != null){
@@ -98,6 +114,18 @@ public class PhrBasicInfoService {
 			if (StringUtils.isNotBlank(cmd.getTel())) {
 				c.andTelLike("%" + cmd.getTel() + "%");
 			}
+			if(StringUtils.isNotBlank(cmd.getJddw())){
+				c.andJddwLike("%" + cmd.getJddw() + "%");
+			}
+			if(cmd.getCreateUserId() != null && cmd.getCreateUserId() > 0){
+				c.andDoctorIdIsNull().andCreateUserIdEqualTo(cmd.getCreateUserId());
+			}
+			if(cmd.getCreateTimeBegin() != null){
+				c.andCreateTimeGreaterThanOrEqualTo(cmd.getCreateTimeBegin());
+			}
+			if(cmd.getCreateTimeEnd() != null){
+				c.andCreateTimeLessThanOrEqualTo(cmd.getCreateTimeEnd());
+			}
 			if (cmd.getQueryScope() != null) {
 				if (new Integer(1).equals(cmd.getQueryScope())) {// 我的
 					if(cmd.getDoctor() != null){
@@ -132,9 +160,25 @@ public class PhrBasicInfoService {
 				entity.setCreateUserId(old.getCreateUserId());
 				entity.setCreateTime(old.getCreateTime());
 				entity.setDoctorId(old.getDoctorId());
+				entity.setJdr(old.getJdr());
+				entity.setJddw(old.getJddw());
 				phrBasicInfoMapper.updateByPrimaryKey(entity);
 			} else {
 				//生成基本信息表
+				if(cmd.getDoctor() != null){
+					Doctor doctor = cmd.getDoctor();
+					entity.setJdr(doctor.getRealname());
+					if(StringUtils.isBlank(doctor.getHospitalName()) || StringUtils.isBlank(doctor.getHospitalAddress())){
+						Hospital hospital = hopitalService.selectByPrimaryKey(doctor.getHospitalId());
+						if(hospital != null){
+							entity.setJddw(hospital.getAddress() + hospital.getWholeName());//建档单位
+						}
+					}else{
+						entity.setJddw(doctor.getHospitalAddress() + doctor.getHospitalName());//建档单位
+					}
+				}else if(cmd.getAdmin() != null){
+					entity.setJdr(cmd.getAdmin().getUsername());
+				}
 				phrBasicInfoMapper.insert(entity);
 				//生成封面信息表
 				PhrCover cover = new PhrCover();
@@ -148,7 +192,14 @@ public class PhrBasicInfoService {
 				cover.setDoctorId(entity.getDoctorId());
 				Doctor doctor = cmd.getDoctor();
 				if(doctor != null){
-					cover.setJddw(doctor.getHospitalAddress() + doctor.getHospitalName());//建档单位
+					if(StringUtils.isBlank(doctor.getHospitalName()) || StringUtils.isBlank(doctor.getHospitalAddress())){
+						Hospital hospital = hopitalService.selectByPrimaryKey(doctor.getHospitalId());
+						if(hospital != null){
+							cover.setJddw(hospital.getAddress() + hospital.getWholeName());//建档单位
+						}
+					}else{
+						cover.setJddw(doctor.getHospitalAddress() + doctor.getHospitalName());//建档单位
+					}
 					cover.setZrys(doctor.getRealname());//责任医生
 					cover.setJdr(doctor.getRealname());
 					cover.setCreateUserId(doctor.getId());
