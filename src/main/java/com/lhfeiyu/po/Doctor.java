@@ -716,6 +716,7 @@ public class Doctor extends Parent {
 	}
 	
 	
+	
 	/**=========================== 自定义GETSET方法结束 _@CAUTION_SELF_GETSET_FINISH@_ ===========================*/
 	
 }

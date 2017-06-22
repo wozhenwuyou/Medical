@@ -246,6 +246,7 @@ public class PhrAction {
 			cmd.setCreateTime(new Date());// 创建时间
 			cmd.setLastUpdateTime(cmd.getCreateTime());// 最后修改时间
 			cmd.setHospitalId(db_doctor.getHospitalId());
+			cmd.setDoctor(db_doctor);
 			// 设置患者的信息
 			phrBasicInfoService.savePhrBasicInfo(cmd);
 		} catch (Exception e) {
@@ -312,6 +313,7 @@ public class PhrAction {
 			cmd.setCreateTime(new Date());// 创建时间
 			cmd.setLastUpdateTime(cmd.getCreateTime());// 最后修改时间
 			// 设置患者的信息
+			cmd.setAdmin(admin);
 			phrBasicInfoService.savePhrBasicInfo(cmd);
 		} catch (Exception e) {
 			Result.catchError(e, logger, "LH_ERROR-DoctorPatient-AJAX-/back/phr/phrAdd添加健康档案出现异常", json);

@@ -1,5 +1,6 @@
 package com.lhfeiyu.vo;
 
+import com.lhfeiyu.po.Admin;
 import com.lhfeiyu.po.Doctor;
 import com.lhfeiyu.po.PhrBasicInfo;
 
@@ -19,7 +20,16 @@ public class PhrBasicInfoCmd extends PhrBasicInfo {
 	private Integer queryScope;
 	
 	private Doctor doctor;
+	private Admin admin;
 	
+	public Admin getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
+	}
+
 	public Doctor getDoctor() {
 		return doctor;
 	}

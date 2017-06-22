@@ -103,8 +103,6 @@
    	+附表<span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
-	<li id="li_phrCover"><a href="javascript:void(0);" onclick="fnAddCoverTable(this, '添加', '', {{id}}, {{hasCover}});">封面</a></li>
-	<li role="separator" class="divider"></li>
     <li><a href="javascript:void(0);" onclick="fnAddHealthCheckTable(this, '添加', '', {{id}});">体检表</a></li>
     <li role="separator" class="divider"></li>
     <li><a href="#">高血压表</a></li>
@@ -115,6 +113,7 @@
 	    </tr>
 		{{/rows}}		 		 
 	</script>
+	<!-- <li role="separator" class="divider"></li><li id="li_phrCover"><a href="javascript:void(0);" onclick="fnAddCoverTable(this, '添加', '', {{id}}, {{hasCover}});">封面</a></li> -->
 </body>
 </html>
 
