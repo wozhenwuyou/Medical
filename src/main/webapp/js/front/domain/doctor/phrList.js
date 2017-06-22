@@ -166,7 +166,7 @@ function fnEdit(basicInfoId, name){
 		  area : [ '1000px', '680px' ],
 		  content: '/views/front/domain/doctor/catalog.jsp?openType=edit&basicInfoId=' + basicInfoId, 
 		  yes : function() {
-			var body = $(window.frames[1].frames[0].document.body);
+			var body = $(top.frames[1].frames[0].document.body);
 			var form = body.find("form:first");
 			if(form.length > 0){//说明是封面信息或者是健康体检信息
 				form.append("<input type='hidden' name='requestFrom' id='requestFrom' value='doctor'>");
@@ -201,7 +201,11 @@ function fnEdit(basicInfoId, name){
 			top.layer.close(index);
 		  }
 	});
-	layer.full(index);
+	top.layer.full(index);
+}
+
+function layerAlert(content){
+	top.layer.alert(content, {icon : 0, title : '提示'});
 }
 
 //打开窗口的按钮
