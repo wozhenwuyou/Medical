@@ -1,6 +1,7 @@
 package com.lhfeiyu.action.front.domain.doctor;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -8,6 +9,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -28,11 +31,13 @@ import com.lhfeiyu.config.PagePath;
 import com.lhfeiyu.po.Dict;
 import com.lhfeiyu.po.Doctor;
 import com.lhfeiyu.po.DoctorPatient;
+import com.lhfeiyu.po.PhrBasicInfo;
 import com.lhfeiyu.po.ProvinceCityArea;
 import com.lhfeiyu.po.User;
 import com.lhfeiyu.service.DictService;
 import com.lhfeiyu.service.DoctorPatientService;
 import com.lhfeiyu.service.DoctorService;
+import com.lhfeiyu.service.PhrBasicInfoService;
 import com.lhfeiyu.service.ProvinceCityAreaService;
 import com.lhfeiyu.service.UserService;
 import com.lhfeiyu.tools.ActionUtil;
@@ -55,6 +60,8 @@ public class DoctorPatientAction {
 	private ProvinceCityAreaService provinceCityAreaService;
 	@Autowired
 	private DictService dictService;
+	@Autowired
+	private PhrBasicInfoService phrBasicInfoService;
 
 	private static Logger logger = Logger.getLogger("R");
 
@@ -292,10 +299,28 @@ public class DoctorPatientAction {
 			HashMap<String, Object> map = Pagination.getOrderByAndPage(RequestUtil.getRequestParam(request), request);
 			map.put("belongDoctorId", session_doctor.getId());
 			List<User> userList = userService.selectListByCondition(map);
+			List<Integer> idList = new ArrayList<Integer>();
 			for (User user : userList) {
 				if (null != user.getCreateDoctorId()
 						&& Check.integerEqual(user.getCreateDoctorId(), session_doctor.getId())) {
 					user.setCanUpdate(1);
+				}
+				idList.add(user.getId());
+			}
+
+			// 根据患者，得到档案集合
+			if (CollectionUtils.isNotEmpty(idList)) {
+				List<PhrBasicInfo> danganList = phrBasicInfoService.selectByPatientIds(idList);
+				if (CollectionUtils.isNotEmpty(danganList)) {
+					Map<Integer, Integer> tempMap = new HashMap<Integer, Integer>();
+					for (PhrBasicInfo one : danganList) {
+						tempMap.put(one.getPatientId(), one.getId());
+					}
+					for (User fan : userList) {
+						if (tempMap.containsKey(fan.getId())) {
+							fan.setPhrBasicInfoId(tempMap.get(fan.getId()));
+						}
+					}
 				}
 			}
 			Integer total = userService.selectCountByCondition(map);
@@ -313,20 +338,20 @@ public class DoctorPatientAction {
 		JSONObject json = new JSONObject();
 		try {// 自动获取所有参数（查询条件）
 			Doctor session_doctor = ActionUtil.checkSession4Doctor(request.getSession());// 验证session中的user，存在即返回
-			if (null == session_doctor){
+			if (null == session_doctor) {
 				return Result.userSessionInvalid(json, "doctor");
 			}
 			HashMap<String, Object> map = Pagination.getOrderByAndPage(RequestUtil.getRequestParam(request), request);
-			
+
 			String queryScope = request.getParameter("queryScope");
-			if("1".equals(queryScope)){
-				map.put("belongDoctorId", session_doctor.getId());//我的
-			}else if("2".equals(queryScope)){
-				map.put("belongHospitalId", session_doctor.getHospitalId());//本诊所的
-			}else if("3".equals(queryScope)){
-				//nothing
-			}else{
-				map.put("belongHospitalId", session_doctor.getHospitalId());//本诊所的
+			if ("1".equals(queryScope)) {
+				map.put("belongDoctorId", session_doctor.getId());// 我的
+			} else if ("2".equals(queryScope)) {
+				map.put("belongHospitalId", session_doctor.getHospitalId());// 本诊所的
+			} else if ("3".equals(queryScope)) {
+				// nothing
+			} else {
+				map.put("belongHospitalId", session_doctor.getHospitalId());// 本诊所的
 			}
 			List<User> userList = userService.selectListByCondition(map);
 			Integer total = userService.selectCountByCondition(map);

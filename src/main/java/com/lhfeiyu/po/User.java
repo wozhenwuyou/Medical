@@ -31,6 +31,7 @@ public class User extends Parent {
 	private String sexName;
 	private String birthdayName;
 	private Integer canUpdate;
+	private Integer phrBasicInfoId;
 	/**============================== 自定义字段 结束 _@CAUTION_SELF_FIELD_FINISH@_ ==============================*/
 
 	/**   */
@@ -655,7 +656,14 @@ public class User extends Parent {
 	public void setCanUpdate(Integer canUpdate) {
 		this.canUpdate = canUpdate;
 	}
-	
+
+	public Integer getPhrBasicInfoId() {
+		return phrBasicInfoId;
+	}
+
+	public void setPhrBasicInfoId(Integer phrBasicInfoId) {
+		this.phrBasicInfoId = phrBasicInfoId;
+	}
 	
 	
 	/**=========================== 自定义GETSET方法结束 _@CAUTION_SELF_GETSET_FINISH@_ ===========================*/

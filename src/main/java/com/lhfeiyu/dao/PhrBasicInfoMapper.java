@@ -38,4 +38,6 @@ public interface PhrBasicInfoMapper {
 
 	int updateByPrimaryKey(PhrBasicInfo record);
 
+	List<PhrBasicInfo> selectByPatientIds(List<Integer> patientIds);
+
 }

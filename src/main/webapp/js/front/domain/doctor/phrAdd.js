@@ -57,7 +57,7 @@ function initForm(){
 	$("#name").dblclick(function(){
 		var index = layer.open({
 		  type: 2, 
-		  area: ['550px', '670px'],
+		  area: ['550px', '580px'],
 		  btn : ['选择', '关闭'],
 		  content: '/patientLibrary4Select',
 		  yes : function(){
@@ -127,6 +127,12 @@ function fnAddPhr(){
 		return;
 	}
 	
+	o.sex = $("#sex").val();
+	if(!o.sex){
+		lh.alert('请选择性别');
+		return;
+	}
+	
 	o.idCardNo = $("#idCardNo").val() || '无';
 	o.birthday = $("#birthday").val();
 	
@@ -135,7 +141,7 @@ function fnAddPhr(){
 		return;
 	}
 	
-	o.sex = $("#sex").val();
+	
 	o.workUnit = $("#workUnit").val() || '无';
 	o.tel = $("#tel").val();
 	o.linkman = $("#linkman").val();
@@ -161,6 +167,10 @@ function fnAddPhr(){
 	o.profession = $("#profession").val();
 	o.maritalStatus = $("#maritalStatus").val();
 	o.payType = $("#payType").val();
+	if(!o.payType){
+		lh.alert('请选择医疗费用支付方式');
+		return;
+	}
 	o.ycbs = $("#ycbs").val() || '无';
 	
 	o.bls = getChkboxValue('bls');
@@ -222,7 +232,10 @@ function getChkboxValue(chkName){
 function saveData(obj){
 	lh.post("front", "/phr/doctor/phrAdd", obj, function(rsp){
 		if(rsp.status == 'success'){
-			lh.jumpToUrl('/phr/doctor/phrList');
+			//lh.jumpToUrl('/phr/doctor/phrList');
+			layer.msg('保存成功',{time:1000}, function(){
+				location.reload();
+			});
 		}else{
 			lh.alert(rsp.msg);
 		}

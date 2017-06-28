@@ -151,7 +151,6 @@ public class DoctorAction {
 			map.put("ascOrdesc", "ASC");
 			List<ProvinceCityArea> provinceCityAreaList = provinceCityAreaService.selectListByCondition(map);
 			modelMap.put("provinceCityAreaList", provinceCityAreaList);
-			//modelMap.put("doctorId", value)
 		}catch(Exception e){
 			path = PagePath.error;
 			Result.catchError(e, logger, "LH_ERROR-Doctor-PAGE-/patientLibrary-加载患者库出现异常", modelMap);

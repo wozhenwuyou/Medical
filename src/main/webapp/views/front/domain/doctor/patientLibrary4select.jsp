@@ -27,8 +27,6 @@
 				<td width="130">患者姓名：</td>
 				<td width="199"><input type="text" class="text_input1"
 					id="username" /></td>
-				<td width="64"><input type="submit" class="sub_1" value="搜索"
-					onclick="loadGridData()" /></td>
 			</tr>
 		</table>
 	</div>
@@ -65,10 +63,16 @@
 	<script type="text/javascript">
 		$(function(){
 			setTimeout(function(){
-				$('#dataListContainer').find('tr').click(function(){
+				$('#dataListContainer').delegate('tr', 'click', function(){
 					$(this).find("input[type=radio]").prop('checked', true);
 				});
 			}, 900);
+			$("#queryScope").change(function(){
+				loadGridData(1, 20);
+			});
+			$("#username").keyup(function(){
+				loadGridData(1, 20);
+			});
 		});
 	</script>
 </body>

@@ -2,6 +2,7 @@ package com.lhfeiyu.service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -243,5 +244,9 @@ public class PhrBasicInfoService {
 
 	public void savePhrBasicInfo(PhrBasicInfo basicInfo) {
 		phrBasicInfoMapper.updateByPrimaryKey(basicInfo);
+	}
+
+	public List<PhrBasicInfo> selectByPatientIds(List<Integer> patientIds) {
+		return phrBasicInfoMapper.selectByPatientIds(patientIds);
 	}
 }

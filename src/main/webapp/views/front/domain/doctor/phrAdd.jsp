@@ -60,7 +60,7 @@
 								<td width="67" style="line-height: 30px;"><span
 									style="color: red; font-weight: bolder;">*</span>性别</td>
 								<td width="329"><select class="input8" id="sex" style="width: 268px;">
-											<option value="未说明的性别">--未说明的性别--</option>
+											<option value="">--请选择--</option>
 											<option value="男">男</option>
 											<option value="女">女</option>
 											<option value="未知的性别">未知的性别</option>
@@ -154,7 +154,8 @@
 												<option value="离婚">离婚</option>
 								</select></td>
 								<tr height="40" valign="bottom">
-									<td width="67" style="line-height: 30px;">医疗费用支付方式</td>
+									<td width="67" style="line-height: 30px;"><span
+									style="color: red; font-weight: bolder;">*</span>医疗费用支付方式</td>
 									<td width="329"><select class="input8" id="payType" style="width: 268px;">
 												<option value="">--请选择--</option>
 												<option value="城镇职工基本医疗保险" >城镇职工基本医疗保险</option>

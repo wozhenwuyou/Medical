@@ -24,28 +24,28 @@
 					<div class="t_851_2">
 						社区居民健康档案
 						<button class="fr pointer btn btn-success" style="margin-top:3px;"
-							onclick="javascript:location.href='/phr/doctor/phrAdd'">添加档案</button>
+							onclick="javascript:location.href='/phr/doctor/phrAdd'">+添加档案</button>
 					</div>
 					<div class="t_851_3">
 						<table cellpadding="0" cellspacing="0" border="0">
 							<tr height="44" valign="middle">
 								<td width="60">姓名：</td>
 								<td width="80"><input type="text" class="text_input1"
-									id="name" /></td>
+									id="name" onkeyup="loadGridData();" /></td>
 								<td width="60">&nbsp;编号：</td>
 								<td width="80"><input type="text" class="text_input1"
-									id="userNo" /></td>
+									id="userNo" onkeyup="loadGridData();" /></td>
 								<td width="90">&nbsp;身份证：</td>
-								<td width="80"><input type="text" class="text_input1" id="idCardNo" /></td>
+								<td width="80"><input type="text" class="text_input1" id="idCardNo" onkeyup="loadGridData();" /></td>
 								<td width="60">&nbsp;范围：</td>
 								<td width="80">
-									<select class="text_input1" id="queryScope">
+									<select class="text_input1" id="queryScope" onchange="loadGridData();">
 										<option value="1">我建立的</option>
 										<option value="2" selected>本诊所</option>
 										<option value="3">全部</option>
 									</select>
 								</td>
-								<td width="64"><input type="submit" class="sub_1"
+								<td style="display:none" width="64"><input type="submit" class="sub_1"
 									value="搜索" onclick="loadGridData()" /></td>
 								<td width="64"><input type="submit" class="sub_1"
 									value="重置" onclick="resetQuery()" style="margin-left: 10px;" /></td>
@@ -88,7 +88,7 @@
         </tr>
 		{{#rows}}
 		<tr height="58" align="center" style="color:#666666">
-	    	<td width="85">{{name}}</td>
+	    	<td width="85"><b>{{name}}</b></td>
 	        <td width="50">{{sex}}</td>
 	        <td width="85">{{userNo}}</td>
 	        <td width="155">{{idCardNo}}</td>

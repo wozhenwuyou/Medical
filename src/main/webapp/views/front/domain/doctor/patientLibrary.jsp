@@ -74,10 +74,10 @@
 	</div>
 	<%@ include file="/views/common/common_js.htm"%>
 	<%@ include file="/views/common/common_front_js.htm"%>
-	<script type="text/javascript"
-		src="/js/front/domain/doctor/doctorCommon.js" title="v"></script>
-	<script type="text/javascript"
-		src="/js/front/domain/doctor/patientLibrary.js" title="v"></script>
+	<script type="text/javascript" src="/third-party/z.js" title="v"></script>
+	<script type="text/javascript" src="/third-party/layer/layer.js" title="v"></script>
+	<script type="text/javascript" src="/js/front/domain/doctor/doctorCommon.js" title="v"></script>
+	<script type="text/javascript" src="/js/front/domain/doctor/patientLibrary.js" title="v"></script>
 	<script id="template" type="x-tmpl-mustache">
 		<tr height="53" align="center" style="font-size:14px; color:#63a13f">
         	<td width="95">用户昵称</td>
@@ -86,18 +86,18 @@
             <td width="130">地区</td>
             <td width="155">联系电话</td>
             <td width="115">注册时间</td>
-            <td width="15">&nbsp;</td>
+            <td width="50">档案</td>
             <td width="184">操作</td>
         </tr>
 		{{#rows}}
-			<tr height="53" align="center" style="font-size:14px; color:#63a13f">
-        	<td width="95">{{username}}</td>
+			<tr height="53" align="center">
+        	<td width="95">{{username}}</span></td>
 			<td width="95">{{realName}}</td>
             <td width="70">{{sexName}}</td>
             <td width="130">{{provinceName}}&nbsp;{{cityName}}</td>
             <td width="155">{{phone}}</td>
             <td width="115">{{&createDate}}</td>
-			<td width="15">&nbsp;</td>
+			<td width="50">{{&fmtPhrBasicInfoId}}</td>
 			{{#canUpdate}}
 		        <td width="184">
 		        	<button type="button" onclick="lh.confirm({content: '是否确定删除该患者？', clickYes:deletePatient, clickYesParam:{{id}}});" class="btn btn-danger">删除</button>
