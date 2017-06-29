@@ -4,6 +4,7 @@ import java.util.Date;
 
 import com.lhfeiyu.po.Admin;
 import com.lhfeiyu.po.Doctor;
+import com.lhfeiyu.po.Hospital;
 import com.lhfeiyu.po.PhrBasicInfo;
 
 /**
@@ -23,7 +24,16 @@ public class PhrBasicInfoCmd extends PhrBasicInfo {
 	
 	private Doctor doctor;
 	private Admin admin;
+	private Hospital hospital;
 	
+	public Hospital getHospital() {
+		return hospital;
+	}
+
+	public void setHospital(Hospital hospital) {
+		this.hospital = hospital;
+	}
+
 	private Date createTimeBegin;
 	private Date createTimeEnd;
 	

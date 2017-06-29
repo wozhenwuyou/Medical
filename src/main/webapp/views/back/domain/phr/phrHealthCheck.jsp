@@ -306,7 +306,7 @@ request.setAttribute("openType", openType);
 					</td>
 				</tr>
 				<tr style='page-break-inside: avoid; height: 1.0pt'>
-					<td width=57 rowspan=9
+					<td width=57 rowspan=10
 						style='width: 42.75pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 0cm 0cm 0cm; height: 1.0pt'>
 						<p class=MsoNormal align=center
 							style='text-align: center; line-height: 16.0pt'>
@@ -518,6 +518,44 @@ request.setAttribute("openType", openType);
 						</p>
 					</td>
 				</tr>
+				
+				<tr style='page-break-inside: avoid; height: 1.0pt'>
+					<td width=102 colspan=2
+						style='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 1.0pt'>
+						<p class=MsoNormal align=center
+							style='text-align: center; line-height: 16.0pt'>
+							<span style='font-family: 宋体'>臀</span><span lang=EN-US
+								style='font-family: 仿宋_GB2312'>&nbsp;&nbsp; </span><span
+								style='font-family: 宋体'>围</span>
+						</p>
+					</td>
+					<td width=156 colspan=3
+						style='width: 116.65pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 1.0pt'>
+						<p class=MsoNormal align=right
+							style='margin-right: 10.5pt; text-align: right; line-height: 16.0pt'>
+							<b><span style="font-family: 宋体; color: blue"> <input
+									type="text" name="ybqkTunWei" id="ybqkTunWei" value="${model.ybqkTunWei }" style="width:80px;">
+							</span><span lang=EN-US style='font-family: 仿宋_GB2312; color: blue'>cm</span></b>
+						</p>
+					</td>
+					<td width=81 colspan=4
+						style='width: 60.75pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 1.0pt'>
+						<p class=MsoNormal align=center
+							style='text-align: center; line-height: 16.0pt'>
+							<span style='font-family: 宋体'>腰臀围比值</span>
+						</p>
+					</td>
+					<td width=193 colspan=12
+						style='width: 144.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 1.0pt'>
+						<p class=MsoNormal align=right
+							style='margin-right: 6.2pt; text-align: right; line-height: 16.0pt'>
+							<b><span style="font-family: 宋体; color: blue"> <input
+									type="text" name="ybqkYtwbz" id="ybqkYtwbz" value="${model.ybqkYtwbz }" style="width:195px;">
+							</span></b>
+						</p>
+					</td>
+				</tr>
+				
 				<tr style='page-break-inside: avoid; height: 28.9pt'>
 					<td width=102 colspan=2
 						style='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 28.9pt'><p
@@ -638,7 +676,7 @@ request.setAttribute("openType", openType);
 								name="ybqkRzgn" value="粗筛阳性" ${model.ybqkRzgn == '粗筛阳性' ? 'checked' : '' }> 粗筛阳性，
 							</span> <span style='font-family: 宋体'>简易智力状态检查，总分</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="ybqkRzgnZf" id="ybqkRzgnZf" value="${model.ybqkRzgnZf }" width="80px">
+									name="ybqkRzgnZf" id="ybqkRzgnZf" value="${model.ybqkRzgnZf }" style="width:40px;">
 							</span></b>
 						</p>
 					</td>
@@ -676,11 +714,8 @@ request.setAttribute("openType", openType);
 								type="radio" value="粗筛阳性" ${model.ybqkQgzt == '粗筛阳性' ? 'checked' : '' }>
 							</span><span style="font-family: 宋体">粗筛阳性，</span><span
 								style="font-family: 仿宋_GB2312"> </span><span
-								style="font-family: 宋体">老年人抑郁评分检查，总分</span><u><span
-								lang="EN-US"><b><span
-										style="font-family: 宋体; color: blue"> <input
-											name="ybqkQgztZf" type="text" id="ybqkQgztZf" value="${model.ybqkQgztZf }" width="80px">
-									</span></b></span></u>
+								style="font-family: 宋体">老年人抑郁评分检查，总分</span> <input
+											name="ybqkQgztZf" type="text" id="ybqkQgztZf" value="${model.ybqkQgztZf }" style="width:40px;">
 						</p>
 					</td>
 					<td width=41 colspan=2
@@ -733,8 +768,8 @@ request.setAttribute("openType", openType);
 							<span style='font-family: 宋体'>锻炼频率</span>
 						</p>
 					</td>
-					<td width=293 colspan=16
-						style='width: 220.05pt; border: none; border-bottom: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 1.0pt'>
+					<td width=293 colspan=18
+						style='width: 220.05pt; border: none; border-right: solid windowtext 1.0pt;border-bottom: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 1.0pt'>
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<span style="font-family: 宋体"> <input type="radio"
@@ -752,14 +787,6 @@ request.setAttribute("openType", openType);
 								style="font-family: 宋体"> <input type="radio" name="shfsTydlDlpl"
 									 value="不锻炼" ${model.shfsTydlDlpl == '不锻炼' ? 'checked' : '' }>
 							</span></span><span style='font-family: 宋体'>不锻炼</span>
-						</p>
-					</td>
-					<td width=41 colspan=2
-						style='width: 30.75pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 1.0pt'>
-						<p class=MsoNormal align=right
-							style='margin-left: 8.4pt; text-align: right; line-height: 16.0pt; layout-grid-mode: char'>
-							<b><span lang=EN-US
-								style='font-family: 仿宋_GB2312; color: blue'>&nbsp;</span></b>
 						</p>
 					</td>
 				</tr>
@@ -792,7 +819,7 @@ request.setAttribute("openType", openType);
 							class=MsoNormal align=left
 							style='text-align: left; text-indent: 79.05pt; line-height: 16.0pt; layout-grid-mode: char'>
 							<b><span style="font-family: 宋体; color: blue"> <input
-									type="text" name="shfsTydlJcdlsj" id="shfsTydlJcdlsj" width="40px" value="${model.shfsTydlJcdlsj }">
+									type="text" name="shfsTydlJcdlsj" id="shfsTydlJcdlsj" style="width:40px" value="${model.shfsTydlJcdlsj }">
 							</span><span style='font-family: 宋体; color: blue'>年</span></b>
 						</p></td>
 				</tr>
@@ -908,7 +935,7 @@ request.setAttribute("openType", openType);
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<span style='font-family: 宋体'>平均</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="shfsXyqkRxyl" id="shfsXyqkRxyl" width="40px" value="${model.shfsXyqkRxyl }">
+									name="shfsXyqkRxyl" id="shfsXyqkRxyl" style="width:40px" value="${model.shfsXyqkRxyl }">
 							</span></b><span style='font-family: 宋体'>支</span>
 						</p>
 					</td>
@@ -926,7 +953,7 @@ request.setAttribute("openType", openType);
 							class=MsoNormal style='text-indent: 57.75pt; line-height: 20.0pt'>
 							<span style='font-family: 宋体'><b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="shfsXyqkKsxynl" id="shfsXyqkKsxynl" style="width:80px;" value="${model.shfsXyqkKsxynl }">
+										name="shfsXyqkKsxynl" id="shfsXyqkKsxynl" style="width:40px;" value="${model.shfsXyqkKsxynl }">
 								</span></b>岁</span>
 						</p></td>
 					<td width=113 colspan=5
@@ -942,7 +969,7 @@ request.setAttribute("openType", openType);
 							style='text-indent: 78.75pt; line-height: 20.0pt'>
 							<span style='font-family: 宋体'><b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="shfsXyqkJynl" id="shfsXyqkJynl" width="40px" value="${model.shfsXyqkJynl }">
+										name="shfsXyqkJynl" id="shfsXyqkJynl" style="width:40px" value="${model.shfsXyqkJynl }">
 								</span></b>岁</span>
 						</p>
 					</td>
@@ -1011,7 +1038,7 @@ request.setAttribute("openType", openType);
 							<span style='font-family: 宋体'>平均</span><span lang=EN-US
 								style='font-family: 仿宋_GB2312'>&nbsp;<b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="shfsYjqkRyjl" id="shfsYjqkRyjl" width="40px" value="${model.shfsYjqkRyjl }">
+										name="shfsYjqkRyjl" id="shfsYjqkRyjl" style="width:40px" value="${model.shfsYjqkRyjl }">
 								</span></b>
 							</span><span style='font-family: 宋体'>两</span><span
 								style='font-family: 仿宋_GB2312'> </span>
@@ -1037,7 +1064,7 @@ request.setAttribute("openType", openType);
 							</span></span><span style='font-family: 宋体'>已戒酒，戒酒年龄：</span><span
 								style='font-family: 宋体'><b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="shfsYjqkJjnl" id="shfsYjqkJjnl" value="${model.shfsYjqkJjnl }" width="40px">
+										name="shfsYjqkJjnl" id="shfsYjqkJjnl" value="${model.shfsYjqkJjnl }" style="width:40px">
 								</span></b>岁</span>
 						</p>
 					</td>
@@ -1060,7 +1087,7 @@ request.setAttribute("openType", openType);
 					<td width=95 colspan=5
 						style='width: 71.15pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 0cm 0cm 0cm; height: 15.7pt'>
 						<input type="text" name="shfsYjqkKsyjnl" id="shfsYjqkKsyjnl"
-						style="width:80px;" value="${model.shfsYjqkKsyjnl }"> 岁
+						style="width:40px;" value="${model.shfsYjqkKsyjnl }"> 岁
 					</td>
 					<td width=132 colspan=7
 						style='width: 98.65pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 15.7pt'>
@@ -1094,8 +1121,8 @@ request.setAttribute("openType", openType);
 							<span style='font-family: 宋体'>饮酒种类</span>
 						</p>
 					</td>
-					<td width=255 colspan=17
-						style='width: 191.6pt; border: none; border-bottom: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 1.0pt'>
+					<td width=255 colspan=19
+						style='width: 191.6pt; border: none; border-right: solid windowtext 1.0pt;border-bottom: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 1.0pt'>
 						<span style="font-family: 仿宋_GB2312"> <input
 							type="checkbox" name="shfsYjqkYjzl" value="白酒" ${fn:contains(model.shfsYjqkYjzl, '白酒') ? 'checked' : '' }>
 					</span><span style='font-family: 宋体'>白酒</span><span
@@ -1113,14 +1140,7 @@ request.setAttribute("openType", openType);
 							style="font-family: 仿宋_GB2312"> <input type="checkbox"
 								name="shfsYjqkYjzl" value="其他" ${fn:contains(model.shfsYjqkYjzl, '其他') ? 'checked' : '' }>
 						</span>其他</span> <input type="text" name=shfsYjqkYjzlQt id="shfsYjqkYjzlQt" value="${model.shfsYjqkYjzlQt }"
-						width="80px">
-					</td>
-					<td colspan=1
-						style='width: 59.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 1.0pt'>
-						<p class=MsoNormal align=right
-							style='text-align: right; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p>
+						style="width:50px;">
 					</td>
 				</tr>
 				<tr style='page-break-inside: avoid; height: 69.55pt'>
@@ -1281,20 +1301,19 @@ request.setAttribute("openType", openType);
 							style="text-align: right; line-height: 16.0pt; layout-grid-mode: char">
 							<b><span style="font-family: 宋体; color: blue">左眼</span></b><b><span
 								style="font-family: 宋体; color: blue"> <input
-									name="zqgnSlZy" type="text" id="zqgnSlZy" width="40px" value="${model.zqgnSlZy }">
+									name="zqgnSlZy" type="text" id="zqgnSlZy" style="width:40px" value="${model.zqgnSlZy }">
 							</span></b><b><span style="font-family: 宋体; color: blue">右眼</span></b><b><span
 								style="font-family: 宋体; color: blue"> <input
-									name="zqgnSlYy" type="text" id="zqgnSlYy" width="40px" value="${model.zqgnSlYy }">
+									name="zqgnSlYy" type="text" id="zqgnSlYy" style="width:40px" value="${model.zqgnSlYy }">
 							</span><span style="font-family: 仿宋_GB2312; color: blue" lang="EN-US">
 									&nbsp; </span></b><span style="font-family: 仿宋_GB2312" lang="EN-US">&nbsp;</span><span
 								style="font-family: 宋体">（矫正视力：左眼</span><span
-								style="font-family: 仿宋_GB2312"> <u><span lang="EN-US">&nbsp;</span></u></span><span
 								style="font-family: 宋体"><b><span
 									style="font-family: 宋体; color: blue"> <input
-										name="zqgnSlJzZy" type="text" id="zqgnSlJzZy" width="40px" value="${model.zqgnSlJzZy }">
+										name="zqgnSlJzZy" type="text" id="zqgnSlJzZy" style="width:40px" value="${model.zqgnSlJzZy }">
 										右
 								</span></b>眼<b><span style="font-family: 宋体; color: blue"> <input
-										name="zqgnSlJzYy" type="text" id="zqgnSlJzYy" width="40px" value="${model.zqgnSlJzYy }">
+										name="zqgnSlJzYy" type="text" id="zqgnSlJzYy" style="width:40px" value="${model.zqgnSlJzYy }">
 								</span></b>）</span>
 						</p></td>
 				</tr>
@@ -1393,7 +1412,7 @@ request.setAttribute("openType", openType);
 									value="异常" ${model.ctYd == '异常' ? 'checked' : '' }>
 							</span></span><span style='font-family: 宋体'>异常</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="ctYdZyjc" id="ctYdZyjc" width="40px" value="${model.ctYdZyjc }">
+									name="ctYdZyjc" id="ctYdZyjc" style="width:40px" value="${model.ctYdZyjc }">
 							</span></b><span style='font-family: 宋体'>（属专业检查）</span>
 						</p>
 					</td>
@@ -1416,8 +1435,8 @@ request.setAttribute("openType", openType);
 							</span><span style='font-family: 宋体; letter-spacing: -1.0pt'>肤</span>
 						</p>
 					</td>
-					<td width=388 colspan=18
-						style='width: 291.15pt; border: none; border-bottom: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
+					<td width=388 colspan=19
+						style='width: 291.15pt; border: none; border-right: solid windowtext 1.0pt;border-bottom: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<span style="font-family: 仿宋_GB2312"> <input type="checkbox"
@@ -1442,16 +1461,8 @@ request.setAttribute("openType", openType);
 								name="ctPf" value="其他" ${fn:contains(model.ctPf, '其他') ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>其他</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="ctPfQt" id="ctPfQt" width="40px" value="${model.ctPfQt }">
+									name="ctPfQt" id="ctPfQt" style="width:40px" value="${model.ctPfQt }">
 							</span></b>
-						</p>
-					</td>
-					<td width=41 colspan=1
-						style='width: 30.75pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>
-						<p class=MsoNormal align=right
-							style='margin-left: 6.3pt; text-align: right; line-height: 16.0pt; layout-grid-mode: char'>
-							<b><span lang=EN-US
-								style='font-family: 仿宋_GB2312; color: blue'>&nbsp;</span></b>
 						</p>
 					</td>
 				</tr>
@@ -1483,7 +1494,7 @@ request.setAttribute("openType", openType);
 								name="ctGm" value="其他" ${fn:contains(model.ctGm, '其他') ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>其他</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name=ctGmQt id="ctGmQt" width="40px" value="${model.ctGmQt }">
+									name=ctGmQt id="ctGmQt" style="width:40px" value="${model.ctGmQt }">
 							</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
 						</p>
 					</td>
@@ -1521,7 +1532,7 @@ request.setAttribute("openType", openType);
 								type="checkbox" name="ctLbj" value="其他" ${fn:contains(model.ctLbj, '其他') ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>其他</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="ctLbjQt" id="ctLbjQt" width="40px" value="${model.ctLbjQt }">
+									name="ctLbjQt" id="ctLbjQt" style="width:40px" value="${model.ctLbjQt }">
 							</span></b>
 						</p>
 					</td>
@@ -1578,7 +1589,7 @@ request.setAttribute("openType", openType);
 								value="异常" ${model.ctFHxy == '异常' ? 'checked' : '' }>
 							</span></span><span style='font-family: 宋体'>异常</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="ctFHxyQt" id="ctFHxyQt" width="40px" value="${model.ctFHxyQt }">
+									name="ctFHxyQt" id="ctFHxyQt" style="width:40px" value="${model.ctFHxyQt }">
 							</span></b>
 						</p>
 					</td>
@@ -1612,7 +1623,7 @@ request.setAttribute("openType", openType);
 								value="其他" ${model.ctFLy == '其他' ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>其他</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="ctFLyQt" id="ctFLyQt" width="40px" value="${model.ctFLyQt }">
+									name="ctFLyQt" id="ctFLyQt" style="width:40px" value="${model.ctFLyQt }">
 							</span></b>
 						</p>
 					</td>
@@ -1635,13 +1646,13 @@ request.setAttribute("openType", openType);
 								style='font-family: 宋体'>脏</span>
 						</p>
 					</td>
-					<td width=388 colspan=17
-						style='width: 291.15pt; border: none; border-bottom: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 34.1pt'>
+					<td width=388 colspan=19
+						style='width: 291.15pt; border: none; border-right: solid windowtext 1.0pt;border-bottom: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 34.1pt'>
 						<p class=MsoNormal
 							style='line-height: 16.0pt; layout-grid-mode: char'>
 							<span style='font-family: 宋体'>心率</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="ctXzXl" id="ctXzXl" ${model.ctXzXl } width="40px">
+									name="ctXzXl" id="ctXzXl" ${model.ctXzXl } style="width:40px">
 							</span></b><span style='font-family: 宋体'>次</span><span lang=EN-US
 								style='font-family: 仿宋_GB2312'>/</span><span
 								style='font-family: 宋体'>分钟</span><span lang=EN-US
@@ -1669,21 +1680,8 @@ request.setAttribute("openType", openType);
 								value="有" ${model.ctXzZy == '有' ? 'checked' : '' }>
 							</span></span><span style='font-family: 宋体'>有</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="ctXzZyQt" id="ctXzZyQt" width="40px" value="${model.ctXzZyQt }">
+									name="ctXzZyQt" id="ctXzZyQt" style="width:40px" value="${model.ctXzZyQt }">
 							</span></b>
-						</p>
-					</td>
-					<td width=41 colspan=2
-						style='width: 30.75pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 34.1pt'>
-						<p class=MsoNormal align=right
-							style='margin-left: 10.0pt; text-align: right; line-height: 16.0pt; layout-grid-mode: char'>
-							<b><span lang=EN-US
-								style='font-family: 仿宋_GB2312; color: blue'>&nbsp;</span></b>
-						</p>
-						<p class=MsoNormal align=right
-							style='margin-left: 8.95pt; text-align: right; line-height: 16.0pt; layout-grid-mode: char'>
-							<b><span lang=EN-US
-								style='font-family: 仿宋_GB2312; color: blue'>&nbsp;</span></b>
 						</p>
 					</td>
 				</tr>
@@ -1710,7 +1708,7 @@ request.setAttribute("openType", openType);
 								value="有" ${model.ctFbYt == '有' ? 'checked' : '' }>
 							</span></span><span style='font-family: 宋体'>有</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="ctFbYtQt" id="ctFbYtQt" width="40px" value="${model.ctFbYtQt }">
+									name="ctFbYtQt" id="ctFbYtQt" style="width:40px" value="${model.ctFbYtQt }">
 							</span></b>
 						</p>
 						<p class=MsoNormal align=left
@@ -1725,7 +1723,7 @@ request.setAttribute("openType", openType);
 										name="ctFbBk" value="有" ${model.ctFbBk == '有' ? 'checked' : '' }>
 								</span></span><span style='font-family: 宋体'>有</span><b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="ctFbBkQt" id="ctFbBkQt" width="40px" value="${model.ctFbBkQt }">
+										name="ctFbBkQt" id="ctFbBkQt" style="width:40px" value="${model.ctFbBkQt }">
 								</span></b></span>
 						</p>
 						<p align="left" class="MsoNormal"
@@ -1740,7 +1738,7 @@ request.setAttribute("openType", openType);
 										type="radio" value="有" ${model.ctFbGd == '有' ? 'checked' : '' }>
 								</span></span><span style="font-family: 宋体">有</span><b><span
 									style="font-family: 宋体; color: blue"> <input
-										name="ctFbGdQt" type="text" id="ctFbGdQt" width="40px" value="${model.ctFbGdQt }">
+										name="ctFbGdQt" type="text" id="ctFbGdQt" style="width:40px" value="${model.ctFbGdQt }">
 								</span></b></span>
 						</p>
 						<p class=MsoNormal align=left
@@ -1755,7 +1753,7 @@ request.setAttribute("openType", openType);
 										name="ctFbPd" value="有" ${model.ctFbPd == '有' ? 'checked' : '' }>
 								</span></span><span style='font-family: 宋体'>有</span><b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="ctFbPdQt" id="ctFbPdQt" width="40px" value="${model.ctFbPdQt }">
+										name="ctFbPdQt" id="ctFbPdQt" style="width:40px" value="${model.ctFbPdQt }">
 								</span></b></span>
 						</p>
 						<p class=MsoNormal align=left
@@ -1771,7 +1769,7 @@ request.setAttribute("openType", openType);
 										name="ctFbYdxzy" value="有" ${model.ctFbYdxzy == '有' ? 'checked' : '' }>
 								</span></span><span style='font-family: 宋体'>有</span><b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="ctFbYdxzyQt" id="ctFbYdxzyQt" width="40px" value="${model.ctFbYdxzyQt }">
+										name="ctFbYdxzyQt" id="ctFbYdxzyQt" style="width:40px" value="${model.ctFbYdxzyQt }">
 								</span></b></span>
 						</p>
 					</td>
@@ -1812,8 +1810,8 @@ request.setAttribute("openType", openType);
 							<span style='font-family: 宋体'>下肢水肿</span>
 						</p>
 					</td>
-					<td width=388 colspan=17
-						style='width: 291.15pt; border: none; border-bottom: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 1.0pt'>
+					<td width=388 colspan=19
+						style='width: 291.15pt; border: none; border-right: solid windowtext 1.0pt;border-bottom: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 1.0pt'>
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<span style="font-family: 宋体"> <input type="radio"
@@ -1836,14 +1834,6 @@ request.setAttribute("openType", openType);
 								style='font-family: 仿宋_GB2312'>&nbsp;&nbsp;&nbsp; </span>
 						</p>
 					</td>
-					<td width=41 colspan=2
-						style='width: 30.75pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 1.0pt'>
-						<p class=MsoNormal align=right
-							style='text-align: right; line-height: 16.0pt; layout-grid-mode: char'>
-							<b><span lang=EN-US
-								style='font-family: 仿宋_GB2312; color: blue'>&nbsp;</span></b>
-						</p>
-					</td>
 				</tr>
 				<tr style='page-break-inside: avoid; height: 17.85pt'>
 					<td width=102 colspan=2
@@ -1853,8 +1843,8 @@ request.setAttribute("openType", openType);
 							<span style='font-family: 宋体'>足背动脉搏动</span>
 						</p>
 					</td>
-					<td width=396 colspan=18
-						style='width: 297.35pt; border: none; border-bottom: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 17.85pt'>
+					<td width=396 colspan=19
+						style='width: 297.35pt; border: none; border-bottom: solid windowtext 1.0pt;border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 17.85pt'>
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<span style="font-family: 宋体"> <input type="radio"
@@ -1871,14 +1861,6 @@ request.setAttribute("openType", openType);
 							</span><span style='font-family: 宋体'>触及右侧弱或消失</span>
 						</p>
 					</td>
-					<td width=33
-						style='width: 24.55pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 17.85pt'>
-						<p class=MsoNormal align=right
-							style='text-align: right; line-height: 16.0pt; layout-grid-mode: char'>
-							<b><span lang=EN-US
-								style='font-family: 仿宋_GB2312; color: blue'>&nbsp;</span></b>
-						</p>
-					</td>
 				</tr>
 				<tr style='page-break-inside: avoid; height: 1.0pt'>
 					<td width=102 colspan=2
@@ -1888,8 +1870,8 @@ request.setAttribute("openType", openType);
 							<span style='font-family: 宋体'>肛门指诊</span><b>*</b>
 						</p>
 					</td>
-					<td width=388 colspan=17 valign=top
-						style='width: 291.15pt; border: none; border-bottom: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 1.0pt'>
+					<td width=388 colspan=19 valign=top
+						style='width: 291.15pt; border: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;padding: 0cm 0cm 0cm 0cm; height: 1.0pt'>
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<span style="font-family: 宋体"> <input type="radio"
@@ -1908,17 +1890,11 @@ request.setAttribute("openType", openType);
 								value="其他" ${model.ctGmzz == '其他' ? 'checked' : '' }>
 							</span></span><span style='font-family: 宋体'>其他</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="ctGmzzQt" id="ctGmzzQt" width="40px" value="${model.ctGmzzQt }">
+									name="ctGmzzQt" id="ctGmzzQt" style="width:40px;" value="${model.ctGmzzQt }">
 							</span></b><span style='font-family: 宋体'> </span><span lang=EN-US
 								style='font-family: 仿宋_GB2312'>&nbsp;&nbsp;&nbsp;&nbsp; </span>
 						</p>
 					</td>
-					<td width=41 colspan=2 valign=top
-						style='width: 30.75pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 1.0pt'><p
-							class=MsoNormal align=right
-							style='text-align: right; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
-						</p></td>
 				</tr>
 				<tr style='page-break-inside: avoid; height: 1.0pt'>
 					<td width=102 colspan=2
@@ -1929,8 +1905,8 @@ request.setAttribute("openType", openType);
 							</span><span style='font-family: 宋体'>腺</span><span lang=EN-US>*</span>
 						</p>
 					</td>
-					<td width=350 colspan=15
-						style='width: 262.7pt; border: none; border-bottom: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 1.0pt'>
+					<td width=350 colspan=19
+						style='width: 262.7pt; border: none; border-bottom: solid windowtext 1.0pt;border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 1.0pt'>
 						<p class=MsoNormal
 							style='line-height: 16.0pt; layout-grid-mode: char'>
 							<span style="font-family: 仿宋_GB2312"> <input
@@ -1951,15 +1927,8 @@ request.setAttribute("openType", openType);
 								style="font-family: 仿宋_GB2312"> <input type="checkbox"
 								name="ctRx" value="checkbox67">
 							</span>其他</span><b><span style="font-family: 宋体; color: blue"> <input
-									type="text" name="ctRxQt" id="ctRxQt" width="40px" value="${model.ctRxQt }">
+									type="text" name="ctRxQt" id="ctRxQt" style="width:40px" value="${model.ctRxQt }">
 							</span></b>
-						</p>
-					</td>
-					<td width=79 colspan=4
-						style='width: 59.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 1.0pt'>
-						<p class=MsoNormal align=right
-							style='text-align: right; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
 						</p>
 					</td>
 				</tr>
@@ -1990,7 +1959,7 @@ request.setAttribute("openType", openType);
 									value="异常" ${model.ctFkWy == '异常' ? 'checked' : '' }>
 							</span></span><span style='font-family: 宋体'>异常</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="ctFkWyQt" id="ctFkWyQt" width="40px" value="${model.ctFkWyQt }">
+									name="ctFkWyQt" id="ctFkWyQt" style="width:40px" value="${model.ctFkWyQt }">
 							</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 						</p>
 					</td>
@@ -2024,7 +1993,7 @@ request.setAttribute("openType", openType);
 										name="ctFkYd" value="异常" ${model.ctFkYd == '异常' ? 'checked' : '' }>
 								</span></span><span style='font-family: 宋体'>异常</span><b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="ctFkYdQt" id="ctFkYdQt" width="40px" value="${model.ctFkYdQt }">
+										name="ctFkYdQt" id="ctFkYdQt" style="width:40px" value="${model.ctFkYdQt }">
 								</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
 						</p>
 					</td>
@@ -2058,7 +2027,7 @@ request.setAttribute("openType", openType);
 										name="ctFkGj" value="异常" ${model.ctFkGj == '异常' ? 'checked' : '' }>
 								</span></span><span style='font-family: 宋体'>异常</span><b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="ctFkGjQt" id="ctFkGjQt" width="40px" value="${model.ctFkGjQt }">
+										name="ctFkGjQt" id="ctFkGjQt" style="width:40px" value="${model.ctFkGjQt }">
 								</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
 						</p>
 					</td>
@@ -2092,7 +2061,7 @@ request.setAttribute("openType", openType);
 										name="ctFkGt" value="异常" ${model.ctFkGt == '异常' ? 'checked' : '' }>
 								</span></span><span style='font-family: 宋体'>异常</span><b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="ctFkGtQt" id="ctFkGtQt" width="40px" value="${model.ctFkGtQt }">
+										name="ctFkGtQt" id="ctFkGtQt" style="width:40px" value="${model.ctFkGtQt }">
 								</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
 						</p>
 					</td>
@@ -2126,7 +2095,7 @@ request.setAttribute("openType", openType);
 										name="ctFkFj" value="异常" ${model.ctFkFj == '异常' ? 'checked' : '' }>
 								</span></span><span style='font-family: 宋体'>异常</span><b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="ctFkFjQt" id="ctFkFjQt" width="40px" value="${model.ctFkFjQt }">
+										name="ctFkFjQt" id="ctFkFjQt" style="width:40px" value="${model.ctFkFjQt }">
 								</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
 						</p>
 					</td>
@@ -2207,25 +2176,22 @@ request.setAttribute("openType", openType);
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<span style='font-family: 宋体'>血红蛋白</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcXcgXhdb" id="fzjcXcgXhdb" width="40px" value="${model.fzjcXcgXhdb }">
+									name="fzjcXcgXhdb" id="fzjcXcgXhdb" style="width:40px" value="${model.fzjcXcgXhdb }">
 							</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>g/L</span><span
 								lang=EN-US> </span><span style='font-family: 宋体'>白细胞</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcXcgBxb" id="fzjcXcgBxb" width="40px" value="${model.fzjcXcgBxb }">
+									name="fzjcXcgBxb" id="fzjcXcgBxb" style="width:40px" value="${model.fzjcXcgBxb }">
 							</span></b><span style='font-family: 宋体'>×</span><span lang=EN-US
 								style='font-family: 仿宋_GB2312'>10<sup>9</sup>/L
 							</span><span style='font-family: 宋体'>血小板</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcXcgXxb" id="fzjcXcgXxb" width="40px" value="${model.fzjcXcgXxb }">
+									name="fzjcXcgXxb" id="fzjcXcgXxb" style="width:40px" value="${model.fzjcXcgXxb }">
 							</span></b><span style='font-family: 宋体'>×</span><span lang=EN-US
 								style='font-family: 仿宋_GB2312'>10<sup>9</sup>/L
 							</span><span lang=EN-US> </span>
-						</p>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<span style='font-family: 宋体'>其他</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="textfield50" id="textfield50" width="40px">
+									name="fzjcXcgQt" id="fzjcXcgQt" style="width:40px" value="${model.fzjcXcgQt }">
 							</span></b>
 						</p>
 					</td>
@@ -2245,23 +2211,20 @@ request.setAttribute("openType", openType);
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<span style='font-family: 宋体'>尿蛋白</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcNcgNdb" id="fzjcNcgNdb" width="40px" value="${model.fzjcNcgNdb }">
+									name="fzjcNcgNdb" id="fzjcNcgNdb" style="width:40px" value="${model.fzjcNcgNdb }">
 							</span></b><span style='font-family: 宋体'>尿糖</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcNcgNt" id="fzjcNcgNt" width="40px" value="${model.fzjcNcgNt }">
+									name="fzjcNcgNt" id="fzjcNcgNt" style="width:40px" value="${model.fzjcNcgNt }">
 							</span></b><span style='font-family: 宋体'>尿酮体</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcNcgNtt" id="fzjcNcgNtt" width="40px" value="${model.fzjcNcgNtt }">
+									name="fzjcNcgNtt" id="fzjcNcgNtt" style="width:40px" value="${model.fzjcNcgNtt }">
 							</span></b><span style='font-family: 宋体'>尿潜血</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcNcgNqx" id="fzjcNcgNqx" width="40px" value="${model.fzjcNcgNqx }">
+									name="fzjcNcgNqx" id="fzjcNcgNqx" style="width:40px" value="${model.fzjcNcgNqx }">
 							</span></b>
-						</p>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<span style='font-family: 宋体'>其他</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcNcgQt" id="fzjcNcgQt" width="40px" value="${model.fzjcNcgQt }">
+									name="fzjcNcgQt" id="fzjcNcgQt" style="width:40px" value="${model.fzjcNcgQt }">
 							</span></b>
 						</p>
 					</td>
@@ -2281,11 +2244,11 @@ request.setAttribute("openType", openType);
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<b><span style="font-family: 宋体; color: blue"> <input
-									type="text" name="fzjcKfxtMm" id="fzjcKfxtMm" width="40px" value="${model.fzjcKfxtMm }">
+									type="text" name="fzjcKfxtMm" id="fzjcKfxtMm" style="width:40px" value="${model.fzjcKfxtMm }">
 							</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>mmol/L</span><span
 								lang=EN-US> </span><span style='font-family: 宋体'>或</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcKfxtMg" id="fzjcKfxtMg" width="40px" value="${model.fzjcKfxtMg }">
+									name="fzjcKfxtMg" id="fzjcKfxtMg" style="width:40px" value="${model.fzjcKfxtMg }">
 							</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>mg/dL</span>
 						</p>
 					</td>
@@ -2312,7 +2275,7 @@ request.setAttribute("openType", openType);
 									value="异常" ${model.fzjcXdt == '异常' ? 'checked' : '' }>
 							</span></span><span style='font-family: 宋体'>异常</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcXdtQt" id="fzjcXdtQt" width="40px" value="${model.fzjcXdtQt }">
+									name="fzjcXdtQt" id="fzjcXdtQt" style="width:40px" value="${model.fzjcXdtQt }">
 							</span></b>
 						</p>
 					</td>
@@ -2337,7 +2300,7 @@ request.setAttribute("openType", openType);
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<b><span style="font-family: 宋体; color: blue"> <input
-									type="text" name="fzjcNwlbdb" id="fzjcNwlbdb" width="40px" value="${model.fzjcNwlbdb }">
+									type="text" name="fzjcNwlbdb" id="fzjcNwlbdb" style="width:40px" value="${model.fzjcNwlbdb }">
 							</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>mg/dL</span>
 						</p>
 					</td>
@@ -2386,7 +2349,7 @@ request.setAttribute("openType", openType);
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<b><span style="font-family: 宋体; color: blue"> <input
-									type="text" name="fzjcThxhdb" id="fzjcThxhdb" width="40px" value="${model.fzjcThxhdb }">
+									type="text" name="fzjcThxhdb" id="fzjcThxhdb" style="width:40px" value="${model.fzjcThxhdb }">
 							</span></b><span lang=EN-US>%</span>
 						</p>
 					</td>
@@ -2438,24 +2401,24 @@ request.setAttribute("openType", openType);
 							<b><span style='font-family: 宋体; color: lime'>血清谷</span></b><b><span
 								style='font-size: 10.0pt; font-family: 仿宋_GB2312; color: fuchsia'>丙转氨酶</span></b><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcGgnXqgbzam" id="fzjcGgnXqgbzam" width="40px" value="${model.fzjcGgnXqgbzam }">
+									name="fzjcGgnXqgbzam" id="fzjcGgnXqgbzam" style="width:40px" value="${model.fzjcGgnXqgbzam }">
 							</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>U/L&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							</span><b><span style='font-family: 宋体; color: lime'>血清谷</span></b><b><span
 								style='font-size: 10.0pt; font-family: 仿宋_GB2312; color: fuchsia'>草转氨酶</span></b><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcGgnXqgczam" id="fzjcGgnXqgczam" width="40px" value="${model.fzjcGgnXqgczam }">
+									name="fzjcGgnXqgczam" id="fzjcGgnXqgczam" style="width:40px" value="${model.fzjcGgnXqgczam }">
 							</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>U/L</span>
 						</p>
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<span style='font-family: 宋体'>白蛋白</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcGgnBdb" id="fzjcGgnBdb" width="40px" value="${model.fzjcGgnBdb }">
+									name="fzjcGgnBdb" id="fzjcGgnBdb" style="width:40px" value="${model.fzjcGgnBdb }">
 							</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>g/L&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							</span><b><span style='font-family: 宋体; color: lime'>总胆</span></b><span
 								style='font-family: 宋体'>红素</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcGgnZdhs" id="fzjcGgnZdhs" width="40px" value="${model.fzjcGgnZdhs }">
+									name="fzjcGgnZdhs" id="fzjcGgnZdhs" style="width:40px" value="${model.fzjcGgnZdhs }">
 							</span></b><span lang=EN-US>μ</span><span lang=EN-US
 								style='font-family: 仿宋_GB2312'>mol/L</span>
 						</p>
@@ -2463,7 +2426,7 @@ request.setAttribute("openType", openType);
 							style='line-height: 16.0pt; layout-grid-mode: char'>
 							<span style='font-family: 宋体'>结合胆红素</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcGgnJhdhs" id="fzjcGgnJhdhs" width="40px" value="${model.fzjcGgnJhdhs }">
+									name="fzjcGgnJhdhs" id="fzjcGgnJhdhs" style="width:40px" value="${model.fzjcGgnJhdhs }">
 							</span></b><span lang=EN-US>μ</span><span lang=EN-US
 								style='font-family: 仿宋_GB2312'>mol/L&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							</span>
@@ -2485,24 +2448,24 @@ request.setAttribute("openType", openType);
 							<span style='font-family: 宋体'>血清<b><span
 									style='color: lime'>肌酐</span></b></span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcXgnXqjg" id="fzjcXgnXqjg" width="40px" value="${model.fzjcXgnXqjg }">
+									name="fzjcXgnXqjg" id="fzjcXgnXqjg" style="width:40px" value="${model.fzjcXgnXqjg }">
 							</span></b><span lang=EN-US>μ</span><span lang=EN-US
 								style='font-family: 仿宋_GB2312'>mol/L&nbsp;&nbsp;&nbsp;&nbsp;
 							</span><span style='font-family: 宋体'>血尿<b><span
 									style='color: lime'>素氮</span></b></span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcXgnXnsd" id="fzjcXgnXnsd" width="40px" value="${model.fzjcXgnXnsd }">
+									name="fzjcXgnXnsd" id="fzjcXgnXnsd" style="width:40px" value="${model.fzjcXgnXnsd }">
 							</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>mmol/L</span>
 						</p>
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<span style='font-family: 宋体'>血钾浓度</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcXgnXjnd" id="fzjcXgnXjnd" width="40px" value="${model.fzjcXgnXjnd }">
+									name="fzjcXgnXjnd" id="fzjcXgnXjnd" style="width:40px" value="${model.fzjcXgnXjnd }">
 							</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>mmol/L&nbsp;&nbsp;&nbsp;&nbsp;
 							</span><span style='font-family: 宋体'>血钠浓度</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcXgnXnnd" id="fzjcXgnXnnd" width="40px" value="${model.fzjcXgnXnnd }">
+									name="fzjcXgnXnnd" id="fzjcXgnXnnd" style="width:40px" value="${model.fzjcXgnXnnd }">
 							</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>mmol/L</span>
 						</p>
 						<p class=MsoNormal align=right
@@ -2528,12 +2491,12 @@ request.setAttribute("openType", openType);
 							<b><span style='font-family: 宋体; color: lime'>总胆</span></b><span
 								style='font-family: 宋体'>固醇</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcXzZdgc" id="fzjcXzZdgc" width="40px" value="${model.fzjcXzZdgc }">
+									name="fzjcXzZdgc" id="fzjcXzZdgc" style="width:40px" value="${model.fzjcXzZdgc }">
 							</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>mmol/L&nbsp;&nbsp;&nbsp;&nbsp;
 							</span><b><span style='font-family: 宋体; color: lime'>甘油</span></b><span
 								style='font-family: 宋体'>三酯</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcXzGysz" id="fzjcXzGysz" width="40px" value="${model.fzjcXzGysz }">
+									name="fzjcXzGysz" id="fzjcXzGysz" style="width:40px" value="${model.fzjcXzGysz }">
 							</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>mmol/L</span>
 						</p>
 						<p class=MsoNormal align=left
@@ -2541,7 +2504,7 @@ request.setAttribute("openType", openType);
 							<b><span style='font-family: 宋体; color: lime'>血清</span></b><span
 								style='font-family: 宋体'>低密度脂蛋白胆固醇</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcXzXqdmdzdbdgc" id="fzjcXzXqdmdzdbdgc" width="40px" value="${model.fzjcXzXqdmdzdbdgc }">
+									name="fzjcXzXqdmdzdbdgc" id="fzjcXzXqdmdzdbdgc" style="width:40px" value="${model.fzjcXzXqdmdzdbdgc }">
 							</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>mmol/L</span>
 						</p>
 						<p class=MsoNormal align=left
@@ -2549,7 +2512,7 @@ request.setAttribute("openType", openType);
 							<b><span style='font-family: 宋体; color: lime'>血清</span></b><span
 								style='font-family: 宋体'>高密度脂蛋白胆固醇</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="fzjcXzXqgmdzdbdgc" id="fzjcXzXqgmdzdbdgc" width="40px" value="${model.fzjcXzXqgmdzdbdgc }">
+									name="fzjcXzXqgmdzdbdgc" id="fzjcXzXqgmdzdbdgc" style="width:40px" value="${model.fzjcXzXqgmdzdbdgc }">
 							</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>mmol/L</span>
 						</p>
 					</td>
@@ -2584,7 +2547,7 @@ request.setAttribute("openType", openType);
 										name="fzjcXbxxp" value="异常">
 								</span></span><span style='font-family: 宋体'>异常</span><b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="fzjcXbxxpQt" width="40px" value="${model.fzjcXbxxpQt }">
+										name="fzjcXbxxpQt" style="width:40px" value="${model.fzjcXbxxpQt }">
 								</span></b></span>
 						</p>
 					</td>
@@ -2619,7 +2582,7 @@ request.setAttribute("openType", openType);
 										name="fzjcBc" value="异常" ${model.fzjcBc == '异常' ? 'checked' : '' }>
 								</span></span><span style='font-family: 宋体'>异常</span><b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="fzjcBcQt" id="fzjcBcQt" width="40px" value="${model.fzjcBcQt }">
+										name="fzjcBcQt" id="fzjcBcQt" style="width:40px" value="${model.fzjcBcQt }">
 								</span></b></span>
 						</p>
 					</td>
@@ -2652,7 +2615,7 @@ request.setAttribute("openType", openType);
 										name="fzjcGjtp" value="异常" ${model.fzjcGjtp == '异常' ? 'checked' : '' }>
 								</span></span><span style='font-family: 宋体'>异常</span><b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="fzjcGjtpQt" id="fzjcGjtpQt" width="40px" value="${model.fzjcGjtpQt }">
+										name="fzjcGjtpQt" id="fzjcGjtpQt" style="width:40px" value="${model.fzjcGjtpQt }">
 								</span></b></span>
 						</p>
 					</td>
@@ -3016,7 +2979,7 @@ request.setAttribute("openType", openType);
 								type="checkbox" name="checkbox73" id="checkbox73">
 							</span><span style='font-family: 宋体'>其他</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="xczyjkwtNxgjbQt" id="xczyjkwtNxgjbQt" width="40px" value="${model.xczyjkwtNxgjbQt }">
+									name="xczyjkwtNxgjbQt" id="xczyjkwtNxgjbQt" style="width:40px" value="${model.xczyjkwtNxgjbQt }">
 							</span></b>
 						</p>
 					</td>
@@ -3068,7 +3031,7 @@ request.setAttribute("openType", openType);
 								type="checkbox" name="xczyjkwtSzjb" value="其他" ${fn:contains(model.xczyjkwtSzjb, '其他') ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>其他</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="xczyjkwtSzjbQt" id="xczyjkwtSzjbQt" width="40px" value="${model.xczyjkwtSzjbQt }">
+									name="xczyjkwtSzjbQt" id="xczyjkwtSzjbQt" style="width:40px" value="${model.xczyjkwtSzjbQt }">
 							</span></b>
 						</p>
 					</td>
@@ -3122,7 +3085,7 @@ request.setAttribute("openType", openType);
 								type="checkbox" name="xczyjkwtXzjb" value="其他" ${fn:contains(model.xczyjkwtXzjb, '其他') ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>其他</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="xczyjkwtXzjbQt" id="xczyjkwtXzjbQt" width="40px" value="${model.xczyjkwtXzjbQt }">
+									name="xczyjkwtXzjbQt" id="xczyjkwtXzjbQt" style="width:40px" value="${model.xczyjkwtXzjbQt }">
 							</span></b>
 						</p>
 					</td>
@@ -3142,8 +3105,8 @@ request.setAttribute("openType", openType);
 							<span style='font-family: 宋体'>血管疾病</span>
 						</p>
 					</td>
-					<td width=350 colspan=15
-						style='width: 262.7pt; border: none; border-bottom: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
+					<td width=350 colspan=19
+						style='width: 262.7pt; border: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<span style="font-family: 仿宋_GB2312"> <input
@@ -3159,15 +3122,8 @@ request.setAttribute("openType", openType);
 								name="xczyjkwtXgjb" value="其他" ${fn:contains(model.xczyjkwtXzjb, '其他') ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>其他</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="xczyjkwtXgjbQt" id="xczyjkwtXgjbQt" width="40px" value="${model.xczyjkwtXgjbQt }">
+									name="xczyjkwtXgjbQt" id="xczyjkwtXgjbQt" style="width:40px" value="${model.xczyjkwtXgjbQt }">
 							</span></b>
-						</p>
-					</td>
-					<td width=79 colspan=4
-						style='width: 59.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
-						<p class=MsoNormal align=right
-							style='margin-left: 5.8pt; text-align: right; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
 						</p>
 					</td>
 				</tr>
@@ -3179,8 +3135,8 @@ request.setAttribute("openType", openType);
 							<span style='font-family: 宋体'>眼部疾病</span>
 						</p>
 					</td>
-					<td width=350 colspan=15
-						style='width: 262.7pt; border: none; border-bottom: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 36.25pt'>
+					<td width=350 colspan=19
+						style='width: 262.7pt; border: none; border-right: solid windowtext 1.0pt;border-bottom: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 36.25pt'>
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<span style="font-family: 仿宋_GB2312"> <input
@@ -3195,24 +3151,14 @@ request.setAttribute("openType", openType);
 								style="font-family: 仿宋_GB2312"> <input type="checkbox"
 								name="xczyjkwtYbjb" value="白内障" ${fn:contains(model.xczyjkwtYbjb, '白内障') ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>白内障</span>
-						</p>
-						<p class=MsoNormal align=left
-							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<span class="MsoNormal"
 								style="text-align: left; line-height: 16.0pt; layout-grid-mode: char"><span
 								lang=EN-US style='font-family: 仿宋_GB2312'> <input
 									type="checkbox" name="checkbox95" id="checkbox95">
 							</span><span style='font-family: 宋体'>其他</span><b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="xczyjkwtYbjbQt" id="xczyjkwtYbjbQt" width="40px" value="${model.xczyjkwtYbjbQt }">
+										name="xczyjkwtYbjbQt" id="xczyjkwtYbjbQt" style="width:40px" value="${model.xczyjkwtYbjbQt }">
 								</span></b></span>
-						</p>
-					</td>
-					<td width=79 colspan=4
-						style='width: 59.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 36.25pt'>
-						<p class=MsoNormal align=right
-							style='text-align: right; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
 						</p>
 					</td>
 				</tr>
@@ -3235,7 +3181,7 @@ request.setAttribute("openType", openType);
 								value="有" ${model.xczyjkwtSjxtjb == '有' ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>有<b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="xczyjkwtSjxtjbQt" id="xczyjkwtSjxtjbQt" width="40px" value="${model.xczyjkwtSjxtjbQt }">
+										name="xczyjkwtSjxtjbQt" id="xczyjkwtSjxtjbQt" style="width:40px" value="${model.xczyjkwtSjxtjbQt }">
 								</span></b></span>
 						</p>
 					</td>
@@ -3266,7 +3212,7 @@ request.setAttribute("openType", openType);
 								value="有" ${model.xczyjkwtQtxtjb == '有' ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>有</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="xczyjkwtQtxtjbQt" id="xczyjkwtQtxtjbQt" width="40px" value="${model.xczyjkwtQtxtjbQt }">
+									name="xczyjkwtQtxtjbQt" id="xczyjkwtQtxtjbQt" style="width:40px" value="${model.xczyjkwtQtxtjbQt }">
 							</span></b>
 						</p>
 					</td>
@@ -3723,7 +3669,7 @@ request.setAttribute("openType", openType);
 								type="checkbox" name="wxyskz" value="减体重" ${fn:contains(model.wxyskz, '减体重') ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>减体重（目标<b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="wxyskzMb" id="wxyskzMb" width="40px" value="${model.wxyskzMb }">
+										name="wxyskzMb" id="wxyskzMb" style="width:40px" value="${model.wxyskzMb }">
 								</span></b>）
 							</span>
 						</p>
@@ -3733,7 +3679,7 @@ request.setAttribute("openType", openType);
 								type="checkbox" name="wxyskz" value="建议接种疫苗" ${fn:contains(model.wxyskz, '建议接种疫苗') ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>建议接种疫苗</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="wxyskzJyjzym" id="wxyskzJyjzym" width="40px" value="${model.wxyskzJyjzym }">
+									name="wxyskzJyjzym" id="wxyskzJyjzym" style="width:40px" value="${model.wxyskzJyjzym }">
 							</span></b>
 						</p>
 						<p class=MsoNormal align=left
@@ -3742,7 +3688,7 @@ request.setAttribute("openType", openType);
 								type="checkbox" name="wxyskz" value="其他">
 							</span><span style='font-family: 宋体'>其他</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="wxyskzQt" id="wxyskzQt" width="40px" value="${model.wxyskzQt }">
+									name="wxyskzQt" id="wxyskzQt" style="width:40px" value="${model.wxyskzQt }">
 							</span></b>
 						</p>
 					</td>
@@ -3921,6 +3867,31 @@ request.setAttribute("openType", openType);
 				  }
 				});
 		}
+		
+		
+		//比值计算
+		function round(v,e){
+				var t=1;
+				for(;e>0;t*=10,e--);
+				for(;e<0;t/=10,e++);
+				return Math.round(v*t)/t;
+			}
+		function ytwbz(){
+			var yw = $.trim($('#ybqkYw').val());
+			var tw = $.trim($('#ybqkTunWei').val());
+			
+			if(yw && tw){
+				
+				yw = parseFloat(yw), tw = parseFloat(tw);
+				
+				$('#ybqkYtwbz').val(round(yw/tw, 3));
+				
+			}
+			
+		}
+		$('#ybqkYw').keyup(ytwbz);
+		$('#ybqkTunWei').keyup(ytwbz);
+		
 	</script>
 </body>
 

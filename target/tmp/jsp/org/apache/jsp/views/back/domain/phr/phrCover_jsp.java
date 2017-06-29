@@ -3,6 +3,13 @@ package org.apache.jsp.views.back.domain.phr;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import com.lhfeiyu.po.User;
+import com.lhfeiyu.po.Admin;
+import com.lhfeiyu.tools.ActionUtil;
+import com.lhfeiyu.po.Doctor;
+import com.lhfeiyu.po.Hospital;
+import com.lhfeiyu.service.DoctorService;
+import com.lhfeiyu.service.HospitalService;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import com.lhfeiyu.po.PhrCover;
@@ -72,6 +79,13 @@ public final class phrCover_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("<html>\r\n");
       out.write("\r\n");
       out.write("<head>\r\n");
@@ -84,20 +98,44 @@ public final class phrCover_jsp extends org.apache.jasper.runtime.HttpJspBase
 	if("add".equals(openType)){
 		ServletContext context = request.getSession().getServletContext();
 		ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(context);  
-		//得到基本信息的id
+		//得到档案信息id
 		Integer basicInfoId = Integer.valueOf(request.getParameter("basicInfoId"));
-		//找到体检表的id
+		//找到档案基本信息
 		PhrBasicInfoService service = ctx.getBean(PhrBasicInfoService.class);
 		PhrBasicInfo basicInfo = service.findById(basicInfoId);
+		//找到医生和诊所
+		HospitalService hs = ctx.getBean(HospitalService.class);
+		Hospital hospital = hs.selectByPrimaryKey(basicInfo.getHospitalId());
+		DoctorService ds = ctx.getBean(DoctorService.class);
+		Doctor doctor = ds.selectByPrimaryKey(basicInfo.getDoctorId());
 		
 		PhrCover model = new PhrCover();
-		model.setName(basicInfo.getName());
-		model.setJdrq(new Date());
-		model.setLxdh(basicInfo.getTel());
-		
+		model.setName(basicInfo.getName());//姓名
+		model.setJdrq(new Date());//建档日期
+		model.setLxdh(basicInfo.getTel());//联系电话
+		if(hospital != null){
+			model.setJddw(hospital.getAddress() + hospital.getWholeName());//建档单位
+		}
+		if(doctor != null){
+			model.setZrys(doctor.getRealname());//责任医生
+		}
+		//建档人
+		User currentUser = ActionUtil.checkSession4User(session);
+		if(currentUser != null){
+			model.setJdr(currentUser.getRealName());
+		}
+		Admin currentAdmin = ActionUtil.checkSession4Admin(session);
+		if(currentAdmin != null){
+			model.setJdr(currentAdmin.getUsername());
+		}
+		Doctor currentDoctor = ActionUtil.checkSession4Doctor(session);
+		if(currentDoctor != null){
+			model.setJdr(currentDoctor.getRealname());
+		}
 		request.setAttribute("model", model);
 	}
 	
+	request.setAttribute("openType", openType);
 
       out.write("\r\n");
       out.write("</head>\r\n");
@@ -185,22 +223,26 @@ public final class phrCover_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t<script type=\"text/javascript\"\r\n");
       out.write("\t\tsrc=\"/third-party/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js\"></script>\r\n");
       out.write("\t<script type=\"text/javascript\">\r\n");
+      out.write("\t\tfunction bindDateField(selector) {\r\n");
+      out.write("\t\t\t$(selector).datetimepicker({\r\n");
+      out.write("\t\t\t\tbootcssVer : 3,\r\n");
+      out.write("\t\t\t\tformat : 'yyyy-mm-dd',\r\n");
+      out.write("\t\t\t\ttodayBtn : true,\r\n");
+      out.write("\t\t\t\tlanguage : 'zh-CN',\r\n");
+      out.write("\t\t\t\tstartView : 2,\r\n");
+      out.write("\t\t\t\tviewSelect : 'year',\r\n");
+      out.write("\t\t\t\tminView : 2, //选择日期后，不会再跳转去选择时分秒\r\n");
+      out.write("\t\t\t\tautoclose : true//选择日期后自动关闭\r\n");
+      out.write("\t\t\t});\r\n");
+      out.write("\t\t}\r\n");
       out.write("\t\t$(document).ready(function() {\r\n");
-      out.write("\r\n");
-      out.write("\t\t\tbindDateField(\"#jdrq\");\r\n");
-      out.write("\r\n");
-      out.write("\t\t\tfunction bindDateField(selector) {\r\n");
-      out.write("\t\t\t\t$(selector).datetimepicker({\r\n");
-      out.write("\t\t\t\t\tbootcssVer : 3,\r\n");
-      out.write("\t\t\t\t\tformat : 'yyyy-mm-dd',\r\n");
-      out.write("\t\t\t\t\ttodayBtn : true,\r\n");
-      out.write("\t\t\t\t\tlanguage : 'zh-CN',\r\n");
-      out.write("\t\t\t\t\tstartView : 2,\r\n");
-      out.write("\t\t\t\t\tviewSelect : 'year',\r\n");
-      out.write("\t\t\t\t\tminView : 2, //选择日期后，不会再跳转去选择时分秒 \r\n");
-      out.write("\t\t\t\t\tautoclose : true\r\n");
-      out.write("\t\t\t\t//选择日期后自动关闭 \r\n");
-      out.write("\t\t\t\t});\r\n");
+      out.write("\t\t\tbindDateField(\"#jdrq\");//绑定日期字段\r\n");
+      out.write("\t\t\tvar openType = '");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${openType}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("';\r\n");
+      out.write("\t\t\tif('detail' == openType){\r\n");
+      out.write("\t\t\t\t$(\"input[type=checkbox], input[type=radio]\").attr('disabled', true);\r\n");
+      out.write("\t\t\t\t$(\"input[type=text]\").attr('readonly', true);\r\n");
       out.write("\t\t\t}\r\n");
       out.write("\t\t});\r\n");
       out.write("\t</script>\r\n");

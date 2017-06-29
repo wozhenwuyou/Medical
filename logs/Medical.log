@@ -1353,3 +1353,8 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 	... 71 more
 2017-06-08 20:39:33 [ERROR] - com.lhfeiyu.action.back.domain.phr.PhrAction -Result.java(164) -LH_ERROR-Hospital-PAGE-/back/phr/phrCover/save-出现异常-null
 2017-06-08 23:14:23 [ERROR] - com.lhfeiyu.action.back.domain.phr.PhrAction -Result.java(164) -LH_ERROR-Hospital-PAGE-/back/phr/phrCover/save-出现异常-null
+2017-06-13 20:56:31 [ERROR] - com.lhfeiyu.action.back.domain.phr.PhrAction -Result.java(164) -LH_ERROR-Hospital-PAGE-/back/phr/phrCover/save-出现异常-null
+2017-06-14 19:42:20 [ERROR] - R -LoginAction.java(359) -LH_ERROR-Login-AJAX-/doReg-加载图形验证码出现异常-null
+2017-06-14 19:42:20 [ERROR] - R -LoginAction.java(359) -LH_ERROR-Login-AJAX-/doReg-加载图形验证码出现异常-null
+2017-06-14 19:42:20 [ERROR] - R -LoginAction.java(359) -LH_ERROR-Login-AJAX-/doReg-加载图形验证码出现异常-null
+2017-06-22 22:11:54 [ERROR] - R -Result.java(173) -LH_ERROR-User-AJAX-/getPatientList4select-加载患者列表出现异常-null

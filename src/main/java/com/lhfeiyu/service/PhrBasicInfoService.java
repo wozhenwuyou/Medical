@@ -76,6 +76,9 @@ public class PhrBasicInfoService {
 					if(cmd.getDoctor() != null){
 						c.andHospitalIdEqualTo(cmd.getDoctor().getHospitalId());
 					}
+					if(cmd.getHospital() != null){
+						c.andHospitalIdEqualTo(cmd.getHospital().getId());
+					}
 				} else if (new Integer(3).equals(cmd.getQueryScope())) {// 全部
 
 				}
@@ -88,7 +91,7 @@ public class PhrBasicInfoService {
 				example.setOrderByClause(cmd.getSort() + " " + cmd.getOrder());
 			}
 		}
-
+		example.setOrderByClause("create_time desc");
 		return phrBasicInfoMapper.selectByExample(example);
 	}
 
@@ -136,11 +139,15 @@ public class PhrBasicInfoService {
 					if(cmd.getDoctor() != null){
 						c.andHospitalIdEqualTo(cmd.getDoctor().getHospitalId());
 					}
+					if(cmd.getHospital() != null){
+						c.andHospitalIdEqualTo(cmd.getHospital().getId());
+					}
 				} else if (new Integer(3).equals(cmd.getQueryScope())) {// 全部
 
 				}
 			}
 		}
+		example.setOrderByClause("create_time desc");
 		return phrBasicInfoMapper.countByExample(example);
 	}
 

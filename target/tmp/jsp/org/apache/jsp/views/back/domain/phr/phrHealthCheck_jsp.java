@@ -8,13 +8,9 @@ public final class phrHealthCheck_jsp extends org.apache.jasper.runtime.HttpJspB
     implements org.apache.jasper.runtime.JspSourceDependent {
 
 static private org.apache.jasper.runtime.ProtectedFunctionMapper _jspx_fnmap_0;
-static private org.apache.jasper.runtime.ProtectedFunctionMapper _jspx_fnmap_1;
-static private org.apache.jasper.runtime.ProtectedFunctionMapper _jspx_fnmap_2;
 
 static {
   _jspx_fnmap_0= org.apache.jasper.runtime.ProtectedFunctionMapper.getMapForFunction("fn:contains", org.apache.taglibs.standard.functions.Functions.class, "contains", new Class[] {java.lang.String.class, java.lang.String.class});
-  _jspx_fnmap_1= org.apache.jasper.runtime.ProtectedFunctionMapper.getMapForFunction("fn:length", org.apache.taglibs.standard.functions.Functions.class, "length", new Class[] {java.lang.Object.class});
-  _jspx_fnmap_2= org.apache.jasper.runtime.ProtectedFunctionMapper.getMapForFunction("fn:split", org.apache.taglibs.standard.functions.Functions.class, "split", new Class[] {java.lang.String.class, java.lang.String.class});
 }
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -22,11 +18,6 @@ static {
   private static java.util.List<String> _jspx_dependants;
 
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_fmt_formatDate_value_pattern_nobody;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_varStatus_var_items;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_choose;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_otherwise;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_when_test;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -36,20 +27,10 @@ static {
 
   public void _jspInit() {
     _jspx_tagPool_fmt_formatDate_value_pattern_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_c_forEach_varStatus_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_c_choose = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_c_otherwise = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_c_when_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
     _jspx_tagPool_fmt_formatDate_value_pattern_nobody.release();
-    _jspx_tagPool_c_forEach_varStatus_var_items.release();
-    _jspx_tagPool_c_if_test.release();
-    _jspx_tagPool_c_choose.release();
-    _jspx_tagPool_c_otherwise.release();
-    _jspx_tagPool_c_when_test.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -167,6 +148,10 @@ static {
       out.write("}\r\n");
       out.write("-->\r\n");
       out.write("</style>\r\n");
+
+String openType = request.getParameter("openType");
+request.setAttribute("openType", openType);
+
       out.write("\r\n");
       out.write("</head>\r\n");
       out.write("\r\n");
@@ -472,7 +457,7 @@ static {
       out.write("\t\t\t\t\t\t<p class=MsoNormal align=right\r\n");
       out.write("\t\t\t\t\t\t\tstyle='margin-right: 10.5pt; text-align: right; line-height: 16.0pt'>\r\n");
       out.write("\t\t\t\t\t\t\t<b><span style='font-family: 宋体; color: blue'> <input\r\n");
-      out.write("\t\t\t\t\t\t\t\t\ttype=\"text\" name=\"ybqkTw\" width=\"80px\" id=\"ybqkTw\" value=\"");
+      out.write("\t\t\t\t\t\t\t\t\ttype=\"text\" name=\"ybqkTw\" style=\"width:80px;\" id=\"ybqkTw\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.ybqkTw }", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\">\r\n");
       out.write("\t\t\t\t\t\t\t\t\t℃\r\n");
@@ -518,7 +503,7 @@ static {
       out.write("\t\t\t\t\t\t\t<b><span style='font-family: 宋体; color: blue'> <input\r\n");
       out.write("\t\t\t\t\t\t\t\t\ttype=\"text\" name=\"ybqkHxpl\" id=\"ybqkHxpl\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.ybqkHxpl }", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\" width=\"80px\">\r\n");
+      out.write("\" style=\"width:40px;\">\r\n");
       out.write("\t\t\t\t\t\t\t\t\t次\r\n");
       out.write("\t\t\t\t\t\t\t</span></b><b><span lang=EN-US\r\n");
       out.write("\t\t\t\t\t\t\t\tstyle='font-family: 仿宋_GB2312; color: blue'>/</span></b><b><span\r\n");
@@ -550,12 +535,12 @@ static {
       out.write("\t\t\t\t\t\t\t<b><span style=\"font-family: 宋体; color: blue\"> <input\r\n");
       out.write("\t\t\t\t\t\t\t\t\ttype=\"text\" name=\"ybqkXwZc1\" id=\"ybqkXwZc1\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.ybqkXwZc1 }", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\" width=\"80px\">\r\n");
+      out.write("\" style=\"width:60px\">\r\n");
       out.write("\t\t\t\t\t\t\t</span><span lang=EN-US style='font-family: 仿宋_GB2312; color: blue'>/&nbsp;&nbsp;</span><span\r\n");
       out.write("\t\t\t\t\t\t\t\tstyle=\"font-family: 宋体; color: blue\"> <input type=\"text\"\r\n");
       out.write("\t\t\t\t\t\t\t\t\tname=\"ybqkXwZc2\" id=\"ybqkXwZc2\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.ybqkXwZc2 }", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\" width=\"80px\">\r\n");
+      out.write("\" style=\"width:60px\">\r\n");
       out.write("\t\t\t\t\t\t\t</span><span lang=EN-US style='font-family: 仿宋_GB2312; color: blue'>&nbsp;&nbsp;&nbsp;&nbsp;\r\n");
       out.write("\t\t\t\t\t\t\t\t\tmmHg</span></b>\r\n");
       out.write("\t\t\t\t\t\t</p>\r\n");
@@ -577,11 +562,11 @@ static {
       out.write("\t\t\t\t\t\t\tstyle='margin-right: 6.2pt; text-align: right; line-height: 16.0pt'>\r\n");
       out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'><b><span\r\n");
       out.write("\t\t\t\t\t\t\t\t\tstyle=\"font-family: 宋体; color: blue\"> <input type=\"text\"\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\tname=\"ybqkXwYc1\" id=\"ybqkXwYc1\" width=\"80px\" value=\"");
+      out.write("\t\t\t\t\t\t\t\t\t\tname=\"ybqkXwYc1\" id=\"ybqkXwYc1\" style=\"width:60px\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.ybqkXwYc1 }", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\">\r\n");
       out.write("\t\t\t\t\t\t\t\t</span></b>/&nbsp;&nbsp;<b><span style=\"font-family: 宋体; color: blue\">\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t<input type=\"text\" name=\"ybqkXwYc2\" id=\"ybqkXwYc2\" width=\"80px\" value=\"");
+      out.write("\t\t\t\t\t\t\t\t\t\t<input type=\"text\" name=\"ybqkXwYc2\" id=\"ybqkXwYc2\" style=\"width:60px\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.ybqkXwYc2 }", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\"\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\twidth=\"80px\">\r\n");
@@ -606,7 +591,7 @@ static {
       out.write("\t\t\t\t\t\t\t<b><span style=\"font-family: 宋体; color: blue\"> <input\r\n");
       out.write("\t\t\t\t\t\t\t\t\ttype=\"text\" name=\"ybqkSg\" id=\"ybqkSg\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.ybqkSg }", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\" width=\"80px\">\r\n");
+      out.write("\" style=\"width:80px;\">\r\n");
       out.write("\t\t\t\t\t\t\t</span><span lang=EN-US style='font-family: 仿宋_GB2312; color: blue'>cm</span></b>\r\n");
       out.write("\t\t\t\t\t\t</p>\r\n");
       out.write("\t\t\t\t\t</td>\r\n");
@@ -626,7 +611,7 @@ static {
       out.write("\t\t\t\t\t\t\t<b><span style=\"font-family: 宋体; color: blue\"> <input\r\n");
       out.write("\t\t\t\t\t\t\t\t\ttype=\"text\" name=\"ybqkTz\" id=\"ybqkTz\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.ybqkTz }", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\" width=\"80px\">\r\n");
+      out.write("\" style=\"width:80px;\">\r\n");
       out.write("\t\t\t\t\t\t\t</span><span lang=EN-US style='font-family: 仿宋_GB2312; color: blue'>Kg</span></b>\r\n");
       out.write("\t\t\t\t\t\t</p>\r\n");
       out.write("\t\t\t\t\t</td>\r\n");
@@ -648,7 +633,7 @@ static {
       out.write("\t\t\t\t\t\t\t<b><span style=\"font-family: 宋体; color: blue\"> <input\r\n");
       out.write("\t\t\t\t\t\t\t\t\ttype=\"text\" name=\"ybqkYw\" id=\"ybqkYw\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.ybqkYw }", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\" width=\"80px\">\r\n");
+      out.write("\" style=\"width:80px;\">\r\n");
       out.write("\t\t\t\t\t\t\t</span><span lang=EN-US style='font-family: 仿宋_GB2312; color: blue'>cm</span></b>\r\n");
       out.write("\t\t\t\t\t\t</p>\r\n");
       out.write("\t\t\t\t\t</td>\r\n");
@@ -969,7 +954,7 @@ static {
       out.write("\t\t\t\t\t\t<p class=MsoNormal align=right\r\n");
       out.write("\t\t\t\t\t\t\tstyle='margin-right: 10.5pt; text-align: right; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
       out.write("\t\t\t\t\t\t\t<b><span style=\"font-family: 宋体; color: blue\"> <input\r\n");
-      out.write("\t\t\t\t\t\t\t\t\ttype=\"text\" name=\"shfsTydlMcdlsj\" id=\"shfsTydlMcdlsj\" width=\"40px\" value=\"");
+      out.write("\t\t\t\t\t\t\t\t\ttype=\"text\" name=\"shfsTydlMcdlsj\" id=\"shfsTydlMcdlsj\" style=\"width:40px;\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.shfsTydlMcdlsj }", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\">\r\n");
       out.write("\t\t\t\t\t\t\t</span><span style='font-family: 宋体; color: blue'>分钟</span></b>\r\n");
@@ -1145,7 +1130,7 @@ static {
       out.write("\t\t\t\t\t\t\tclass=MsoNormal style='text-indent: 57.75pt; line-height: 20.0pt'>\r\n");
       out.write("\t\t\t\t\t\t\t<span style='font-family: 宋体'><b><span\r\n");
       out.write("\t\t\t\t\t\t\t\t\tstyle=\"font-family: 宋体; color: blue\"> <input type=\"text\"\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\tname=\"shfsXyqkKsxynl\" id=\"shfsXyqkKsxynl\" width=\"40px\" value=\"");
+      out.write("\t\t\t\t\t\t\t\t\t\tname=\"shfsXyqkKsxynl\" id=\"shfsXyqkKsxynl\" style=\"width:80px;\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.shfsXyqkKsxynl }", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\">\r\n");
       out.write("\t\t\t\t\t\t\t\t</span></b>岁</span>\r\n");
@@ -1297,7 +1282,7 @@ static {
       out.write("\t\t\t\t\t<td width=95 colspan=5\r\n");
       out.write("\t\t\t\t\t\tstyle='width: 71.15pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 0cm 0cm 0cm; height: 15.7pt'>\r\n");
       out.write("\t\t\t\t\t\t<input type=\"text\" name=\"shfsYjqkKsyjnl\" id=\"shfsYjqkKsyjnl\"\r\n");
-      out.write("\t\t\t\t\t\twidth=\"40px\" value=\"");
+      out.write("\t\t\t\t\t\tstyle=\"width:80px;\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.shfsYjqkKsyjnl }", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\"> 岁\r\n");
       out.write("\t\t\t\t\t</td>\r\n");
@@ -1385,18 +1370,15 @@ static {
       out.write("\t\t\t\t\t\t\tstyle='text-align: center; layout-grid-mode: char'>\r\n");
       out.write("\t\t\t\t\t\t\t<span style='font-family: 宋体'>职业病危害因素接触史</span>\r\n");
       out.write("\t\t\t\t\t\t</p>\r\n");
+      out.write("\t\t\t\t\t\t<p class=MsoNormal align=center style='text-align: center; layout-grid-mode: char'>\r\n");
+      out.write("\t\t\t\t\t\t\t<input type=\"button\" value=\"+\" class=\"btn-info\" onclick='fnAddShfsZybwhysjcs(this);'>\r\n");
+      out.write("\t\t\t\t\t\t</p>\r\n");
       out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=388 colspan=18\r\n");
+      out.write("\t\t\t\t\t<td width=388 colspan=18 id=\"zybwhysjcs\"\r\n");
       out.write("\t\t\t\t\t\tstyle='width: 291.15pt; border: none; border-bottom: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 69.55pt'>\r\n");
       out.write("\t\t\t\t\t\t");
-      if (_jspx_meth_c_if_0(_jspx_page_context))
-        return;
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.shfsZybwhysjcs }", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\r\n");
-      out.write("\t\t\t\t\t\t");
-      if (_jspx_meth_c_if_1(_jspx_page_context))
-        return;
-      out.write("\r\n");
-      out.write("\t\t\t\t\t\t\r\n");
       out.write("\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t\t<td width=41 colspan=1\r\n");
       out.write("\t\t\t\t\t\tstyle='width: 30.75pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 69.55pt'>\r\n");
@@ -3958,6 +3940,10 @@ static {
       out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
       out.write("\t\t\t\t\t\t\t<span style='font-family: 宋体'>住院史</span>\r\n");
       out.write("\t\t\t\t\t\t</p>\r\n");
+      out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
+      out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
+      out.write("\t\t\t\t\t\t\t<input type=\"button\" value=\"+\" class=\"btn-info\" onclick=\"javascript:fnAddZys(this);\">\r\n");
+      out.write("\t\t\t\t\t\t</p>\r\n");
       out.write("\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t\t<td width=159 colspan=4\r\n");
       out.write("\t\t\t\t\t\tstyle='width: 119.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
@@ -3993,10 +3979,20 @@ static {
       out.write("\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t\r\n");
-      out.write("\t\t\t\t");
-      if (_jspx_meth_c_choose_0(_jspx_page_context))
-        return;
+      out.write("\t\t\t\t<tr style='page-break-inside: avoid; height: 18.45pt'>\r\n");
+      out.write("\t\t\t\t\t<td width=159 colspan=19 id=\"td_zys\"\r\n");
+      out.write("\t\t\t\t\t\tstyle='width: 119.05pt; border-top: none; border-left: none; border-bottom: none; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
+      out.write("\t\t\t\t\t\t");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.zysDes }", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\r\n");
+      out.write("\t\t\t\t\t</td>\r\n");
+      out.write("\t\t\t\t</tr>\r\n");
+      out.write("\t\t\t\t<tr style='page-break-inside: avoid;'>\r\n");
+      out.write("\t\t\t\t\t<td width=159 colspan=19\r\n");
+      out.write("\t\t\t\t\t\tstyle='width: 119.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
+      out.write("\t\t\t\t\t&nbsp;\r\n");
+      out.write("\t\t\t\t\t</td>\r\n");
+      out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t\r\n");
       out.write("\t\t\t\t<tr style='page-break-inside: avoid; height: 18.45pt'>\r\n");
       out.write("\t\t\t\t\t<td width=102 colspan=2 rowspan=3\r\n");
@@ -4010,6 +4006,10 @@ static {
       out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
       out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
       out.write("\t\t\t\t\t\t\t<span style='font-family: 宋体'>病床史</span>\r\n");
+      out.write("\t\t\t\t\t\t</p>\r\n");
+      out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
+      out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
+      out.write("\t\t\t\t\t\t\t<input type=\"button\" value=\"+\" class=\"btn-info\" onclick=\"javascript:fnAddJtbcs(this);\">\r\n");
       out.write("\t\t\t\t\t\t</p>\r\n");
       out.write("\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t\t<td width=159 colspan=4\r\n");
@@ -4046,63 +4046,17 @@ static {
       out.write("\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t<tr style='page-break-inside: avoid; height: 18.45pt'>\r\n");
-      out.write("\t\t\t\t\t<td width=159 colspan=4\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 119.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=84 colspan=4\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 62.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=108 colspan=7\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 80.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=79 colspan=4\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 59.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
+      out.write("\t\t\t\t\t<td width=159 colspan=19 id=\"td_jtbcsDes\"\r\n");
+      out.write("\t\t\t\t\t\tstyle='width: 119.05pt; border-top: none; border-left: none; border-bottom: none; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
+      out.write("\t\t\t\t\t");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.jtbcsDes }", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\r\n");
       out.write("\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t<tr style='page-break-inside: avoid; height: 18.45pt'>\r\n");
-      out.write("\t\t\t\t\t<td width=159 colspan=4\r\n");
+      out.write("\t\t\t\t\t<td width=159 colspan=19\r\n");
       out.write("\t\t\t\t\t\tstyle='width: 119.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=84 colspan=4\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 62.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=108 colspan=7\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 80.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=79 colspan=4\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 59.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
+      out.write("\t\t\t\t\t&nbsp;\r\n");
       out.write("\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t<tr style='page-break-inside: avoid; height: 38.9pt'>\r\n");
@@ -4115,6 +4069,10 @@ static {
       out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
       out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt'>\r\n");
       out.write("\t\t\t\t\t\t\t<span style='font-family: 宋体'>情况</span>\r\n");
+      out.write("\t\t\t\t\t\t</p>\r\n");
+      out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
+      out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
+      out.write("\t\t\t\t\t\t\t<input type=\"button\" value=\"+\" class=\"btn-info\" onclick=\"javascript:fnAddYyqk(this);\">\r\n");
       out.write("\t\t\t\t\t\t</p>\r\n");
       out.write("\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t\t<td width=102 colspan=2\r\n");
@@ -4163,224 +4121,55 @@ static {
       out.write("\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t<tr style='page-break-inside: avoid; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t<td width=102 colspan=2\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>1</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
+      out.write("\t\t\t\t\t<td width=102 colspan=21 id=\"td_yy\"\r\n");
+      out.write("\t\t\t\t\t\tstyle='width: 76.85pt; border-top: none; border-left: none; border-bottom: none; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
+      out.write("\t\t\t\t\t\t");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.yyqkDes }", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\r\n");
       out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=131 colspan=2\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 98.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
+      out.write("\t\t\t\t</tr>\r\n");
+      out.write("\t\t\t\t<tr style='page-break-inside: avoid; height: 22.7pt'>\r\n");
+      out.write("\t\t\t\t\t<td width=102 colspan=21\r\n");
+      out.write("\t\t\t\t\t\tstyle='width: 76.85pt; border-top: none; border-left: none; border-bottom: none; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
       out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
       out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=58 colspan=4\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 43.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=79 colspan=4\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 59.4pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=160 colspan=9\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 120.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
+      out.write("\t\t\t\t\t\t\t&nbsp;\r\n");
       out.write("\t\t\t\t\t\t</p>\r\n");
       out.write("\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t<tr style='page-break-inside: avoid; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t<td width=102 colspan=2\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
+      out.write("\t\t\t\t\t<td width=102 colspan=21\r\n");
+      out.write("\t\t\t\t\t\tstyle='width: 76.85pt; border-top: none; border-left: none; border-bottom: none; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
       out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
       out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>2</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=131 colspan=2\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 98.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=58 colspan=4\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 43.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=79 colspan=4\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 59.4pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=160 colspan=9\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 120.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
+      out.write("\t\t\t\t\t\t\t&nbsp;\r\n");
       out.write("\t\t\t\t\t\t</p>\r\n");
       out.write("\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t<tr style='page-break-inside: avoid; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t<td width=102 colspan=2\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
+      out.write("\t\t\t\t\t<td width=102 colspan=21\r\n");
+      out.write("\t\t\t\t\t\tstyle='width: 76.85pt; border-top: none; border-left: none; border-bottom: none; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
       out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
       out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>3</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=131 colspan=2\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 98.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=58 colspan=4\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 43.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=79 colspan=4\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 59.4pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=160 colspan=9\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 120.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
+      out.write("\t\t\t\t\t\t\t&nbsp;\r\n");
       out.write("\t\t\t\t\t\t</p>\r\n");
       out.write("\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t<tr style='page-break-inside: avoid; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t<td width=102 colspan=2\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
+      out.write("\t\t\t\t\t<td width=102 colspan=21\r\n");
+      out.write("\t\t\t\t\t\tstyle='width: 76.85pt; border-top: none; border-left: none; border-bottom: none; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
       out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
       out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>4</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=131 colspan=2\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 98.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=58 colspan=4\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 43.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=79 colspan=4\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 59.4pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=160 colspan=9\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 120.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
+      out.write("\t\t\t\t\t\t\t&nbsp;\r\n");
       out.write("\t\t\t\t\t\t</p>\r\n");
       out.write("\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t<tr style='page-break-inside: avoid; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t<td width=102 colspan=2\r\n");
+      out.write("\t\t\t\t\t<td width=102 colspan=21\r\n");
       out.write("\t\t\t\t\t\tstyle='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
       out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
       out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>5</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=131 colspan=2\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 98.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=58 colspan=4\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 43.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=79 colspan=4\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 59.4pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=160 colspan=9\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 120.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t</tr>\r\n");
-      out.write("\t\t\t\t<tr style='page-break-inside: avoid; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t<td width=102 colspan=2\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>6</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=131 colspan=2\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 98.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=58 colspan=4\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 43.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=79 colspan=4\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 59.4pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=160 colspan=9\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 120.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
+      out.write("\t\t\t\t\t\t\t&nbsp;\r\n");
       out.write("\t\t\t\t\t\t</p>\r\n");
       out.write("\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
@@ -4394,6 +4183,10 @@ static {
       out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
       out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 12.0pt'>\r\n");
       out.write("\t\t\t\t\t\t\t<span style='font-family: 宋体'>规划预防接种史</span>\r\n");
+      out.write("\t\t\t\t\t\t</p>\r\n");
+      out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
+      out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
+      out.write("\t\t\t\t\t\t\t<input type=\"button\" value=\"+\" class=\"btn-info\" onclick=\"javascript:fnAddJzs(this);\">\r\n");
       out.write("\t\t\t\t\t\t</p>\r\n");
       out.write("\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t\t<td width=102 colspan=2\r\n");
@@ -4419,72 +4212,23 @@ static {
       out.write("\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t<tr style='page-break-inside: avoid; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t<td width=102 colspan=2\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>1</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=131 colspan=2\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 98.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=298 colspan=17\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 223.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
+      out.write("\t\t\t\t\t<td width=102 colspan=21 id=\"td_jzs\"\r\n");
+      out.write("\t\t\t\t\t\tstyle='width: 76.85pt; border-top: none; border-left: none; border-bottom: none; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
+      out.write("\t\t\t\t\t\t");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.fmyghyfjzsDes }", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\r\n");
       out.write("\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t<tr style='page-break-inside: avoid; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t<td width=102 colspan=2\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>2</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=131 colspan=2\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 98.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=298 colspan=17\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 223.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
+      out.write("\t\t\t\t\t<td width=102 colspan=21\r\n");
+      out.write("\t\t\t\t\t\tstyle='width: 76.85pt; border-top: none; border-left: none; border-bottom: none; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
+      out.write("\t\t\t\t\t\t&nbsp;\r\n");
       out.write("\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t<tr style='page-break-inside: avoid; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t<td width=102 colspan=2\r\n");
+      out.write("\t\t\t\t\t<td width=102 colspan=21\r\n");
       out.write("\t\t\t\t\t\tstyle='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>3</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=131 colspan=2\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 98.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
-      out.write("\t\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t\t<td width=298 colspan=17\r\n");
-      out.write("\t\t\t\t\t\tstyle='width: 223.45pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 22.7pt'>\r\n");
-      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
-      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-      out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>\r\n");
-      out.write("\t\t\t\t\t\t</p>\r\n");
+      out.write("\t\t\t\t\t\t&nbsp;\r\n");
       out.write("\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t<tr style='page-break-inside: avoid; height: 109.5pt'>\r\n");
@@ -4578,6 +4322,14 @@ static {
       out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
       out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
       out.write("\t\t\t\t\t\t\t<b><span style='font-family: 宋体; color: lime'>（如有疾病要填本栏）</span></b>\r\n");
+      out.write("\t\t\t\t\t\t</p>\r\n");
+      out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
+      out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
+      out.write("\t\t\t\t\t\t\t<span style=\"font-family: 仿宋_GB2312\"> <input\r\n");
+      out.write("\t\t\t\t\t\t\t\ttype=\"checkbox\" name=\"jkzdDes\" value=\"定期随访\" ");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fn:contains(model.jkzdDes, '定期随访') ? 'checked' : '' }", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_0));
+      out.write(">\r\n");
+      out.write("\t\t\t\t\t\t\t</span><span style='font-family: 宋体'>定期随访</span>\r\n");
       out.write("\t\t\t\t\t\t</p>\r\n");
       out.write("\t\t\t\t\t\t<p class=MsoNormal align=left\r\n");
       out.write("\t\t\t\t\t\t\tstyle='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
@@ -4712,31 +4464,151 @@ static {
       out.write("\t\t<p class=MsoNormal>\r\n");
       out.write("\t\t\t<span lang=EN-US>&nbsp;</span>\r\n");
       out.write("\t\t</p>\r\n");
-      out.write("\r\n");
+      out.write("\t\t\r\n");
       out.write("\t</div>\r\n");
       out.write("\t<script src=\"/third-party/jquery/jquery-1.11.3.min.js\"></script>\r\n");
+      out.write("\t<script src=\"/third-party/z.js\"></script>\r\n");
       out.write("\t<script type=\"text/javascript\" src=\"/third-party/bootstrap/js/bootstrap.min.js\"></script>\r\n");
       out.write("\t<script type=\"text/javascript\" src=\"/third-party/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js\"></script>\r\n");
       out.write("\t<script type=\"text/javascript\" src=\"/third-party/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js\"></script>\r\n");
       out.write("\t<script type=\"text/javascript\">\r\n");
       out.write("\t\t$(document).ready(function() {\r\n");
       out.write("\r\n");
-      out.write("\t\t\tbindDateField(\"#tjrq\");\r\n");
-      out.write("\r\n");
-      out.write("\t\t\tfunction bindDateField(selector) {\r\n");
-      out.write("\t\t\t\t$(selector).datetimepicker({\r\n");
-      out.write("\t\t\t\t\tbootcssVer : 3,\r\n");
-      out.write("\t\t\t\t\tformat : 'yyyy-mm-dd',\r\n");
-      out.write("\t\t\t\t\ttodayBtn : true,\r\n");
-      out.write("\t\t\t\t\tlanguage : 'zh-CN',\r\n");
-      out.write("\t\t\t\t\tstartView : 2,\r\n");
-      out.write("\t\t\t\t\tviewSelect : 'year',\r\n");
-      out.write("\t\t\t\t\tminView : 2, //选择日期后，不会再跳转去选择时分秒 \r\n");
-      out.write("\t\t\t\t\tautoclose : true\r\n");
-      out.write("\t\t\t\t//选择日期后自动关闭 \r\n");
-      out.write("\t\t\t\t});\r\n");
+      out.write("\t\t\tvar openType = '");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${openType}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("';\r\n");
+      out.write("\t\t\t\r\n");
+      out.write("\t\t\tif(openType != 'detail'){\r\n");
+      out.write("\t\t\t\tbindDateField(\"#tjrq\");\r\n");
+      out.write("\t\t\t}\r\n");
+      out.write("\t\t\t\r\n");
+      out.write("\t\t\t\r\n");
+      out.write("\t\t\tif(openType == 'detail'){\r\n");
+      out.write("\t\t\t\t$(\"input[type=checkbox], input[type=radio]\").attr('disabled', true);\r\n");
+      out.write("\t\t\t\t$(\"input[type=text]\").attr('readonly', true);\r\n");
       out.write("\t\t\t}\r\n");
       out.write("\t\t});\r\n");
+      out.write("\t\tfunction bindDateField(selector) {\r\n");
+      out.write("\t\t\t$(selector).datetimepicker({\r\n");
+      out.write("\t\t\t\tbootcssVer : 3,\r\n");
+      out.write("\t\t\t\tformat : 'yyyy-mm-dd',\r\n");
+      out.write("\t\t\t\ttodayBtn : true,\r\n");
+      out.write("\t\t\t\tlanguage : 'zh-CN',\r\n");
+      out.write("\t\t\t\tstartView : 2,\r\n");
+      out.write("\t\t\t\tviewSelect : 'year',\r\n");
+      out.write("\t\t\t\tminView : 2, //选择日期后，不会再跳转去选择时分秒 \r\n");
+      out.write("\t\t\t\tautoclose : true\r\n");
+      out.write("\t\t\t});\r\n");
+      out.write("\t\t}\r\n");
+      out.write("\t\tfunction fnAddJzs(btn){\r\n");
+      out.write("\t\t\tvar index = top.layer.open({\r\n");
+      out.write("\t\t\t\t  title: '添加非免疫性接种史',\r\n");
+      out.write("\t\t\t\t  area: ['700px', '180px'],\r\n");
+      out.write("\t\t\t\t  btn : ['确定', '取消'],\r\n");
+      out.write("\t\t\t\t  content: '名称：<input style=\"width:80px;\" type=\"text\" name=\"_jzs1\">&nbsp;接种日期：<input style=\"width:80px;\" type=\"text\" name=\"_jzs2\">&nbsp;接种机构：<input style=\"width:80px;\" type=\"text\" name=\"_jzs3\">',\r\n");
+      out.write("\t\t\t\t  success : function(){\r\n");
+      out.write("\t\t\t\t  },\r\n");
+      out.write("\t\t\t\t  yes : function(){\r\n");
+      out.write("\t\t\t\t\t  var v0 = top.$(\"input[name='_jzs1']\").val();\r\n");
+      out.write("\t\t\t\t\t  var v1 = top.$(\"input[name='_jzs2']\").val();\r\n");
+      out.write("\t\t\t\t\t  var v2 = top.$(\"input[name='_jzs3']\").val();\r\n");
+      out.write("\t\t\t\t\t  var tpl = '<p>名称：{0}，接种日期：{1}，接种机构：{2}。&nbsp;<input value=\"x\" type=\"button\" class=\"btn-danger\" onclick=\"$(this).parent().remove();\"></p>';\r\n");
+      out.write("\t\t\t\t\t  $(\"#td_jzs\").append(tpl.format([v0, v1, v2]));\r\n");
+      out.write("\t\t\t\t\t  top.layer.close(index);\r\n");
+      out.write("\t\t\t\t  },\r\n");
+      out.write("\t\t\t\t  btn2 : function(){\r\n");
+      out.write("\t\t\t\t\t  top.layer.close(index);\r\n");
+      out.write("\t\t\t\t  }\r\n");
+      out.write("\t\t\t\t});\r\n");
+      out.write("\t\t}\r\n");
+      out.write("\t\tfunction fnAddYyqk(btn){\r\n");
+      out.write("\t\t\tvar index = top.layer.open({\r\n");
+      out.write("\t\t\t\t  title: '添加用药情况',\r\n");
+      out.write("\t\t\t\t  area: ['800px', '180px'],\r\n");
+      out.write("\t\t\t\t  btn : ['确定', '取消'],\r\n");
+      out.write("\t\t\t\t  content: '药物名称：<input style=\"width:80px;\" type=\"text\" name=\"_yy1\">&nbsp;用法：<input style=\"width:80px;\" type=\"text\" name=\"_yy2\">&nbsp;用量：<input style=\"width:80px;\" type=\"text\" name=\"_yy3\">&nbsp;用药时间：<input style=\"width:80px;\" type=\"text\" name=\"_yy4\">&nbsp;<select style=\"width:80px;\" name=\"_yy5\"><option value=\"规律\">规律</option><option value=\"间断\">间断</option><option value=\"不服药\">不服药</option></select>',\r\n");
+      out.write("\t\t\t\t  success : function(){\r\n");
+      out.write("\t\t\t\t  },\r\n");
+      out.write("\t\t\t\t  yes : function(){\r\n");
+      out.write("\t\t\t\t\t  var v0 = top.$(\"input[name='_yy1']\").val();\r\n");
+      out.write("\t\t\t\t\t  var v1 = top.$(\"input[name='_yy2']\").val();\r\n");
+      out.write("\t\t\t\t\t  var v2 = top.$(\"input[name='_yy3']\").val();\r\n");
+      out.write("\t\t\t\t\t  var v3 = top.$(\"input[name='_yy4']\").val();\r\n");
+      out.write("\t\t\t\t\t  var v4 = top.$(\"select[name='_yy5']\").val();\r\n");
+      out.write("\t\t\t\t\t  var tpl = '<p>药物名称：{0}，用法：{1}，用量：{2}，用药时间：{3}，服药依从性：{4}。&nbsp;<input class=\"btn-danger\" value=\"x\" type=\"button\" onclick=\"$(this).parent().remove();\"></p>';\r\n");
+      out.write("\t\t\t\t\t  $(\"#td_yy\").append(tpl.format([v0, v1, v2, v3, v4]));\r\n");
+      out.write("\t\t\t\t\t  top.layer.close(index);\r\n");
+      out.write("\t\t\t\t  },\r\n");
+      out.write("\t\t\t\t  btn2 : function(){\r\n");
+      out.write("\t\t\t\t\t  top.layer.close(index);\r\n");
+      out.write("\t\t\t\t  }\r\n");
+      out.write("\t\t\t\t});\r\n");
+      out.write("\t\t}\r\n");
+      out.write("\t\tfunction fnAddJtbcs(btn){\r\n");
+      out.write("\t\t\tvar index = top.layer.open({\r\n");
+      out.write("\t\t\t\t  title: '添加家庭病床史',\r\n");
+      out.write("\t\t\t\t  area: ['750px', '180px'],\r\n");
+      out.write("\t\t\t\t  btn : ['确定', '取消'],\r\n");
+      out.write("\t\t\t\t  content: '建/撤床日期：<input style=\"width:80px;\" type=\"text\" name=\"_jt1\">&nbsp;原因：<input style=\"width:80px;\" type=\"text\" name=\"_jt2\">&nbsp;医疗机构名称：<input style=\"width:80px;\" type=\"text\" name=\"_jt3\">&nbsp;病案号：<input style=\"width:80px;\" type=\"text\" name=\"_jt4\">',\r\n");
+      out.write("\t\t\t\t  success : function(){\r\n");
+      out.write("\t\t\t\t  },\r\n");
+      out.write("\t\t\t\t  yes : function(){\r\n");
+      out.write("\t\t\t\t\t  var v0 = top.$(\"input[name='_jt1']\").val();\r\n");
+      out.write("\t\t\t\t\t  var v1 = top.$(\"input[name='_jt2']\").val();\r\n");
+      out.write("\t\t\t\t\t  var v2 = top.$(\"input[name='_jt3']\").val();\r\n");
+      out.write("\t\t\t\t\t  var v3 = top.$(\"input[name='_jt4']\").val();\r\n");
+      out.write("\t\t\t\t\t  var tpl = '<p>建/撤床日期：{0}，原因：{1}，医疗机构名称：{2}，病案号：{3}。&nbsp;<input value=\"x\" class=\"btn-danger\" type=\"button\" onclick=\"$(this).parent().remove();\"></p>';\r\n");
+      out.write("\t\t\t\t\t  $(\"#td_jtbcsDes\").append(tpl.format([v0, v1, v2, v3]));\r\n");
+      out.write("\t\t\t\t\t  top.layer.close(index);\r\n");
+      out.write("\t\t\t\t  },\r\n");
+      out.write("\t\t\t\t  btn2 : function(){\r\n");
+      out.write("\t\t\t\t\t  top.layer.close(index);\r\n");
+      out.write("\t\t\t\t  }\r\n");
+      out.write("\t\t\t\t});\r\n");
+      out.write("\t\t}\r\n");
+      out.write("\t\tfunction fnAddZys(btn){\r\n");
+      out.write("\t\t\tvar index = top.layer.open({\r\n");
+      out.write("\t\t\t\t  title: '添加住院史',\r\n");
+      out.write("\t\t\t\t  area: ['750px', '180px'],\r\n");
+      out.write("\t\t\t\t  btn : ['确定', '取消'],\r\n");
+      out.write("\t\t\t\t  content: '入/出院日期：<input style=\"width:80px;\" type=\"text\" name=\"_zysj\">&nbsp;原因：<input style=\"width:80px;\" type=\"text\" name=\"_zyyy\">&nbsp;医疗机构名称：<input style=\"width:80px;\" type=\"text\" name=\"_yljgmc\">&nbsp;病案号：<input style=\"width:80px;\" type=\"text\" name=\"_bah\">',\r\n");
+      out.write("\t\t\t\t  success : function(){\r\n");
+      out.write("\t\t\t\t  },\r\n");
+      out.write("\t\t\t\t  yes : function(){\r\n");
+      out.write("\t\t\t\t\t  var v0 = top.$(\"input[name='_zysj']\").val();\r\n");
+      out.write("\t\t\t\t\t  var v1 = top.$(\"input[name='_zyyy']\").val();\r\n");
+      out.write("\t\t\t\t\t  var v2 = top.$(\"input[name='_yljgmc']\").val();\r\n");
+      out.write("\t\t\t\t\t  var v3 = top.$(\"input[name='_bah']\").val();\r\n");
+      out.write("\t\t\t\t\t  var tpl = '<p>入/出院日期：{0}，原因：{1}，医疗机构名称：{2}，病案号：{3}。&nbsp;<input value=\"x\" class=\"btn-danger\" type=\"button\" onclick=\"$(this).parent().remove();\"></p>';\r\n");
+      out.write("\t\t\t\t\t  $(\"#td_zys\").append(tpl.format([v0, v1, v2, v3]));\r\n");
+      out.write("\t\t\t\t\t  top.layer.close(index);\r\n");
+      out.write("\t\t\t\t  },\r\n");
+      out.write("\t\t\t\t  btn2 : function(){\r\n");
+      out.write("\t\t\t\t\t  top.layer.close(index);\r\n");
+      out.write("\t\t\t\t  }\r\n");
+      out.write("\t\t\t\t});\r\n");
+      out.write("\t\t}\r\n");
+      out.write("\t\t//添加xx接触史\r\n");
+      out.write("\t\tfunction fnAddShfsZybwhysjcs(btn){\r\n");
+      out.write("\t\t\tvar index = top.layer.open({\r\n");
+      out.write("\t\t\t\t  title: '添加职业病史',\r\n");
+      out.write("\t\t\t\t  area: ['700px', '180px'],\r\n");
+      out.write("\t\t\t\t  btn : ['确定', '取消'],\r\n");
+      out.write("\t\t\t\t  content: '工种：<input style=\"width:80px;\" type=\"text\" name=\"_gz\">&nbsp;从业时间：<input style=\"width:80px;\" type=\"text\" name=\"_cysj\">年，毒物种类：<input style=\"width:80px;\" type=\"text\" name=\"_dwzl\">&nbsp;防护措施：<input style=\"width:80px;\" type=\"text\" name=\"_fhcs\">',\r\n");
+      out.write("\t\t\t\t  yes : function(){\r\n");
+      out.write("\t\t\t\t\t  var v0 = top.$(\"input[name='_gz']\").val();\r\n");
+      out.write("\t\t\t\t\t  var v1 = top.$(\"input[name='_cysj']\").val();\r\n");
+      out.write("\t\t\t\t\t  var v2 = top.$(\"input[name='_dwzl']\").val();\r\n");
+      out.write("\t\t\t\t\t  var v3 = top.$(\"input[name='_fhcs']\").val();\r\n");
+      out.write("\t\t\t\t\t  var tpl = '<p>工种{0}，从业时间{1}年，毒物种类{2}，防护措施{3}&nbsp;<input value=\"x\" type=\"button\" class=\"btn-danger\" onclick=\"$(this).parent().remove();\"></p>';\r\n");
+      out.write("\t\t\t\t\t  $(\"#zybwhysjcs\").append(tpl.format([v0, v1, v2, v3]));\r\n");
+      out.write("\t\t\t\t\t  top.layer.close(index);\r\n");
+      out.write("\t\t\t\t  },\r\n");
+      out.write("\t\t\t\t  btn2 : function(){\r\n");
+      out.write("\t\t\t\t\t  top.layer.close(index);\r\n");
+      out.write("\t\t\t\t  }\r\n");
+      out.write("\t\t\t\t});\r\n");
+      out.write("\t\t}\r\n");
       out.write("\t</script>\r\n");
       out.write("</body>\r\n");
       out.write("\r\n");
@@ -4770,357 +4642,6 @@ static {
       return true;
     }
     _jspx_tagPool_fmt_formatDate_value_pattern_nobody.reuse(_jspx_th_fmt_formatDate_0);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_if_0(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:if
-    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
-    _jspx_th_c_if_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_if_0.setParent(null);
-    _jspx_th_c_if_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.shfsZybwhysjcs != null && fn:length(model.shfsZybwhysjcs) > 0}", java.lang.Boolean.class, (PageContext)_jspx_page_context, _jspx_fnmap_1)).booleanValue());
-    int _jspx_eval_c_if_0 = _jspx_th_c_if_0.doStartTag();
-    if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("\r\n");
-        out.write("\t\t\t\t\t\t\t");
-        if (_jspx_meth_c_forEach_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_0, _jspx_page_context))
-          return true;
-        out.write("\t\t\t\r\n");
-        out.write("\t\t\t\t\t\t");
-        int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_c_if_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
-      return true;
-    }
-    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_forEach_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_if_0, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:forEach
-    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_varStatus_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
-    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_forEach_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_if_0);
-    _jspx_th_c_forEach_0.setVar("rows");
-    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fn:split(model.shfsZybwhysjcs, ',') }", java.lang.Object.class, (PageContext)_jspx_page_context, _jspx_fnmap_2));
-    _jspx_th_c_forEach_0.setVarStatus("varStatus");
-    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
-    try {
-      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
-      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-        do {
-          out.write("\r\n");
-          out.write("\t\t\t\t\t\t\t\t<p>工种<input value=\"");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fn:split(row, ';')[0] }", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_2));
-          out.write("\" type=\"text\" name=\"gz");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${varStatus.count }", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\" style=\"width:40px\">，从业时间<input value=\"");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fn:split(row, ';')[1] }", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_2));
-          out.write("\" type=\"text\" name=\"cysj");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${varStatus.count }", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\" style=\"width:40px\">年，毒物种类<input value=\"");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fn:split(row, ';')[2] }", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_2));
-          out.write("\" type=\"text\" name=\"dwzl");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${varStatus.count }", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\" style=\"width:40px\">，防护错误<input value=\"");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fn:split(row, ';')[3] }", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_2));
-          out.write("\" type=\"text\" name=\"fhcs");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${varStatus.count }", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\" style=\"width:40px\"></p>\r\n");
-          out.write("\t\t\t\t\t\t\t");
-          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
-          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-            break;
-        } while (true);
-      }
-      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-        return true;
-      }
-    } catch (Throwable _jspx_exception) {
-      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
-        out = _jspx_page_context.popBody();
-      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
-    } finally {
-      _jspx_th_c_forEach_0.doFinally();
-      _jspx_tagPool_c_forEach_varStatus_var_items.reuse(_jspx_th_c_forEach_0);
-    }
-    return false;
-  }
-
-  private boolean _jspx_meth_c_if_1(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:if
-    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_1 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
-    _jspx_th_c_if_1.setPageContext(_jspx_page_context);
-    _jspx_th_c_if_1.setParent(null);
-    _jspx_th_c_if_1.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.shfsZybwhysjcs == null || fn:length(model.shfsZybwhysjcs) <= 0}", java.lang.Boolean.class, (PageContext)_jspx_page_context, _jspx_fnmap_1)).booleanValue());
-    int _jspx_eval_c_if_1 = _jspx_th_c_if_1.doStartTag();
-    if (_jspx_eval_c_if_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("\r\n");
-        out.write("\t\t\t\t\t\t\t<p>工种<input type=\"text\" name=\"gz1\" style=\"width:40px\">，从业时间<input type=\"text\" name=\"cysj1\" style=\"width:40px\">年，毒物种类<input type=\"text\" name=\"dwzl1\" style=\"width:40px\">，防护错误<input type=\"text\" name=\"fhcs1\" style=\"width:40px\"></p>\r\n");
-        out.write("\t\t\t\t\t\t\t<p>工种<input type=\"text\" name=\"gz2\" style=\"width:40px\">，从业时间<input type=\"text\" name=\"cysj2\" style=\"width:40px\">年，毒物种类<input type=\"text\" name=\"dwzl2\" style=\"width:40px\">，防护错误<input type=\"text\" name=\"fhcs2\" style=\"width:40px\"></p>\r\n");
-        out.write("\t\t\t\t\t\t\t<p>工种<input type=\"text\" name=\"gz3\" style=\"width:40px\">，从业时间<input type=\"text\" name=\"cysj3\" style=\"width:40px\">年，毒物种类<input type=\"text\" name=\"dwzl3\" style=\"width:40px\">，防护错误<input type=\"text\" name=\"fhcs3\" style=\"width:40px\"></p>\r\n");
-        out.write("\t\t\t\t\t\t\t<p>工种<input type=\"text\" name=\"gz4\" style=\"width:40px\">，从业时间<input type=\"text\" name=\"cysj4\" style=\"width:40px\">年，毒物种类<input type=\"text\" name=\"dwzl4\" style=\"width:40px\">，防护错误<input type=\"text\" name=\"fhcs4\" style=\"width:40px\"></p>\r\n");
-        out.write("\t\t\t\t\t\t\t<p>工种<input type=\"text\" name=\"gz5\" style=\"width:40px\">，从业时间<input type=\"text\" name=\"cysj5\" style=\"width:40px\">年，毒物种类<input type=\"text\" name=\"dwzl5\" style=\"width:40px\">，防护错误<input type=\"text\" name=\"fhcs5\" style=\"width:40px\"></p>\r\n");
-        out.write("\t\t\t\t\t\t");
-        int evalDoAfterBody = _jspx_th_c_if_1.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_c_if_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_1);
-      return true;
-    }
-    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_1);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_choose_0(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:choose
-    org.apache.taglibs.standard.tag.common.core.ChooseTag _jspx_th_c_choose_0 = (org.apache.taglibs.standard.tag.common.core.ChooseTag) _jspx_tagPool_c_choose.get(org.apache.taglibs.standard.tag.common.core.ChooseTag.class);
-    _jspx_th_c_choose_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_choose_0.setParent(null);
-    int _jspx_eval_c_choose_0 = _jspx_th_c_choose_0.doStartTag();
-    if (_jspx_eval_c_choose_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("\r\n");
-        out.write("\t\t\t\t\t");
-        if (_jspx_meth_c_when_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
-          return true;
-        out.write("\r\n");
-        out.write("\t\t\t\t\t");
-        if (_jspx_meth_c_otherwise_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
-          return true;
-        out.write("\r\n");
-        out.write("\t\t\t\t");
-        int evalDoAfterBody = _jspx_th_c_choose_0.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_c_choose_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_0);
-      return true;
-    }
-    _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_0);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_when_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:when
-    org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_when_0 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _jspx_tagPool_c_when_test.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
-    _jspx_th_c_when_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_when_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
-    _jspx_th_c_when_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.zysDes != null && fn:length(model.zysDes) > 0 }", java.lang.Boolean.class, (PageContext)_jspx_page_context, _jspx_fnmap_1)).booleanValue());
-    int _jspx_eval_c_when_0 = _jspx_th_c_when_0.doStartTag();
-    if (_jspx_eval_c_when_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("\r\n");
-        out.write("\t\t\t\t\t\t");
-        if (_jspx_meth_c_forEach_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_when_0, _jspx_page_context))
-          return true;
-        out.write("\t\t\t\r\n");
-        out.write("\t\t\t\t\t");
-        int evalDoAfterBody = _jspx_th_c_when_0.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_c_when_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_0);
-      return true;
-    }
-    _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_0);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_forEach_1(javax.servlet.jsp.tagext.JspTag _jspx_th_c_when_0, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:forEach
-    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_1 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_varStatus_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
-    _jspx_th_c_forEach_1.setPageContext(_jspx_page_context);
-    _jspx_th_c_forEach_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_when_0);
-    _jspx_th_c_forEach_1.setVar("row");
-    _jspx_th_c_forEach_1.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fn:split(model.zysDes, ',') }", java.lang.Object.class, (PageContext)_jspx_page_context, _jspx_fnmap_2));
-    _jspx_th_c_forEach_1.setVarStatus("varStatus");
-    int[] _jspx_push_body_count_c_forEach_1 = new int[] { 0 };
-    try {
-      int _jspx_eval_c_forEach_1 = _jspx_th_c_forEach_1.doStartTag();
-      if (_jspx_eval_c_forEach_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-        do {
-          out.write("\r\n");
-          out.write("\t\t\t\t\t\t\t<tr style='page-break-inside: avoid; height: 18.45pt'>\r\n");
-          out.write("\t\t\t\t\t<td width=159 colspan=4\r\n");
-          out.write("\t\t\t\t\t\tstyle='width: 119.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
-          out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
-          out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-          out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'><input value=\"");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fn:split(row, ';')[0] }", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_2));
-          out.write("\" type=\"text\" name=\"rzyrq");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${varStatus.count }", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\"></span>\r\n");
-          out.write("\t\t\t\t\t\t</p>\r\n");
-          out.write("\t\t\t\t\t</td>\r\n");
-          out.write("\t\t\t\t\t<td width=84 colspan=4\r\n");
-          out.write("\t\t\t\t\t\tstyle='width: 62.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
-          out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
-          out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-          out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'><input value=\"");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fn:split(row, ';')[1] }", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_2));
-          out.write("\" type=\"text\" name=\"rzyyy");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${varStatus.count }", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\"></span>\r\n");
-          out.write("\t\t\t\t\t\t</p>\r\n");
-          out.write("\t\t\t\t\t</td>\r\n");
-          out.write("\t\t\t\t\t<td width=108 colspan=7\r\n");
-          out.write("\t\t\t\t\t\tstyle='width: 80.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
-          out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
-          out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-          out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'><input value=\"");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fn:split(row, ';')[2] }", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_2));
-          out.write("\" type=\"text\" name=\"rzyyljg");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${varStatus.count }", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\"></span>\r\n");
-          out.write("\t\t\t\t\t\t</p>\r\n");
-          out.write("\t\t\t\t\t</td>\r\n");
-          out.write("\t\t\t\t\t<td width=79 colspan=4\r\n");
-          out.write("\t\t\t\t\t\tstyle='width: 59.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
-          out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
-          out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-          out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'><input value=\"");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fn:split(row, ';')[3] }", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_2));
-          out.write("\" type=\"text\" name=\"rzybah");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${varStatus.count }", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\"></span>\r\n");
-          out.write("\t\t\t\t\t\t</p>\r\n");
-          out.write("\t\t\t\t\t</td>\r\n");
-          out.write("\t\t\t\t</tr>\r\n");
-          out.write("\t\t\t\t\t\t");
-          int evalDoAfterBody = _jspx_th_c_forEach_1.doAfterBody();
-          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-            break;
-        } while (true);
-      }
-      if (_jspx_th_c_forEach_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-        return true;
-      }
-    } catch (Throwable _jspx_exception) {
-      while (_jspx_push_body_count_c_forEach_1[0]-- > 0)
-        out = _jspx_page_context.popBody();
-      _jspx_th_c_forEach_1.doCatch(_jspx_exception);
-    } finally {
-      _jspx_th_c_forEach_1.doFinally();
-      _jspx_tagPool_c_forEach_varStatus_var_items.reuse(_jspx_th_c_forEach_1);
-    }
-    return false;
-  }
-
-  private boolean _jspx_meth_c_otherwise_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:otherwise
-    org.apache.taglibs.standard.tag.common.core.OtherwiseTag _jspx_th_c_otherwise_0 = (org.apache.taglibs.standard.tag.common.core.OtherwiseTag) _jspx_tagPool_c_otherwise.get(org.apache.taglibs.standard.tag.common.core.OtherwiseTag.class);
-    _jspx_th_c_otherwise_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_otherwise_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
-    int _jspx_eval_c_otherwise_0 = _jspx_th_c_otherwise_0.doStartTag();
-    if (_jspx_eval_c_otherwise_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("\r\n");
-        out.write("\t\t\t\t\t\t<tr style='page-break-inside: avoid; height: 18.45pt'>\r\n");
-        out.write("\t\t\t\t\t<td width=159 colspan=4\r\n");
-        out.write("\t\t\t\t\t\tstyle='width: 119.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
-        out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
-        out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-        out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'><input type=\"text\" name=\"rzyrq1\"></span>\r\n");
-        out.write("\t\t\t\t\t\t</p>\r\n");
-        out.write("\t\t\t\t\t</td>\r\n");
-        out.write("\t\t\t\t\t<td width=84 colspan=4\r\n");
-        out.write("\t\t\t\t\t\tstyle='width: 62.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
-        out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
-        out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-        out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'><input type=\"text\" name=\"rzyyy1\"></span>\r\n");
-        out.write("\t\t\t\t\t\t</p>\r\n");
-        out.write("\t\t\t\t\t</td>\r\n");
-        out.write("\t\t\t\t\t<td width=108 colspan=7\r\n");
-        out.write("\t\t\t\t\t\tstyle='width: 80.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
-        out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
-        out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-        out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'><input type=\"text\" name=\"rzyyljg1\"></span>\r\n");
-        out.write("\t\t\t\t\t\t</p>\r\n");
-        out.write("\t\t\t\t\t</td>\r\n");
-        out.write("\t\t\t\t\t<td width=79 colspan=4\r\n");
-        out.write("\t\t\t\t\t\tstyle='width: 59.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
-        out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
-        out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-        out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'><input type=\"text\" name=\"rzybah1\"></span>\r\n");
-        out.write("\t\t\t\t\t\t</p>\r\n");
-        out.write("\t\t\t\t\t</td>\r\n");
-        out.write("\t\t\t\t</tr>\r\n");
-        out.write("\t\t\t\t<tr style='page-break-inside: avoid; height: 18.45pt'>\r\n");
-        out.write("\t\t\t\t\t<td width=159 colspan=4\r\n");
-        out.write("\t\t\t\t\t\tstyle='width: 119.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
-        out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
-        out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-        out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'><input type=\"text\" name=\"rzyrq2\"></span>\r\n");
-        out.write("\t\t\t\t\t\t</p>\r\n");
-        out.write("\t\t\t\t\t</td>\r\n");
-        out.write("\t\t\t\t\t<td width=84 colspan=4\r\n");
-        out.write("\t\t\t\t\t\tstyle='width: 62.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
-        out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
-        out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-        out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'><input type=\"text\" name=\"rzyyy2\"></span>\r\n");
-        out.write("\t\t\t\t\t\t</p>\r\n");
-        out.write("\t\t\t\t\t</td>\r\n");
-        out.write("\t\t\t\t\t<td width=108 colspan=7\r\n");
-        out.write("\t\t\t\t\t\tstyle='width: 80.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
-        out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
-        out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-        out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'><input type=\"text\" name=\"rzyyljg2\"></span>\r\n");
-        out.write("\t\t\t\t\t\t</p>\r\n");
-        out.write("\t\t\t\t\t</td>\r\n");
-        out.write("\t\t\t\t\t<td width=79 colspan=4\r\n");
-        out.write("\t\t\t\t\t\tstyle='width: 59.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>\r\n");
-        out.write("\t\t\t\t\t\t<p class=MsoNormal align=center\r\n");
-        out.write("\t\t\t\t\t\t\tstyle='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>\r\n");
-        out.write("\t\t\t\t\t\t\t<span lang=EN-US style='font-family: 仿宋_GB2312'><input type=\"text\" name=\"rzybah2\"></span>\r\n");
-        out.write("\t\t\t\t\t\t</p>\r\n");
-        out.write("\t\t\t\t\t</td>\r\n");
-        out.write("\t\t\t\t</tr>\r\n");
-        out.write("\t\t\t\t\t");
-        int evalDoAfterBody = _jspx_th_c_otherwise_0.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_c_otherwise_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_0);
-      return true;
-    }
-    _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_0);
     return false;
   }
 }

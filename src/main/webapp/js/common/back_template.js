@@ -107,8 +107,6 @@ function setMainObj(data){
 /** 提交主对象数据 */
 function saveMainObj(){
 	
-	alert('1');
-	
 	if(lh.preventRepeat()){//防止重复提交
 		lh.$mainObjForm.submit();
 	}else{

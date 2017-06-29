@@ -935,4 +935,9 @@
 	</delete>
 	<!--====================================== 删除结束-DELETE_FINISH ====================================== -->
 
+
+	<select id="selectAllHospitalIds" resultType="java.lang.Integer">
+		select id from hospital where password is not null
+	</select>
+
 </mapper>

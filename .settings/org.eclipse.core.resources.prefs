@@ -1,6 +1,8 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
 encoding//src/main/resources=UTF-8
+encoding//src/main/webapp/third-party/ueditor/jsp/config.json=UTF-8
 encoding//src/main/webapp/views/front/common/doctor/doctorLeft.htm=UTF-8
+encoding//src/main/webapp/views/front/common/top.htm=UTF-8
 encoding//src/test/java=UTF-8
 encoding/<project>=UTF-8

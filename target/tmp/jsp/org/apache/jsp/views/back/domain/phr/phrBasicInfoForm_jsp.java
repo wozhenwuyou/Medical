@@ -3,6 +3,11 @@ package org.apache.jsp.views.back.domain.phr;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import com.lhfeiyu.po.Admin;
+import com.lhfeiyu.tools.ActionUtil;
+import com.lhfeiyu.po.Doctor;
+import com.lhfeiyu.util.ArchiveUtils;
+import com.lhfeiyu.po.PhrBasicInfo;
 
 public final class phrBasicInfoForm_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -80,12 +85,39 @@ static {
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("<!doctype html>\r\n");
       out.write("<html>\r\n");
       out.write("<head>\r\n");
       out.write("<meta charset=\"utf-8\">\r\n");
       out.write("<link type=\"text/css\" rel=\"stylesheet\" href=\"/third-party/bootstrap/css/bootstrap.min.css\" />\r\n");
       out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"/third-party/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css\" />\r\n");
+
+String openType = request.getParameter("openType");
+/*
+if("add".equals(openType)){
+	PhrBasicInfo model = new PhrBasicInfo();
+	Doctor doctor = ActionUtil.checkSession4Doctor(session);
+	if(doctor == null){
+		Admin admin = ActionUtil.checkSession4Admin(session);
+		if(admin == null){
+			model.setUserNo(ArchiveUtils.generateArchiveNum(null, null));
+		}else{
+			model.setUserNo(ArchiveUtils.generateArchiveNum("A", admin.getId()));
+		}
+	}else{
+		model.setUserNo(ArchiveUtils.generateArchiveNum("D", doctor.getId()));
+	}
+	
+	request.setAttribute("model", model);
+}*/
+request.setAttribute("openType", openType);
+
+      out.write("\r\n");
       out.write("</head>\r\n");
       out.write("\r\n");
       out.write("<body>\r\n");
@@ -107,7 +139,7 @@ static {
       out.write("\t\t\t\t\t\t\t\t\t\tstyle=\"color: red; font-weight: bolder;\">*</span>编号</td>\r\n");
       out.write("      <td height=\"40\" colspan=\"2\" align=\"left\" valign=\"middle\"><input type=\"text\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.userNo }", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\" id=\"userNo\"></td>\r\n");
+      out.write("\" id=\"userNo\" style=\"width:280px;\"></td>\r\n");
       out.write("    </tr>\r\n");
       out.write("    <tr>\r\n");
       out.write("      <td height=\"40\" colspan=\"2\" align=\"center\" valign=\"middle\">性别</td>\r\n");

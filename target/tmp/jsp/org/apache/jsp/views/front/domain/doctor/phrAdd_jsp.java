@@ -3,6 +3,11 @@ package org.apache.jsp.views.front.domain.doctor;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import com.lhfeiyu.util.ArchiveUtils;
+import com.lhfeiyu.tools.ActionUtil;
+import com.lhfeiyu.po.Admin;
+import com.lhfeiyu.po.Doctor;
+import com.lhfeiyu.po.PhrBasicInfo;
 
 public final class phrAdd_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -69,6 +74,11 @@ public final class phrAdd_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");
       out.write("<head>\r\n");
@@ -109,6 +119,23 @@ public final class phrAdd_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\ttitle=\"v\" />\r\n");
       out.write("<link rel=\"stylesheet\" type=\"text/css\"\r\n");
       out.write("\thref=\"/third-party/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css\" />\r\n");
+
+	/*
+	PhrBasicInfo model = new PhrBasicInfo();
+	Doctor doctor = ActionUtil.checkSession4Doctor(session);
+	if(doctor == null){
+		Admin admin = ActionUtil.checkSession4Admin(session);
+		if(admin == null){
+			model.setUserNo(ArchiveUtils.generateArchiveNum(null, null));
+		}else{
+			model.setUserNo(ArchiveUtils.generateArchiveNum("A", admin.getId()));
+		}
+	}else{
+		model.setUserNo(ArchiveUtils.generateArchiveNum("D", doctor.getId()));
+	}
+	request.setAttribute("model", model);*/
+
+      out.write("\r\n");
       out.write("</head>\r\n");
       out.write("<body>\r\n");
       out.write("\t");
@@ -292,14 +319,16 @@ public final class phrAdd_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t\t\t\t\tid=\"name\" placeholder='双击可关联患者' /></td>\r\n");
       out.write("\t\t\t\t\t\t\t\t<td width=\"67\" style=\"line-height: 30px;\"><span\r\n");
       out.write("\t\t\t\t\t\t\t\t\tstyle=\"color: red; font-weight: bolder;\">*</span>编号</td>\r\n");
-      out.write("\t\t\t\t\t\t\t\t<td width=\"310\"><input type=\"text\" class=\"input14\"\r\n");
+      out.write("\t\t\t\t\t\t\t\t<td width=\"310\"><input type=\"text\" class=\"input14\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.userNo }", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\"\r\n");
       out.write("\t\t\t\t\t\t\t\t\tid=\"userNo\" /></td>\r\n");
       out.write("\t\t\t\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t\t\t\t<tr height=\"40\" valign=\"bottom\">\r\n");
       out.write("\t\t\t\t\t\t\t\t<td width=\"67\" style=\"line-height: 30px;\"><span\r\n");
       out.write("\t\t\t\t\t\t\t\t\tstyle=\"color: red; font-weight: bolder;\">*</span>性别</td>\r\n");
       out.write("\t\t\t\t\t\t\t\t<td width=\"329\"><select class=\"input8\" id=\"sex\" style=\"width: 268px;\">\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t<option value=\"未说明的性别\">--未说明的性别--</option>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t<option value=\"\">--请选择--</option>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t<option value=\"男\">男</option>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t<option value=\"女\">女</option>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t<option value=\"未知的性别\">未知的性别</option>\r\n");
@@ -393,7 +422,8 @@ public final class phrAdd_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"离婚\">离婚</option>\r\n");
       out.write("\t\t\t\t\t\t\t\t</select></td>\r\n");
       out.write("\t\t\t\t\t\t\t\t<tr height=\"40\" valign=\"bottom\">\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t<td width=\"67\" style=\"line-height: 30px;\">医疗费用支付方式</td>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<td width=\"67\" style=\"line-height: 30px;\"><span\r\n");
+      out.write("\t\t\t\t\t\t\t\t\tstyle=\"color: red; font-weight: bolder;\">*</span>医疗费用支付方式</td>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t<td width=\"329\"><select class=\"input8\" id=\"payType\" style=\"width: 268px;\">\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"\">--请选择--</option>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"城镇职工基本医疗保险\" >城镇职工基本医疗保险</option>\r\n");

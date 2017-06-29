@@ -101,6 +101,9 @@ public class PagePath {
     public static final String internalMessage = "/front/domain/user/internalMessage";//站内信
     public static final String doctorInternalMessage = "/front/domain/doctor/internalMessage";//站内信
     public static final String hospitalInternalMessage = "/front/domain/hospital/internalMessage";//站内信
+    
+    public static final String HOSPITAL_PHR_LIST = "/front/domain/hospital/phrList";//诊所健康档案列表
+    
     public static final String consultRecord = "/front/domain/user/consultRecord";//咨询记录
     public static final String userBaseInformation = "/front/domain/user/userBaseInformation";//患者基本信息
     public static final String userDiagnoseList = "/front/domain/user/userDiagnoseList";//病历列表

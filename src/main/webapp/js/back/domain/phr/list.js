@@ -15,11 +15,11 @@ function initQueryForm(){
 	$('#sc_createUserId').combobox({
 		valueField : 'id',
 		textField : 'name',
-		editable : false,
+		editable : true,
 		multiple : false,
-		//required : true,
+		required : false,
 		panelHeight : 200,
-		url : "/back/getAdminArray"
+		url : '/back/getDoctorArray'
 	});
 	
 }

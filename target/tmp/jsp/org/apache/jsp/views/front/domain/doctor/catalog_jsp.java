@@ -82,6 +82,11 @@ public final class catalog_jsp extends org.apache.jasper.runtime.HttpJspBase
 	PhrHealthCheckService phrHealthCheckService = ctx.getBean(PhrHealthCheckService.class);
 	List<Integer> healthCheckIds = phrHealthCheckService.getPhrHealthCheckByBasicInfoId(basicInfoId);
 	request.setAttribute("healthCheckIds", healthCheckIds);
+	
+	
+	String openType = request.getParameter("openType");
+	request.setAttribute("openType", openType);
+	
 
       out.write("\r\n");
       out.write("</head>\r\n");
@@ -90,10 +95,14 @@ public final class catalog_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t<div class=\"row clearfix\">\r\n");
       out.write("\t\t<div class=\"col-md-2 column\" style=\"padding-top:5px;\">\r\n");
       out.write("\t\t\t\t<ul class=\"nav nav-pills nav-stacked nav-stacked\">\r\n");
-      out.write("\t\t\t\t\t<li role=\"presentation\" class=\"active\"><a href=\"/front/phr/phrCover?basicInfoId=");
+      out.write("\t\t\t\t\t<li role=\"presentation\" class=\"active\"><a href=\"/front/phr/phrCover?openType=");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${openType }", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("&basicInfoId=");
       out.print(request.getParameter("basicInfoId"));
       out.write("\" target=\"contentIframe\">封面</a></li>\r\n");
-      out.write("\t\t\t\t\t<li role=\"presentation\"><a href=\"/back/phr/phrBasicInfoForm?id=");
+      out.write("\t\t\t\t\t<li role=\"presentation\"><a href=\"/back/phr/phrBasicInfoForm?openType=");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${openType }", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("&id=");
       out.print(request.getParameter("basicInfoId"));
       out.write("\" target=\"contentIframe\">基本信息表</a></li>\r\n");
       out.write("\t\t\t\t\t");
@@ -103,7 +112,9 @@ public final class catalog_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t</ul>\r\n");
       out.write("\t\t</div>\r\n");
       out.write("\t\t<div class=\"col-md-10 column\" style=\"padding-top:5px;\">\r\n");
-      out.write("\t\t\t<iframe src=\"/front/phr/phrCover?basicInfoId=");
+      out.write("\t\t\t<iframe src=\"/front/phr/phrCover?openType=");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${openType }", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("&basicInfoId=");
       out.print(request.getParameter("basicInfoId"));
       out.write("\" name=\"contentIframe\" width=\"100%\" height=\"530px;\" frameborder=\"0\" style=\"border:0px;\"></iframe>\r\n");
       out.write("\t\t</div>\r\n");
@@ -179,7 +190,9 @@ public final class catalog_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\r\n");
-          out.write("\t\t\t\t\t\t\t<li role=\"presentation\"><a href=\"/front/phr/phrHealthCheck?id=");
+          out.write("\t\t\t\t\t\t\t<li role=\"presentation\"><a href=\"/front/phr/phrHealthCheck?openType=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${openType }", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("&id=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${one }", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\" target=\"contentIframe\">体检表");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${varStatus.count }", java.lang.String.class, (PageContext)_jspx_page_context, null));
