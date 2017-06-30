@@ -232,10 +232,10 @@ function getChkboxValue(chkName){
 function saveData(obj){
 	lh.post("front", "/phr/doctor/phrAdd", obj, function(rsp){
 		if(rsp.status == 'success'){
-			//lh.jumpToUrl('/phr/doctor/phrList');
-			layer.msg('保存成功',{time:1000}, function(){
-				location.reload();
-			});
+			lh.jumpToUrl('/phr/doctor/phrList');
+//			layer.msg('保存成功',{time:1000}, function(){
+//				location.reload();
+//			});
 		}else{
 			lh.alert(rsp.msg);
 		}

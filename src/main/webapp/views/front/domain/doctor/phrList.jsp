@@ -71,9 +71,10 @@
 	<%@ include file="/views/common/common_js.htm"%>
 	<%@ include file="/views/common/common_front_js.htm"%>
 	<script type="text/javascript" src="/third-party/z.js" title="v"></script>
+	<script type="text/javascript" src="/third-party/jquery.form.js" title="v"></script>
 	<script type="text/javascript" src="/third-party/layer/layer.js" title="v"></script>
 	<script type="text/javascript" src="/js/front/domain/doctor/doctorCommon.js" title="v"></script>
-	<script type="text/javascript" src="/js/front/domain/doctor/phrList.js" title="v"></script>
+	<script type="text/javascript" src="/js/front/domain/doctor/phrList.js?2" title="v"></script>
 
 	<script id="template" type="x-tmpl-mustache">
 		<tr height="53" align="center" style="font-size:14px; color:#63a13f">
@@ -123,24 +124,6 @@
 	    </tr>
 		{{/rows}}		 		 
 	</script>
-	
-	<!-- 
-	
-	<button type="button" onclick="fnView('{{id}}', '{{name}}')" class="btn btn-success">查看</button>
-				{{#mine}}
-					<button type="button" onclick="fnEdit('{{id}}', '{{name}}')" class="btn btn-warning">编辑</button>
-					<button type="button" onclick="lh.confirm({content: '是否确定删除？', clickYes:deletePhrBasicInfo, clickYesParam:{{id}}});" class="btn btn-danger">删除</button>
-<div class="btn-group">
-  	<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-   	+附表<span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-    <li><a href="javascript:void(0);" onclick="fnAddHealthCheckTable(this, '添加', '', {{id}});">体检表</a></li>
-  </ul>
-</div>
-				{{/mine}}
-	
-	 -->
 </body>
 </html>
 

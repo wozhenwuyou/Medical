@@ -179,10 +179,10 @@ public class PhrBasicInfoService {
 					if(StringUtils.isBlank(doctor.getHospitalName()) || StringUtils.isBlank(doctor.getHospitalAddress())){
 						Hospital hospital = hopitalService.selectByPrimaryKey(doctor.getHospitalId());
 						if(hospital != null){
-							entity.setJddw(hospital.getAddress() + hospital.getWholeName());//建档单位
+							entity.setJddw(hospital.getAddress() + "，" + hospital.getWholeName());//建档单位
 						}
 					}else{
-						entity.setJddw(doctor.getHospitalAddress() + doctor.getHospitalName());//建档单位
+						entity.setJddw(doctor.getHospitalAddress() + "，" + doctor.getHospitalName());//建档单位
 					}
 				}else if(cmd.getAdmin() != null){
 					entity.setJdr(cmd.getAdmin().getUsername());

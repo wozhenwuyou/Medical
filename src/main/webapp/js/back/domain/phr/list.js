@@ -473,14 +473,21 @@ function fnEdit(basicInfoId, name){
 					form.append("<input type='hidden' name='jtbcsDes' value='"+jtbcsDes+"'>");
 					form.append("<input type='hidden' name='yyqkDes' value='"+yyqkDes+"'>");
 				}
+				//form.submit();
+				form.submit(function(e){
+					$(this).ajaxSubmit(function(resp){
+						//alert(resp);
+					}); 
+					return false;
+				});
 				form.submit();
-				top.layer.close(index);
+				//top.layer.close(index);
 				top.layer.msg('保存成功');
 			}else{//说明是基本信息，基本信息
 				//fnAddPhrBasicInfo(basicInfoId, '编辑');
 				var table = body.find("table");
 				doSave(table, function(){
-					top.layer.close(index);
+					//top.layer.close(index);
 					top.layer.msg('保存成功');
 					loadGrid();
 				});
