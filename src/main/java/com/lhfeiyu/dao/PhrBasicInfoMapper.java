@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.lhfeiyu.po.PhrBasicInfo;
 import com.lhfeiyu.po.PhrBasicInfoExample;
+import com.lhfeiyu.vo.PhrCountCmd;
 
 public interface PhrBasicInfoMapper {
 	int countByExample(PhrBasicInfoExample example);
@@ -39,5 +40,9 @@ public interface PhrBasicInfoMapper {
 	int updateByPrimaryKey(PhrBasicInfo record);
 
 	List<PhrBasicInfo> selectByPatientIds(List<Integer> patientIds);
+
+	List<PhrBasicInfo> selectPhrCountList(PhrCountCmd cmd);
+
+	Integer selectPhrCountValue(PhrCountCmd cmd);
 
 }

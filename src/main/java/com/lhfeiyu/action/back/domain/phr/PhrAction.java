@@ -35,6 +35,7 @@ import com.lhfeiyu.service.UserService;
 import com.lhfeiyu.tools.ActionUtil;
 import com.lhfeiyu.tools.Result;
 import com.lhfeiyu.vo.PhrBasicInfoCmd;
+import com.lhfeiyu.vo.PhrCountCmd;
 import com.lhfeiyu.vo.PhrCoverCmd;
 import com.lhfeiyu.vo.PhrHealthCheckCmd;
 
@@ -108,7 +109,7 @@ public class PhrAction {
 				return Result.userSessionInvalid(json, "doctor");
 
 			cmd.setDoctor(session_doctor);
-			
+
 			List<PhrBasicInfo> hospitalList = phrBasicInfoService.selectListByCondition(cmd);
 			if (hospitalList != null && hospitalList.size() > 0) {
 				for (PhrBasicInfo one : hospitalList) {
@@ -302,12 +303,12 @@ public class PhrAction {
 		JSONObject json = new JSONObject();
 		try {
 			Admin admin = ActionUtil.checkSession4Admin(request.getSession());// 验证session中的user，存在即返回
-			if (null == admin){
+			if (null == admin) {
 				Doctor doctor = ActionUtil.checkSession4Doctor(request.getSession());// 验证session中的user，存在即返回
-				if(doctor != null){
+				if (doctor != null) {
 					cmd.setCreateUserId(doctor.getId());// 创建者id
 				}
-			}else{
+			} else {
 				cmd.setCreateUserId(admin.getId());// 创建者id
 			}
 			cmd.setCreateTime(new Date());// 创建时间
@@ -456,9 +457,11 @@ public class PhrAction {
 	public ModelAndView phrHealthCheckFront(HttpServletRequest request, ModelMap modelMap) {
 		String path = PagePath.BACK_DOMAIN_PHR_HEALTHCHECK;
 		try {
-			//Doctor session_doctor = ActionUtil.checkSession4Doctor(request.getSession());
-			//if (null == session_doctor)
-				//return Result.userSessionInvalid(modelMap, PagePath.doDctorLogin);
+			// Doctor session_doctor =
+			// ActionUtil.checkSession4Doctor(request.getSession());
+			// if (null == session_doctor)
+			// return Result.userSessionInvalid(modelMap,
+			// PagePath.doDctorLogin);
 
 			String id = request.getParameter("id");
 			if (StringUtils.isNotBlank(id)) {
@@ -471,46 +474,46 @@ public class PhrAction {
 		}
 		return new ModelAndView(path, modelMap);
 	}
-	
+
 	// front健康体检表
-		@RequestMapping(value = "/front/phr/phrCover", method = RequestMethod.GET)
-		public ModelAndView phrCover(HttpServletRequest request, ModelMap modelMap) {
-			String path = PagePath.BACK_DOMAIN_PHR_COVER;
-			try {
-				String basicInfoId = request.getParameter("basicInfoId");
-				if (StringUtils.isNotBlank(basicInfoId)) {
-					modelMap.put("model", phrCoverService.findById(Integer.valueOf(basicInfoId)));
-					modelMap.put("openType", request.getParameter("openType"));
-				}
-			} catch (Exception e) {
-				path = PagePath.error;
-				Result.catchError(e, logger, "LH_ERROR-Hospital-PAGE-/front/phr/phrCover-出现异常", modelMap);
+	@RequestMapping(value = "/front/phr/phrCover", method = RequestMethod.GET)
+	public ModelAndView phrCover(HttpServletRequest request, ModelMap modelMap) {
+		String path = PagePath.BACK_DOMAIN_PHR_COVER;
+		try {
+			String basicInfoId = request.getParameter("basicInfoId");
+			if (StringUtils.isNotBlank(basicInfoId)) {
+				modelMap.put("model", phrCoverService.findById(Integer.valueOf(basicInfoId)));
+				modelMap.put("openType", request.getParameter("openType"));
 			}
-			return new ModelAndView(path, modelMap);
+		} catch (Exception e) {
+			path = PagePath.error;
+			Result.catchError(e, logger, "LH_ERROR-Hospital-PAGE-/front/phr/phrCover-出现异常", modelMap);
 		}
-	
+		return new ModelAndView(path, modelMap);
+	}
+
 	@RequestMapping(value = "/back/phr/phrHealthCheck/save", method = RequestMethod.POST)
 	public ModelAndView phrHealthCheckSave(PhrHealthCheckCmd cmd, ModelMap modelMap, HttpSession session) {
-		
-		String path =  PagePath.BACK_DOMAIN_PHR_LIST;
-		
+
+		String path = PagePath.BACK_DOMAIN_PHR_LIST;
+
 		boolean front = StringUtils.isNotBlank(cmd.getRequestFrom()) && "doctor".equalsIgnoreCase(cmd.getRequestFrom());
-		
-		if(front){
+
+		if (front) {
 			path = PagePath.FRONT_DOMAIN_DOCTOR_PHR_LIST;// 添加或保存完成返回到列表页面
 		}
-		
+
 		try {
-			
-			if(!front){
+
+			if (!front) {
 				Admin admin = ActionUtil.checkSession4Admin(session);
 				if (admin.getRoleId() == 3) {
 					modelMap.put("notAdmin", 1);
 				}
 				cmd.setCreateUserId(admin.getId());// 创建用户
-			}else{
+			} else {
 				Doctor doctor = ActionUtil.checkSession4Doctor(session);
-				if (null == doctor){
+				if (null == doctor) {
 					return Result.userSessionInvalid(modelMap, PagePath.doDctorLogin);
 				}
 				cmd.setCreateUserId(doctor.getId());// 创建用户
@@ -519,7 +522,7 @@ public class PhrAction {
 			if (cmd.getId() == null || cmd.getId().intValue() < 0) {
 				cmd.setCreatetime(new Date());// 创建时间
 			}
-			
+
 			cmd.setDeleteflag(false);// 未删除
 			cmd.setLastupdatetime(new Date());// 最后修改时间
 			// 基本信息id
@@ -541,30 +544,29 @@ public class PhrAction {
 		}
 		return new ModelAndView(path, modelMap);
 	}
-	
-	
+
 	@RequestMapping(value = "/back/phr/phrCover/save", method = RequestMethod.POST)
 	public ModelAndView phrCoverSave(PhrCoverCmd cmd, ModelMap modelMap, HttpSession session) {
-		
+
 		String path = PagePath.FRONT_DOMAIN_DOCTOR_PHR_LIST;
-		
+
 		boolean front = StringUtils.isNotBlank(cmd.getRequestFrom()) && "doctor".equalsIgnoreCase(cmd.getRequestFrom());
-		
-		if(!front){
+
+		if (!front) {
 			path = PagePath.BACK_DOMAIN_PHR_LIST;
 		}
-		
+
 		try {
-			
-			if(!front){
+
+			if (!front) {
 				Admin admin = ActionUtil.checkSession4Admin(session);
 				if (admin.getRoleId() == 3) {
 					modelMap.put("notAdmin", 1);
 				}
 				cmd.setCreateUserId(admin.getId());// 创建用户
-			}else{
+			} else {
 				Doctor doctor = ActionUtil.checkSession4Doctor(session);
-				if (null == doctor){
+				if (null == doctor) {
 					return Result.userSessionInvalid(modelMap, PagePath.doDctorLogin);
 				}
 				cmd.setCreateUserId(doctor.getId());// 创建用户
@@ -583,7 +585,7 @@ public class PhrAction {
 				}
 			}
 			phrCoverService.save(cmd);
-			basicInfo.setHasCover((byte)1);
+			basicInfo.setHasCover((byte) 1);
 			phrBasicInfoService.savePhrBasicInfo(basicInfo);
 		} catch (Exception e) {
 			path = PagePath.error;
@@ -591,5 +593,50 @@ public class PhrAction {
 		}
 		return new ModelAndView(path, modelMap);
 	}
-	
+
+	// 查询统计
+	@RequestMapping(value = "/back/phr/count", method = RequestMethod.GET)
+	public ModelAndView countGet(HttpServletRequest request, ModelMap modelMap) {
+		String path = PagePath.BACK_DOMAIN_PHR_COUNT;
+		try {
+			Admin admin = ActionUtil.checkSession4Admin(request.getSession());// 验证session中的user，存在即返回
+			if (admin.getRoleId() == 3) {
+				modelMap.put("notAdmin", 1);
+			}
+			Result.success(modelMap, "健康档案统计页面加载成功", null);
+		} catch (Exception e) {
+			path = PagePath.error;
+			Result.catchError(e, logger, "/back/phr/count-健康档案管理页面出现异常", modelMap);
+		}
+		return new ModelAndView(path, modelMap);
+	}
+
+	// 查询统计
+	@ResponseBody
+	@RequestMapping(value = "/back/phr/count", method = RequestMethod.POST)
+	public JSONObject countPost(PhrCountCmd cmd, HttpServletRequest request) {
+		JSONObject json = new JSONObject();
+		try {
+			// 验证session是否过期s
+			Admin admin = ActionUtil.checkSession4Admin(request.getSession());
+			if (null == admin) {
+				return Result.adminSessionInvalid(json);
+			}
+			
+			if(cmd.getPage() != null && cmd.getPage() > 0){
+				cmd.setStart(((cmd.getPage() - 1) * cmd.getRows())) ;
+				cmd.setLimit(cmd.getRows());
+			}
+			
+			List<PhrBasicInfo> hospitalList = phrBasicInfoService.selectPhrCountList(cmd);
+			Integer total = phrBasicInfoService.selectPhrCountValue(cmd);
+			Result.gridData(hospitalList, total, json);
+			Result.success(json, "健康档案统计成功", null);
+
+		} catch (Exception e) {
+			Result.catchError(e, logger, "统计健康档案数据异常", json);
+		}
+		return json;
+	}
+
 }

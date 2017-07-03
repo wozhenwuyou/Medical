@@ -119,7 +119,6 @@ public final class doctorLogin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t&nbsp;&nbsp;/&nbsp;&nbsp; <a onclick=\"topToIndex(true);\" href=\"javascript:;\">返回主页</a><!--userAddLocache(1,'/goHome')-->\r\n");
       out.write("\t\t\t\t</div>\r\n");
       out.write("\t\t\t\t<div class=\"land\">\r\n");
-      out.write("\t\t\t\t\t<!--\r\n");
       out.write("\t\t\t\t\t");
       if (_jspx_meth_c_if_0(_jspx_page_context))
         return;
@@ -128,7 +127,7 @@ public final class doctorLogin_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_meth_c_if_1(_jspx_page_context))
         return;
       out.write("\r\n");
-      out.write("\t\t\t\t\t-->\r\n");
+      out.write("\t\t\t\t\t<!-- \r\n");
       out.write("\t\t\t\t\t<span id=\"top_login_1\"> <a href=\"/login\" class=\"lan_one\" style=\"width: initial;\">登录</a></span>\r\n");
       out.write("\t\t\t\t\t<span id=\"top_login_2\"> <a href=\"/register\" target=\"_blank\" class=\"lan_two\" style=\"width: initial;\">注册</a></span>\r\n");
       out.write("\t\t\t\t\t<span id=\"top_login_3\" style=\"display:none;width: initial;\"> <a id=\"top_login_name\" href=\"/userBaseInformation\" style=\"width: initial;\" class=\"lan_one\"></a></span> \r\n");

@@ -244,6 +244,7 @@ public class PagePath {
     
     //健康档案相关
     public static final String BACK_DOMAIN_PHR_LIST = "/back/domain/phr/list";
+    public static final String BACK_DOMAIN_PHR_COUNT = "/back/domain/phr/count";
     public static final String BACK_DOMAIN_PHR_BSAICINFOFORM = "/back/domain/phr/phrBasicInfoForm";
     public static final String FRONT_DOMAIN_DOCTOR_PHR_LIST = "/front/domain/doctor/phrList";//病历夹列表
     public static final String FRONT_DOMAIN_DOCTOR_PHR_ADD = "/front/domain/doctor/phrAdd";//病历夹列表

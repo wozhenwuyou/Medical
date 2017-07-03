@@ -3,6 +3,9 @@ package org.apache.jsp.views.front.domain.doctor;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import com.lhfeiyu.service.PhrArchiveNumberService;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+import org.springframework.context.ApplicationContext;
 import com.lhfeiyu.util.ArchiveUtils;
 import com.lhfeiyu.tools.ActionUtil;
 import com.lhfeiyu.po.Admin;
@@ -79,6 +82,9 @@ public final class phrAdd_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");
       out.write("<head>\r\n");
@@ -120,20 +126,15 @@ public final class phrAdd_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<link rel=\"stylesheet\" type=\"text/css\"\r\n");
       out.write("\thref=\"/third-party/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css\" />\r\n");
 
-	/*
-	PhrBasicInfo model = new PhrBasicInfo();
 	Doctor doctor = ActionUtil.checkSession4Doctor(session);
-	if(doctor == null){
-		Admin admin = ActionUtil.checkSession4Admin(session);
-		if(admin == null){
-			model.setUserNo(ArchiveUtils.generateArchiveNum(null, null));
-		}else{
-			model.setUserNo(ArchiveUtils.generateArchiveNum("A", admin.getId()));
-		}
-	}else{
-		model.setUserNo(ArchiveUtils.generateArchiveNum("D", doctor.getId()));
+	if(doctor != null){
+		PhrBasicInfo model = new PhrBasicInfo();
+		ServletContext context = request.getSession().getServletContext();
+		ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(context);
+		PhrArchiveNumberService phrArchiveNumberService = (PhrArchiveNumberService) ctx.getBean(PhrArchiveNumberService.class);
+		model.setUserNo(String.valueOf(phrArchiveNumberService.generateArchiveNumber(doctor.getHospitalId())));
+		request.setAttribute("model", model);
 	}
-	request.setAttribute("model", model);*/
 
       out.write("\r\n");
       out.write("</head>\r\n");

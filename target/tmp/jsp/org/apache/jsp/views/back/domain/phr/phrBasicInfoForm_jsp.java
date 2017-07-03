@@ -3,6 +3,9 @@ package org.apache.jsp.views.back.domain.phr;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import com.lhfeiyu.service.PhrArchiveNumberService;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+import org.springframework.context.ApplicationContext;
 import com.lhfeiyu.po.Admin;
 import com.lhfeiyu.tools.ActionUtil;
 import com.lhfeiyu.po.Doctor;
@@ -90,6 +93,9 @@ static {
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("<!doctype html>\r\n");
       out.write("<html>\r\n");
       out.write("<head>\r\n");
@@ -98,23 +104,18 @@ static {
       out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"/third-party/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css\" />\r\n");
 
 String openType = request.getParameter("openType");
-/*
+
 if("add".equals(openType)){
-	PhrBasicInfo model = new PhrBasicInfo();
 	Doctor doctor = ActionUtil.checkSession4Doctor(session);
-	if(doctor == null){
-		Admin admin = ActionUtil.checkSession4Admin(session);
-		if(admin == null){
-			model.setUserNo(ArchiveUtils.generateArchiveNum(null, null));
-		}else{
-			model.setUserNo(ArchiveUtils.generateArchiveNum("A", admin.getId()));
-		}
-	}else{
-		model.setUserNo(ArchiveUtils.generateArchiveNum("D", doctor.getId()));
+	if(doctor != null){
+		PhrBasicInfo model = new PhrBasicInfo();
+		ServletContext context = request.getSession().getServletContext();
+		ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(context);
+		PhrArchiveNumberService phrArchiveNumberService = (PhrArchiveNumberService) ctx.getBean(PhrArchiveNumberService.class);
+		model.setUserNo(String.valueOf(phrArchiveNumberService.generateArchiveNumber(doctor.getHospitalId())));
+		request.setAttribute("model", model);
 	}
-	
-	request.setAttribute("model", model);
-}*/
+}
 request.setAttribute("openType", openType);
 
       out.write("\r\n");

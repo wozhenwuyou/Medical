@@ -966,12 +966,64 @@
     <result column="patient_id" jdbcType="INTEGER" property="patientId" />
   </resultMap>
   
-  <!-- 自动以查询 -->
+  <!-- 自定义查询 -->
   <select id="selectByPatientIds" parameterType="java.lang.String" resultMap="BaseResultMap2">
     select id, patient_id from phr_basic_info where del_flag = 0 and patient_id in 
     	<foreach item="item" index="index" collection="list" open="(" separator="," close=")">  
 	  		#{item}  
 	 	</foreach> 
+  </select>
+  
+  <!-- 统计统计统计统计统计统计统计统计 -->
+  
+  <resultMap id="BaseResultMap3" type="com.lhfeiyu.vo.PhrCountModel">
+    <result column="provinceName" jdbcType="VARCHAR" property="provinceName" />
+    <result column="cityName" jdbcType="VARCHAR" property="cityName" />
+    <result column="hospitalName" jdbcType="VARCHAR" property="hospitalName" />
+    <result column="hospitalAddress" jdbcType="VARCHAR" property="hospitalAddress" />
+    <result column="archiveCount" jdbcType="INTEGER" property="archiveCount" />
+  </resultMap>
+  
+ <!-- 统计结果 -->
+  <select id="selectPhrCountList" parameterType="com.lhfeiyu.vo.PhrCountCmd" resultMap="BaseResultMap3">
+  		SELECT d.area_name provinceName, c.area_name cityName, a.address hospitalAddress, a.whole_name hospitalName, ifnull(b.phr_count, 0) archiveCount 
+		FROM hospital a 
+		LEFT JOIN (SELECT hospital_id, count(1) phr_count FROM phr_basic_info a WHERE hospital_id IS NOT NULL AND hospital_id > 0 GROUP BY hospital_id) b ON a.id = b.hospital_id 
+		LEFT JOIN province_city_area c ON a.city = c.id 
+		LEFT JOIN province_city_area d ON c.higher_id = d.id
+		WHERE 1 = 1
+		<if test="provinceId != null">
+	    	AND d.id = #{provinceId,jdbcType=INTEGER}
+	    </if>
+  		<if test="cityId != null">
+	    	AND c.id = #{cityId,jdbcType=INTEGER}
+	    </if>
+	    <if test="hospitalId != null">
+	    	AND a.id = #{hospitalId,jdbcType=INTEGER}
+	    </if>
+	    order by archiveCount desc
+	    <if test="start != null and limit != null and limit > 0">
+	    	LIMIT #{start, jdbcType=INTEGER}, #{limit, jdbcType=INTEGER}
+	    </if>
+  </select>
+  
+  <!-- 统计数目 -->
+  <select id="selectPhrCountValue" parameterType="com.lhfeiyu.vo.PhrCountCmd" resultType="java.lang.Integer">
+  		SELECT count(1)
+		FROM hospital a 
+		LEFT JOIN (SELECT hospital_id, count(1) phr_count FROM phr_basic_info a WHERE hospital_id IS NOT NULL AND hospital_id > 0 GROUP BY hospital_id) b ON a.id = b.hospital_id 
+		LEFT JOIN province_city_area c ON a.city = c.id 
+		LEFT JOIN province_city_area d ON c.higher_id = d.id
+		WHERE 1 = 1
+		<if test="provinceId != null">
+	    	AND d.id = #{provinceId,jdbcType=INTEGER}
+	    </if>
+  		<if test="cityId != null">
+	    	AND c.id = #{cityId,jdbcType=INTEGER}
+	    </if>
+	    <if test="hospitalId != null">
+	    	AND a.id = #{hospitalId,jdbcType=INTEGER}
+	    </if>
   </select>
   
 </mapper>
