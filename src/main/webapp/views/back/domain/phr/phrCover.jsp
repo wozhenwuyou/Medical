@@ -71,6 +71,7 @@
 </head>
 
 <body>
+<!--print start-->
 <form action="/back/phr/phrCover/save" method="POST" id="phrCoverForm">
 	<input type="hidden" name="id" id="id" value="${model.id }">
 	<table width="900" border="0" cellspacing="0" cellpadding="0"> 
@@ -121,6 +122,7 @@
 		</tbody>
 	</table>
 </form>
+<!--print end-->
 	<script type="text/javascript" src="/third-party/z.js" title="v"></script>
 	<script src="/third-party/jquery/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript"

@@ -36,6 +36,7 @@ request.setAttribute("openType", openType);
 </head>
 
 <body>
+<!--print start-->
 <table width="900" border="1" cellspacing="0" cellpadding="0" align="center">
 	<input type="hidden" value="${model.patientId }" id="patientId" />
 	<input type="hidden" value="${model.id }" id="id" />
@@ -46,7 +47,7 @@ request.setAttribute("openType", openType);
       <td height="40" colspan="2" align="left" valign="middle"><input type="text" value="${model.name }" id="name"></td>
       <td height="40" align="left" valign="middle"><span
 										style="color: red; font-weight: bolder;">*</span>编号</td>
-      <td height="40" colspan="2" align="left" valign="middle"><input type="text" value="${model.userNo }" id="userNo" style="width:280px;"></td>
+      <td height="40" colspan="2" align="left" valign="middle"><input onblur="fnCheckUserNo(this);" type="text" value="${model.userNo }" id="userNo" style="width:280px;" ></td>
     </tr>
     <tr>
       <td height="40" colspan="2" align="center" valign="middle">性别</td>
@@ -555,6 +556,7 @@ request.setAttribute("openType", openType);
     </tr>
   </tbody>
 </table>
+<!--print end-->
 <script src="/third-party/jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="/third-party/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/third-party/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
@@ -596,6 +598,7 @@ $(document).ready(function(){
 	if(openType == 'detail'){
 		$("input[type=checkbox], input[type=radio]").attr('disabled', true);
 		$("input[type=text]").attr('readonly', true);
+		$("input[type=button]").css('display', 'none');
 	}
 	
 });
@@ -611,6 +614,28 @@ function bindDateField(selector){
         minView: 2, //选择日期后，不会再跳转去选择时分秒 
         autoclose:true //选择日期后自动关闭 
     });
+}
+
+function fnCheckUserNo(input) {
+
+	var userNo = $.trim($(input).val());
+	var id = $("#id").val();
+
+	if (!userNo)
+		return;
+
+	var o = {};
+	o.userNo = userNo;
+	if (id) {
+		o.id = id;
+	}
+
+	$.post("/phr/checkUserNo", o, function(json) {
+		if(json && json.success && json.map.isRepeat){
+			top.layer.alert("该档案号已被占用，请重新输入。");
+		}
+	}, "json");
+
 }
 </script>
 </body>

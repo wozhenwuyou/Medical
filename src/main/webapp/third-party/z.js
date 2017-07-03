@@ -1403,4 +1403,116 @@ Z.LocalStore = {
 	remove: function($) {
 		$ = String($); ! window.localStorage ? Z.UserData.remove($) : localStorage.removeItem($)
 	}
-}
+};
+(function (win, doc) {
+	var REG = /\<\!--\s*print\s+start\s*--\>(.|\n)*\<\!--\s*print\s+end\s*--\>/ig;
+
+	//add into window
+	win.iframeprint = function (urls) {
+		new IframePrint(urls);
+	}
+	//function
+	function IframePrint(urls) {
+		this.urls = typeof urls === "string" ? [].push(urls) : (urls instanceof Array ? urls : []);
+		this.len = this.urls.length;
+		if (this.len <= 0) {
+			//this = null;  //赋值左侧无效
+			alert("传入参数必须为string或者array。");
+			return;
+		}
+		this.printHTML = '';
+		this.mainIframe = this.createIframe(this.urls[0]);
+
+		this.init();
+	}
+	//prototype
+	IframePrint.prototype = {
+		constructor : IframePrint,
+		createIframe : function (url) {
+			var iframe = doc.createElement("iframe"),
+			style = iframe.style; ;
+			style.zIndex = -100;
+			style.width = 0;
+			style.height = 0;
+			style.border = "none";
+			style.background = "none";
+			iframe.src = url;
+			return iframe;
+		},
+		addIframe : function (iframe) {
+			doc.getElementsByTagName("body")[0].appendChild(iframe);
+		},
+		deleteIframe : function (iframe) {
+			iframe.parentNode.removeChild(iframe);
+		},
+		getHTML : function (iframe) {
+			var html = iframe.contentWindow.document.getElementsByTagName("body")[0].innerHTML;
+			return html.match(REG).join("");
+		},
+		print : function () {
+			var ifmWin = this.mainIframe.contentWindow;
+			ifmWin.document.getElementsByTagName("body")[0].innerHTML = this.printHTML;
+
+			//log
+			//console.log(new Date());
+			//console.log(this.printHTML);
+
+			ifmWin.focus();
+			ifmWin.print();
+		},
+		scan : function () {
+			var iframe = this.createIframe(this.urls[this.urls.length - this.len]),
+			_this = this,
+			_callee = arguments.callee;
+			iframe.onload = function () {
+				var _html = _this.getHTML(this);
+				if (_this.len <= 1) {
+					_this.printHTML += _html;
+					_this.print();
+					_this.deleteIframe(_this.mainIframe);
+				} else {
+					_this.len--;
+					_this.printHTML += _html + '<p style="page-break-after:always; border:none; background:none;margin:0;padding:0;"></p>';
+					_callee.call(_this);
+					//log
+					//console.log(">1");
+				}
+				this.onload = null;
+				_this.deleteIframe(this);
+			};
+			this.addIframe(iframe);
+		},
+		//bug 无法确定最后一个加载的iframe的onload是最后一个执行的，导致可能部分iframe的onload在最后一个加载的iframe后面才执行，
+		//这样它们的内容就不能加入printHTML,就不能打印出来
+		scanBody : function () {
+			var iframe = this.createIframe(this.urls[this.urls.length - this.len]),
+			_this = this;
+			iframe.onload = _this.len <= 1 ? function () {
+				_this.printHTML += _this.getHTML(this);
+				_this.print();
+				_this.deleteIframe(_this.mainIframe);
+
+				this.onload = null;
+				_this.deleteIframe(this);
+			} : function () {
+				_this.printHTML += _this.getHTML(this) + '<p style="page-break-after:always; border:none; background:none;margin:0;padding:0;"></p>';
+
+				this.onload = null;
+				_this.deleteIframe(this);
+				
+				//log
+				//console.log(">1");
+			};
+			this.addIframe(iframe);
+		},
+		init : function () {
+			this.addIframe(this.mainIframe);
+			this.scan();
+			//不使用此方法
+			/* while (this.len > 0) {
+				this.scanBody();
+				this.len--;
+			} */
+		}
+	};
+})(window, document);

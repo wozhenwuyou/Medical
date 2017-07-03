@@ -1,1 +1,9 @@
-INSERT INTO `medical`.`menu` (`id`, `parent_id`, `name`, `icon`, `url`, `is_leaf`, `level_id`, `description`, `serial`, `type_id`, `link_id`, `group_id`, `grade_id`, `main_status`, `logic_status`, `attr_decimal`, `attr_str`, `attr_int`, `sequence`, `remark`, `deleted_at`, `deleted_by`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES ('48', '46', '��ѯͳ��', NULL, '/back/phr/count', '1', NULL, NULL, '48', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+-- 插入脚本
+INSERT INTO `medical`.`menu` (`id`, `parent_id`, `name`, `icon`, `url`, `is_leaf`, `level_id`, `description`, `serial`, `type_id`, `link_id`, `group_id`, `grade_id`, `main_status`, `logic_status`, `attr_decimal`, `attr_str`, `attr_int`, `sequence`, `remark`, `deleted_at`, `deleted_by`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES ('48', '46', '��ѯͳ��', NULL, '/back/phr/count', '1', NULL, NULL, '48', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+--添加检查异常字段
+alter table phr_health_check add jkpj_des1 varchar(100);
+alter table phr_health_check add jkpj_des2 varchar(100);
+alter table phr_health_check add jkpj_des3 varchar(100);
+alter table phr_health_check add jkpj_des4 varchar(100);
+alter table phr_health_check add jkpj_des5 varchar(100);

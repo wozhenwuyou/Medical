@@ -34,6 +34,7 @@ import com.lhfeiyu.service.PhrHealthCheckService;
 import com.lhfeiyu.service.UserService;
 import com.lhfeiyu.tools.ActionUtil;
 import com.lhfeiyu.tools.Result;
+import com.lhfeiyu.vo.JsonResult;
 import com.lhfeiyu.vo.PhrBasicInfoCmd;
 import com.lhfeiyu.vo.PhrCountCmd;
 import com.lhfeiyu.vo.PhrCoverCmd;
@@ -622,12 +623,12 @@ public class PhrAction {
 			if (null == admin) {
 				return Result.adminSessionInvalid(json);
 			}
-			
-			if(cmd.getPage() != null && cmd.getPage() > 0){
-				cmd.setStart(((cmd.getPage() - 1) * cmd.getRows())) ;
+
+			if (cmd.getPage() != null && cmd.getPage() > 0) {
+				cmd.setStart(((cmd.getPage() - 1) * cmd.getRows()));
 				cmd.setLimit(cmd.getRows());
 			}
-			
+
 			List<PhrBasicInfo> hospitalList = phrBasicInfoService.selectPhrCountList(cmd);
 			Integer total = phrBasicInfoService.selectPhrCountValue(cmd);
 			Result.gridData(hospitalList, total, json);
@@ -635,6 +636,24 @@ public class PhrAction {
 
 		} catch (Exception e) {
 			Result.catchError(e, logger, "统计健康档案数据异常", json);
+		}
+		return json;
+	}
+
+	@SuppressWarnings("unchecked")
+	@ResponseBody
+	@RequestMapping(value = "/phr/checkUserNo", method = RequestMethod.POST)
+	public JsonResult checkUserNo(HttpServletRequest request) {
+		JsonResult json = new JsonResult();
+		try {
+			
+			String userNo = request.getParameter("userNo");
+			String id = request.getParameter("id");
+			boolean isRepeat = phrBasicInfoService.checkUserNo(userNo, id);
+			json.setSuccess(true);
+			json.getMap().put("isRepeat", isRepeat);
+		} catch (Exception e) {
+			json.getMap().put("errorMsg", e);
 		}
 		return json;
 	}

@@ -97,7 +97,7 @@ request.setAttribute("openType", openType);
 </head>
 
 <body lang=ZH-CN style='text-justify-trim: punctuation'>
-
+<!--print start-->
 	<div class=WordSection1 style='layout-grid: 15.6pt'>
 
 		<div align=center>
@@ -3554,7 +3554,7 @@ request.setAttribute("openType", openType);
 								style='font-family: 宋体'>异常</span><span lang=EN-US
 								style='font-family: 仿宋_GB2312'>1&nbsp; </span><u><span
 									style="font-family: 宋体"> <input type="text"
-										name="textfield88" id="textfield88">
+										name="jkpjDes1" id="jkpjDes1" value="${model.jkpjDes1 }">
 								</span></u></span>
 						</p>
 						<p class=MsoNormal align=left
@@ -3562,7 +3562,7 @@ request.setAttribute("openType", openType);
 							<span style='font-family: 宋体'>异常</span><span lang=EN-US
 								style='font-family: 仿宋_GB2312'>2&nbsp; </span><u><span
 								style="font-family: 宋体"> <input type="text"
-									name="textfield89" id="textfield89">
+									name="jkpjDes2" id="jkpjDes2" value="${model.jkpjDes2 }">
 							</span></u>
 						</p>
 						<p class=MsoNormal align=left
@@ -3570,7 +3570,7 @@ request.setAttribute("openType", openType);
 							<span style='font-family: 宋体'>异常</span><span lang=EN-US
 								style='font-family: 仿宋_GB2312'>3&nbsp; </span><u><span
 								style="font-family: 宋体"> <input type="text"
-									name="textfield90" id="textfield90">
+									name="jkpjDes3" id="jkpjDes3" value="${model.jkpjDes3 }">
 							</span></u>
 						</p>
 						<p class=MsoNormal
@@ -3578,7 +3578,15 @@ request.setAttribute("openType", openType);
 							<span style='line-height: 150%; font-family: 宋体'>异常</span><span
 								lang=EN-US style='line-height: 150%; font-family: 仿宋_GB2312'>4&nbsp;
 							</span><u><span style="font-family: 宋体"> <input type="text"
-									name="textfield91" id="textfield91">
+									name="jkpjDes4" id="jkpjDes4" value="${model.jkpjDes4 }">
+							</span></u>
+						</p>
+						<p class=MsoNormal
+							style='line-height: 150%; layout-grid-mode: char'>
+							<span style='line-height: 150%; font-family: 宋体'>异常</span><span
+								lang=EN-US style='line-height: 150%; font-family: 仿宋_GB2312'>5&nbsp;
+							</span><u><span style="font-family: 宋体"> <input type="text"
+									name="jkpjDes5" id="jkpjDes5" value="${model.jkpjDes5 }">
 							</span></u>
 						</p>
 					</td>
@@ -3726,6 +3734,7 @@ request.setAttribute("openType", openType);
 		</p>
 		
 	</div>
+	<!--print end-->
 	<script src="/third-party/jquery/jquery-1.11.3.min.js"></script>
 	<script src="/third-party/z.js"></script>
 	<script type="text/javascript" src="/third-party/bootstrap/js/bootstrap.min.js"></script>
@@ -3744,6 +3753,7 @@ request.setAttribute("openType", openType);
 			if(openType == 'detail'){
 				$("input[type=checkbox], input[type=radio]").attr('disabled', true);
 				$("input[type=text]").attr('readonly', true);
+				$("input[type=button]").css('display', 'none');
 			}
 		});
 		function bindDateField(selector) {
@@ -3809,6 +3819,7 @@ request.setAttribute("openType", openType);
 				  btn : ['确定', '取消'],
 				  content: '建/撤床日期：<input style="width:80px;" type="text" name="_jt1">&nbsp;原因：<input style="width:80px;" type="text" name="_jt2">&nbsp;医疗机构名称：<input style="width:80px;" type="text" name="_jt3">&nbsp;病案号：<input style="width:80px;" type="text" name="_jt4">',
 				  success : function(){
+					  
 				  },
 				  yes : function(){
 					  var v0 = top.$("input[name='_jt1']").val();

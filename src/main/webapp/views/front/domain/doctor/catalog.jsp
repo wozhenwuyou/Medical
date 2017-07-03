@@ -34,7 +34,7 @@
 	<div class="container-flow">
 	<div class="row clearfix">
 		<div class="col-md-2 column" style="padding-top:5px;">
-				<ul class="nav nav-pills nav-stacked nav-stacked">
+				<ul class="nav nav-pills nav-stacked nav-stacked" id="catalogList">
 					<li role="presentation" class="active"><a href="/front/phr/phrCover?openType=${openType }&basicInfoId=<%=request.getParameter("basicInfoId")%>" target="contentIframe">封面</a></li>
 					<li role="presentation"><a href="/back/phr/phrBasicInfoForm?openType=${openType }&id=<%=request.getParameter("basicInfoId")%>" target="contentIframe">基本信息表</a></li>
 					<c:if test="${healthCheckIds != null }">

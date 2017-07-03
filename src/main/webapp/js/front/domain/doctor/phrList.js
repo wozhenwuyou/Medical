@@ -150,10 +150,21 @@ function fnView(basicInfoId, name){
 		  title: '查看<font color=red>【{0}】</font>的档案信息'.format(name), //不显示标题
 		  area : [ '1000px', '680px' ],
 		  content: '/views/front/domain/doctor/catalog.jsp?openType=detail&basicInfoId=' + basicInfoId,
-		  cancel: function(){
+		  btn : [ '打印', '取消' ],
+		  yes: function(){
+			  var catalogBody = $(top.frames[1].document.body);
+			  var alinks = catalogBody.find("#catalogList li a");
+			  var pageUrls = [];
+			  $.each(alinks, function(i, onelink){
+				  pageUrls.push($(onelink).attr('href'));
+			  });
+			  iframeprint(pageUrls);
+		  },
+		  btn2 : function(){
+			  top.layer.close(index);
 		  }
 	});
-	layer.full(index);
+	top.layer.full(index);
 }
 
 function fnEdit(basicInfoId, name){
@@ -185,21 +196,17 @@ function fnEdit(basicInfoId, name){
 					form.append("<input type='hidden' name='jtbcsDes' value='"+jtbcsDes+"'>");
 					form.append("<input type='hidden' name='yyqkDes' value='"+yyqkDes+"'>");
 				}
-				
 				form.submit(function(e){
 					$(this).ajaxSubmit(function(resp){
-						//alert(resp);
 					}); 
 					return false;
 				});
 				
 				form.submit();
-				//top.layer.close(index);
 				top.layer.msg('保存成功');
 			}else{
 				var table = body.find("table");
 				doSave(table, function(){
-					//top.layer.close(index);
 					top.layer.msg('保存成功');
 					loadGridData();
 				});
@@ -238,9 +245,27 @@ function fnAddHealthCheckTable(btn, openType, id, basicInfoId){
 		yes : function() {
 			var body = top.layer.getChildFrame('body');
 			var form = body.find("form:first");
-			form.append("<input type='hidden' name='requestFrom' id='requestFrom' value='doctor'>");	
-			form.append("<input type='hidden' name='phrBasicInfoId' id='phrBasicInfoId' value='"+basicInfoId+"'>");
-			form.submit();
+			if(form.length > 0){//说明是封面信息或者是健康体检信息
+				form.append("<input type='hidden' name='requestFrom' id='requestFrom' value='doctor'>");	
+				form.append("<input type='hidden' name='phrBasicInfoId' id='phrBasicInfoId' value='"+basicInfoId+"'>");
+				form.append("<input type='hidden' name='basicInfoId' id='basicInfoId' value='"+basicInfoId+"'>");
+				
+				var td_jzs = form.find("#td_jzs");
+				if(td_jzs.length > 0){
+					var zybwhysjcs = $.trim(form.find("#zybwhysjcs").html());//职业病史
+					var fmyghyfjzsDes = $.trim(form.find("#td_jzs").html());//接种史
+					var zysDes = $.trim(form.find("#td_zys").html());//住院史
+					var jtbcsDes = $.trim(form.find("#td_jtbcsDes").html());//家庭病床
+					var yyqkDes = $.trim(form.find("#td_yy").html());//家庭病床
+					form.append("<input type='hidden' name='shfsZybwhysjcs' value='"+zybwhysjcs+"'>");
+					form.append("<input type='hidden' name='fmyghyfjzsDes' value='"+fmyghyfjzsDes+"'>");
+					form.append("<input type='hidden' name='zysDes' value='"+zysDes+"'>");
+					form.append("<input type='hidden' name='jtbcsDes' value='"+jtbcsDes+"'>");
+					form.append("<input type='hidden' name='yyqkDes' value='"+yyqkDes+"'>");
+				}
+				
+				form.submit();
+			}
 			top.layer.close(index);
 			top.layer.msg('保存体检表成功');
 		},

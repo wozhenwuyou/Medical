@@ -52,7 +52,7 @@
 								<td width="67" style="line-height: 30px;"><span
 									style="color: red; font-weight: bolder;">*</span>编号</td>
 								<td width="310"><input type="text" class="input14" value="${model.userNo }"
-									id="userNo" /></td>
+									id="userNo" onblur="fnCheckUserNo(this);" /></td>
 							</tr>
 							<tr height="40" valign="bottom">
 								<td width="67" style="line-height: 30px;"><span
@@ -125,8 +125,8 @@
 									<td width="329"><select class="input8" id="degree" style="width: 268px;">
 												<option value="不详">--不详--</option>
 												<option value="文盲及半文盲">文盲及半文盲</option>
-												<option value="B型">小学</option>
-												<option value="小学">初中</option>
+												<option value="小学">小学</option>
+												<option value="初中">初中</option>
 												<option value="高中/技校/中专">高中/技校/中专</option>
 												<option value="大学专科及以上">大学专科及以上</option>
 								</select></td>

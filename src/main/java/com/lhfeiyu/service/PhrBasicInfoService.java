@@ -15,6 +15,7 @@ import com.lhfeiyu.po.Doctor;
 import com.lhfeiyu.po.Hospital;
 import com.lhfeiyu.po.PhrBasicInfo;
 import com.lhfeiyu.po.PhrBasicInfoExample;
+import com.lhfeiyu.po.PhrBasicInfoExample.Criteria;
 import com.lhfeiyu.po.PhrCover;
 import com.lhfeiyu.vo.PhrBasicInfoCmd;
 import com.lhfeiyu.vo.PhrCountCmd;
@@ -267,5 +268,16 @@ public class PhrBasicInfoService {
 	// 健康档案值
 	public Integer selectPhrCountValue(PhrCountCmd cmd) {
 		return phrBasicInfoMapper.selectPhrCountValue(cmd);
+	}
+
+	public boolean checkUserNo(String userNo, String id) {
+		PhrBasicInfoExample ex = new PhrBasicInfoExample();
+		Criteria query = ex.createCriteria();
+		query.andUserNoEqualTo(userNo);
+		if (StringUtils.isNoneBlank(id)) {
+			query.andIdNotEqualTo(Integer.valueOf(id));
+		}
+		List<PhrBasicInfo> list = phrBasicInfoMapper.selectByExample(ex);
+		return list != null && list.size() > 0;
 	}
 }
