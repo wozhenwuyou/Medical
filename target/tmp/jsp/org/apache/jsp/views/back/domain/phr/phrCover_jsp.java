@@ -141,6 +141,7 @@ public final class phrCover_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</head>\r\n");
       out.write("\r\n");
       out.write("<body>\r\n");
+      out.write("<!--print start-->\r\n");
       out.write("<form action=\"/back/phr/phrCover/save\" method=\"POST\" id=\"phrCoverForm\">\r\n");
       out.write("\t<input type=\"hidden\" name=\"id\" id=\"id\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.id }", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -214,6 +215,7 @@ public final class phrCover_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t</tbody>\r\n");
       out.write("\t</table>\r\n");
       out.write("</form>\r\n");
+      out.write("<!--print end-->\r\n");
       out.write("\t<script type=\"text/javascript\" src=\"/third-party/z.js\" title=\"v\"></script>\r\n");
       out.write("\t<script src=\"/third-party/jquery/jquery-1.11.3.min.js\"></script>\r\n");
       out.write("\t<script type=\"text/javascript\"\r\n");

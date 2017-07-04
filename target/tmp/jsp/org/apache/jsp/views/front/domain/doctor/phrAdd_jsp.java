@@ -323,7 +323,7 @@ public final class phrAdd_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t\t\t\t<td width=\"310\"><input type=\"text\" class=\"input14\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${model.userNo }", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\"\r\n");
-      out.write("\t\t\t\t\t\t\t\t\tid=\"userNo\" /></td>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\tid=\"userNo\" onblur=\"fnCheckUserNo(this);\" /></td>\r\n");
       out.write("\t\t\t\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t\t\t\t<tr height=\"40\" valign=\"bottom\">\r\n");
       out.write("\t\t\t\t\t\t\t\t<td width=\"67\" style=\"line-height: 30px;\"><span\r\n");
@@ -396,8 +396,8 @@ public final class phrAdd_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t\t\t\t\t<td width=\"329\"><select class=\"input8\" id=\"degree\" style=\"width: 268px;\">\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"不详\">--不详--</option>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"文盲及半文盲\">文盲及半文盲</option>\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"B型\">小学</option>\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"小学\">初中</option>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"小学\">小学</option>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"初中\">初中</option>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"高中/技校/中专\">高中/技校/中专</option>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"大学专科及以上\">大学专科及以上</option>\r\n");
       out.write("\t\t\t\t\t\t\t\t</select></td>\r\n");

@@ -440,6 +440,7 @@ public final class phrList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("  </ul>\r\n");
       out.write("</div>\r\n");
       out.write("\t\t\t\t{{/mine}}\r\n");
+      out.write("\r\n");
       out.write("\t        </td>\r\n");
       out.write("\t    </tr>\r\n");
       out.write("\t\t{{/rows}}\t\t \t\t \r\n");

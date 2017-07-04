@@ -94,7 +94,7 @@ public final class catalog_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t<div class=\"container-flow\">\r\n");
       out.write("\t<div class=\"row clearfix\">\r\n");
       out.write("\t\t<div class=\"col-md-2 column\" style=\"padding-top:5px;\">\r\n");
-      out.write("\t\t\t\t<ul class=\"nav nav-pills nav-stacked nav-stacked\">\r\n");
+      out.write("\t\t\t\t<ul class=\"nav nav-pills nav-stacked nav-stacked\" id=\"catalogList\">\r\n");
       out.write("\t\t\t\t\t<li role=\"presentation\" class=\"active\"><a href=\"/front/phr/phrCover?openType=");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${openType }", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("&basicInfoId=");
