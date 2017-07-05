@@ -123,7 +123,7 @@ function doSave(table, cb) {
 	
 	o.ywgms = getValueByIdOrName(null, "ywgms");
 	o.ywgmsName = getValueByIdOrName("ywgmsName");
-	o.bls = getValueByIdOrName("bls");
+	o.bls = getValueByIdOrName(null, "bls") || getValueByIdOrName("bls");
 	o.ycbs = getValueByIdOrName(null, "ycbs") || getValueByIdOrName("ycbs");
 	
 	o.cjqk = getValueByIdOrName(null, "cjqk") || getValueByIdOrName("cjqk");

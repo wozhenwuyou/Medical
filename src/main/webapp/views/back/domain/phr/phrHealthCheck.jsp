@@ -902,7 +902,7 @@ request.setAttribute("openType", openType);
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<span style="font-family: 宋体"> <input type="radio"
-								name="shfsXyqkXyzk" value="从不吸烟" ${model.shfsXyqkXyzk == '从不抽烟' ? 'checked' : '' }>
+								name="shfsXyqkXyzk" value="从不吸烟" ${model.shfsXyqkXyzk == '从不吸烟' ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>从不吸烟</span><span
 								style="font-family: 宋体"> <input type="radio" name="shfsXyqkXyzk"
 								value="已戒烟" ${model.shfsXyqkXyzk == '已戒烟' ? 'checked' : '' }>
@@ -1560,7 +1560,7 @@ request.setAttribute("openType", openType);
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<span style='font-family: 宋体'>桶状胸：</span><span
 								style="font-family: 宋体"> <input type="radio" name="ctFTzx"
-								value="否 " ${model.ctFTzx == '否 ' ? 'checked' : '' }>
+								value="否 " ${model.ctFTzx == '否' ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>否 <input type="radio"
 								name="ctFTzx" value="是" ${model.ctFTzx == '是' ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>是</span>
@@ -1652,7 +1652,7 @@ request.setAttribute("openType", openType);
 							style='line-height: 16.0pt; layout-grid-mode: char'>
 							<span style='font-family: 宋体'>心率</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="ctXzXl" id="ctXzXl" ${model.ctXzXl } style="width:40px">
+									name="ctXzXl" id="ctXzXl" value="${model.ctXzXl }" style="width:40px">
 							</span></b><span style='font-family: 宋体'>次</span><span lang=EN-US
 								style='font-family: 仿宋_GB2312'>/</span><span
 								style='font-family: 宋体'>分钟</span><span lang=EN-US
@@ -2540,11 +2540,11 @@ request.setAttribute("openType", openType);
 							<span class="MsoNormal"
 								style="text-align: left; line-height: 16.0pt; layout-grid-mode: char"><span
 								style="font-family: 宋体"> <input type="radio" name="fzjcXbxxp"
-								value="正常">
+								value="正常" ${model.fzjcXbxxp == '正常' ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>正常</span><span lang=EN-US
 								style='font-family: 仿宋_GB2312'>&nbsp;<span
 									style="font-family: 宋体"> <input type="radio"
-										name="fzjcXbxxp" value="异常">
+										name="fzjcXbxxp" value="异常" ${model.fzjcXbxxp == '异常' ? 'checked' : '' }>
 								</span></span><span style='font-family: 宋体'>异常</span><b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
 										name="fzjcXbxxpQt" style="width:40px" value="${model.fzjcXbxxpQt }">
@@ -3113,13 +3113,13 @@ request.setAttribute("openType", openType);
 								type="checkbox" name="xczyjkwtXgjb" value="未发现" ${fn:contains(model.xczyjkwtXgjb, '未发现') ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>未发现</span><span lang=EN-US
 								style='font-family: 仿宋_GB2312'> <input type="checkbox"
-								name="xczyjkwtXgjb" value="夹层动脉瘤" ${fn:contains(model.xczyjkwtXzjb, '夹层动脉瘤') ? 'checked' : '' }>
+								name="xczyjkwtXgjb" value="夹层动脉瘤" ${fn:contains(model.xczyjkwtXgjb, '夹层动脉瘤') ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>夹层动脉瘤</span><span lang=EN-US
 								style='font-family: 仿宋_GB2312'>&nbsp; <input
-								type="checkbox" name="xczyjkwtXgjb" value="动脉闭塞性疾病" ${fn:contains(model.xczyjkwtXzjb, '动脉闭塞性疾病') ? 'checked' : '' }>
+								type="checkbox" name="xczyjkwtXgjb" value="动脉闭塞性疾病" ${fn:contains(model.xczyjkwtXgjb, '动脉闭塞性疾病') ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>动脉闭塞性疾病</span><span lang=EN-US
 								style='font-family: 仿宋_GB2312'> <input type="checkbox"
-								name="xczyjkwtXgjb" value="其他" ${fn:contains(model.xczyjkwtXzjb, '其他') ? 'checked' : '' }>
+								name="xczyjkwtXgjb" value="其他" ${fn:contains(model.xczyjkwtXgjb, '其他') ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>其他</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
 									name="xczyjkwtXgjbQt" id="xczyjkwtXgjbQt" style="width:40px" value="${model.xczyjkwtXgjbQt }">
@@ -3692,11 +3692,11 @@ request.setAttribute("openType", openType);
 						</p>
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
-							<span style="font-family: 仿宋_GB2312"> <input
+							<span style="font-family: 仿宋_GB2312"> <input ${fn:contains(model.wxyskz, '其他') ? 'checked' : '' }
 								type="checkbox" name="wxyskz" value="其他">
 							</span><span style='font-family: 宋体'>其他</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="wxyskzQt" id="wxyskzQt" style="width:40px" value="${model.wxyskzQt }">
+									name="wxyskzQt" id="wxyskzQt" style="width:300px" value="${model.wxyskzQt }">
 							</span></b>
 						</p>
 					</td>
@@ -3869,7 +3869,7 @@ request.setAttribute("openType", openType);
 					  var v1 = top.$("input[name='_cysj']").val();
 					  var v2 = top.$("input[name='_dwzl']").val();
 					  var v3 = top.$("input[name='_fhcs']").val();
-					  var tpl = '<p>工种{0}，从业时间{1}年，毒物种类{2}，防护措施{3}&nbsp;<input value="x" type="button" class="btn-danger" onclick="$(this).parent().remove();"></p>';
+					  var tpl = '<p>工种：{0}，从业时间：{1}年，毒物种类：{2}，防护措施：{3}&nbsp;<input value="x" type="button" class="btn-danger" onclick="$(this).parent().remove();"></p>';
 					  $("#zybwhysjcs").append(tpl.format([v0, v1, v2, v3]));
 					  top.layer.close(index);
 				  },

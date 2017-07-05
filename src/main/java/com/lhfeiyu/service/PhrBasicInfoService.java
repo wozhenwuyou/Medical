@@ -2,6 +2,7 @@ package com.lhfeiyu.service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -17,6 +18,7 @@ import com.lhfeiyu.po.PhrBasicInfo;
 import com.lhfeiyu.po.PhrBasicInfoExample;
 import com.lhfeiyu.po.PhrBasicInfoExample.Criteria;
 import com.lhfeiyu.po.PhrCover;
+import com.lhfeiyu.po.ProvinceCityArea;
 import com.lhfeiyu.vo.PhrBasicInfoCmd;
 import com.lhfeiyu.vo.PhrCountCmd;
 
@@ -29,6 +31,8 @@ public class PhrBasicInfoService {
 	private PhrCoverMapper phrCoverMapper;
 	@Autowired
 	private HospitalService hopitalService;
+	@Autowired
+	private ProvinceCityAreaService pcaService;
 
 	public List<PhrBasicInfo> selectListByCondition(PhrBasicInfoCmd cmd) {
 
@@ -154,7 +158,7 @@ public class PhrBasicInfoService {
 
 	public void savePhrBasicInfo(PhrBasicInfoCmd cmd) {
 
-		cmd.setHasCover((byte) 0);
+		cmd.setHasCover((byte) 1);
 		cmd.setDelFlag(false);
 
 		PhrBasicInfo entity = new PhrBasicInfo();
@@ -176,15 +180,23 @@ public class PhrBasicInfoService {
 				// 生成基本信息表
 				if (cmd.getDoctor() != null) {
 					Doctor doctor = cmd.getDoctor();
+					entity.setDoctorId(doctor.getId());
+					entity.setHospitalId(doctor.getHospitalId());
 					entity.setJdr(doctor.getRealname());
-					if (StringUtils.isBlank(doctor.getHospitalName())
-							|| StringUtils.isBlank(doctor.getHospitalAddress())) {
-						Hospital hospital = hopitalService.selectByPrimaryKey(doctor.getHospitalId());
-						if (hospital != null) {
-							entity.setJddw(hospital.getAddress() + "，" + hospital.getWholeName());// 建档单位
+					Hospital hospital = hopitalService.selectByPrimaryKey(doctor.getHospitalId());
+					if (hospital != null) {
+						
+						ProvinceCityArea sheng = pcaService.selectByPrimaryKey(hospital.getProvince());
+						ProvinceCityArea shi = pcaService.selectByPrimaryKey(hospital.getCity());
+						
+						String str = hospital.getWholeName();
+						if(shi != null){
+							str = shi.getAreaName() + "," + str;
 						}
-					} else {
-						entity.setJddw(doctor.getHospitalAddress() + "，" + doctor.getHospitalName());// 建档单位
+						if(sheng != null){
+							str = sheng.getAreaName() + "," + str;
+						}
+						entity.setJddw(str);// 建档单位
 					}
 				} else if (cmd.getAdmin() != null) {
 					entity.setJdr(cmd.getAdmin().getUsername());
@@ -202,15 +214,7 @@ public class PhrBasicInfoService {
 				cover.setDoctorId(entity.getDoctorId());
 				Doctor doctor = cmd.getDoctor();
 				if (doctor != null) {
-					if (StringUtils.isBlank(doctor.getHospitalName())
-							|| StringUtils.isBlank(doctor.getHospitalAddress())) {
-						Hospital hospital = hopitalService.selectByPrimaryKey(doctor.getHospitalId());
-						if (hospital != null) {
-							cover.setJddw(hospital.getAddress() + hospital.getWholeName());// 建档单位
-						}
-					} else {
-						cover.setJddw(doctor.getHospitalAddress() + doctor.getHospitalName());// 建档单位
-					}
+					cover.setJddw(entity.getJddw());
 					cover.setZrys(doctor.getRealname());// 责任医生
 					cover.setJdr(doctor.getRealname());
 					cover.setCreateUserId(doctor.getId());

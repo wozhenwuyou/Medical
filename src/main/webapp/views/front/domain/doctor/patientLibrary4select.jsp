@@ -21,7 +21,7 @@
 					<select class="text_input1" id="queryScope">
 						<option value="1">我建立的</option>
 						<option value="2" selected>本诊所</option>
-						<option value="3">全部</option>
+						<option value="3" style="display:none;">全部</option>
 					</select>
 				</td>
 				<td width="130">患者姓名：</td>
@@ -68,10 +68,10 @@
 				});
 			}, 900);
 			$("#queryScope").change(function(){
-				loadGridData(1, 20);
+				loadGridData(1, 10);
 			});
 			$("#username").keyup(function(){
-				loadGridData(1, 20);
+				loadGridData(1, 10);
 			});
 		});
 	</script>

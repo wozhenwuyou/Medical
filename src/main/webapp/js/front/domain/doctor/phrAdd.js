@@ -64,7 +64,7 @@ function initForm() {
 			function() {
 				var index = layer.open({
 					type : 2,
-					area : [ '550px', '580px' ],
+					area : [ '550px', '500px' ],
 					btn : [ '选择', '关闭' ],
 					content : '/patientLibrary4Select',
 					yes : function() {

@@ -29,6 +29,8 @@ if("add".equals(openType)){
 		PhrArchiveNumberService phrArchiveNumberService = (PhrArchiveNumberService) ctx.getBean(PhrArchiveNumberService.class);
 		model.setUserNo(String.valueOf(phrArchiveNumberService.generateArchiveNumber(doctor.getHospitalId())));
 		request.setAttribute("model", model);
+		
+		request.setAttribute("frontAdd", true);
 	}
 }
 request.setAttribute("openType", openType);
@@ -44,7 +46,7 @@ request.setAttribute("openType", openType);
   <tr>
       <td height="40" colspan="2" align="center" valign="middle"><span
 										style="color: red; font-weight: bolder;">*</span>姓名</td>
-      <td height="40" colspan="2" align="left" valign="middle"><input type="text" value="${model.name }" id="name"></td>
+      <td height="40" colspan="2" align="left" valign="middle"><input type="text" value="${model.name }" id="name" placeholder="${frontAdd ? '双击可关联患者' : '' }"></td>
       <td height="40" align="left" valign="middle"><span
 										style="color: red; font-weight: bolder;">*</span>编号</td>
       <td height="40" colspan="2" align="left" valign="middle"><input onblur="fnCheckUserNo(this);" type="text" value="${model.userNo }" id="userNo" style="width:280px;" ></td>
@@ -286,7 +288,7 @@ request.setAttribute("openType", openType);
       <td height="40" align="center" valign="middle">疾病</td>
       <td height="40" colspan="5" align="left" valign="middle"><table width="596" border="0" cellspacing="0" cellpadding="0">
         <tbody>
-          <tr>
+          <tr disp="hidden">
             <td width="244"><label for="select">疾病名称:</label>
               <select id="jbType" name="jbType">
                 <option value="无">无</option>
@@ -324,7 +326,7 @@ request.setAttribute("openType", openType);
       <td height="40" align="center" valign="middle">手 术</td>
       <td height="40" colspan="5" align="left" valign="middle"><table width="596" border="0" cellspacing="0" cellpadding="0">
         <tbody>
-          <tr>
+          <tr disp="hidden">
             <td width="244"><label for="input">手术名称:</label>
               <input type="text" value="无" id="shType"></td>
             <td width="317"><label for="input">手术时间：</label>
@@ -349,7 +351,7 @@ request.setAttribute("openType", openType);
       <td height="40" colspan="5" align="left" valign="middle">
       <table width="596" border="0" cellspacing="0" cellpadding="0">
         <tbody>
-          <tr>
+          <tr disp="hidden">
             <td width="244"><label for="input">外伤名称:</label>
               <input type="text" value="无" id="wsType"></td>
             <td width="317"><label for="input">外伤时间：</label>
@@ -373,7 +375,7 @@ request.setAttribute("openType", openType);
       <td height="40" align="center" valign="middle">输 血</td>
       <td height="40" colspan="5" align="left" valign="middle"><table width="596" border="0" cellspacing="0" cellpadding="0">
         <tbody>
-          <tr>
+          <tr disp="hidden">
             <td width="244"><label for="input">输血名称:</label>
               <input type="text" value="无" id="sxType"></td>
             <td width="317"><label for="input">输血时间：</label>
@@ -397,7 +399,7 @@ request.setAttribute("openType", openType);
       <td height="40" colspan="2" align="center" valign="middle">家 族 史</td>
       <td colspan="5" align="left" valign="middle"><table width="596" border="0" cellspacing="0" cellpadding="0">
         <tbody>
-          <tr>
+          <tr disp="hidden">
             <td width="244"><label for="select2">亲属:</label>
               <select id="jzsType">
                 <option value="父亲">父亲</option>
@@ -472,14 +474,14 @@ request.setAttribute("openType", openType);
     </tr>
     <tr>
       <td height="50" colspan="2" align="center" valign="middle">残疾情况</td>
-      <td height="50" colspan="5" align="left" valign="middle"><input type="checkbox" name="cjqk" value="无" ${fn:contains(model.bls, '无') ? 'checked' : '' }>
-      <label for="checkbox">无残疾</label>
+      <td height="50" colspan="5" align="left" valign="middle"><input type="checkbox" name="cjqk" value="无" ${fn:contains(model.cjqk, '无') ? 'checked' : '' }>
+      	<label for="checkbox">无残疾</label>
         <input type="checkbox" name="cjqk" value="视力残疾" ${fn:contains(model.cjqk, '视力残疾') ? 'checked' : '' }>
         <label for="checkbox">视力残疾</label>
         <input type="checkbox" name="cjqk" value="听力残疾" ${fn:contains(model.cjqk, '听力残疾') ? 'checked' : '' }>
-       <label for="checkbox"> 听力残疾</label>
+       	<label for="checkbox">听力残疾</label>
         <input type="checkbox" name="cjqk" value="言语残疾" ${fn:contains(model.cjqk, '言语残疾') ? 'checked' : '' }>
-      <label for="checkbox">言语残疾</label>
+      	<label for="checkbox">言语残疾</label>
         <input type="checkbox" name="cjqk" value="肢体残疾" ${fn:contains(model.cjqk, '肢体残疾') ? 'checked' : '' }>
         <label for="checkbox">肢体残疾</label><br>
         <input type="checkbox" name="cjqk" value="智力残疾" ${fn:contains(model.cjqk, '智力残疾') ? 'checked' : '' }>
@@ -562,10 +564,54 @@ request.setAttribute("openType", openType);
 <script type="text/javascript" src="/third-party/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
 <script type="text/javascript" src="/third-party/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 <script type="text/javascript">
+
+//初始化患者的id
+function initPatientInfo(id) {
+	$.post("/phr/doctor/getPatient/" + id, {}, function(rsp) {
+		if (rsp.success) {
+			var data = rsp.patient;
+			if (data) {
+				$("#patientId").val(data.id);
+				$('#name').val(data.realName);
+				$("#sex").val(data.sex == 1 ? '男' : '女');
+				$("#idCardNo").val(data.idcardNum);
+				$("#birthday").val(
+						data.birthday ? data.birthday.toDate()
+								.fmt('yyyy-MM-dd') : '');
+				$("#tel").val(data.phone);
+			}
+		} else {
+			top.layer.alert(rsp.msg);
+		}
+	}, "json");
+}
+
 $(document).ready(function(){
-	
 	bindDateField("#birthday, input[id$='Sj']");
 	
+	var frontAdd = '${frontAdd}';
+	if(frontAdd){
+	$("#name").dblclick(
+			function() {
+				var index = top.layer.open({
+					type : 2,
+					area : [ '550px', '580px' ],
+					btn : [ '选择', '关闭' ],
+					content : '/patientLibrary4Select',
+					yes : function() {
+						var chk = top.layer.getChildFrame(
+								'[name="patientRadio"]:radio:checked', index);
+						if (chk.length == 1) {
+							initPatientInfo(chk.val());
+							top.layer.close(index);
+						}
+					},
+					btn2 : function() {
+						top.layer.close(index);
+					}
+				});
+			});
+	}
 	//绑定事件
 	$("input[id$='_btn']").click(function(){
 
@@ -595,10 +641,14 @@ $(document).ready(function(){
 	}
 	
 	var openType = '${openType}';
-	if(openType == 'detail'){
+	if(openType == 'detail'){//查看详情的时候隐藏掉该隐藏的。
 		$("input[type=checkbox], input[type=radio]").attr('disabled', true);
 		$("input[type=text]").attr('readonly', true);
 		$("input[type=button]").css('display', 'none');
+		
+		$("tr[disp=hidden]").css('display', 'none');
+		
+		$("input").css('border-style', 'none');
 	}
 	
 });

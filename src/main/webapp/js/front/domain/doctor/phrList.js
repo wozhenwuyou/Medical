@@ -393,7 +393,7 @@ function doSave(table, cb) {
 	
 	o.ywgms = getValueByIdOrName(null, "ywgms");
 	o.ywgmsName = getValueByIdOrName("ywgmsName");
-	o.bls = getValueByIdOrName("bls");
+	o.bls = getValueByIdOrName(null, "bls") || getValueByIdOrName("bls");;
 	o.ycbs = getValueByIdOrName(null, "ycbs") || getValueByIdOrName("ycbs");
 	
 	o.cjqk = getValueByIdOrName(null, "cjqk") || getValueByIdOrName("cjqk");
@@ -478,3 +478,37 @@ function doSave(table, cb) {
 	}
 	
 }
+
+
+
+//添加信息
+function fnAddPhrBasicInfo(id, openType) {
+	
+	var openT = 'add';
+	if(openType == '编辑'){
+		openT = 'edit';
+	}else if(openType == '查看'){
+		openT = 'detail';
+	}
+	
+	var index = top.layer.open({
+		title : openType + '档案窗口',
+		type : 2,
+		area : [ '1000px', '520px' ],
+		btn : openT == 'detail' ? [] : [ '保存', '取消' ],
+		content : '/back/phr/phrBasicInfoForm?id=' + (id || '') + "&openType=" + openT,
+		yes : function() {
+			var table = top.layer.getChildFrame('body>table', index);
+			doSave(table, function(){
+				top.layer.close(index);
+				top.layer.msg('保存成功');
+				loadGridData();
+			});
+		},
+		btn2 : function() {
+			top.layer.close(index);
+		}
+	});
+	
+}
+

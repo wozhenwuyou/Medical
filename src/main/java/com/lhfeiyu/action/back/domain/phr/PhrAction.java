@@ -307,15 +307,16 @@ public class PhrAction {
 			if (null == admin) {
 				Doctor doctor = ActionUtil.checkSession4Doctor(request.getSession());// 验证session中的user，存在即返回
 				if (doctor != null) {
+					cmd.setDoctor(doctor);
 					cmd.setCreateUserId(doctor.getId());// 创建者id
 				}
 			} else {
+				cmd.setAdmin(admin);
 				cmd.setCreateUserId(admin.getId());// 创建者id
 			}
 			cmd.setCreateTime(new Date());// 创建时间
 			cmd.setLastUpdateTime(cmd.getCreateTime());// 最后修改时间
 			// 设置患者的信息
-			cmd.setAdmin(admin);
 			phrBasicInfoService.savePhrBasicInfo(cmd);
 		} catch (Exception e) {
 			Result.catchError(e, logger, "LH_ERROR-DoctorPatient-AJAX-/back/phr/phrAdd添加健康档案出现异常", json);

@@ -9,8 +9,7 @@
 <%@ include file="/views/common/common_css.htm"%>
 <link rel="stylesheet" type="text/css" href="/css/front/style.css"
 	title="v" />
-<link rel="stylesheet" type="text/css"
-	href="/third-party/pagination/paging.css" />
+<link rel="stylesheet" type="text/css" href="/third-party/pagination/paging.css" />
 </head>
 <body>
 	<%@ include file="/views/front/common/doctor/top.htm"%>
@@ -23,8 +22,12 @@
 				<div class="c_851">
 					<div class="t_851_2">
 						社区居民健康档案
+						<!-- 
 						<button class="fr pointer btn btn-success" style="margin-top:3px;"
 							onclick="javascript:location.href='/phr/doctor/phrAdd'">+添加档案</button>
+						-->
+						<button class="fr pointer btn btn-success" style="margin-top:3px;"
+							onclick="javascript:fnAddPhrBasicInfo(null, '添加');">+添加档案</button>
 					</div>
 					<div class="t_851_3">
 						<table cellpadding="0" cellspacing="0" border="0">
@@ -42,7 +45,7 @@
 									<select class="text_input1" id="queryScope" onchange="loadGridData();">
 										<option value="1">我建立的</option>
 										<option value="2" selected>本诊所</option>
-										<option value="3">全部</option>
+										<option value="3" style="display:none;">全部</option>
 									</select>
 								</td>
 								<td style="display:none" width="64"><input type="submit" class="sub_1"
@@ -103,8 +106,8 @@
   </button>
   <ul class="dropdown-menu">
     <li><a href="javascript:void(0);" onclick="fnView('{{id}}', '{{name}}');">查看</a></li>
-{{#mine}}
 	<li><a href="javascript:void(0);" onclick="fnEdit('{{id}}', '{{name}}');">编辑</a></li>
+{{#mine}}
 	<li role="separator" class="divider"></li>
 	<li><a href="javascript:void(0);" onclick="lh.confirm({content: '是否确定删除？', clickYes:deletePhrBasicInfo, clickYesParam:{{id}}});">删除</a></li>
 {{/mine}}

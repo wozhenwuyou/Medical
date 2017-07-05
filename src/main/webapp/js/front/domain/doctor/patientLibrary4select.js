@@ -4,12 +4,12 @@ $(function(){
 });
 function initData(){
 	jQuery(".Box").slide({mainCell:".bd ul",autoPlay:true});
-	loadGridData();
+	loadGridData(1, 10);
 }
 
 function loadGridData(page,size,count){
 	if(!page)page = 1;
-	if(!size)size = lh.grid.frontSize || 20;
+	if(!size)size = lh.grid.frontSize || 10;
 	if(!count)count = 1;
 	var queryScope = $('#queryScope').val();
 	var username = $("#username").val();
