@@ -26,6 +26,8 @@ public class PhrBasicInfoCmd extends PhrBasicInfo {
 	private Admin admin;
 	private Hospital hospital;
 	
+	private Integer cityId;
+	
 	public Hospital getHospital() {
 		return hospital;
 	}
@@ -117,4 +119,12 @@ public class PhrBasicInfoCmd extends PhrBasicInfo {
 		this.queryScope = queryScope;
 	}
 
+	public Integer getCityId() {
+		return cityId;
+	}
+
+	public void setCityId(Integer cityId) {
+		this.cityId = cityId;
+	}
+	
 }

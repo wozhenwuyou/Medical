@@ -102,7 +102,7 @@ public final class patientLibrary4select_jsp extends org.apache.jasper.runtime.H
       out.write("\t\t\t\t\t<select class=\"text_input1\" id=\"queryScope\">\r\n");
       out.write("\t\t\t\t\t\t<option value=\"1\">我建立的</option>\r\n");
       out.write("\t\t\t\t\t\t<option value=\"2\" selected>本诊所</option>\r\n");
-      out.write("\t\t\t\t\t\t<option value=\"3\">全部</option>\r\n");
+      out.write("\t\t\t\t\t\t<option value=\"3\" style=\"display:none;\">全部</option>\r\n");
       out.write("\t\t\t\t\t</select>\r\n");
       out.write("\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t<td width=\"130\">患者姓名：</td>\r\n");
@@ -192,10 +192,10 @@ public final class patientLibrary4select_jsp extends org.apache.jasper.runtime.H
       out.write("\t\t\t\t});\r\n");
       out.write("\t\t\t}, 900);\r\n");
       out.write("\t\t\t$(\"#queryScope\").change(function(){\r\n");
-      out.write("\t\t\t\tloadGridData(1, 20);\r\n");
+      out.write("\t\t\t\tloadGridData(1, 10);\r\n");
       out.write("\t\t\t});\r\n");
       out.write("\t\t\t$(\"#username\").keyup(function(){\r\n");
-      out.write("\t\t\t\tloadGridData(1, 20);\r\n");
+      out.write("\t\t\t\tloadGridData(1, 10);\r\n");
       out.write("\t\t\t});\r\n");
       out.write("\t\t});\r\n");
       out.write("\t</script>\r\n");

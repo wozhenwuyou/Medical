@@ -22,6 +22,14 @@ function initQueryForm(){
 		url : '/back/getDoctorArray'
 	});
 	
+	$('#sc_cityId').combobox({
+		valueField : 'id',
+		textField : 'name',
+		editable : false,
+		multiple : false,
+		panelHeight : 200,
+		url : "/back/getCityArray2"
+	});
 }
 
 // 添加信息
@@ -125,6 +133,7 @@ function doSave(table, cb) {
 	o.ywgmsName = getValueByIdOrName("ywgmsName");
 	o.bls = getValueByIdOrName(null, "bls") || getValueByIdOrName("bls");
 	o.ycbs = getValueByIdOrName(null, "ycbs") || getValueByIdOrName("ycbs");
+	o.ycbsName = getValueByIdOrName("ycbsName");
 	
 	o.cjqk = getValueByIdOrName(null, "cjqk") || getValueByIdOrName("cjqk");
 	o.shhjCfpfss = getValueByIdOrName(null, "shhjCfpfss");
@@ -510,4 +519,17 @@ function fnEdit(basicInfoId, name){
 		  }
 	});
 	top.layer.full(index);
+}
+
+function bindDateField(selector) {
+	$(selector).datetimepicker({
+		bootcssVer : 3,
+		format : 'yyyy-mm-dd',
+		todayBtn : true,
+		language : 'zh-CN',
+		startView : 2,
+		viewSelect : 'year',
+		minView : 2, //选择日期后，不会再跳转去选择时分秒 
+		autoclose : true
+	});
 }

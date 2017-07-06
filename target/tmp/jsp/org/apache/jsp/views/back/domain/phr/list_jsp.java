@@ -99,7 +99,8 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\tid=\"sc_idCardNo\" class=\"domain-input easyui-textbox width100\" /></td>\r\n");
       out.write("\t\t\t\t<td class=\"td_pad\"><span>电话：</span><input role=\"textbox\"\r\n");
       out.write("\t\t\t\t\tid=\"sc_tel\" class=\"domain-input easyui-textbox width100\" /></td>\r\n");
-      out.write("\t\t\t\t<td class=\"td_pad\">&nbsp;</td>\r\n");
+      out.write("\t\t\t\t<td class=\"td_pad\"><span>城市：</span><input role=\"textbox\"\r\n");
+      out.write("\t\t\t\t\tid=\"sc_cityId\" class=\"domain-input easyui-textbox width100\" /></td>\r\n");
       out.write("\t\t\t</tr>\r\n");
       out.write("\t\t\t<tr class=\"tr_ht\" align=\"right\">\r\n");
       out.write("\t\t\t\t<td class=\"td_pad\"><span>建档单位：</span><input role=\"textbox\"\r\n");
@@ -196,7 +197,7 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t<script type=\"text/javascript\" src=\"/js/common/back_template.js\" title=\"v\"></script>\r\n");
       out.write("\t<script type=\"text/javascript\" src=\"/third-party/z.js\" title=\"v\"></script>\r\n");
       out.write("\t<script type=\"text/javascript\" src=\"/third-party/jquery.form.js\" title=\"v\"></script>\r\n");
-      out.write("\t<script type=\"text/javascript\" src=\"/js/back/domain/phr/list.js\" title=\"v\"></script>\r\n");
+      out.write("\t<script type=\"text/javascript\" src=\"/js/back/domain/phr/list.js?1\" title=\"v\"></script>\r\n");
       out.write("</body>\r\n");
       out.write("</html>");
     } catch (Throwable t) {

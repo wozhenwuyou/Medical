@@ -1925,7 +1925,7 @@ request.setAttribute("openType", openType);
 							<span
 								style='font-family: 宋体'>乳腺包块</span><span style='font-family: 宋体'><span
 								style="font-family: 仿宋_GB2312"> <input type="checkbox"
-								name="ctRx" value="checkbox67">
+								name="ctRx" value="其他" ${fn:contains(model.ctRx, '其他') ? 'checked' : '' }>
 							</span>其他</span><b><span style="font-family: 宋体; color: blue"> <input
 									type="text" name="ctRxQt" id="ctRxQt" style="width:40px" value="${model.ctRxQt }">
 							</span></b>
@@ -2975,11 +2975,11 @@ request.setAttribute("openType", openType);
 						style='width: 237.3pt; border: none; border-bottom: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
 						<p class=MsoNormal
 							style='line-height: 16.0pt; layout-grid-mode: char'>
-							<span style="font-family: 仿宋_GB2312"> <input
-								type="checkbox" name="checkbox73" id="checkbox73">
+							<span style="font-family: 仿宋_GB2312"> 
+							<input type="checkbox" name="xczyjkwtNxgjb" value="其他" ${fn:contains(model.xczyjkwtNxgjb, '其他') ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>其他</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="xczyjkwtNxgjbQt" id="xczyjkwtNxgjbQt" style="width:40px" value="${model.xczyjkwtNxgjbQt }">
+									name="xczyjkwtNxgjbQt" id="xczyjkwtNxgjbQt" style="width:120px" value="${model.xczyjkwtNxgjbQt }">
 							</span></b>
 						</p>
 					</td>
@@ -3154,7 +3154,7 @@ request.setAttribute("openType", openType);
 							<span class="MsoNormal"
 								style="text-align: left; line-height: 16.0pt; layout-grid-mode: char"><span
 								lang=EN-US style='font-family: 仿宋_GB2312'> <input
-									type="checkbox" name="checkbox95" id="checkbox95">
+									type="checkbox" name="xczyjkwtYbjb" value="其他" ${fn:contains(model.xczyjkwtYbjb, '其他') ? 'checked' : '' }>
 							</span><span style='font-family: 宋体'>其他</span><b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
 										name="xczyjkwtYbjbQt" id="xczyjkwtYbjbQt" style="width:40px" value="${model.xczyjkwtYbjbQt }">
@@ -3754,6 +3754,8 @@ request.setAttribute("openType", openType);
 				$("input[type=checkbox], input[type=radio]").attr('disabled', true);
 				$("input[type=text]").attr('readonly', true);
 				$("input[type=button]").css('display', 'none');
+				
+				$("input").css('border-style', 'none');
 			}
 		});
 		function bindDateField(selector) {
@@ -3774,7 +3776,10 @@ request.setAttribute("openType", openType);
 				  area: ['700px', '180px'],
 				  btn : ['确定', '取消'],
 				  content: '名称：<input style="width:80px;" type="text" name="_jzs1">&nbsp;接种日期：<input style="width:80px;" type="text" name="_jzs2">&nbsp;接种机构：<input style="width:80px;" type="text" name="_jzs3">',
-				  success : function(){
+				  success : function(layero, index){
+					  
+					  top.bindDateField(top.$("input[name='_jzs2']"));
+					  
 				  },
 				  yes : function(){
 					  var v0 = top.$("input[name='_jzs1']").val();
@@ -3796,6 +3801,8 @@ request.setAttribute("openType", openType);
 				  btn : ['确定', '取消'],
 				  content: '药物名称：<input style="width:80px;" type="text" name="_yy1">&nbsp;用法：<input style="width:80px;" type="text" name="_yy2">&nbsp;用量：<input style="width:80px;" type="text" name="_yy3">&nbsp;用药时间：<input style="width:80px;" type="text" name="_yy4">&nbsp;<select style="width:80px;" name="_yy5"><option value="规律">规律</option><option value="间断">间断</option><option value="不服药">不服药</option></select>',
 				  success : function(){
+					  
+					  top.bindDateField(top.$("input[name='_yy4']"));
 				  },
 				  yes : function(){
 					  var v0 = top.$("input[name='_yy1']").val();
@@ -3819,7 +3826,7 @@ request.setAttribute("openType", openType);
 				  btn : ['确定', '取消'],
 				  content: '建/撤床日期：<input style="width:80px;" type="text" name="_jt1">&nbsp;原因：<input style="width:80px;" type="text" name="_jt2">&nbsp;医疗机构名称：<input style="width:80px;" type="text" name="_jt3">&nbsp;病案号：<input style="width:80px;" type="text" name="_jt4">',
 				  success : function(){
-					  
+					  top.bindDateField(top.$("input[name='_jt1']"));
 				  },
 				  yes : function(){
 					  var v0 = top.$("input[name='_jt1']").val();
@@ -3842,6 +3849,7 @@ request.setAttribute("openType", openType);
 				  btn : ['确定', '取消'],
 				  content: '入/出院日期：<input style="width:80px;" type="text" name="_zysj">&nbsp;原因：<input style="width:80px;" type="text" name="_zyyy">&nbsp;医疗机构名称：<input style="width:80px;" type="text" name="_yljgmc">&nbsp;病案号：<input style="width:80px;" type="text" name="_bah">',
 				  success : function(){
+					  top.bindDateField(top.$("input[name='_zysj']"));
 				  },
 				  yes : function(){
 					  var v0 = top.$("input[name='_zysj']").val();

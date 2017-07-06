@@ -1407,16 +1407,14 @@ Z.LocalStore = {
 (function (win, doc) {
 	var REG = /\<\!--\s*print\s+start\s*--\>(.|\n)*\<\!--\s*print\s+end\s*--\>/ig;
 
-	//add into window
 	win.iframeprint = function (urls) {
 		new IframePrint(urls);
 	}
-	//function
+
 	function IframePrint(urls) {
 		this.urls = typeof urls === "string" ? [].push(urls) : (urls instanceof Array ? urls : []);
 		this.len = this.urls.length;
 		if (this.len <= 0) {
-			//this = null;  //赋值左侧无效
 			alert("传入参数必须为string或者array。");
 			return;
 		}
@@ -1452,13 +1450,11 @@ Z.LocalStore = {
 		print : function () {
 			var ifmWin = this.mainIframe.contentWindow;
 			ifmWin.document.getElementsByTagName("body")[0].innerHTML = this.printHTML;
-
-			//log
-			//console.log(new Date());
-			//console.log(this.printHTML);
-
 			ifmWin.focus();
+			
+			pagesetup_null();
 			ifmWin.print();
+			pagesetup_default();
 		},
 		scan : function () {
 			var iframe = this.createIframe(this.urls[this.urls.length - this.len]),
@@ -1474,8 +1470,6 @@ Z.LocalStore = {
 					_this.len--;
 					_this.printHTML += _html + '<p style="page-break-after:always; border:none; background:none;margin:0;padding:0;"></p>';
 					_callee.call(_this);
-					//log
-					//console.log(">1");
 				}
 				this.onload = null;
 				_this.deleteIframe(this);
@@ -1499,20 +1493,33 @@ Z.LocalStore = {
 
 				this.onload = null;
 				_this.deleteIframe(this);
-				
-				//log
-				//console.log(">1");
 			};
 			this.addIframe(iframe);
 		},
 		init : function () {
 			this.addIframe(this.mainIframe);
 			this.scan();
-			//不使用此方法
-			/* while (this.len > 0) {
-				this.scanBody();
-				this.len--;
-			} */
 		}
 	};
+	
+	 function pagesetup_null(){ 
+         try{ 
+             var RegWsh = new ActiveXObject("WScript.Shell") 
+             hkey_key="header" 
+             RegWsh.RegWrite(hkey_root+hkey_path+hkey_key,"") 
+             hkey_key="footer" 
+             RegWsh.RegWrite(hkey_root+hkey_path+hkey_key,"") 
+         }catch(e){} 
+     } 
+     //设置网页打印的页眉页脚为默认值 
+     function pagesetup_default(){ 
+         try{ 
+             var RegWsh = new ActiveXObject("WScript.Shell") 
+             hkey_key="header" 
+             RegWsh.RegWrite(hkey_root+hkey_path+hkey_key,"&w&b页码，&p/&P") 
+             hkey_key="footer" 
+             RegWsh.RegWrite(hkey_root+hkey_path+hkey_key,"&u&b&d") 
+         }catch(e){} 
+     } 
+	
 })(window, document);

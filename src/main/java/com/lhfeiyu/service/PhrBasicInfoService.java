@@ -1,10 +1,13 @@
 package com.lhfeiyu.service;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -63,7 +66,7 @@ public class PhrBasicInfoService {
 				c.andJddwLike("%" + cmd.getJddw() + "%");
 			}
 			if (cmd.getCreateUserId() != null && cmd.getCreateUserId() > 0) {
-				c.andDoctorIdIsNull().andCreateUserIdEqualTo(cmd.getCreateUserId());
+				c.andDoctorIdIsNotNull().andCreateUserIdEqualTo(cmd.getCreateUserId());
 			}
 			if (cmd.getCreateTimeBegin() != null) {
 				c.andCreateTimeGreaterThanOrEqualTo(cmd.getCreateTimeBegin());
@@ -88,6 +91,25 @@ public class PhrBasicInfoService {
 
 				}
 			}
+			
+			//城市
+			if(cmd.getCityId() != null && cmd.getCityId().intValue() > 0){
+				//找到这个城市下面所有的诊所
+				Map<String, Object> map = new HashMap<String,Object>();
+				map.put("city", cmd.getCityId());
+				List<Hospital> hospitals = hopitalService.selectListByCondition(map);
+				List<Integer> list = new ArrayList<Integer>();
+				if(CollectionUtils.isNotEmpty(hospitals)){
+					for(Hospital hospital : hospitals){
+						list.add(hospital.getId());
+					}
+					
+				}else{
+					list.add(99999);
+				}
+				c.andHospitalIdIn(list);
+			}
+			
 			if (cmd.getPage() > 0 && cmd.getRows() > 0) {
 				example.setStart((cmd.getPage() - 1) * cmd.getRows());
 				example.setLimit(cmd.getRows());

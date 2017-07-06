@@ -292,7 +292,7 @@ public class PhrAction {
 			}
 			Result.success(modelMap, "健康档案管理页面加载成功", null);
 		} catch (Exception e) {
-			path = PagePath.error;
+			path = PagePath.backLogin;
 			Result.catchError(e, logger, "LH_ERROR-Hospital-PAGE-/back/phr/list-健康档案管理页面出现异常", modelMap);
 		}
 		return new ModelAndView(path, modelMap);

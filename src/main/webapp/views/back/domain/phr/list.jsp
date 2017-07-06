@@ -22,7 +22,8 @@
 					id="sc_idCardNo" class="domain-input easyui-textbox width100" /></td>
 				<td class="td_pad"><span>电话：</span><input role="textbox"
 					id="sc_tel" class="domain-input easyui-textbox width100" /></td>
-				<td class="td_pad">&nbsp;</td>
+				<td class="td_pad"><span>城市：</span><input role="textbox"
+					id="sc_cityId" class="domain-input easyui-textbox width100" /></td>
 			</tr>
 			<tr class="tr_ht" align="right">
 				<td class="td_pad"><span>建档单位：</span><input role="textbox"
@@ -84,6 +85,6 @@
 	<script type="text/javascript" src="/js/common/back_template.js" title="v"></script>
 	<script type="text/javascript" src="/third-party/z.js" title="v"></script>
 	<script type="text/javascript" src="/third-party/jquery.form.js" title="v"></script>
-	<script type="text/javascript" src="/js/back/domain/phr/list.js" title="v"></script>
+	<script type="text/javascript" src="/js/back/domain/phr/list.js?1" title="v"></script>
 </body>
 </html>

@@ -105,10 +105,9 @@ public final class phrList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t<![endif]\r\n");
       out.write("-->");
       out.write("\r\n");
-      out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/front/style.css\"\r\n");
-      out.write("\ttitle=\"v\" />\r\n");
-      out.write("<link rel=\"stylesheet\" type=\"text/css\"\r\n");
-      out.write("\thref=\"/third-party/pagination/paging.css\" />\r\n");
+      out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/front/style.css\" title=\"v\" />\r\n");
+      out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"/third-party/pagination/paging.css\" />\r\n");
+      out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"/third-party/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css\" />\r\n");
       out.write("</head>\r\n");
       out.write("<body>\r\n");
       out.write("\t");
@@ -283,8 +282,12 @@ public final class phrList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t<div class=\"c_851\">\r\n");
       out.write("\t\t\t\t\t<div class=\"t_851_2\">\r\n");
       out.write("\t\t\t\t\t\t社区居民健康档案\r\n");
+      out.write("\t\t\t\t\t\t<!-- \r\n");
       out.write("\t\t\t\t\t\t<button class=\"fr pointer btn btn-success\" style=\"margin-top:3px;\"\r\n");
       out.write("\t\t\t\t\t\t\tonclick=\"javascript:location.href='/phr/doctor/phrAdd'\">+添加档案</button>\r\n");
+      out.write("\t\t\t\t\t\t-->\r\n");
+      out.write("\t\t\t\t\t\t<button class=\"fr pointer btn btn-success\" style=\"margin-top:3px;\"\r\n");
+      out.write("\t\t\t\t\t\t\tonclick=\"javascript:fnAddPhrBasicInfo(null, '添加');\">+添加档案</button>\r\n");
       out.write("\t\t\t\t\t</div>\r\n");
       out.write("\t\t\t\t\t<div class=\"t_851_3\">\r\n");
       out.write("\t\t\t\t\t\t<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\">\r\n");
@@ -302,7 +305,7 @@ public final class phrList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t\t\t\t\t<select class=\"text_input1\" id=\"queryScope\" onchange=\"loadGridData();\">\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t<option value=\"1\">我建立的</option>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t<option value=\"2\" selected>本诊所</option>\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t<option value=\"3\">全部</option>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t<option value=\"3\" style=\"display:none;\">全部</option>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t</select>\r\n");
       out.write("\t\t\t\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t\t\t\t\t<td style=\"display:none\" width=\"64\"><input type=\"submit\" class=\"sub_1\"\r\n");
@@ -395,6 +398,8 @@ public final class phrList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t<script type=\"text/javascript\" src=\"/third-party/layer/layer.js\" title=\"v\"></script>\r\n");
       out.write("\t<script type=\"text/javascript\" src=\"/js/front/domain/doctor/doctorCommon.js\" title=\"v\"></script>\r\n");
       out.write("\t<script type=\"text/javascript\" src=\"/js/front/domain/doctor/phrList.js?2\" title=\"v\"></script>\r\n");
+      out.write("\t<script type=\"text/javascript\" src=\"/third-party/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js\"></script>\r\n");
+      out.write("\t<script type=\"text/javascript\" src=\"/third-party/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js\"></script>\r\n");
       out.write("\r\n");
       out.write("\t<script id=\"template\" type=\"x-tmpl-mustache\">\r\n");
       out.write("\t\t<tr height=\"53\" align=\"center\" style=\"font-size:14px; color:#63a13f\">\r\n");
@@ -423,14 +428,13 @@ public final class phrList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("  </button>\r\n");
       out.write("  <ul class=\"dropdown-menu\">\r\n");
       out.write("    <li><a href=\"javascript:void(0);\" onclick=\"fnView('{{id}}', '{{name}}');\">查看</a></li>\r\n");
-      out.write("{{#mine}}\r\n");
       out.write("\t<li><a href=\"javascript:void(0);\" onclick=\"fnEdit('{{id}}', '{{name}}');\">编辑</a></li>\r\n");
+      out.write("{{#mine}}\r\n");
       out.write("\t<li role=\"separator\" class=\"divider\"></li>\r\n");
       out.write("\t<li><a href=\"javascript:void(0);\" onclick=\"lh.confirm({content: '是否确定删除？', clickYes:deletePhrBasicInfo, clickYesParam:{{id}}});\">删除</a></li>\r\n");
       out.write("{{/mine}}\r\n");
       out.write("  </ul>\r\n");
       out.write("</div>\r\n");
-      out.write("\t\t\t\t{{#mine}}\r\n");
       out.write("<div class=\"btn-group\">\r\n");
       out.write("  \t<button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n");
       out.write("   \t+附表<span class=\"caret\"></span>\r\n");
@@ -439,7 +443,6 @@ public final class phrList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <li><a href=\"javascript:void(0);\" onclick=\"fnAddHealthCheckTable(this, '添加', '', {{id}});\">体检表</a></li>\r\n");
       out.write("  </ul>\r\n");
       out.write("</div>\r\n");
-      out.write("\t\t\t\t{{/mine}}\r\n");
       out.write("\r\n");
       out.write("\t        </td>\r\n");
       out.write("\t    </tr>\r\n");

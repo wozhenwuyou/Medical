@@ -373,6 +373,7 @@ function doSave(table, cb) {
 	o.ywgmsName = getValueByIdOrName("ywgmsName");
 	o.bls = getValueByIdOrName(null, "bls") || getValueByIdOrName("bls");
 	o.ycbs = getValueByIdOrName(null, "ycbs") || getValueByIdOrName("ycbs");
+	o.ycbsName = getValueByIdOrName("ycbsName");
 	
 	o.cjqk = getValueByIdOrName(null, "cjqk") || getValueByIdOrName("cjqk");
 	o.shhjCfpfss = getValueByIdOrName(null, "shhjCfpfss");

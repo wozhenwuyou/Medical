@@ -31,7 +31,7 @@
 
 		<!-- 采用泛型Mapper,不再需要自动生成 <javaClientGenerator type="XMLMAPPER" targetPackage="${targetMapperPackage}" 
 			targetProject="${targetJavaProject}"/> -->
-		<table tableName="phr_health_check" enableCountByExample="true"
+		<table tableName="phr_basic_info" enableCountByExample="true"
 			enableUpdateByExample="true" enableDeleteByExample="true"
 			enableSelectByExample="true" selectByExampleQueryId="true"
 			selectByPrimaryKeyQueryId="true">

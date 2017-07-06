@@ -7,9 +7,9 @@
 <head>
 <%@ include file="/views/common/meta_info.htm"%>
 <%@ include file="/views/common/common_css.htm"%>
-<link rel="stylesheet" type="text/css" href="/css/front/style.css"
-	title="v" />
+<link rel="stylesheet" type="text/css" href="/css/front/style.css" title="v" />
 <link rel="stylesheet" type="text/css" href="/third-party/pagination/paging.css" />
+<link rel="stylesheet" type="text/css" href="/third-party/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" />
 </head>
 <body>
 	<%@ include file="/views/front/common/doctor/top.htm"%>
@@ -78,6 +78,8 @@
 	<script type="text/javascript" src="/third-party/layer/layer.js" title="v"></script>
 	<script type="text/javascript" src="/js/front/domain/doctor/doctorCommon.js" title="v"></script>
 	<script type="text/javascript" src="/js/front/domain/doctor/phrList.js?2" title="v"></script>
+	<script type="text/javascript" src="/third-party/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+	<script type="text/javascript" src="/third-party/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 
 	<script id="template" type="x-tmpl-mustache">
 		<tr height="53" align="center" style="font-size:14px; color:#63a13f">
@@ -113,7 +115,6 @@
 {{/mine}}
   </ul>
 </div>
-				{{#mine}}
 <div class="btn-group">
   	<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
    	+附表<span class="caret"></span>
@@ -122,7 +123,6 @@
     <li><a href="javascript:void(0);" onclick="fnAddHealthCheckTable(this, '添加', '', {{id}});">体检表</a></li>
   </ul>
 </div>
-				{{/mine}}
 
 	        </td>
 	    </tr>

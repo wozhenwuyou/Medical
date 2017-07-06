@@ -185,15 +185,12 @@ request.setAttribute("openType", openType);
         <label>
           <input type="checkbox" name="profession" value="国家机关、党群组织、企业、事业单位负责人" ${fn:contains(model.profession, '国家机关、党群组织、企业、事业单位负责人') ? 'checked' : '' }>
           国家机关、党群组织、企业、事业单位负责人</label>
-      <br />
           <label>
             <input type="checkbox" name="profession" value="专业技术人员" ${fn:contains(model.profession, '专业技术人员') ? 'checked' : '' }>
           专业技术人员</label>
-        <br />
           <label>
             <input type="checkbox" name="profession" value="办事人员和有关人员" ${fn:contains(model.profession, '办事人员和有关人员') ? 'checked' : '' }>
           办事人员和有关人员</label>
-        <br />
           <label>
             <input type="checkbox" name="profession" value="商业、服务业人员" ${fn:contains(model.profession, '商业、服务业人员') ? 'checked' : '' }>
           商业、服务业人员</label>
@@ -201,15 +198,12 @@ request.setAttribute("openType", openType);
           <label>
             <input type="checkbox" name="profession" value="农、林、牧、渔、水利业生产人员" ${fn:contains(model.profession, '农、林、牧、渔、水利业生产人员') ? 'checked' : '' }>
           农、林、牧、渔、水利业生产人员</label>
-        <br />
           <label>
             <input type="checkbox" name="profession" value="生产、运输设备操作人员及有关人员" ${fn:contains(model.profession, '生产、运输设备操作人员及有关人员') ? 'checked' : '' }>
           生产、运输设备操作人员及有关人员</label>
-        <br />
           <label>
             <input type="checkbox" name="profession" value="军人" ${fn:contains(model.profession, '军人') ? 'checked' : '' }>
           军人</label>
-        <br />
           <label>
             <input type="checkbox" name="profession" value="不便分类的其他从业人员" ${fn:contains(model.profession, '不便分类的其他从业人员') ? 'checked' : '' }>
           不便分类的其他从业人员</label>
@@ -235,20 +229,19 @@ request.setAttribute("openType", openType);
       <p align="center">支付方式</p></td>
       <td height="50" colspan="5" align="left" valign="middle"><p>
         <input type="checkbox" name="payType" value="城镇职工基本医疗保险" ${fn:contains(model.payType, '城镇职工基本医疗保险') ? 'checked' : '' }>
-        <label for="checkbox">城镇职工基本医疗保险</label><br />
+        <label for="checkbox">城镇职工基本医疗保险</label>
           <input type="checkbox" name="payType" value="城镇居民基本医疗保险" ${fn:contains(model.payType, '城镇居民基本医疗保险') ? 'checked' : '' }>
-          <label for="checkbox">城镇居民基本医疗保险</label><br />
+          <label for="checkbox">城镇居民基本医疗保险</label>
           <input type="checkbox" name="payType" value="新型农村合作医疗" ${fn:contains(model.payType, '新型农村合作医疗') ? 'checked' : '' }>
-          <label for="checkbox">新型农村合作医疗</label><br/>          
+          <label for="checkbox">新型农村合作医疗</label>    <br />       
         <input type="checkbox" name="payType" value="贫困救助" ${fn:contains(model.payType, '贫困救助') ? 'checked' : '' }>
-          <label for="checkbox">贫困救助</label> <br />
+          <label for="checkbox">贫困救助</label>
             <input type="checkbox" name="payType" value="商业医疗保险" ${fn:contains(model.payType, '商业医疗保险') ? 'checked' : '' }>
-           <label for="checkbox">商业医疗保险</label><br />
+           <label for="checkbox">商业医疗保险</label>
             <input type="checkbox" name="payType" value="全公费" ${fn:contains(model.payType, '全公费') ? 'checked' : '' }>
           <label for="checkbox">全公费</label>
-      <br/>
           <input type="checkbox" name="payType" value="全自费" ${fn:contains(model.payType, '全自费') ? 'checked' : '' }>
-          <label for="checkbox">全自费</label><br />
+          <label for="checkbox">全自费</label>
             <input type="checkbox" name="payType" value="其他" ${fn:contains(model.payType, '其他') ? 'checked' : '' }>
           <label for="checkbox">其他</label>
           <input type="text" id="payTypeOther" name="payTypeOther" value="${model.payTypeOther }">
@@ -312,7 +305,7 @@ request.setAttribute("openType", openType);
           <!-- 疾病回显 -->
 		<c:if test="${model.jwsDiseaseDes != '无' && fn:length(model.jwsDiseaseDes) > 0 }">
 			<c:forEach var="one" items="${fn:split(model.jwsDiseaseDes, ',') }">
-				<tr type=dynamic_gen_jb'>
+				<tr type='dynamic_gen_jb'>
 				    <td>${fn:split(one, ';')[0] }</td>
 				    <td>${fn:split(one, ';')[1] }</td>
 				    <td><input type="button" value="x" class="btn-danger" onclick="$(this).parent().parent().remove();"></td>
@@ -336,7 +329,7 @@ request.setAttribute("openType", openType);
            <!-- 手术回显 -->
 		<c:if test="${model.jwsOperationDes != '无' && fn:length(model.jwsOperationDes) > 0 }">
 			<c:forEach var="one" items="${fn:split(model.jwsOperationDes, ',') }">
-				<tr type=dynamic_gen_sh'>
+				<tr type='dynamic_gen_sh'>
 				    <td>${fn:split(one, ';')[0] }</td>
 				    <td>${fn:split(one, ';')[1] }</td>
 				    <td><input type="button" value="x" class="btn-danger" onclick="$(this).parent().parent().remove();"></td>
@@ -361,7 +354,7 @@ request.setAttribute("openType", openType);
            <!-- 外伤回显 -->
 		<c:if test="${model.jwsTraumaDes != '无' && fn:length(model.jwsTraumaDes) > 0 }">
 			<c:forEach var="one" items="${fn:split(model.jwsTraumaDes, ',') }">
-				<tr type=dynamic_gen_sh'>
+				<tr type='dynamic_gen_ws'>
 				    <td>${fn:split(one, ';')[0] }</td>
 				    <td>${fn:split(one, ';')[1] }</td>
 				    <td><input type="button" value="x" class="btn-danger" onclick="$(this).parent().parent().remove();"></td>
@@ -385,7 +378,7 @@ request.setAttribute("openType", openType);
           <!-- 输血回显 -->
 		<c:if test="${model.jwsTransfusionDes != '无' && fn:length(model.jwsTransfusionDes) > 0 }">
 			<c:forEach var="one" items="${fn:split(model.jwsTransfusionDes, ',') }">
-				<tr type=dynamic_gen_sh'>
+				<tr type='dynamic_gen_sx'>
 				    <td>${fn:split(one, ';')[0] }</td>
 				    <td>${fn:split(one, ';')[1] }</td>
 				    <td><input type="button" value="x" class="btn-danger" onclick="$(this).parent().parent().remove();"></td>
@@ -401,14 +394,14 @@ request.setAttribute("openType", openType);
         <tbody>
           <tr disp="hidden">
             <td width="244"><label for="select2">亲属:</label>
-              <select id="jzsType">
+              <select id="jzsType" name="jzsType">
                 <option value="父亲">父亲</option>
                 <option value="母亲">母亲</option>
                 <option value="兄弟姐妹">兄弟姐妹</option>
                 <option value="子女">子女</option>
               </select></td>
             <td width="317"><label for="input">疾病：</label>
-             <select id="jzsSj">
+             <select id="jzsSj" name="jzsSj">
                 <option value="无">无</option>
                 <option value="高血压">高血压</option>
                 <option value="糖尿病">糖尿病</option>
@@ -427,7 +420,7 @@ request.setAttribute("openType", openType);
           </tr>
           <c:if test="${model.jzsFq != '无' && fn:length(model.jzsFq) > 0 }">
 			<c:forEach var="one" items="${fn:split(model.jzsFq, ',') }">
-				<tr type=dynamic_gen_sh'>
+				<tr type='dynamic_gen_jzs'>
 				    <td>${fn:split(one, ';')[0] }</td>
 				    <td>${fn:split(one, ';')[1] }</td>
 				    <td><input type="button" value="x" class="btn-danger" onclick="$(this).parent().parent().remove();"></td>
@@ -436,7 +429,7 @@ request.setAttribute("openType", openType);
 		</c:if>
 		<c:if test="${model.jzsMq != '无' && fn:length(model.jzsMq) > 0 }">
 			<c:forEach var="one" items="${fn:split(model.jzsMq, ',') }">
-				<tr type=dynamic_gen_sh'>
+				<tr type='dynamic_gen_jzs'>
 				    <td>${fn:split(one, ';')[0] }</td>
 				    <td>${fn:split(one, ';')[1] }</td>
 				    <td><input type="button" value="x" class="btn-danger" onclick="$(this).parent().parent().remove();"></td>
@@ -445,7 +438,7 @@ request.setAttribute("openType", openType);
 		</c:if>
 		<c:if test="${model.jzsXdjm != '无' && fn:length(model.jzsXdjm) > 0 }">
 			<c:forEach var="one" items="${fn:split(model.jzsXdjm, ',') }">
-				<tr type=dynamic_gen_sh'>
+				<tr type='dynamic_gen_jzs'>
 				    <td>${fn:split(one, ';')[0] }</td>
 				    <td>${fn:split(one, ';')[1] }</td>
 				    <td><input type="button" value="x" class="btn-danger" onclick="$(this).parent().parent().remove();"></td>
@@ -454,7 +447,7 @@ request.setAttribute("openType", openType);
 		</c:if>
 		<c:if test="${model.jzsZn != '无' && fn:length(model.jzsZn) > 0 }">
 			<c:forEach var="one" items="${fn:split(model.jzsZn, ',') }">
-				<tr type=dynamic_gen_sh'>
+				<tr type='dynamic_gen_jzs'>
 				    <td>${fn:split(one, ';')[0] }</td>
 				    <td>${fn:split(one, ';')[1] }</td>
 				    <td><input type="button" value="x" class="btn-danger" onclick="$(this).parent().parent().remove();"></td>
@@ -465,12 +458,12 @@ request.setAttribute("openType", openType);
       </table></td>
     </tr>
     <tr>
-      <td height="40" colspan="2" align="center" valign="middle">遗产病史</td>
+      <td height="40" colspan="2" align="center" valign="middle">遗传病史</td>
       <td height="40" colspan="5" align="left" valign="middle"><input type="radio" name="ycbs" value="无" ${model.ycbs == '无' ? 'checked' : '' }>
       <label for="radio24">无</label>
         <input type="radio" name="ycbs" value="有" ${model.ycbs == '有' ? 'checked' : '' }>
      <label for="radio24">有
-      ：疾病名称</label>       <input type="text" id="ycbs" value="${model.ycbs }"></td>
+      ：疾病名称</label>       <input type="text" id="ycbsName" value="${model.ycbsName }" name="ycbsName"></td>
     </tr>
     <tr>
       <td height="50" colspan="2" align="center" valign="middle">残疾情况</td>
@@ -483,7 +476,7 @@ request.setAttribute("openType", openType);
         <input type="checkbox" name="cjqk" value="言语残疾" ${fn:contains(model.cjqk, '言语残疾') ? 'checked' : '' }>
       	<label for="checkbox">言语残疾</label>
         <input type="checkbox" name="cjqk" value="肢体残疾" ${fn:contains(model.cjqk, '肢体残疾') ? 'checked' : '' }>
-        <label for="checkbox">肢体残疾</label><br>
+        <label for="checkbox">肢体残疾</label>
         <input type="checkbox" name="cjqk" value="智力残疾" ${fn:contains(model.cjqk, '智力残疾') ? 'checked' : '' }>
         <label for="checkbox">智力残疾</label>
         <input type="checkbox" name="cjqk" value="精神残疾" ${fn:contains(model.cjqk, '精神残疾') ? 'checked' : '' }>

@@ -1814,3 +1814,46 @@ public com.alibaba.fastjson.JSONObject com.lhfeiyu.action.front.domain.hospital.
 ### SQL: select 'true' as QUERYID,                id, phr_basic_info_id, patient_id, doctor_id, hospital_id, create_user_id, createTime,      lastUpdateTime, deleteFlag, tjrq, zrys, zhengzhuang, zhengzhuang_qt, ybqk_tw, ybqk_ml,      ybqk_hxpl, ybqk_xw_zc1, ybqk_xw_zc2, ybqk_xw_yc1, ybqk_xw_yc2, ybqk_sg, ybqk_tz,      ybqk_yw, ybqk_tzzs, ybqk_tun_wei, ybqk_ytwbz, ybqk_zwpg_jkzk, ybqk_zwpg_zlnl, ybqk_rzgn,      ybqk_rzgn_zf, ybqk_qgzt, ybqk_qgzt_zf, shfs_tydl_dlpl, shfs_tydl_mcdlsj, shfs_tydl_jcdlsj,      shfs_tydl_dlfs, shfs_ysxg, shfs_xyqk_xyzk, shfs_xyqk_rxyl, shfs_xyqk_ksxynl, shfs_xyqk_jynl,      shfs_yjqk_yjpl, shfs_yjqk_ryjl, shfs_yjqk_sfjj, shfs_yjqk_jjnl, shfs_yjqk_ksyjnl,      shfs_yjqk_jynnsfzj, shfs_yjqk_yjzl, shfs_yjqk_yjzl_qt, shfs_zybwhysjcs, zqgn_kq_kc,      zqgn_kq_cl, zqgn_kq_yb, zqgn_sl_zy, zqgn_sl_yy, zqgn_sl_jz_zy, zqgn_sl_jz_yy, zqgn_tl,      zqgn_ydgn, ct_yd, ct_yd_zyjc, ct_pf, ct_pf_qt, ct_gm, ct_gm_qt, ct_lbj, ct_lbj_qt,      ct_f_tzx, ct_f_hxy, ct_f_hxy_qt, ct_f_ly, ct_f_ly_qt, ct_xz_xl, ct_xz_xlq, ct_xz_zy,      ct_xz_zy_qt, ct_fb_yt, ct_fb_yt_qt, ct_fb_bk, ct_fb_bk_qt, ct_fb_gd, ct_fb_gd_qt,      ct_fb_pd, ct_fb_pd_qt, ct_fb_ydxzy, ct_fb_ydxzy_qt, ct_xzsz, ct_zbdmbd, ct_gmzz,      ct_gmzz_qt, ct_rx, ct_rx_qt, ct_fk_wy, ct_fk_wy_qt, ct_fk_yd, ct_fk_yd_qt, ct_fk_gj,      ct_fk_gj_qt, ct_fk_gt, ct_fk_gt_qt, ct_fk_fj, ct_fk_fj_qt, ct_qt, fzjc_xcg_xhdb,      fzjc_xcg_bxb, fzjc_xcg_xxb, fzjc_xcg_qt, fzjc_ncg_ndb, fzjc_ncg_nt, fzjc_ncg_ntt,      fzjc_ncg_nqx, fzjc_ncg_qt, fzjc_kfxt_mm, fzjc_kfxt_mg, fzjc_xdt, fzjc_xdt_qt, fzjc_nwlbdb,      fzjc_dbqx, fzjc_thxhdb, fzjc_yxgybmky, fzjc_ggn_xqgbzam, fzjc_ggn_xqgczam, fzjc_ggn_bdb,      fzjc_ggn_zdhs, fzjc_ggn_jhdhs, fzjc_xgn_xqjg, fzjc_xgn_xnsd, fzjc_xgn_xjnd, fzjc_xgn_xnnd,      fzjc_xz_zdgc, fzjc_xz_gysz, fzjc_xz_xqdmdzdbdgc, fzjc_xz_xqgmdzdbdgc, fzjc_xbxxp,      fzjc_xbxxp_qt, fzjc_bc, fzjc_bc_qt, fzjc_gjtp, fzjc_gjtp_qt, fzjc_qt, zytzbs_phz,      zytzbs_qxz, zytzbs_yanx, zytzbs_yinx, zytzbs_tx, zytzbs_xr, zytzbs_xy, zytzbs_qy,      zytzbs_tb, xczyjkwt_nxgjb, xczyjkwt_nxgjb_qt, xczyjkwt_szjb, xczyjkwt_szjb_qt, xczyjkwt_xzjb,      xczyjkwt_xzjb_qt, xczyjkwt_xgjb, xczyjkwt_xgjb_qt, xczyjkwt_ybjb, xczyjkwt_ybjb_qt,      xczyjkwt_sjxtjb, xczyjkwt_sjxtjb_qt, xczyjkwt_qtxtjb, xczyjkwt_qtxtjb_qt, zys_des,      jtbcs_des, yyqk_des, fmyghyfjzs_des, jkpj, jkpj_des, jkzd_des, wxyskz, wxyskz_mb,      wxyskz_jyjzym, wxyskz_qt         from phr_health_check     where id = ?
 ### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'jkpj_des' in 'field list'
 ; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'jkpj_des' in 'field list'
+2017-07-06 19:27:55 [ERROR] - com.lhfeiyu.action.back.domain.phr.PhrAction -Result.java(164) -LH_ERROR-Hospital-PAGE-/back/phr/list-健康档案管理页面出现异常-null
+2017-07-06 19:30:57 [ERROR] - com.lhfeiyu.action.back.domain.phr.PhrAction -Result.java(164) -LH_ERROR-Hospital-PAGE-/back/phr/list-健康档案管理页面出现异常-null
+2017-07-06 19:33:15 [ERROR] - com.lhfeiyu.action.back.domain.phr.PhrAction -Result.java(164) -LH_ERROR-Hospital-PAGE-/back/phr/list-健康档案管理页面出现异常-null
+2017-07-06 22:11:31 [ERROR] - com.lhfeiyu.action.back.domain.phr.PhrAction -Result.java(173) -LH_ERROR-Hospital-AJAX-/back/list-健康档案管理页面出现异常-
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') 
+   
+     
+     
+      order by create_time desc' at line 22
+### The error may exist in file [D:\Space_STS\Medical\target\classes\com\lhfeiyu\dao\PhrBasicInfoMapper.xml]
+### The error may involve com.lhfeiyu.dao.PhrBasicInfoMapper.selectByExample-Inline
+### The error occurred while setting parameters
+### SQL: select           'true' as QUERYID,                id, name, user_no, sex, birthday, id_card_no, work_unit, tel, linkman, linkman_tel,      resident_type, nation, nation_name, blood_type, rh_type, degree, profession, marital_status,      pay_type, pay_type_other, ywgms, ywgms_name, bls, jws_disease_des, jws_operation_des,      jws_trauma_des, jws_transfusion_des, jzs_fq, jzs_mq, jzs_xdjm, jzs_zn, ycbs, ycbs_name,      cjqk, shhj_cfpfss, shhj_rllx, shhj_ys, shhj_cs, shhj_qcl, doctor_id, create_time,      last_update_time, create_user_id, patient_id, del_flag, has_cover, hospital_id, jdr,      jddw         from phr_basic_info                         WHERE (  del_flag = ?                                                                and hospital_id in )                        order by create_time desc
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') 
+   
+     
+     
+      order by create_time desc' at line 22
+; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') 
+   
+     
+     
+      order by create_time desc' at line 22
+2017-07-06 22:11:38 [ERROR] - com.lhfeiyu.action.back.domain.phr.PhrAction -Result.java(173) -LH_ERROR-Hospital-AJAX-/back/list-健康档案管理页面出现异常-
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') 
+   
+     
+     
+      order by create_time desc' at line 22
+### The error may exist in file [D:\Space_STS\Medical\target\classes\com\lhfeiyu\dao\PhrBasicInfoMapper.xml]
+### The error may involve com.lhfeiyu.dao.PhrBasicInfoMapper.selectByExample-Inline
+### The error occurred while setting parameters
+### SQL: select           'true' as QUERYID,                id, name, user_no, sex, birthday, id_card_no, work_unit, tel, linkman, linkman_tel,      resident_type, nation, nation_name, blood_type, rh_type, degree, profession, marital_status,      pay_type, pay_type_other, ywgms, ywgms_name, bls, jws_disease_des, jws_operation_des,      jws_trauma_des, jws_transfusion_des, jzs_fq, jzs_mq, jzs_xdjm, jzs_zn, ycbs, ycbs_name,      cjqk, shhj_cfpfss, shhj_rllx, shhj_ys, shhj_cs, shhj_qcl, doctor_id, create_time,      last_update_time, create_user_id, patient_id, del_flag, has_cover, hospital_id, jdr,      jddw         from phr_basic_info                         WHERE (  del_flag = ?                                                                and hospital_id in )                        order by create_time desc
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') 
+   
+     
+     
+      order by create_time desc' at line 22
+; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') 
+   
+     
+     
+      order by create_time desc' at line 22

@@ -11,6 +11,11 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.lhfeiyu.po.Doctor;
+import com.lhfeiyu.po.Hospital;
+import com.lhfeiyu.po.User;
+import com.lhfeiyu.tools.ActionUtil;
 /**
  * <strong> 描&nbsp;&nbsp;&nbsp;&nbsp;述：</strong> 权限过滤器 <p>
  * <strong> 作&nbsp;&nbsp;&nbsp;&nbsp;者：</strong> 虞荣华 <p>
@@ -31,22 +36,40 @@ public class BackAuthorityFilter implements Filter {
 		  	HttpServletRequest request = (HttpServletRequest) req;
 	        HttpServletResponse response = (HttpServletResponse) res;
 	        String requestType = request.getHeader("X-Requested-With");
+	        
 	        try {
 				String uri = request.getRequestURI();
 				if(!uri.startsWith("/back") || uri.contains("login") || uri.contains("Login")){
 	        		chain.doFilter(request, response);
 	        	}else{
 	        		
-	        		if(uri.contains("phr")){
+	        		//有用户信息，放过
+	        		User user = ActionUtil.checkSession4User(request.getSession());
+        			if(user != null){
+        				chain.doFilter(request, response);
+						return;
+        			}
+	        		
+	        		//如果是医生，也放过
+	        		Doctor doctor = ActionUtil.checkSession4Doctor(request.getSession());
+	        		if(doctor != null){
 	        			chain.doFilter(request, response);
 						return;
 	        		}
 	        		
+	        		Hospital hospital = ActionUtil.checkSession4Hospital(request.getSession());
+	        		if(hospital != null){
+	        			chain.doFilter(request, response);
+						return;
+	        		}
+	        		
+	        		//如果是管理员登陆，则放过
 	        		Object adminIdObj = request.getSession().getAttribute("adminId");
 	        		if (adminIdObj != null) {
 						chain.doFilter(request, response);
 						return;
 					}
+	        		
 	        		boolean committed = response.isCommitted();//检查response是否已经提交，提交后不能加写入数据
 	        		if(null != requestType && !"".equals(requestType)){
 	        			if(!committed){
