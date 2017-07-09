@@ -254,4 +254,7 @@ function updatePassword(){
 	
 	
 }
+function bindDateField(selector) {
+	$(selector).datebox();
+}
 

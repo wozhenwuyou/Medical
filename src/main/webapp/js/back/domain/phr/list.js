@@ -25,8 +25,9 @@ function initQueryForm(){
 	$('#sc_cityId').combobox({
 		valueField : 'id',
 		textField : 'name',
-		editable : false,
+		editable : true,
 		multiple : false,
+		required : false,
 		panelHeight : 200,
 		url : "/back/getCityArray2"
 	});
@@ -521,15 +522,7 @@ function fnEdit(basicInfoId, name){
 	top.layer.full(index);
 }
 
-function bindDateField(selector) {
-	$(selector).datetimepicker({
-		bootcssVer : 3,
-		format : 'yyyy-mm-dd',
-		todayBtn : true,
-		language : 'zh-CN',
-		startView : 2,
-		viewSelect : 'year',
-		minView : 2, //选择日期后，不会再跳转去选择时分秒 
-		autoclose : true
-	});
+function fnReset(){
+	$("input[id^='sc_']").textbox('setValue', '');
+	loadGrid();
 }

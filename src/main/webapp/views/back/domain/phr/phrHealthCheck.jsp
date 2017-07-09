@@ -1,3 +1,4 @@
+<!doctype html>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -1802,16 +1803,16 @@ request.setAttribute("openType", openType);
 						</p>
 					</td>
 				</tr>
-				<tr style='page-break-inside: avoid; height: 1.0pt'>
+				<tr style='page-break-inside: avoid; height: 17.85pt'>
 					<td width=102 colspan=2
-						style='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 1.0pt'>
+						style='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 17.85pt'>
 						<p class=MsoNormal align=center
 							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
 							<span style='font-family: 宋体'>下肢水肿</span>
 						</p>
 					</td>
-					<td width=388 colspan=19
-						style='width: 291.15pt; border: none; border-right: solid windowtext 1.0pt;border-bottom: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 1.0pt'>
+					<td width=396 colspan=19
+						style='width: 297.35pt; border: none; border-bottom: solid windowtext 1.0pt;border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 17.85pt'>
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
 							<span style="font-family: 宋体"> <input type="radio"
@@ -1828,10 +1829,7 @@ request.setAttribute("openType", openType);
 								style='font-family: 仿宋_GB2312'>&nbsp;&nbsp;<span
 								style="font-family: 宋体"> <input type="radio" name="ctXzsz"
 								value="双侧对称" ${model.ctXzsz == '双侧对称' ? 'checked' : '' }>
-							</span></span><span style='font-family: 宋体'>双侧对称</span><span lang=EN-US
-								style='font-family: 仿宋_GB2312'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							</span><span style='font-family: 宋体'> </span><span lang=EN-US
-								style='font-family: 仿宋_GB2312'>&nbsp;&nbsp;&nbsp; </span>
+							</span></span><span style='font-family: 宋体'>双侧对称</span>
 						</p>
 					</td>
 				</tr>
@@ -1959,8 +1957,8 @@ request.setAttribute("openType", openType);
 									value="异常" ${model.ctFkWy == '异常' ? 'checked' : '' }>
 							</span></span><span style='font-family: 宋体'>异常</span><b><span
 								style="font-family: 宋体; color: blue"> <input type="text"
-									name="ctFkWyQt" id="ctFkWyQt" style="width:40px" value="${model.ctFkWyQt }">
-							</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+									name="ctFkWyQt" id="ctFkWyQt" style="width:120px" value="${model.ctFkWyQt }">
+							</span></b>
 						</p>
 					</td>
 					<td width=79 colspan=4
@@ -1993,8 +1991,8 @@ request.setAttribute("openType", openType);
 										name="ctFkYd" value="异常" ${model.ctFkYd == '异常' ? 'checked' : '' }>
 								</span></span><span style='font-family: 宋体'>异常</span><b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="ctFkYdQt" id="ctFkYdQt" style="width:40px" value="${model.ctFkYdQt }">
-								</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+										name="ctFkYdQt" id="ctFkYdQt" style="width:120px" value="${model.ctFkYdQt }">
+								</span></b></span>
 						</p>
 					</td>
 					<td width=79 colspan=4
@@ -2027,8 +2025,8 @@ request.setAttribute("openType", openType);
 										name="ctFkGj" value="异常" ${model.ctFkGj == '异常' ? 'checked' : '' }>
 								</span></span><span style='font-family: 宋体'>异常</span><b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="ctFkGjQt" id="ctFkGjQt" style="width:40px" value="${model.ctFkGjQt }">
-								</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+										name="ctFkGjQt" id="ctFkGjQt" style="width:120px" value="${model.ctFkGjQt }">
+								</span></b></span>
 						</p>
 					</td>
 					<td width=79 colspan=4
@@ -2061,8 +2059,8 @@ request.setAttribute("openType", openType);
 										name="ctFkGt" value="异常" ${model.ctFkGt == '异常' ? 'checked' : '' }>
 								</span></span><span style='font-family: 宋体'>异常</span><b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="ctFkGtQt" id="ctFkGtQt" style="width:40px" value="${model.ctFkGtQt }">
-								</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+										name="ctFkGtQt" id="ctFkGtQt" style="width:120px" value="${model.ctFkGtQt }">
+								</span></b></span>
 						</p>
 					</td>
 					<td width=79 colspan=4
@@ -2095,8 +2093,8 @@ request.setAttribute("openType", openType);
 										name="ctFkFj" value="异常" ${model.ctFkFj == '异常' ? 'checked' : '' }>
 								</span></span><span style='font-family: 宋体'>异常</span><b><span
 									style="font-family: 宋体; color: blue"> <input type="text"
-										name="ctFkFjQt" id="ctFkFjQt" style="width:40px" value="${model.ctFkFjQt }">
-								</span></b><span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+										name="ctFkFjQt" id="ctFkFjQt" style="width:120px" value="${model.ctFkFjQt }">
+								</span></b></span>
 						</p>
 					</td>
 					<td width=79 colspan=4
@@ -2111,13 +2109,13 @@ request.setAttribute("openType", openType);
 					<td width=102 colspan=2
 						style='width: 76.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 35.55pt'>
 						<p class=MsoNormal align=center
-							style='text-align: center; line-height: 16.0pt; layout-grid-mode: char'>
+							style='text-align: center; line-height: 58.0pt; layout-grid-mode: char'>
 							<span style='font-family: 宋体'>其</span><span lang=EN-US
 								style='font-family: 仿宋_GB2312'>&nbsp;&nbsp; </span><span
 								style='font-family: 宋体'>他</span><span lang=EN-US>*</span>
 						</p>
 					</td>
-					<td width=429 colspan=19 valign=top
+					<td width=429 colspan=20 valign=top
 						style='width: 321.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 35.55pt'><textarea
 							name="ctQt" id="ctQt" cols="45" rows="5" >${model.ctQt }</textarea></td>
 				</tr>
@@ -2602,7 +2600,7 @@ request.setAttribute("openType", openType);
 							<span style='font-family: 宋体'>宫颈涂片</span><span lang=EN-US>*</span>
 						</p>
 					</td>
-					<td width=388 colspan=17
+					<td width=388 colspan=19
 						style='width: 291.15pt; border: none; border-bottom: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
 						<p class=MsoNormal align=left
 							style='text-align: left; line-height: 16.0pt; layout-grid-mode: char'>
@@ -2617,13 +2615,6 @@ request.setAttribute("openType", openType);
 									style="font-family: 宋体; color: blue"> <input type="text"
 										name="fzjcGjtpQt" id="fzjcGjtpQt" style="width:40px" value="${model.fzjcGjtpQt }">
 								</span></b></span>
-						</p>
-					</td>
-					<td width=41 colspan=2
-						style='width: 30.75pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 18.45pt'>
-						<p class=MsoNormal align=right
-							style='margin-left: 6.85pt; text-align: right; line-height: 16.0pt; layout-grid-mode: char'>
-							<span lang=EN-US style='font-family: 仿宋_GB2312'>&nbsp;</span>
 						</p>
 					</td>
 				</tr>
@@ -3740,6 +3731,7 @@ request.setAttribute("openType", openType);
 	<script type="text/javascript" src="/third-party/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/third-party/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
 	<script type="text/javascript" src="/third-party/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+	<script type="text/javascript" src="/third-party/layer/layer.js" title="v"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 
@@ -3756,8 +3748,12 @@ request.setAttribute("openType", openType);
 				$("input[type=button]").css('display', 'none');
 				
 				$("input").css('border-style', 'none');
+				$("textarea").css('border-style', 'none');
 			}
 		});
+		
+		
+		
 		function bindDateField(selector) {
 			$(selector).datetimepicker({
 				bootcssVer : 3,
@@ -3770,119 +3766,124 @@ request.setAttribute("openType", openType);
 				autoclose : true
 			});
 		}
+		
+		
+		
 		function fnAddJzs(btn){
-			var index = top.layer.open({
+			
+			var index = layer.open({
 				  title: '添加非免疫性接种史',
 				  area: ['700px', '180px'],
 				  btn : ['确定', '取消'],
 				  content: '名称：<input style="width:80px;" type="text" name="_jzs1">&nbsp;接种日期：<input style="width:80px;" type="text" name="_jzs2">&nbsp;接种机构：<input style="width:80px;" type="text" name="_jzs3">',
 				  success : function(layero, index){
-					  
-					  top.bindDateField(top.$("input[name='_jzs2']"));
-					  
+					  bindDateField($("input[name='_jzs2']"));
 				  },
 				  yes : function(){
-					  var v0 = top.$("input[name='_jzs1']").val();
-					  var v1 = top.$("input[name='_jzs2']").val();
-					  var v2 = top.$("input[name='_jzs3']").val();
+					  var v0 = $("input[name='_jzs1']").val();
+					  var v1 = $("input[name='_jzs2']").val();
+					  var v2 = $("input[name='_jzs3']").val();
 					  var tpl = '<p>名称：{0}，接种日期：{1}，接种机构：{2}。&nbsp;<input value="x" type="button" class="btn-danger" onclick="$(this).parent().remove();"></p>';
 					  $("#td_jzs").append(tpl.format([v0, v1, v2]));
-					  top.layer.close(index);
+					  layer.close(index);
 				  },
 				  btn2 : function(){
-					  top.layer.close(index);
+					  layer.close(index);
 				  }
 				});
 		}
 		function fnAddYyqk(btn){
-			var index = top.layer.open({
+			var index = layer.open({
 				  title: '添加用药情况',
 				  area: ['800px', '180px'],
 				  btn : ['确定', '取消'],
 				  content: '药物名称：<input style="width:80px;" type="text" name="_yy1">&nbsp;用法：<input style="width:80px;" type="text" name="_yy2">&nbsp;用量：<input style="width:80px;" type="text" name="_yy3">&nbsp;用药时间：<input style="width:80px;" type="text" name="_yy4">&nbsp;<select style="width:80px;" name="_yy5"><option value="规律">规律</option><option value="间断">间断</option><option value="不服药">不服药</option></select>',
 				  success : function(){
-					  
-					  top.bindDateField(top.$("input[name='_yy4']"));
+					  bindDateField($("input[name='_yy4']"));
 				  },
 				  yes : function(){
-					  var v0 = top.$("input[name='_yy1']").val();
-					  var v1 = top.$("input[name='_yy2']").val();
-					  var v2 = top.$("input[name='_yy3']").val();
-					  var v3 = top.$("input[name='_yy4']").val();
-					  var v4 = top.$("select[name='_yy5']").val();
+					  var v0 = $("input[name='_yy1']").val();
+					  var v1 = $("input[name='_yy2']").val();
+					  var v2 = $("input[name='_yy3']").val();
+					  var v3 = $("input[name='_yy4']").val();
+					  var v4 = $("select[name='_yy5']").val();
 					  var tpl = '<p>药物名称：{0}，用法：{1}，用量：{2}，用药时间：{3}，服药依从性：{4}。&nbsp;<input class="btn-danger" value="x" type="button" onclick="$(this).parent().remove();"></p>';
 					  $("#td_yy").append(tpl.format([v0, v1, v2, v3, v4]));
-					  top.layer.close(index);
+					  layer.close(index);
 				  },
 				  btn2 : function(){
-					  top.layer.close(index);
+					  layer.close(index);
 				  }
 				});
 		}
 		function fnAddJtbcs(btn){
-			var index = top.layer.open({
+			var index = layer.open({
 				  title: '添加家庭病床史',
-				  area: ['750px', '180px'],
+				  area: ['850px', '180px'],
 				  btn : ['确定', '取消'],
-				  content: '建/撤床日期：<input style="width:80px;" type="text" name="_jt1">&nbsp;原因：<input style="width:80px;" type="text" name="_jt2">&nbsp;医疗机构名称：<input style="width:80px;" type="text" name="_jt3">&nbsp;病案号：<input style="width:80px;" type="text" name="_jt4">',
+				  content: '建床日期：<input style="width:80px;" type="text" name="_jt0">&nbsp;撤床日期：<input style="width:80px;" type="text" name="_jt1">&nbsp;原因：<input style="width:80px;" type="text" name="_jt2">&nbsp;医疗机构名称：<input style="width:80px;" type="text" name="_jt3">&nbsp;病案号：<input style="width:80px;" type="text" name="_jt4">',
 				  success : function(){
-					  top.bindDateField(top.$("input[name='_jt1']"));
+					  bindDateField($("input[name='_jt0']"));
+					  bindDateField($("input[name='_jt1']"));
 				  },
 				  yes : function(){
-					  var v0 = top.$("input[name='_jt1']").val();
-					  var v1 = top.$("input[name='_jt2']").val();
-					  var v2 = top.$("input[name='_jt3']").val();
-					  var v3 = top.$("input[name='_jt4']").val();
-					  var tpl = '<p>建/撤床日期：{0}，原因：{1}，医疗机构名称：{2}，病案号：{3}。&nbsp;<input value="x" class="btn-danger" type="button" onclick="$(this).parent().remove();"></p>';
-					  $("#td_jtbcsDes").append(tpl.format([v0, v1, v2, v3]));
-					  top.layer.close(index);
+					  var v0 = $("input[name='_jt0']").val();
+					  var v1 = $("input[name='_jt1']").val();
+					  var v2 = $("input[name='_jt2']").val();
+					  var v3 = $("input[name='_jt3']").val();
+					  var v4 = $("input[name='_jt4']").val();
+					  var tpl = '<p>建床：{0}，撤床：{1}，原因：{2}，医疗机构：{3}，病案号：{4}。&nbsp;<input value="x" class="btn-danger" type="button" onclick="$(this).parent().remove();"></p>';
+					  $("#td_jtbcsDes").append(tpl.format([v0, v1, v2, v3, v4]));
+					  layer.close(index);
 				  },
 				  btn2 : function(){
-					  top.layer.close(index);
+					  layer.close(index);
 				  }
 				});
 		}
 		function fnAddZys(btn){
-			var index = top.layer.open({
+			var index = layer.open({
 				  title: '添加住院史',
-				  area: ['750px', '180px'],
+				  area: ['850px', '180px'],
 				  btn : ['确定', '取消'],
-				  content: '入/出院日期：<input style="width:80px;" type="text" name="_zysj">&nbsp;原因：<input style="width:80px;" type="text" name="_zyyy">&nbsp;医疗机构名称：<input style="width:80px;" type="text" name="_yljgmc">&nbsp;病案号：<input style="width:80px;" type="text" name="_bah">',
+				  content: '入院日期：<input style="width:80px;" type="text" name="_zysj">&nbsp;出院日期：<input style="width:80px;" type="text" name="_cysj">&nbsp;原因：<input style="width:80px;" type="text" name="_zyyy">&nbsp;医疗机构名称：<input style="width:80px;" type="text" name="_yljgmc">&nbsp;病案号：<input style="width:80px;" type="text" name="_bah">',
 				  success : function(){
-					  top.bindDateField(top.$("input[name='_zysj']"));
+					bindDateField($("input[name='_zysj']"))
+					bindDateField($("input[name='_cysj']"))
 				  },
 				  yes : function(){
-					  var v0 = top.$("input[name='_zysj']").val();
-					  var v1 = top.$("input[name='_zyyy']").val();
-					  var v2 = top.$("input[name='_yljgmc']").val();
-					  var v3 = top.$("input[name='_bah']").val();
-					  var tpl = '<p>入/出院日期：{0}，原因：{1}，医疗机构名称：{2}，病案号：{3}。&nbsp;<input value="x" class="btn-danger" type="button" onclick="$(this).parent().remove();"></p>';
-					  $("#td_zys").append(tpl.format([v0, v1, v2, v3]));
-					  top.layer.close(index);
+					  var v0 = $("input[name='_zysj']").val();
+					  var v1 = $("input[name='_cysj']").val();
+					  var v2 = $("input[name='_zyyy']").val();
+					  var v3 = $("input[name='_yljgmc']").val();
+					  var v4 = $("input[name='_bah']").val();
+					  var tpl = '<p>入院：{0}，出院：{1}，原因：{2}，医疗机构名称：{3}，病案号：{4}。&nbsp;<input value="x" class="btn-danger" type="button" onclick="$(this).parent().remove();"></p>';
+					  $("#td_zys").append(tpl.format([v0, v1, v2, v3, v4]));
+					  layer.close(index);
 				  },
 				  btn2 : function(){
-					  top.layer.close(index);
+					  layer.close(index);
 				  }
 				});
 		}
 		//添加xx接触史
 		function fnAddShfsZybwhysjcs(btn){
-			var index = top.layer.open({
+			var index = layer.open({
 				  title: '添加职业病史',
 				  area: ['700px', '180px'],
 				  btn : ['确定', '取消'],
 				  content: '工种：<input style="width:80px;" type="text" name="_gz">&nbsp;从业时间：<input style="width:80px;" type="text" name="_cysj">年，毒物种类：<input style="width:80px;" type="text" name="_dwzl">&nbsp;防护措施：<input style="width:80px;" type="text" name="_fhcs">',
 				  yes : function(){
-					  var v0 = top.$("input[name='_gz']").val();
-					  var v1 = top.$("input[name='_cysj']").val();
-					  var v2 = top.$("input[name='_dwzl']").val();
-					  var v3 = top.$("input[name='_fhcs']").val();
+					  var v0 = $("input[name='_gz']").val();
+					  var v1 = $("input[name='_cysj']").val();
+					  var v2 = $("input[name='_dwzl']").val();
+					  var v3 = $("input[name='_fhcs']").val();
 					  var tpl = '<p>工种：{0}，从业时间：{1}年，毒物种类：{2}，防护措施：{3}&nbsp;<input value="x" type="button" class="btn-danger" onclick="$(this).parent().remove();"></p>';
 					  $("#zybwhysjcs").append(tpl.format([v0, v1, v2, v3]));
-					  top.layer.close(index);
+					  layer.close(index);
 				  },
 				  btn2 : function(){
-					  top.layer.close(index);
+					  layer.close(index);
 				  }
 				});
 		}

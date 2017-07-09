@@ -36,10 +36,10 @@
 				<td class="td_pad"><span>到：</span><input role="datebox"
 					id="sc_createTimeEnd" class="domain-input easyui-datebox width100"
 					data-options="editable:false" /></td>
-				<td class="td_pad"><button id="searchYes"
-						onclick="doSearch();return false;"
-						class="button button-primary button-rounded button-small">查
-						询</button></td>
+				<td class="td_pad">
+					<button id="searchYes" onclick="doSearch();" class="button button-primary button-rounded button-small">查询</button>&nbsp;
+					<button onclick="javascript:fnReset();" class="button button-primary button-rounded button-small">重置</button>
+				</td>
 			</tr>
 		</tbody>
 	</table>
@@ -85,6 +85,6 @@
 	<script type="text/javascript" src="/js/common/back_template.js" title="v"></script>
 	<script type="text/javascript" src="/third-party/z.js" title="v"></script>
 	<script type="text/javascript" src="/third-party/jquery.form.js" title="v"></script>
-	<script type="text/javascript" src="/js/back/domain/phr/list.js?1" title="v"></script>
+	<script type="text/javascript" src="/js/back/domain/phr/list.js" title="v"></script>
 </body>
 </html>

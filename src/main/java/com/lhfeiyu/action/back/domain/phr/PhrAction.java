@@ -1,12 +1,14 @@
 package com.lhfeiyu.action.back.domain.phr;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,6 +71,31 @@ public class PhrAction {
 		bin.registerCustomEditor(Date.class, cust);
 	}
 
+	
+	@RequestMapping(value = "/front/myPhr", method=RequestMethod.GET)
+	public ModelAndView frontMyPhrGet(ModelMap modelMap, HttpServletRequest request) {
+		String path = "/front/domain/user/myPhr";
+		try {
+			User user = ActionUtil.checkSession4User(request.getSession());//验证session中的user，存在即返回
+			if(null == user)return Result.userSessionInvalid(modelMap,PagePath.login);
+			
+			//查找我的健康档案
+			List<Integer> list = new ArrayList<Integer>(1);
+			list.add(user.getId());
+			List<PhrBasicInfo> basicInfo = phrBasicInfoService.selectByPatientIds(list);
+			
+			if(CollectionUtils.isNotEmpty(basicInfo)){
+				modelMap.put("model", basicInfo.get(0));
+			}
+			
+		} catch (Exception e) {
+			path = PagePath.error;
+			Result.catchError(e, logger, "LH_ERROR-Diagnose-PAGE-/phr/doctor/phrAdd-加载添加居民健康档案出现异常", modelMap);
+		}
+		return new ModelAndView(path, modelMap);
+	}
+	
+	
 	/**
 	 * 列表页面GET请求
 	 * 
