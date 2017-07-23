@@ -582,7 +582,10 @@ function initPatientInfo(id) {
 $(document).ready(function(){
 	bindDateField("#birthday, input[id$='Sj']");
 	
-	var frontAdd = '${frontAdd}';
+	//var frontAdd = '${frontAdd}';
+	
+	var frontAdd = true;
+	
 	if(frontAdd){
 	$("#name").dblclick(
 			function() {

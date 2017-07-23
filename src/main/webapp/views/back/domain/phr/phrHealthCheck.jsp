@@ -106,7 +106,7 @@ request.setAttribute("openType", openType);
 				<!-- 隐藏字段 -->
 				<input type="hidden" name="id" value="${model.id }" id="id" />
 			<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
-				style='border-collapse: collapse; border: none'>
+				style='border-collapse: collapse; border: none; width: 900px;'>
 				<tr style='height: 1.0pt'>
 					<td width=108 colspan=2
 						style='width: 81.0pt; border: solid windowtext 1.0pt; padding: 0cm 0cm 0cm 0cm; height: 1.0pt'><p

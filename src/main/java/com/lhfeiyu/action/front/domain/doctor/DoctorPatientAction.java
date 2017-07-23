@@ -339,11 +339,16 @@ public class DoctorPatientAction {
 		try {// 自动获取所有参数（查询条件）
 			Doctor session_doctor = ActionUtil.checkSession4Doctor(request.getSession());// 验证session中的user，存在即返回
 			if (null == session_doctor) {
-				return Result.userSessionInvalid(json, "doctor");
+				//return Result.userSessionInvalid(json, "doctor");
 			}
 			HashMap<String, Object> map = Pagination.getOrderByAndPage(RequestUtil.getRequestParam(request), request);
 
 			String queryScope = request.getParameter("queryScope");
+			
+			if(session_doctor == null){
+				queryScope = "3";
+			}
+			
 			if ("1".equals(queryScope)) {
 				map.put("belongDoctorId", session_doctor.getId());// 我的
 			} else if ("2".equals(queryScope)) {

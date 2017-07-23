@@ -24,6 +24,7 @@ import com.lhfeiyu.dao.FansMapper;
 import com.lhfeiyu.dao.MessageMapper;
 import com.lhfeiyu.dao.PhrBasicInfoMapper;
 import com.lhfeiyu.dao.UserMapper;
+import com.lhfeiyu.po.Admin;
 import com.lhfeiyu.po.Advertisement;
 import com.lhfeiyu.po.Announcement;
 import com.lhfeiyu.po.Article;
@@ -533,6 +534,25 @@ public class DoctorService extends CommonService<Doctor> {
 	
 	public List<Doctor> selectDiagnoseSumByCondition(Map<String, Object> map) {
 		return doctorMapper.selectDiagnoseSumByCondition(map);
+	}
+
+	public ModelMap getAllFansData(ModelMap modelMap, Admin session_admin, Object object) {
+//		Doctor doctor = getDoctorInformation(db_doctor,doctorId);
+//		if(null == doctor){
+//			return Result.failure(modelMap, "您访问的医生信息不存在", "doctor_null");
+//		}
+//		if(null == doctorId){
+//			doctorId = doctor.getId();
+//		}
+		Map<String,Object> map = new HashMap<String,Object>();
+//		map.put("userId", doctorId);
+		map.put("mainStatus", 1);
+//		map.put("exceptUserId", doctorId);
+		List<Fans> fansList = fansMapper.selectListByCondition(map);//粉丝或好友
+		modelMap.put("fansList", fansList);
+//		modelMap.put("doctorId", doctorId);
+//		modelMap.put("doctor", doctor);
+		return modelMap;
 	}
 	
 	
