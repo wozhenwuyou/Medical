@@ -1,32 +1,11 @@
-# Prerequisites
-*.d
+＃ Target file
+/target/*
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+# Compiled class file
+*.class
 
-# Precompiled Headers
-*.gch
-*.pch
+# Log file
+*.log
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+＃ Target file
+/target
