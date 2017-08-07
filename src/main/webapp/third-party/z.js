@@ -1406,7 +1406,16 @@ Z.LocalStore = {
 };
 (function (win, doc) {
 	var REG = /\<\!--\s*print\s+start\s*--\>(.|\n)*\<\!--\s*print\s+end\s*--\>/ig;
-
+	
+	var isIE = function isIE() {
+		if (!!window.ActiveXObject || "ActiveXObject" in window)
+			return true;
+		else
+			return false;
+	}
+	
+	
+	
 	win.iframeprint = function (urls) {
 		new IframePrint(urls);
 	}
@@ -1451,9 +1460,15 @@ Z.LocalStore = {
 			var ifmWin = this.mainIframe.contentWindow;
 			ifmWin.document.getElementsByTagName("body")[0].innerHTML = this.printHTML;
 			ifmWin.focus();
-			
 			pagesetup_null();
-			ifmWin.print();
+//			if(isIE){
+//		        var WebBrowser = '<OBJECT ID="WebBrowser1" WIDTH=0 HEIGHT=0 CLASSID="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2"></OBJECT>';
+//		        document.body.insertAdjacentHTML('beforeEnd', WebBrowser);//在body标签内加入html（WebBrowser activeX控件）
+//		        document.all.report_iframe.ExecWB(7, 1); //打印预览
+//		        WebBrowser1.outerHTML = "";//从代码中清除插入的html代码
+//			}else{
+				ifmWin.print();
+			//}
 			pagesetup_default();
 		},
 		scan : function () {

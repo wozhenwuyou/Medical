@@ -29,9 +29,10 @@ import com.lhfeiyu.vo.PhrCountCmd;
 public class PhrBasicInfoService {
 
 	@Autowired
-	private PhrBasicInfoMapper phrBasicInfoMapper;
+	private PhrBasicInfoMapper phrBasicInfoMapper;// 基本信息数据访问支持
 	@Autowired
-	private PhrCoverMapper phrCoverMapper;
+	private PhrCoverMapper phrCoverMapper;// 封面信息数据访问支持
+
 	@Autowired
 	private HospitalService hopitalService;
 	@Autowired
@@ -91,25 +92,25 @@ public class PhrBasicInfoService {
 
 				}
 			}
-			
-			//城市
-			if(cmd.getCityId() != null && cmd.getCityId().intValue() > 0){
-				//找到这个城市下面所有的诊所
-				Map<String, Object> map = new HashMap<String,Object>();
+
+			// 城市
+			if (cmd.getCityId() != null && cmd.getCityId().intValue() > 0) {
+				// 找到这个城市下面所有的诊所
+				Map<String, Object> map = new HashMap<String, Object>();
 				map.put("city", cmd.getCityId());
 				List<Hospital> hospitals = hopitalService.selectListByCondition(map);
 				List<Integer> list = new ArrayList<Integer>();
-				if(CollectionUtils.isNotEmpty(hospitals)){
-					for(Hospital hospital : hospitals){
+				if (CollectionUtils.isNotEmpty(hospitals)) {
+					for (Hospital hospital : hospitals) {
 						list.add(hospital.getId());
 					}
-					
-				}else{
+
+				} else {
 					list.add(99999);
 				}
 				c.andHospitalIdIn(list);
 			}
-			
+
 			if (cmd.getPage() > 0 && cmd.getRows() > 0) {
 				example.setStart((cmd.getPage() - 1) * cmd.getRows());
 				example.setLimit(cmd.getRows());
@@ -207,15 +208,15 @@ public class PhrBasicInfoService {
 					entity.setJdr(doctor.getRealname());
 					Hospital hospital = hopitalService.selectByPrimaryKey(doctor.getHospitalId());
 					if (hospital != null) {
-						
+
 						ProvinceCityArea sheng = pcaService.selectByPrimaryKey(hospital.getProvince());
 						ProvinceCityArea shi = pcaService.selectByPrimaryKey(hospital.getCity());
-						
+
 						String str = hospital.getWholeName();
-						if(shi != null){
+						if (shi != null) {
 							str = shi.getAreaName() + "," + str;
 						}
-						if(sheng != null){
+						if (sheng != null) {
 							str = sheng.getAreaName() + "," + str;
 						}
 						entity.setJddw(str);// 建档单位

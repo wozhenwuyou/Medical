@@ -11,21 +11,29 @@
 	title="v" />
 <link rel="stylesheet" type="text/css"
 	href="/third-party/pagination/paging.css" />
+<link rel="stylesheet" type="text/css"
+	href="/third-party/select2/select2.min.css" />
 </head>
 <body>
 	<div class="t_851_3" style="width: 500px;">
 		<table cellpadding="0" cellspacing="0" border="0">
 			<tr height="44" valign="middle">
-				<td width="130">查询范围：</td>
-				<td width="118">
-					<select class="text_input1" id="queryScope">
-						<option value="1">我建立的</option>
-						<option value="2" selected>本诊所</option>
-						<option value="3" style="display:none;">全部</option>
-					</select>
+				<td width="100">查询范围：</td>
+				<td width="148">
+					<c:choose>
+						<c:when test="${sessionScope.adminId != null && sessionScope.admin != null}">
+							<select class="text_input1" id="queryScope"></select>
+						</c:when>
+						<c:otherwise>
+							<select class="text_input1" id="queryScope">
+								<option value="1">我建立的</option>
+								<option value="2" selected>本诊所</option>
+							</select>
+						</c:otherwise>
+					</c:choose>
 				</td>
-				<td width="130">患者姓名：</td>
-				<td width="199"><input type="text" class="text_input1"
+				<td width="100">患者姓名：</td>
+				<td width="229"><input type="text" class="text_input1"
 					id="username" /></td>
 			</tr>
 		</table>
@@ -44,7 +52,9 @@
 	<script type="text/javascript"
 		src="/js/front/domain/doctor/doctorCommon.js" title="v"></script>
 	<script type="text/javascript"
-		src="/js/front/domain/doctor/patientLibrary4select.js" title="v"></script>
+		src="/third-party/select2/select2.min.js" title="v"></script>
+	<script type="text/javascript"
+		src="/js/front/domain/doctor/patientLibrary4select.js?113" title="v"></script>
 	<script id="template" type="x-tmpl-mustache">
 		<tr height="30" align="center" style="font-size:14px; color:#63a13f">
 			<td width=100">姓名</td>
@@ -62,16 +72,35 @@
 	
 	<script type="text/javascript">
 		$(function(){
+			
+			//select2
+			var adminId = '${sessionScope.adminId}';
+			if(adminId){
+				$.post('back/getHospitalArray', {}, function(array){
+					var data = [{'id' : '999999999', 'text' : '全部'}];
+					if($.isArray(array)){
+						$.each(array, function(i, one){
+							data.push({'id' : one.id, 'text' : one.name});
+						});
+						$("#queryScope").select2({
+							data : data
+						});
+					}
+				}, 'json');
+			}
+			
+			
 			setTimeout(function(){
 				$('#dataListContainer').delegate('tr', 'click', function(){
 					$(this).find("input[type=radio]").prop('checked', true);
 				});
 			}, 900);
+			
 			$("#queryScope").change(function(){
-				loadGridData(1, 10);
+				loadGridData(1, 10, null, adminId);
 			});
 			$("#username").keyup(function(){
-				loadGridData(1, 10);
+				loadGridData(1, 10, null, adminId);
 			});
 		});
 	</script>

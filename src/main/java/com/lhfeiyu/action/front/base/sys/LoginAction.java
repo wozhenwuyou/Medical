@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.Map;
 
 import javax.imageio.ImageIO;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -111,7 +112,7 @@ public class LoginAction {
 			@RequestParam String loginAccount, @RequestParam String password,
 			@RequestParam(defaultValue="user") String loginType,
 			@RequestParam(required=false) String verificationCode,
-			@RequestParam(required=false) Integer silent) {
+			@RequestParam(required=false) Integer silent, HttpServletResponse response) {
 		JSONObject json = new JSONObject();
 		try{
 			int errorTimes = 1;
@@ -186,6 +187,11 @@ public class LoginAction {
 				hospitalLoginSuccess(session, json, map, errorTimes, ip);
 				if(Result.hasError(json))return json;
 			}
+			try{
+				setCookieToClient(response, session);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
 			return Result.success(json, "登陆成功");
 		} catch (Exception e) {
 			Result.catchError(e, logger, "LH_ERROR-Login-AJAX-/doLogin-用户登陆出现异常"+loginType, json);
@@ -193,6 +199,18 @@ public class LoginAction {
 		return json;
 	}
 	
+
+	private void setCookieToClient(HttpServletResponse response, HttpSession session) {
+		if(session == null)
+			return;
+		if(session.getAttribute("doctor") != null){
+			response.addCookie(new Cookie("loginType", "doctor"));
+		}else if(session.getAttribute("user") != null){
+			response.addCookie(new Cookie("loginType", "user"));
+		}else if(session.getAttribute("admin") != null){
+			response.addCookie(new Cookie("loginType", "admin"));
+		}
+	}
 
 	private JSONObject userLoginSuccess(HttpSession session, JSONObject json, Map<String,Object> map, int errorTimes, String ip){
 		User user = userService.selectByCondition(map);

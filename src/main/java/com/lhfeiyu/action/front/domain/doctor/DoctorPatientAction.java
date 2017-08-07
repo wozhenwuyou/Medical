@@ -343,21 +343,24 @@ public class DoctorPatientAction {
 			}
 			HashMap<String, Object> map = Pagination.getOrderByAndPage(RequestUtil.getRequestParam(request), request);
 
-			String queryScope = request.getParameter("queryScope");
-			
-			if(session_doctor == null){
-				queryScope = "3";
+			String queryScope = request.getParameter("queryScope");//查询范围
+			if(session_doctor == null){//说明是后台查询
+				if(queryScope == null || "999999999".equals(queryScope) || "".equals(queryScope)){
+					//全部
+				}else{
+					map.put("belongHospitalId", queryScope);//所属诊所
+				}
+			}else{//说明是前台查询
+				if ("1".equals(queryScope)) {
+					map.put("belongDoctorId", session_doctor.getId());// 我的
+				} else if ("2".equals(queryScope)) {
+					map.put("belongHospitalId", session_doctor.getHospitalId());// 本诊所的
+				} else {
+					map.put("belongHospitalId", session_doctor.getHospitalId());// 默认本诊所
+				}
 			}
 			
-			if ("1".equals(queryScope)) {
-				map.put("belongDoctorId", session_doctor.getId());// 我的
-			} else if ("2".equals(queryScope)) {
-				map.put("belongHospitalId", session_doctor.getHospitalId());// 本诊所的
-			} else if ("3".equals(queryScope)) {
-				// nothing
-			} else {
-				map.put("belongHospitalId", session_doctor.getHospitalId());// 本诊所的
-			}
+			
 			List<User> userList = userService.selectListByCondition(map);
 			Integer total = userService.selectCountByCondition(map);
 			Result.gridData(userList, total, json);

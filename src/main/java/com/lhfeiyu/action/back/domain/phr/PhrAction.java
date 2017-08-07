@@ -55,7 +55,7 @@ public class PhrAction {
 	private static Logger logger = Logger.getLogger(PhrAction.class);
 
 	@Autowired
-	private PhrBasicInfoService phrBasicInfoService;// 业务支持
+	private PhrBasicInfoService phrBasicInfoService;// 基本信息业务支持
 	@Autowired
 	private PhrHealthCheckService phrHealthCheckService;// 健康体检业务支持
 	@Autowired
