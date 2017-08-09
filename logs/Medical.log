@@ -1857,3 +1857,7 @@ public com.alibaba.fastjson.JSONObject com.lhfeiyu.action.front.domain.hospital.
      
      
       order by create_time desc' at line 22
+2017-08-07 21:55:27 [ERROR] - R -Result.java(173) -LH_ERROR-User-AJAX-/getPatientList4select-加载患者列表出现异常-Could not open JDBC Connection for transaction; nested exception is java.sql.SQLException: An attempt by a client to checkout a Connection has timed out.
+2017-08-07 21:55:28 [ERROR] - R -Result.java(173) -LH_ERROR-User-AJAX-/getPatientList4select-加载患者列表出现异常-Could not open JDBC Connection for transaction; nested exception is java.sql.SQLException: An attempt by a client to checkout a Connection has timed out.
+2017-08-07 21:55:28 [ERROR] - R -Result.java(173) -LH_ERROR-User-AJAX-/getPatientList4select-加载患者列表出现异常-Could not open JDBC Connection for transaction; nested exception is java.sql.SQLException: An attempt by a client to checkout a Connection has timed out.
+2017-08-07 21:55:28 [ERROR] - R -Result.java(173) -LH_ERROR-User-AJAX-/getPatientList4select-加载患者列表出现异常-Could not open JDBC Connection for transaction; nested exception is java.sql.SQLException: An attempt by a client to checkout a Connection has timed out.

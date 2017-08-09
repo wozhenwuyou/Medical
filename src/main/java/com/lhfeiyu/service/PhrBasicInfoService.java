@@ -22,6 +22,7 @@ import com.lhfeiyu.po.PhrBasicInfoExample;
 import com.lhfeiyu.po.PhrBasicInfoExample.Criteria;
 import com.lhfeiyu.po.PhrCover;
 import com.lhfeiyu.po.ProvinceCityArea;
+import com.lhfeiyu.tools.ActionUtil;
 import com.lhfeiyu.vo.PhrBasicInfoCmd;
 import com.lhfeiyu.vo.PhrCountCmd;
 
@@ -67,7 +68,8 @@ public class PhrBasicInfoService {
 				c.andJddwLike("%" + cmd.getJddw() + "%");
 			}
 			if (cmd.getCreateUserId() != null && cmd.getCreateUserId() > 0) {
-				c.andDoctorIdIsNotNull().andCreateUserIdEqualTo(cmd.getCreateUserId());
+				//c.andDoctorIdIsNotNull().andCreateUserIdEqualTo(cmd.getCreateUserId());
+				c.andDoctorIdIsNotNull().andDoctorIdEqualTo(cmd.getCreateUserId());
 			}
 			if (cmd.getCreateTimeBegin() != null) {
 				c.andCreateTimeGreaterThanOrEqualTo(cmd.getCreateTimeBegin());
@@ -124,6 +126,7 @@ public class PhrBasicInfoService {
 	}
 
 	public Integer selectCountByCondition(PhrBasicInfoCmd cmd) {
+
 		PhrBasicInfoExample example = new PhrBasicInfoExample();
 		PhrBasicInfoExample.Criteria c = example.createCriteria();
 		// 未被删除的
@@ -150,7 +153,8 @@ public class PhrBasicInfoService {
 				c.andJddwLike("%" + cmd.getJddw() + "%");
 			}
 			if (cmd.getCreateUserId() != null && cmd.getCreateUserId() > 0) {
-				c.andDoctorIdIsNull().andCreateUserIdEqualTo(cmd.getCreateUserId());
+				//c.andDoctorIdIsNotNull().andCreateUserIdEqualTo(cmd.getCreateUserId());
+				c.andDoctorIdIsNotNull().andDoctorIdEqualTo(cmd.getCreateUserId());
 			}
 			if (cmd.getCreateTimeBegin() != null) {
 				c.andCreateTimeGreaterThanOrEqualTo(cmd.getCreateTimeBegin());
@@ -174,6 +178,25 @@ public class PhrBasicInfoService {
 
 				}
 			}
+
+			// 城市
+			if (cmd.getCityId() != null && cmd.getCityId().intValue() > 0) {
+				// 找到这个城市下面所有的诊所
+				Map<String, Object> map = new HashMap<String, Object>();
+				map.put("city", cmd.getCityId());
+				List<Hospital> hospitals = hopitalService.selectListByCondition(map);
+				List<Integer> list = new ArrayList<Integer>();
+				if (CollectionUtils.isNotEmpty(hospitals)) {
+					for (Hospital hospital : hospitals) {
+						list.add(hospital.getId());
+					}
+
+				} else {
+					list.add(99999);
+				}
+				c.andHospitalIdIn(list);
+			}
+
 		}
 		example.setOrderByClause("create_time desc");
 		return phrBasicInfoMapper.countByExample(example);

@@ -113,10 +113,10 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t<td class=\"td_pad\"><span>到：</span><input role=\"datebox\"\r\n");
       out.write("\t\t\t\t\tid=\"sc_createTimeEnd\" class=\"domain-input easyui-datebox width100\"\r\n");
       out.write("\t\t\t\t\tdata-options=\"editable:false\" /></td>\r\n");
-      out.write("\t\t\t\t<td class=\"td_pad\"><button id=\"searchYes\"\r\n");
-      out.write("\t\t\t\t\t\tonclick=\"doSearch();return false;\"\r\n");
-      out.write("\t\t\t\t\t\tclass=\"button button-primary button-rounded button-small\">查\r\n");
-      out.write("\t\t\t\t\t\t询</button></td>\r\n");
+      out.write("\t\t\t\t<td class=\"td_pad\">\r\n");
+      out.write("\t\t\t\t\t<button id=\"searchYes\" onclick=\"doSearch();\" class=\"button button-primary button-rounded button-small\">查询</button>&nbsp;\r\n");
+      out.write("\t\t\t\t\t<button onclick=\"javascript:fnReset();\" class=\"button button-primary button-rounded button-small\">重置</button>\r\n");
+      out.write("\t\t\t\t</td>\r\n");
       out.write("\t\t\t</tr>\r\n");
       out.write("\t\t</tbody>\r\n");
       out.write("\t</table>\r\n");
@@ -197,7 +197,7 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t<script type=\"text/javascript\" src=\"/js/common/back_template.js\" title=\"v\"></script>\r\n");
       out.write("\t<script type=\"text/javascript\" src=\"/third-party/z.js\" title=\"v\"></script>\r\n");
       out.write("\t<script type=\"text/javascript\" src=\"/third-party/jquery.form.js\" title=\"v\"></script>\r\n");
-      out.write("\t<script type=\"text/javascript\" src=\"/js/back/domain/phr/list.js?1\" title=\"v\"></script>\r\n");
+      out.write("\t<script type=\"text/javascript\" src=\"/js/back/domain/phr/list.js\" title=\"v\"></script>\r\n");
       out.write("</body>\r\n");
       out.write("</html>");
     } catch (Throwable t) {

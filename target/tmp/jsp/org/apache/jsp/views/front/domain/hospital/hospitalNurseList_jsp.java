@@ -223,6 +223,8 @@ public final class hospitalNurseList_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("\t\t\thref=\"/hospital/hospitalUserReportList\">检测档案</a></li>\r\n");
       out.write("\t\t<li id=\"lm_patient\" class=\"l1\"><a\r\n");
       out.write("\t\t\thref=\"/hospital/hospitalPatient\">患者库</a></li>\r\n");
+      out.write("\t\t<li id=\"lm_phr\" class=\"l1\"><a\r\n");
+      out.write("\t\t\thref=\"/hospital/phrList\">社区居民健康档案</a></li>\r\n");
       out.write("\t\t<li id=\"lm_medicationRepertory\" class=\"l1\"><a\r\n");
       out.write("\t\t\thref=\"/hospital/medicationRepertory\">药品库管理</a></li>\r\n");
       out.write("\t\t<li id=\"lm_medicationSum\" class=\"l1\"><a\r\n");

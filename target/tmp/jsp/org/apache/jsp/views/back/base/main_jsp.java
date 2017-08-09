@@ -93,8 +93,8 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\thref=\"/third-party/buttons/buttons.css\" />\r\n");
       out.write("<link rel=\"STYLESHEET\" type=\"text/css\" href=\"/css/common.css\" title=\"v\" />");
       out.write("\r\n");
-      out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/back/back.css\"\r\n");
-      out.write("\ttitle=\"v\" />\r\n");
+      out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/back/back.css\" title=\"v\" />\r\n");
+      out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"/third-party/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css\" />\r\n");
       out.write("</head>\r\n");
       out.write("\r\n");
       out.write("<body id=\"main_layout\" class=\"easyui-layout\"\r\n");

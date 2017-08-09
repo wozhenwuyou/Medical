@@ -420,7 +420,7 @@ public class PhrAction {
 			if (null == admin) {
 				return Result.adminSessionInvalid(json);
 			}
-
+			cmd.setAdmin(admin);
 			List<PhrBasicInfo> hospitalList = phrBasicInfoService.selectListByCondition(cmd);
 			Integer total = phrBasicInfoService.selectCountByCondition(cmd);
 			Result.gridData(hospitalList, total, json);

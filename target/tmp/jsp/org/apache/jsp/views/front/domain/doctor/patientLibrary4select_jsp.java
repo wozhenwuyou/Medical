@@ -19,10 +19,26 @@ public final class patientLibrary4select_jsp extends org.apache.jasper.runtime.H
     _jspx_dependants.add("/views/common/common_front_js.htm");
   }
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_choose;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_otherwise;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_when_test;
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _jspx_tagPool_c_choose = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_otherwise = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_when_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+  }
+
+  public void _jspDestroy() {
+    _jspx_tagPool_c_choose.release();
+    _jspx_tagPool_c_otherwise.release();
+    _jspx_tagPool_c_when_test.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -92,21 +108,22 @@ public final class patientLibrary4select_jsp extends org.apache.jasper.runtime.H
       out.write("\ttitle=\"v\" />\r\n");
       out.write("<link rel=\"stylesheet\" type=\"text/css\"\r\n");
       out.write("\thref=\"/third-party/pagination/paging.css\" />\r\n");
+      out.write("<link rel=\"stylesheet\" type=\"text/css\"\r\n");
+      out.write("\thref=\"/third-party/select2/select2.min.css\" />\r\n");
       out.write("</head>\r\n");
       out.write("<body>\r\n");
       out.write("\t<div class=\"t_851_3\" style=\"width: 500px;\">\r\n");
       out.write("\t\t<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\">\r\n");
       out.write("\t\t\t<tr height=\"44\" valign=\"middle\">\r\n");
-      out.write("\t\t\t\t<td width=\"130\">查询范围：</td>\r\n");
-      out.write("\t\t\t\t<td width=\"118\">\r\n");
-      out.write("\t\t\t\t\t<select class=\"text_input1\" id=\"queryScope\">\r\n");
-      out.write("\t\t\t\t\t\t<option value=\"1\">我建立的</option>\r\n");
-      out.write("\t\t\t\t\t\t<option value=\"2\" selected>本诊所</option>\r\n");
-      out.write("\t\t\t\t\t\t<option value=\"3\" style=\"display:none;\">全部</option>\r\n");
-      out.write("\t\t\t\t\t</select>\r\n");
+      out.write("\t\t\t\t<td width=\"100\">查询范围：</td>\r\n");
+      out.write("\t\t\t\t<td width=\"148\">\r\n");
+      out.write("\t\t\t\t\t");
+      if (_jspx_meth_c_choose_0(_jspx_page_context))
+        return;
+      out.write("\r\n");
       out.write("\t\t\t\t</td>\r\n");
-      out.write("\t\t\t\t<td width=\"130\">患者姓名：</td>\r\n");
-      out.write("\t\t\t\t<td width=\"199\"><input type=\"text\" class=\"text_input1\"\r\n");
+      out.write("\t\t\t\t<td width=\"100\">患者姓名：</td>\r\n");
+      out.write("\t\t\t\t<td width=\"229\"><input type=\"text\" class=\"text_input1\"\r\n");
       out.write("\t\t\t\t\tid=\"username\" /></td>\r\n");
       out.write("\t\t\t</tr>\r\n");
       out.write("\t\t</table>\r\n");
@@ -168,7 +185,9 @@ public final class patientLibrary4select_jsp extends org.apache.jasper.runtime.H
       out.write("\t<script type=\"text/javascript\"\r\n");
       out.write("\t\tsrc=\"/js/front/domain/doctor/doctorCommon.js\" title=\"v\"></script>\r\n");
       out.write("\t<script type=\"text/javascript\"\r\n");
-      out.write("\t\tsrc=\"/js/front/domain/doctor/patientLibrary4select.js\" title=\"v\"></script>\r\n");
+      out.write("\t\tsrc=\"/third-party/select2/select2.min.js\" title=\"v\"></script>\r\n");
+      out.write("\t<script type=\"text/javascript\"\r\n");
+      out.write("\t\tsrc=\"/js/front/domain/doctor/patientLibrary4select.js?113\" title=\"v\"></script>\r\n");
       out.write("\t<script id=\"template\" type=\"x-tmpl-mustache\">\r\n");
       out.write("\t\t<tr height=\"30\" align=\"center\" style=\"font-size:14px; color:#63a13f\">\r\n");
       out.write("\t\t\t<td width=100\">姓名</td>\r\n");
@@ -186,16 +205,37 @@ public final class patientLibrary4select_jsp extends org.apache.jasper.runtime.H
       out.write("\t\r\n");
       out.write("\t<script type=\"text/javascript\">\r\n");
       out.write("\t\t$(function(){\r\n");
+      out.write("\t\t\t\r\n");
+      out.write("\t\t\t//select2\r\n");
+      out.write("\t\t\tvar adminId = '");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.adminId}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("';\r\n");
+      out.write("\t\t\tif(adminId){\r\n");
+      out.write("\t\t\t\t$.post('back/getHospitalArray', {}, function(array){\r\n");
+      out.write("\t\t\t\t\tvar data = [{'id' : '999999999', 'text' : '全部'}];\r\n");
+      out.write("\t\t\t\t\tif($.isArray(array)){\r\n");
+      out.write("\t\t\t\t\t\t$.each(array, function(i, one){\r\n");
+      out.write("\t\t\t\t\t\t\tdata.push({'id' : one.id, 'text' : one.name});\r\n");
+      out.write("\t\t\t\t\t\t});\r\n");
+      out.write("\t\t\t\t\t\t$(\"#queryScope\").select2({\r\n");
+      out.write("\t\t\t\t\t\t\tdata : data\r\n");
+      out.write("\t\t\t\t\t\t});\r\n");
+      out.write("\t\t\t\t\t}\r\n");
+      out.write("\t\t\t\t}, 'json');\r\n");
+      out.write("\t\t\t}\r\n");
+      out.write("\t\t\t\r\n");
+      out.write("\t\t\t\r\n");
       out.write("\t\t\tsetTimeout(function(){\r\n");
       out.write("\t\t\t\t$('#dataListContainer').delegate('tr', 'click', function(){\r\n");
       out.write("\t\t\t\t\t$(this).find(\"input[type=radio]\").prop('checked', true);\r\n");
       out.write("\t\t\t\t});\r\n");
       out.write("\t\t\t}, 900);\r\n");
+      out.write("\t\t\t\r\n");
       out.write("\t\t\t$(\"#queryScope\").change(function(){\r\n");
-      out.write("\t\t\t\tloadGridData(1, 10);\r\n");
+      out.write("\t\t\t\tloadGridData(1, 10, null, adminId);\r\n");
       out.write("\t\t\t});\r\n");
       out.write("\t\t\t$(\"#username\").keyup(function(){\r\n");
-      out.write("\t\t\t\tloadGridData(1, 10);\r\n");
+      out.write("\t\t\t\tloadGridData(1, 10, null, adminId);\r\n");
       out.write("\t\t\t});\r\n");
       out.write("\t\t});\r\n");
       out.write("\t</script>\r\n");
@@ -213,5 +253,97 @@ public final class patientLibrary4select_jsp extends org.apache.jasper.runtime.H
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_c_choose_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:choose
+    org.apache.taglibs.standard.tag.common.core.ChooseTag _jspx_th_c_choose_0 = (org.apache.taglibs.standard.tag.common.core.ChooseTag) _jspx_tagPool_c_choose.get(org.apache.taglibs.standard.tag.common.core.ChooseTag.class);
+    _jspx_th_c_choose_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_choose_0.setParent(null);
+    int _jspx_eval_c_choose_0 = _jspx_th_c_choose_0.doStartTag();
+    if (_jspx_eval_c_choose_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("\t\t\t\t\t\t");
+        if (_jspx_meth_c_when_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
+          return true;
+        out.write("\r\n");
+        out.write("\t\t\t\t\t\t");
+        if (_jspx_meth_c_otherwise_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
+          return true;
+        out.write("\r\n");
+        out.write("\t\t\t\t\t");
+        int evalDoAfterBody = _jspx_th_c_choose_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_choose_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_0);
+      return true;
+    }
+    _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_when_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:when
+    org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_when_0 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _jspx_tagPool_c_when_test.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
+    _jspx_th_c_when_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_when_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
+    _jspx_th_c_when_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.adminId != null && sessionScope.admin != null}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_when_0 = _jspx_th_c_when_0.doStartTag();
+    if (_jspx_eval_c_when_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("\t\t\t\t\t\t\t<select class=\"text_input1\" id=\"queryScope\"></select>\r\n");
+        out.write("\t\t\t\t\t\t");
+        int evalDoAfterBody = _jspx_th_c_when_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_when_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_0);
+      return true;
+    }
+    _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_otherwise_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:otherwise
+    org.apache.taglibs.standard.tag.common.core.OtherwiseTag _jspx_th_c_otherwise_0 = (org.apache.taglibs.standard.tag.common.core.OtherwiseTag) _jspx_tagPool_c_otherwise.get(org.apache.taglibs.standard.tag.common.core.OtherwiseTag.class);
+    _jspx_th_c_otherwise_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_otherwise_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
+    int _jspx_eval_c_otherwise_0 = _jspx_th_c_otherwise_0.doStartTag();
+    if (_jspx_eval_c_otherwise_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("\t\t\t\t\t\t\t<select class=\"text_input1\" id=\"queryScope\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t<option value=\"1\">我建立的</option>\r\n");
+        out.write("\t\t\t\t\t\t\t\t<option value=\"2\" selected>本诊所</option>\r\n");
+        out.write("\t\t\t\t\t\t\t</select>\r\n");
+        out.write("\t\t\t\t\t\t");
+        int evalDoAfterBody = _jspx_th_c_otherwise_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_otherwise_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_0);
+      return true;
+    }
+    _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_0);
+    return false;
   }
 }

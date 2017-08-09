@@ -265,6 +265,9 @@ public final class userDiagnoseList_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("\t\t\t\t<li class=\"l5 first\"><a id=\"user_li_5\"\r\n");
       out.write("\t\t\t\t\tonclick=\"userAddLocache(5,'/regularRemindList')\"\r\n");
       out.write("\t\t\t\t\thref=\"javascript:;\">定期检查提醒</a></li>\r\n");
+      out.write("\t\t\t\t<li class=\"l5 first\"><a id=\"user_li_20\"\r\n");
+      out.write("\t\t\t\t\tonclick=\"userAddLocache(20,'/front/myPhr')\"\r\n");
+      out.write("\t\t\t\t\thref=\"javascript:;\">建档档案</a></li>\r\n");
       out.write("\t\t\t</ul></li>\r\n");
       out.write("\t\t<li class=\"l4\"><a href=\"javascript:;\">疾病管理</a>\r\n");
       out.write("\t\t\t<ul class=\"down_ul\">\r\n");
