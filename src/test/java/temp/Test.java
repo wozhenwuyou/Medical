@@ -1,15 +1,18 @@
 package temp;
 
 import java.util.Calendar;
+import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.apache.poi.ss.formula.functions.T;
+
 
 
 
 public class Test {
 	
 	public static void main(String[] args) {
-		ThreadLocal<T> t = null;
+		/*ThreadLocal<T> t = null;
 		Calendar cd = Calendar.getInstance();
 		Calendar ld = Calendar.getInstance();
 		ld.set(2016, 7, 4);
@@ -23,8 +26,7 @@ public class Test {
 		//int months = 12 * yearDiff + monthDiff;
 		//int years = months/12;
 		System.out.println(yearDiff);
-		System.out.println(monthDiff);
-		
+		System.out.println(monthDiff);*/
 		//test2();
 	}
 	
@@ -34,7 +36,6 @@ public class Test {
 			System.out.println("<option>"+i+"</option>");
 		}
 	}
-	
 	
 	
 	public static void test1(){

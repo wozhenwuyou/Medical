@@ -158,6 +158,9 @@
     <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
+    <if test="start != null and limit != null and limit > 0">
+    	limit ${start}, ${limit}
+    </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--
@@ -987,6 +990,7 @@
     	<foreach close=")" collection="list" index="index" item="item" open="(" separator=",">  
 	  		#{item}  
 	 	</foreach> 
+	 	order by create_time desc
   </select>
   
   <!-- 统计统计统计统计统计统计统计统计 -->
