@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lhfeiyu.dao.OrdersparticularMapper">
+	<resultMap id="BaseResultMap" type="com.lhfeiyu.po.Ordersparticular">
+		<id column="ordersParticularId" property="ordersparticularid"
+			jdbcType="INTEGER" />
+		<result column="ordersId" property="ordersid" jdbcType="INTEGER" />
+		<result column="ordersNo" property="ordersno" jdbcType="VARCHAR" />
+		<result column="productName" property="productname" jdbcType="VARCHAR" />
+		<result column="productId" property="productid" jdbcType="INTEGER" />
+		<result column="SIZE" property="size" jdbcType="VARCHAR" />
+		<result column="num" property="num" jdbcType="INTEGER" />
+		<result column="munUnit" property="mununit" jdbcType="VARCHAR" />
+		<result column="createProduct" property="createproduct"
+			jdbcType="VARCHAR" />
+		<result column="productTypeId" property="producttypeid"
+			jdbcType="VARCHAR" />
+		<result column="supplierId" property="supplierid" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="baseColum">
+		ordersParticularId
+		ordersId,
+		ordersNo,
+		productName,
+		productId,
+		SIZE,
+		num,
+		munUnit,
+		createProduct,
+		productTypeId,
+		supplierId
+	</sql>
+
+
+</mapper>
