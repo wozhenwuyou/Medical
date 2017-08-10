@@ -446,9 +446,9 @@ public class PhrAction {
 		JSONObject json = new JSONObject();
 
 		try {
-			Doctor db_doctor = ActionUtil.checkSession4Doctor(request.getSession());// 验证session中的user，存在即返回
-			if (null == db_doctor)
-				return Result.userSessionInvalid(json, "doctor");
+//			Doctor db_doctor = ActionUtil.checkSession4Doctor(request.getSession());// 验证session中的user，存在即返回
+//			if (null == db_doctor){
+//				return Result.userSessionInvalid(json, "doctor");
 			User user = userService.selectByPrimaryKey(id);
 			json.put("success", true);
 			json.put("patient", user);
