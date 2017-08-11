@@ -1,0 +1,40 @@
+<div class="w_0100 back5">
+	<div class="w_1000">
+		<div class="c_1100_9">
+			<div class="l_name" style="width: 320px">
+				<div class="l_102" style="height: 112px; margin-top: 10px;">
+					<img src="${doctor.avatar}"
+						onerror="this.src='/images/front/default_doctor.jpg'" width="102"
+						height="112" />
+				</div>
+				<!--height:126-->
+				<div class="r_245" style="width: 205px">
+					<strong>${doctor.username}</strong> &nbsp;${doctor.titleNames}<br />
+					${doctor.departmentName}
+				</div>
+			</div>
+			<div class="l_370" style="width: 500px; margin-left: 2px;">
+				<div onclick="lh.open('/hospitalLogin');"
+					style="cursor: pointer; display: inline-block; height: 98px; float: left;">
+					<img src="${doctor.hospitalLogo}" width="98" height="98" />
+					&nbsp;&nbsp;
+				</div>
+				<div
+					style="display: inline-block; height: 98px; float: left; width: 380px; line-height: 30px; font-weight: bolder; margin-top: 30px;">
+					<span onclick="lh.open('/hospitalLogin');"
+						style="cursor: pointer; word-wrap: break-word; word-break: break-all;">${doctor.hospitalName}</span>
+					<!--${doctor.hospitalProvinceName}-->
+				</div>
+			</div>
+			<div class="phone" style="width: 265px; margin-top: 50px;">
+				<span>电话：</span>
+				<!--${doctor.phone}-->
+				${doctor.hospitalPhone}<br />
+				<div style="float: left; width: 48px;">
+					<span>地址：</span>
+				</div>
+				<div style="float: left; width: 210px;">${doctor.hospitalAddress}</div>
+			</div>
+		</div>
+	</div>
+</div>
