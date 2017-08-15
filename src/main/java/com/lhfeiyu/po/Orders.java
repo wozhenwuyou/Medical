@@ -22,9 +22,9 @@ public class Orders {
     //订单明细
     private List<Ordersparticular> ordersdetails;
     //创建人
-    private User cuser;
+    private Admin cuser;
     //入库人
-    private User inuser;
+    private Admin inuser;
     
 	public Integer getOrdersid() {
 		return ordersid;
@@ -68,16 +68,16 @@ public class Orders {
 	public void setInuserid(Integer inuserid) {
 		this.inuserid = inuserid;
 	}
-	public User getCuser() {
+	public Admin getCuser() {
 		return cuser;
 	}
-	public void setCuser(User cuser) {
+	public void setCuser(Admin cuser) {
 		this.cuser = cuser;
 	}
-	public User getInuser() {
+	public Admin getInuser() {
 		return inuser;
 	}
-	public void setInuser(User inuser) {
+	public void setInuser(Admin inuser) {
 		this.inuser = inuser;
 	}
 	public List<Ordersparticular> getOrdersdetails() {

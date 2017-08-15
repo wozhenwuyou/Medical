@@ -21,6 +21,10 @@ public abstract class CommonService<T> {
 	@Autowired
 	CommonMapper<T> mapper;
 
+	public List<T> selectAdminList(){
+		return mapper.findAdmins();
+	}
+	
 	public List<T> selectListByCondition(Map<String, Object> map) {
 		return mapper.selectListByCondition(map);
 	}
@@ -120,5 +124,7 @@ public abstract class CommonService<T> {
 	public int deleteByIds(String ids) {
 		return mapper.deleteByIds(ids);
 	}
+	
+	
 
 }

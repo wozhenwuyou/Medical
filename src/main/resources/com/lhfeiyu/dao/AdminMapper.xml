@@ -89,6 +89,9 @@
 
 
 	<!--====================================== 查询开始-SELECT_BEGIN ====================================== -->
+	<select id="findAdmins" resultType="com.lhfeiyu.po.Admin">
+		SELECT ADMIN.ID,USERNAME FROM ADMIN,role WHERE role.id = admin.role_id AND role_id=4
+	</select>
 	<select id="selectListByCondition" parameterType="java.util.Map"
 		resultType="com.lhfeiyu.po.Admin">
 		SELECT

@@ -11,6 +11,7 @@
 
 	<resultMap type="com.lhfeiyu.po.Orders" id="OrdersLinkDitelMap"
 		extends="OrdersMap">
+		<!-- 订单详细 -->
 		<collection property="ordersdetails" ofType="com.lhfeiyu.po.Ordersparticular">
 			<id property="ordersparticularid" column="ordersparticularid" />
 			<result property="ordersno" column="ordersno" />
@@ -26,14 +27,14 @@
 			<result property="ordersid" column="ordersid" />
 		</collection>
 		<!-- 创建人 -->
-		<collection property="cuser" column="createuserid" ofType="com.lhfeiyu.po.User">
+		<collection property="cuser" column="createuserid" ofType="com.lhfeiyu.po.Admin">
 			<id column="id" property="id" />
 			<result property="username" column="username" />
 		</collection>
 
-		<collection property="inuser" column="inuserid" ofType="com.lhfeiyu.po.User">
-			<id column="id" property="id" />
-			<result property="username" column="username" />
+		<collection property="inuser" column="inuserid" ofType="com.lhfeiyu.po.Admin">
+			<id column="inuserid" property="id" />
+			<result column="inpeople" property="username" />
 		</collection>
 	</resultMap>
 
@@ -49,33 +50,86 @@
 	</sql>
 
 	<select id="findOrders" parameterType="java.util.Map" resultMap="OrdersLinkDitelMap">
-		SELECT o.*,oe.*,cuser.id,cuser.username ,inuser.id,inuser.username
-		FROM orders o,ordersparticular oe,`user` AS cuser,`user` AS inuser
-		WHERE 1 = 1
-		AND oe.orders_id = o.ordersid
-		AND cuser.id = o.createuserid
-		AND inuser.id = o.inuserid
+		SELECT
+		o.ordersid,
+		o.inserttime,
+		o.createtime,
+		o.createuserid,
+		o.updateuserid,
+		o.updatetime,
+		o.inuserid,
+		o.ordersparticularid,
+		o.ordersno,
+		o.productname,
+		o.productid,
+		o.size,
+		o.num,
+		o.mununit,
+		o.createproduct,
+		o.producttypeid,
+		o.supplierid,
+		o.orders_id,
+		cuser.id,
+		cuser.username,
+		iuser.id AS inuserid,
+		iuser.username AS inpeople
+		FROM
+		(
+		SELECT
+		o.ordersid,
+		o.inserttime,
+		o.createtime,
+		o.createuserid,
+		o.updateuserid,
+		o.updatetime,
+		o.inuserid,
+		oe.ordersparticularid,
+		oe.ordersno,
+		oe.productname,
+		oe.productid,
+		oe.size,
+		oe.num,
+		oe.mununit,
+		oe.createproduct,
+		oe.producttypeid,
+		oe.supplierid,
+		oe.orders_id
+		FROM
+		orders o
+		LEFT JOIN ordersparticular oe ON o.ordersid = oe.orders_id
+		) o,
+		admin cuser,
+		admin iuser
+		WHERE
+		1 = 1
+		AND o.createuserid = cuser.id
+		AND o.inuserid = iuser.id
 		<include refid="suffix" />
 		<include refid="limitCount" />
 	</select>
 
-	<sql id="columAddvalueSuffix">
-		<trim suffixOverrides="," >
-			<if test="createuserid!=null">#{createuserid},</if>
-			<if test="createuserid==null">null,</if>
-			<if test="createtime==null">SYSDATE(),</if>
-			<if test="inuserid==null">null</if>
-		</trim>
-
-	</sql>
-
 	<!-- 添加订单 -->
-	<insert id="addOrder" parameterType="java.util.Map">
+	<insert id="addOrder" parameterType="java.util.Map"
+		useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+		<selectKey resultType="int" order="AFTER" keyProperty="id">
+			SELECT LAST_INSERT_ID() as id
+		</selectKey>
+
 		insert into orders
 		(createuserid,createtime,inuserid,inserttime)
 		VALUES(
-		1,SYSDATE(),3,SYSDATE()
+		#{createuserid},#{createtime,jdbcType=DATE},#{inuserid},#{inserttime,jdbcType=DATE}
 		);
 	</insert>
+
+	<select id="countNum" resultType="java.lang.Integer">
+		select count(ordersid) from
+		orders
+	</select>
+
+	<delete id="deleteOrder" parameterType="java.lang.Integer">
+		delete from orders where
+		ordersid = #{id}
+	</delete>
 
 </mapper>

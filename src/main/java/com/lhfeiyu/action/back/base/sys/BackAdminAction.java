@@ -44,6 +44,20 @@ public class BackAdminAction {
 	
 	private static Logger logger = Logger.getLogger("R");
 	
+	@ResponseBody
+	@RequestMapping(value="/adminSelect",method=RequestMethod.POST)
+	public JSONObject findAdminList(HttpServletRequest request){
+		JSONObject json = new JSONObject();
+		try {
+			List<Admin> list = adminService.selectAdminList();
+			Result.gridData(list, list.size(), json);
+			Result.success(json, "数据加载成功", null);
+		} catch (Exception e) {
+			Result.catchError(e, logger, "LH_ERROR-Admin-PAGE-/back/admin-加载管理员出现异常", json);
+		}
+		return json;
+	} 
+	
 	@RequestMapping(value="/admin")
 	public ModelAndView  admin(ModelMap modelMap, @RequestParam(required=false,value="typeId") Integer typeId){
 		String path = PagePath.backAdmin;

@@ -18,7 +18,7 @@ public class Ordersparticular {
 
     private String createproduct;
 
-    private String producttypeid;
+    private Integer producttypeid;
 
     private Integer supplierid;
     
@@ -88,12 +88,12 @@ public class Ordersparticular {
         this.createproduct = createproduct == null ? null : createproduct.trim();
     }
 
-    public String getProducttypeid() {
+    public Integer getProducttypeid() {
         return producttypeid;
     }
 
-    public void setProducttypeid(String producttypeid) {
-        this.producttypeid = producttypeid == null ? null : producttypeid.trim();
+    public void setProducttypeid(Integer producttypeid) {
+        this.producttypeid = producttypeid;
     }
 
     public Integer getSupplierid() {

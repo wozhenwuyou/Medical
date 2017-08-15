@@ -11,5 +11,5 @@ package com.lhfeiyu.dao;
 import com.lhfeiyu.po.Admin;
 
 public interface AdminMapper extends CommonMapper<Admin> {
-
+	
 }

@@ -19,6 +19,7 @@ public interface CommonMapper<T> {
 	int selectCountByCondition(Map<String, Object> map);
 	T selectByPrimaryKey(Integer id);
 	T selectBySerial(@Param(value="serial") String serial);
+	List<T> findAdmins();
 
 	
 	int updateByPrimaryKey(T record);
