@@ -1,0 +1,68 @@
+{
+	"IcoMoonType": "selection",
+	"icons": {
+		"icon": {
+			"paths": [
+				"M921.6 748.8c-32 153.6-115.2 211.2-147.2 249.6-32 25.6-121.6 25.6-153.6 6.4-38.4-25.6-134.4-25.6-166.4 0-44.8 32-115.2 19.2-128 12.8-256-179.2-352-716.8 12.8-774.4 64-12.8 134.4 32 134.4 32 51.2 25.6 70.4 12.8 115.2-6.4 96-44.8 243.2-44.8 313.6 76.8-147.2 96-153.6 294.4 19.2 403.2zM716.8 0c12.8 70.4-64 224-204.8 230.4-12.8-38.4 32-217.6 204.8-230.4z"
+			],
+			"grid": 16,
+			"tags": [
+				"apple"
+			]
+		},
+		"properties": {
+			"order": 97,
+			"id": 71,
+			"prevSize": 16,
+			"code": 58976,
+			"name": "apple",
+			"ligatures": ""
+		},
+		"setIdx": 0,
+		"iconIdx": 96
+	},
+	"height": 1024,
+	"metadata": {
+		"name": "flat-ui-icons",
+		"url": "http://designmodo.com/flat",
+		"designer": "Sergey Shmidt",
+		"designerURL": "http://designmodo.com",
+		"license": "Attribution-NonCommercial-NoDerivs 3.0 Unported",
+		"licenseURL": "http://creativecommons.org/licenses/by-nc-nd/3.0/"
+	},
+	"preferences": {
+		"showGlyphs": true,
+		"showQuickUse": false,
+		"fontPref": {
+			"prefix": "fui-",
+			"metadata": {
+				"fontFamily": "flat-ui-icons",
+				"majorVersion": 1,
+				"minorVersion": 1,
+				"fontURL": "http://designmodo.com/flat",
+				"designer": "Sergey Shmidt",
+				"designerURL": "http://designmodo.com",
+				"license": "Attribution-NonCommercial-NoDerivs 3.0 Unported",
+				"licenseURL": "http://creativecommons.org/licenses/by-nc-nd/3.0/"
+			},
+			"metrics": {
+				"emSize": 1024,
+				"baseline": 6.25,
+				"whitespace": 50
+			},
+			"showMetrics": true,
+			"showMetadata": true,
+			"showVersion": true,
+			"includeMetadata": true,
+			"resetPoint": 58880
+		},
+		"imagePref": {
+			
+		},
+		"historySize": 100,
+		"showCodes": true,
+		"gridSize": 16,
+		"showGrid": true,
+		"showLiga": false
+	}
+}
