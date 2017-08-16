@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lhfeiyu.dao.InsertstorageMapper">
+	<resultMap type="com.lhfeiyu.po.Insertstorage" id="InsertstorageMap">
+		<id column="insertstorageid" property="insertstorageid" />
+		<result column="inserttime" property="inserttime" />
+		<result column="dealer" property="dealer" />
+		<result column="createproduct" property="createproduct" />
+		<result column="userid" property="userid" />
+		<result column="address" property="address" />
+		<result column="remarks" property="remarks" />
+		<result column="inorouttypeid" property="inorouttypeid" />
+	</resultMap>
+
+	<resultMap type="com.lhfeiyu.po.Insertstorage" id="InsertstorageLinkAdnminAndInorouttypeMap"
+		extends="InsertstorageMap">
+		<!-- 入库人 -->
+		<collection property="admin" ofType="com.lhfeiyu.po.Admin">
+			<id column="id" property="id" />
+			<result column="username" property="username" />
+		</collection>
+		<!-- 入库类型 -->
+		<!-- 入库明细 -->
+	</resultMap>
+
+	<sql id="colum">
+		insertstorageid,
+		inserttime,
+		dealer,
+		createproduct,
+		userid,
+		address,
+		remarks,
+		inorouttypeid
+	</sql>
+
+	<sql id="limitCount"><!-- 分页 -->
+		LIMIT ${start},${count}
+	</sql>
+
+	<select id="findInsertstorage" parameterType="java.util.Map"
+		resultMap="InsertstorageLinkAdnminAndInorouttypeMap">
+		SELECT
+		<include refid="colum" />
+		,
+		a.username,
+		a.id
+		from
+		insertstorage i
+		LEFT JOIN admin a ON i.userid= a.id
+		<include refid="limitCount" />
+	</select>
+
+	<select id="count" resultType="java.lang.Integer">
+		SELECT count(i.insertstorageid)
+		from insertstorage as i
+	</select>
+
+	<insert id="addInsertstorage" parameterType="java.util.Map" useGeneratedKeys="true"
+		keyProperty="id" keyColumn="id">
+		<selectKey resultType="int" order="AFTER" keyProperty="id">
+			SELECT LAST_INSERT_ID() as id
+		</selectKey>
+
+		insert into insertstorage (inserttime,dealer,createproduct,userid,address,remarks,inorouttypeid)values
+		(#{inserttime},#{dealer},#{createproduct},#{userid},
+		#{address},#{remarks},#{inorouttypeid})
+	</insert>
+	
+	<delete id="delete" parameterType="java.lang.Integer">
+		delete from insertstorage where
+		insertstorageid = #{id}
+	</delete>
+
+	<sql id="updatesuffix">
+		<trim prefix="set" suffixOverrides=",">
+			<if test="remarks!=null and remarks!=''">
+				remarks = #{remarks}
+			</if>
+		</trim>
+	</sql>
+
+	<update id="update" parameterType="java.util.Map">
+		update insertstorage <include refid="updatesuffix"></include>  where insertstorageid = #{id}
+	</update>
+
+</mapper>
