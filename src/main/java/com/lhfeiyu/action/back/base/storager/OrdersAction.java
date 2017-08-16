@@ -47,28 +47,34 @@ public class OrdersAction {
 			Result.success(modelMap, "订货订单列表页面加载成功", null);
 		} catch (Exception e) {
 			path = PagePath.backLogin;
-			Result.catchError(e, logger, "LH_ERROR-Hospital-PAGE-/back/phr/list-订货订单列表页面出现异常", modelMap);
+			Result.catchError(e, logger, "LH_ERROR-Hospital-PAGE-/back/storeroom/dinghuo-订货订单列表页面出现异常", modelMap);
 		}
 		return new ModelAndView(path, modelMap);
 	}
 
 
+	
+	
 	@ResponseBody
 	@RequestMapping(value = "/back/orders/list",method = RequestMethod.POST)//暂未做条件查询
-	public JSONObject getFindOdersList(Orders orders,HttpServletRequest request){
+	public JSONObject getFindOdersList(Orders orders,Integer page,Integer rows,HttpServletRequest request){
 		JSONObject json = new JSONObject();
 		try {
 			Admin admin = ActionUtil.checkSession4Admin(request.getSession());//验证session中的user，存在即返回
 			if(null == admin)return Result.adminSessionInvalid(json);
 			Map map = ordersService.castOrders4Map(orders);
 
+			if(rows>0 && rows!=null && page>0 && page!=null){
+				map.put("start", (page-1)*rows);
+				map.put("count", rows);
+			}
 			List<Orders> list = ordersService.findOrders(map);
 			Integer total = ordersService.countTotle();
-			
+
 			Result.gridData(list, total, json);
 			Result.success(json);
 		} catch (Exception e) {
-			Result.catchError(e, logger, "LH_ERROR-Orders-AJAX-/????-加载仓库模块订单数据出现问题", json);
+			Result.catchError(e, logger, "LH_ERROR-Orders-AJAX-/back/orders/list-加载仓库模块订单数据出现问题", json);
 		}
 
 		return json;
@@ -84,14 +90,14 @@ public class OrdersAction {
 			@RequestParam("createproduct")String[] createproduct,@RequestParam("producttypeid")String[] producttypeid,
 			@RequestParam("supplierid")String[] supplierid,HttpServletRequest request){
 		JSONObject json = new JSONObject();
-		
+
 		try {
-			
+
 			Admin admin = ActionUtil.checkSession4Admin(request.getSession());//验证session中的user，存在即返回
 			if(null == admin)return Result.adminSessionInvalid(json);
-			
+
 			orders.setCreateuserid(admin.getId());
-			
+
 			Integer id = ordersService.addOrders(ordersService.castOrders4Map(orders));
 
 			for (int i = 0; i < ordersno.length; i++) {
@@ -111,7 +117,7 @@ public class OrdersAction {
 			}
 			Result.success(json);
 		} catch (Exception e) {
-			Result.catchError(e, logger, "LH_ERROR-Orders-AJAX-/????-添加订单出现问题", json);
+			Result.catchError(e, logger, "LH_ERROR-Orders-AJAX-/back/orderAdd-添加订单出现问题", json);
 		}
 		return json;
 	}
@@ -120,19 +126,35 @@ public class OrdersAction {
 	public JSONObject addOdersDetails(Ordersparticular Details,HttpServletRequest request){
 		JSONObject json = new JSONObject();
 		try {
+			Admin admin = ActionUtil.checkSession4Admin(request.getSession());//验证session中的user，存在即返回
+			if(null == admin)return Result.adminSessionInvalid(json);
+			
 			Map map = ordersparticularService.castDaitles4Map(Details);
 			ordersparticularService.addOrdersDaitles(map);
 
 			Result.success(json);
 		} catch (Exception e) {
-			Result.catchError(e, logger, "LH_ERROR-OrdersDetails-AJAX-/????-添加订单详细出现问题", json);
+			Result.catchError(e, logger, "LH_ERROR-OrdersDetails-AJAX-/back/orderDetailsAdd-添加订单详细出现问题", json);
 		}
 
 		return json;
 	}
 
-	public JSONObject updateOrders(){
-		return null;
+	
+	public JSONObject updateOrders(Ordersparticular Details,HttpServletRequest request){
+		JSONObject json = new JSONObject();
+		try {
+			Admin admin = ActionUtil.checkSession4Admin(request.getSession());//验证session中的user，存在即返回
+			if(null == admin)return Result.adminSessionInvalid(json);
+			
+			Map map = ordersparticularService.castDaitles4Map(Details);
+			ordersparticularService.updateOrdersDaitles(map);
+			
+			Result.success(json);
+		} catch (Exception e) {
+			Result.catchError(e, logger, "LH_ERROR-OrdersDetails-AJAX-/????-修改订单详细出现问题", json);
+		}
+		return json;
 	}
 
 }

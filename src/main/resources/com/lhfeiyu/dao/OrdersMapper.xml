@@ -38,15 +38,8 @@
 		</collection>
 	</resultMap>
 
-	<sql id="suffix">
-		<trim>
-			<if test="orderBy!=null and orderBy!='' "> order by o.ordersId #{orderBy}</if>
-			<if test="orderBy==null and orderBy=='' "> order by o.ordersId DESC </if>
-		</trim>
-	</sql>
-
 	<sql id="limitCount"><!-- 分页 -->
-		<if test="count != null and count !='' "> LIMIT ${start},${count}</if>
+		 LIMIT ${start},${count}
 	</sql>
 
 	<select id="findOrders" parameterType="java.util.Map" resultMap="OrdersLinkDitelMap">
@@ -104,7 +97,7 @@
 		1 = 1
 		AND o.createuserid = cuser.id
 		AND o.inuserid = iuser.id
-		<include refid="suffix" />
+		order by o.ordersId DESC
 		<include refid="limitCount" />
 	</select>
 

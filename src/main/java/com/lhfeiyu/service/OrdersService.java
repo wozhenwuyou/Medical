@@ -1,5 +1,6 @@
 package com.lhfeiyu.service;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,11 +35,13 @@ public class OrdersService {
 	
 	public Map castOrders4Map(Orders orders){
 		Map map = new HashMap();
-		
+		Calendar calendar = Calendar.getInstance();
 		map.put("createuserid", orders.getCreateuserid());
-		map.put("createtime", orders.getCreatetime());
+		map.put("createtime", orders.getCreatetime()==null|orders.getCreatetime().equals(null)?
+				calendar.getTime():orders.getCreatetime());
 		map.put("inuserid", orders.getInuserid());
-		map.put("inserttime", orders.getInserttime());
+		map.put("inserttime", orders.getInserttime()==null|orders.getInserttime().equals(null)?
+				calendar.getTime():orders.getInserttime());
 		
 		return map;
 		
