@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lhfeiyu.dao.StoutstorageparticularMapper">
+	<resultMap id="BaseResultMap" type="com.lhfeiyu.po.Stoutstorageparticular">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="outstorageid" property="outstorageid" jdbcType="INTEGER" />
+		<result column="productname" property="productname" jdbcType="VARCHAR" />
+		<result column="productid" property="productid" jdbcType="INTEGER" />
+		<result column="producttypeid" property="producttypeid"
+			jdbcType="INTEGER" />
+		<result column="size" property="size" jdbcType="VARCHAR" />
+		<result column="mununit" property="mununit" jdbcType="VARCHAR" />
+		<result column="num" property="num" jdbcType="INTEGER" />
+		<result column="lot" property="lot" jdbcType="VARCHAR" />
+		<result column="expirationdate" property="expirationdate"
+			jdbcType="TIMESTAMP" />
+		<result column="equipmentnb" property="equipmentnb" jdbcType="VARCHAR" />
+		<result column="receivingunit" property="receivingunit"
+			jdbcType="VARCHAR" />
+		<result column="ordid" property="ordid" jdbcType="INTEGER" />
+	</resultMap>
+	<select id="count" parameterType="java.lang.Integer">
+		SELECT COUNT(ID) FROM Stoutstorageparticular
+	</select>
+
+	<select id="find" parameterType="com.lhfeiyu.po.Stoutstorageparticular">
+		SELECT * FROM Stoutstorageparticular
+	</select>
+
+	<insert id="add" parameterType="com.lhfeiyu.po.Stoutstorageparticular">
+		insert into
+	</insert>
+
+	<update id="update" parameterType="com.lhfeiyu.po.Stoutstorageparticular">
+		update
+	</update>
+
+	<delete id="delete" parameterType="java.lang.Integer">
+		delete from
+	</delete>
+</mapper>

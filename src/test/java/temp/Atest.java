@@ -17,11 +17,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import com.alibaba.fastjson.JSONObject;
-import com.lhfeiyu.po.Orders;
 import com.lhfeiyu.service.*;
 
 public class Atest {
-	private ApplicationContext applicationContext;
+	/*private ApplicationContext applicationContext;
 	private OrdersService ordersService;
 	private OrdersparticularService ordersparticularService;
 	@Before
@@ -76,5 +75,5 @@ public class Atest {
 		map.put("orders_id", i);//关联外键		
 		System.out.println("添加成功");
 		
-	}
+	}*/
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lhfeiyu.dao.StproductMapper">
+	<resultMap id="BaseResultMap" type="com.lhfeiyu.po.Stproduct">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="productname" property="productname" jdbcType="VARCHAR" />
+		<result column="size" property="size" jdbcType="VARCHAR" />
+		<result column="mununit" property="mununit" jdbcType="VARCHAR" />
+		<result column="registrationnb" property="registrationnb"
+			jdbcType="VARCHAR" />
+		<result column="dealer" property="dealer" jdbcType="VARCHAR" />
+		<result column="createproduct" property="createproduct"
+			jdbcType="VARCHAR" />
+		<result column="remarks" property="remarks" jdbcType="VARCHAR" />
+		<result column="createuserid" property="createuserid" jdbcType="INTEGER" />
+		<result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+		<result column="updateuserid" property="updateuserid" jdbcType="INTEGER" />
+		<result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<select id="count" parameterType="java.lang.Integer">
+		SELECT COUNT(ID) FROM Stproduct
+	</select>
+
+	<select id="find" parameterType="com.lhfeiyu.po.Stproduct">
+		SELECT * FROM Stproduct
+	</select>
+
+	<insert id="add" parameterType="com.lhfeiyu.po.Stproduct">
+		insert into
+	</insert>
+
+	<update id="update" parameterType="com.lhfeiyu.po.Stproduct">
+		update
+	</update>
+
+	<delete id="delete" parameterType="INTEGER">
+		delete from
+	</delete>
+</mapper>

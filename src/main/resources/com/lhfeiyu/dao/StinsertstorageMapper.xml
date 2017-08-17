@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lhfeiyu.dao.StinsertstorageMapper">
+	<resultMap id="BaseResultMap" type="com.lhfeiyu.po.Stinsertstorage">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="inserttime" property="inserttime" jdbcType="TIMESTAMP" />
+		<result column="dealer" property="dealer" jdbcType="VARCHAR" />
+		<result column="createproduct" property="createproduct"
+			jdbcType="VARCHAR" />
+		<result column="userid" property="userid" jdbcType="INTEGER" />
+		<result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+		<result column="address" property="address" jdbcType="VARCHAR" />
+		<result column="remarks" property="remarks" jdbcType="VARCHAR" />
+		<result column="inorouttypeid" property="inorouttypeid"
+			jdbcType="INTEGER" />
+	</resultMap>
+
+	<sql id="baseColum">
+		id,inserttime,dealer,createproduct,userid,updatetime,address,remarks,inorouttypeid
+	</sql>
+	
+	<sql id="suffixLikeQuery">
+		<trim>
+			<if test="inserttime!=null">and inserttime = #{inserttime}</if>
+			<if test="dealer!=nul and dealer!=''">and dealer like #{dealer}</if>
+			<if test="createproduct!=null and createproduct!=''">and createproduct like #{createproduct}</if>
+			<if test="userid!=null">and userid = #{userid}</if>
+			<if test="address!=null and address!=''">and address like #{address}</if>
+			<if test="remarks!=null and remarks!=''">and remarks like #{remarks}</if>
+			<if test="inorouttypeid!=null">and inorouttypeid = #{inorouttypeid}</if>
+			ORDER BY ID DESC
+		</trim>
+	</sql>
+
+	<sql id="limitCount"><!-- 分页 -->
+		 LIMIT ${start},${count}
+	</sql>
+
+	<select id="count" parameterType="java.lang.Integer">
+		SELECT COUNT(ID) FROM STINSERTSTORAGE
+	</select>
+
+	<select id="find" parameterType="com.lhfeiyu.po.Stinsertstorage">
+		SELECT <include refid="baseColum"/> FROM STINSERTSTORAGE
+		WHERE 1=1
+		<include refid="suffixLikeQuery"/>
+		<include refid="limitCount"/>
+	</select>
+
+	<insert id="add" parameterType="com.lhfeiyu.po.Stinsertstorage">
+		insert into STINSERTSTORAGE(inserttime,dealer,createproduct,userid,address,remarks,inorouttypeid)VALUES
+		(
+			#{inserttime},#{dealer},#{createproduct},#{userid},#{address},#{remarks},#{inorouttypeid}
+		)
+	</insert>
+
+	<update id="update" parameterType="com.lhfeiyu.po.Stinsertstorage">
+		update STINSERTSTORAGE set 
+		<trim suffix="set" suffixOverrides=",">
+			<if test="inserttime!=null"> inserttime = #{inserttime},</if>
+			<if test="dealer!=nul and dealer!=''">dealer = #{dealer},</if>
+			<if test="createproduct!=null and createproduct!=''"> createproduct = #{createproduct}</if>
+			<if test="address!=null and address!=''">and address = #{address},</if>
+			<if test="remarks!=null and remarks!=''">and remarks = #{remarks},</if>
+			<if test="inorouttypeid!=null">and inorouttypeid = #{inorouttypeid},</if>
+		</trim>
+	</update>
+
+	<delete id="delete" parameterType="java.lang.Integer">
+		delete from STINSERTSTORAGE where id = #{id}
+	</delete>
+</mapper>

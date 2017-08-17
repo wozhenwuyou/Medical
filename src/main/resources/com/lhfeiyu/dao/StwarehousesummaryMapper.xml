@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lhfeiyu.dao.StwarehousesummaryMapper">
+	<resultMap id="BaseResultMap" type="com.lhfeiyu.po.Stwarehousesummary">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="productname" property="productname" jdbcType="VARCHAR" />
+		<result column="producttypeid" property="producttypeid"
+			jdbcType="INTEGER" />
+		<result column="size" property="size" jdbcType="VARCHAR" />
+		<result column="num" property="num" jdbcType="INTEGER" />
+		<result column="mununit" property="mununit" jdbcType="VARCHAR" />
+		<result column="lot" property="lot" jdbcType="VARCHAR" />
+		<result column="expirationdate" property="expirationdate"
+			jdbcType="TIMESTAMP" />
+		<result column="equipmentnb" property="equipmentnb" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="count" parameterType="java.lang.Integer">
+		SELECT COUNT(ID) FROM Stwarehousesummary
+	</select>
+
+	<select id="find" parameterType="com.lhfeiyu.po.Stwarehousesummary">
+		SELECT * FROM Stwarehousesummary
+	</select>
+
+	<insert id="add" parameterType="com.lhfeiyu.po.Stwarehousesummary">
+		insert into
+	</insert>
+
+	<update id="update" parameterType="com.lhfeiyu.po.Stwarehousesummary">
+		update
+	</update>
+
+	<delete id="delete" parameterType="INTEGER">
+		delete from
+	</delete>
+</mapper>

@@ -1,8 +1,7 @@
 package com.lhfeiyu.po;
 
-public class Ordersparticular {
-	
-    private Integer ordersparticularid;
+public class Stordersparticular {
+    private Integer id;
 
     private String ordersno;
 
@@ -21,15 +20,15 @@ public class Ordersparticular {
     private Integer producttypeid;
 
     private Integer supplierid;
-    
-    private Integer ordersid;
 
-    public Integer getOrdersparticularid() {
-        return ordersparticularid;
+    private Integer ordersId;
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setOrdersparticularid(Integer ordersparticularid) {
-        this.ordersparticularid = ordersparticularid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getOrdersno() {
@@ -104,12 +103,11 @@ public class Ordersparticular {
         this.supplierid = supplierid;
     }
 
-	public Integer getOrdersid() {
-		return ordersid;
-	}
+    public Integer getOrdersId() {
+        return ordersId;
+    }
 
-	public void setOrdersid(Integer ordersid) {
-		this.ordersid = ordersid;
-	}
-
+    public void setOrdersId(Integer ordersId) {
+        this.ordersId = ordersId;
+    }
 }
