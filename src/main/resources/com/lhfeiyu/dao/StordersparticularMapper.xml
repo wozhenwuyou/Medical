@@ -19,20 +19,54 @@
 	<select id="count" parameterType="java.lang.Integer">
 		SELECT COUNT(ID) FROM Stordersparticular
 	</select>
+	
+	<sql id="baseColum">
+		id,ordersno,productname,productid,size,num,mununit,createproduct,producttypeid,
+		supplierid,orders_id
+	</sql>
 
 	<select id="find" parameterType="com.lhfeiyu.po.Stordersparticular">
-		SELECT * FROM Stordersparticular
+		SELECT <include refid="baseColum"/> FROM Stordersparticular where 1=1
+		<trim>
+			<if test="id!=null">and id = #{id}</if>
+			<if test="ordersno!=null and ordersno!=''">and ordersno = #{ordersno}</if>
+			<if test="productname!=null and productname!=''">and productname = #{productname}</if>
+			<if test="productid!=null">and productid = #{productid}</if>
+			<if test="size!=null and size!=''">and size = #{size}</if>
+			<if test="num!=null">and num = #{num}</if>
+			<if test="mununit!=null and mununit!=''">mununit = #{mununit}</if>
+			<if test="createproduct!=null and createproduct!=''">createproduct = #{createproduct}</if>
+			<if test="producttypeid!=null">producttypeid = #{producttypeid}</if>
+			<if test="supplierid!=null">supplierid = #{supplierid}</if>
+			<if test="orders_id!=null">orders_id = #{orders_id}</if>
+		</trim>
 	</select>
 
 	<insert id="add" parameterType="com.lhfeiyu.po.Stordersparticular">
-		insert into
+		insert into Stordersparticular (ordersno,productname,productid,size,num,mununit,createproduct,producttypeid,
+		supplierid,orders_id)values(
+			#{ordersno},#{productname},#{productid},#{size},#{num},#{mununit},#{createproduct},#{producttypeid},#{supplierid},#{orders_id})
 	</insert>
 
 	<update id="update" parameterType="com.lhfeiyu.po.Stordersparticular">
-		update
+		update Stordersparticular 
+		<trim suffix="set" suffixOverrides=",">
+			<if test="id!=null"> id = #{id},</if>
+			<if test="ordersno!=null and ordersno!=''"> ordersno = #{ordersno},</if>
+			<if test="productname!=null and productname!=''"> productname = #{productname},</if>
+			<if test="productid!=null"> productid = #{productid},</if>
+			<if test="size!=null and size!=''"> size = #{size},</if>
+			<if test="num!=null"> num = #{num},</if>
+			<if test="mununit!=null and mununit!=''">mununit = #{mununit},</if>
+			<if test="createproduct!=null and createproduct!=''">createproduct = #{createproduct},</if>
+			<if test="producttypeid!=null">producttypeid = #{producttypeid},</if>
+			<if test="supplierid!=null">supplierid = #{supplierid},</if>
+			<if test="orders_id!=null">orders_id = #{orders_id},</if>
+		</trim>
+		where id = #{id}
 	</update>
 
 	<delete id="delete" parameterType="java.lang.Integer">
-		delete from
+		delete from Stordersparticular where id = #{id}
 	</delete>
 </mapper>

@@ -6,23 +6,37 @@
 		<result column="producttypename" property="producttypename"
 			jdbcType="VARCHAR" />
 	</resultMap>
+	
+	<sql id="baseColum">
+		id,producttypename
+	</sql>
+	
 	<select id="count" parameterType="java.lang.Integer">
-		SELECT COUNT(ID) FROM Stproducttype
+		SELECT COUNT(ID) FROM Stproducttype where 1=1
+		<if test="id!=null">id = #{id}</if>
 	</select>
 
 	<select id="find" parameterType="com.lhfeiyu.po.Stproducttype">
-		SELECT * FROM Stproducttype
+		SELECT <include refid="baseColum"/> FROM Stproducttype where 1=1
+		<trim>
+			<if test="id!=null">id = #{id}</if>
+			<if test="producttypename!=null and producttypename!=''">producttypename = #{producttypename}</if>
+		</trim>
 	</select>
 
 	<insert id="add" parameterType="com.lhfeiyu.po.Stproducttype">
-		insert into
+		insert into Stproducttype(producttypename)values(#{producttypename})
 	</insert>
 
 	<update id="update" parameterType="com.lhfeiyu.po.Stproducttype">
-		update
+		update Stproducttype
+		<trim suffix="set" suffixOverrides=",">
+			<if test="producttypename!=null and producttypename!=''">producttypename = #{producttypename}</if>
+		</trim>
+		where id = #{id}
 	</update>
 
 	<delete id="delete" parameterType="com.lhfeiyu.po.Stproducttype">
-		delete from
+		delete from Stproducttype where id = #{id}
 	</delete>
 </mapper>

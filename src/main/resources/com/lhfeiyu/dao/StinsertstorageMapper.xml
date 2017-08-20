@@ -37,7 +37,8 @@
 	</sql>
 
 	<select id="count" parameterType="java.lang.Integer">
-		SELECT COUNT(ID) FROM STINSERTSTORAGE
+		SELECT COUNT(ID) FROM STINSERTSTORAGE 
+		<if test="id!=null">id = #{id}</if>
 	</select>
 
 	<select id="find" parameterType="com.lhfeiyu.po.Stinsertstorage">

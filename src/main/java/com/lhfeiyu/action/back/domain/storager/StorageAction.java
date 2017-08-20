@@ -1,4 +1,4 @@
-package com.lhfeiyu.action.back.base.storager;
+package com.lhfeiyu.action.back.domain.storager;
 
 import java.util.Calendar;
 import java.util.List;

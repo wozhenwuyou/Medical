@@ -6,3 +6,4 @@
 
 # Log file
 *.log
+/target/

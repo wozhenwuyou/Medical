@@ -21,23 +21,66 @@
 			jdbcType="INTEGER" />
 		<result column="auditortime" property="auditortime" jdbcType="TIMESTAMP" />
 	</resultMap>
+
+	<sql id="baseColum">
+		id,ordersid,insertstorageid,productname,productid,num,mununit,producttypeid,
+		size,lot,expirationdate,equipmentnb,receivingunit
+	</sql>
+
 	<select id="count" parameterType="java.lang.Integer">
-		SELECT COUNT(ID) FROM Stoutstorage
+		SELECT COUNT(ID) FROM STOUTSTORAGE where 1=1 
+		<if test="id!=null">and id = #{id}</if>
 	</select>
 
 	<select id="find" parameterType="com.lhfeiyu.po.Stoutstorage">
-		SELECT * FROM Stoutstorage
+		SELECT
+		<include refid="baseColum" />
+		FROM Stoutstorage where 1=1
+		<trim>
+			<if test="ordersid!=null and ordersid!=''">and ordersid = #{ordersid}</if>
+			<if test="insertstorageid!=null and insertstorageid!=''">and insertstorageid = #{insertstorageid}</if>
+			<if test="oproductname!=null and productname!=''">and productname = #{productname}</if>
+			<if test="productid!=null and productid!=''">and productid = #{productid}</if>
+			<if test="num!=null and num!=''">and num = #{num}</if>
+			<if test="mununit!=null and mununit!=''">and mununit = #{mununit}</if>
+			<if test="producttypeid!=null and producttypeid!=''">and ordersid = #{ordersid}</if>
+			<if test="size!=null and size!=''">and size = #{size}</if>
+			<if test="lot!=null and lot!=''">and lot = #{lot}</if>
+			<if test="expirationdate!=null">and expirationdate != #{expirationdate}</if>
+			<if test="equipmentnb!=null and equipmentnb!=''">and equipmentnb = #{equipmentnb}</if>
+			<if test="receivingunit!=null and receivingunit!=''">and receivingunit=#{receivingunit}</if>
+		</trim>
+		where id = #{id}
 	</select>
 
 	<insert id="add" parameterType="com.lhfeiyu.po.Stoutstorage">
-		insert into
+		insert into STOUTSTORAGE
+		(ordersid,insertstorageid,productname,productid,num,mununit,producttypeid,
+		size,lot,expirationdate,equipmentnb,receivingunit)values(
+		#{ordersid},#{insertstorageid},#{productname},#{productid},#{num},#{mununit},#{producttypeid},
+		#{size},#{lot},#{expirationdate},#{equipmentnb},#{receivingunit})
 	</insert>
 
 	<update id="update" parameterType="com.lhfeiyu.po.Stoutstorage">
-		update
+		update STOUTSTORAGE 
+		<trim suffix="set" suffixOverrides=",">
+			<if test="ordersid!=null and ordersid!=''"> ordersid = #{ordersid},</if>
+			<if test="insertstorageid!=null and insertstorageid!=''">insertstorageid = #{insertstorageid},</if>
+			<if test="oproductname!=null and productname!=''">productname = #{productname},</if>
+			<if test="productid!=null and productid!=''">productid = #{productid},</if>
+			<if test="num!=null and num!=''">num = #{num},</if>
+			<if test="mununit!=null and mununit!=''"> mununit = #{mununit},</if>
+			<if test="producttypeid!=null and producttypeid!=''"> ordersid = #{ordersid},</if>
+			<if test="size!=null and size!=''"> size = #{size},</if>
+			<if test="lot!=null and lot!=''"> lot = #{lot},</if>
+			<if test="expirationdate!=null"> expirationdate != #{expirationdate},</if>
+			<if test="equipmentnb!=null and equipmentnb!=''"> equipmentnb = #{equipmentnb},</if>
+			<if test="receivingunit!=null and receivingunit!=''"> receivingunit=#{receivingunit},</if>
+		</trim>
+		where id = #{id}
 	</update>
 
 	<delete id="delete" parameterType="java.lang.Integer">
-		delete from
+		delete from STOUTSTORAGE where id = #{id}
 	</delete>
 </mapper>

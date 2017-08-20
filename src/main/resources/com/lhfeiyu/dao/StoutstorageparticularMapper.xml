@@ -19,23 +19,60 @@
 			jdbcType="VARCHAR" />
 		<result column="ordid" property="ordid" jdbcType="INTEGER" />
 	</resultMap>
+
+	<sql id="baseColum">
+		id,ordersno,productname,productid,size,num,mununit,createproduct,producttypeid,
+		supplierid,orders_id
+	</sql>
+
 	<select id="count" parameterType="java.lang.Integer">
-		SELECT COUNT(ID) FROM Stoutstorageparticular
+		SELECT COUNT(ID) FROM Stoutstorageparticular where 1=1
+		<if test="id!=null">and id = #{id}</if>
 	</select>
 
 	<select id="find" parameterType="com.lhfeiyu.po.Stoutstorageparticular">
-		SELECT * FROM Stoutstorageparticular
+		SELECT * FROM
+		STOUTSTORAGEPARTICULAR where 1=1
+		<trim>
+			<if test="ordersno!=null and ordersid!=''">and ordersid = #{ordersid}</if>
+			<if test="productname!=null and productname!=''">and productname = #{productname}</if>
+			<if test="productid!=null and productid!=''">and productid = #{productid}</if>
+			<if test="size!=null and size!=''">and size = #{size}</if>
+			<if test="num!=null and num!=''">and num = #{num}</if>
+			<if test="mununit!=null and mununit!=''">and mununit = #{mununit}</if>
+			<if test="createproduct!=null and createproduct!=''">and createproduct = #{createproduct}</if>
+			<if test="producttypeid!=null and producttypeid!=''">and producttypeid = #{producttypeid}</if>
+			<if test="supplierid !=null and supplierid!=''">and supplierid = #{supplierid}</if>
+			<if test="orders_id!=null ">and orders_id = #{orders_id}</if>
+		</trim>
 	</select>
 
 	<insert id="add" parameterType="com.lhfeiyu.po.Stoutstorageparticular">
-		insert into
+		insert into STOUTSTORAGEPARTICULAR (ordersno,productname,productid,size,num,mununit,createproduct,producttypeid,
+		supplierid,orders_id)values(
+			#{ordersno},#{productname},#{productid},#{size},#{num},#{mununit},#{createproduct},#{producttypeid},
+		#{supplierid},#orders_id}
+		)
 	</insert>
 
 	<update id="update" parameterType="com.lhfeiyu.po.Stoutstorageparticular">
-		update
+		update STOUTSTORAGEPARTICULAR
+		<trim suffix="set" suffixOverrides=",">
+			<if test="ordersno!=null and ordersid!=''"> ordersid = #{ordersid}</if>
+			<if test="productname!=null and productname!=''"> productname = #{productname}</if>
+			<if test="productid!=null and productid!=''"> productid = #{productid}</if>
+			<if test="size!=null and size!=''"> size = #{size}</if>
+			<if test="num!=null and num!=''"> num = #{num}</if>
+			<if test="mununit!=null and mununit!=''"> mununit = #{mununit}</if>
+			<if test="createproduct!=null and createproduct!=''">createproduct = #{createproduct}</if>
+			<if test="producttypeid!=null and producttypeid!=''">producttypeid = #{producttypeid}</if>
+			<if test="supplierid !=null and supplierid!=''">supplierid = #{supplierid}</if>
+			<if test="orders_id!=null ">orders_id = #{orders_id}</if>
+		</trim>
+		where id = #{id}
 	</update>
 
 	<delete id="delete" parameterType="java.lang.Integer">
-		delete from
+		delete from STOUTSTORAGEPARTICULAR where id = #{id}
 	</delete>
 </mapper>

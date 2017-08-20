@@ -6,23 +6,39 @@
 		<result column="outintypename" property="outintypename"
 			jdbcType="VARCHAR" />
 	</resultMap>
+	
+	<sql id="baseColum">
+		id,outintypename
+	</sql>
+	
 	<select id="count" parameterType="java.lang.Integer">
-		SELECT COUNT(ID) FROM Stoutintype
+		SELECT COUNT(ID) FROM STOUTINTYPE where 1=1
+		<if test="id!=null">id = #{id}</if>
 	</select>
 
 	<select id="find" parameterType="com.lhfeiyu.po.Stoutintype">
-		SELECT * FROM Stoutintype
+		SELECT <include refid="baseColum"/> FROM STOUTINTYPE where 1=1
+		<trim>
+			<if test="id!=null">and id = #{id}</if>
+			<if test="outintypename!=null and outintypename!=''"> outintypename like #{outintypename}</if>
+		</trim>
 	</select>
 
 	<insert id="add" parameterType="com.lhfeiyu.po.Stoutintype">
-		insert into
+		insert into STOUTINTYPE(outintypename)values(
+			outintypename
+		)
 	</insert>
 
 	<update id="update" parameterType="com.lhfeiyu.po.Stoutintype">
-		update
+		update STOUTINTYPE 
+		<trim suffix="set" suffixOverrides=",">
+			<if test="outintypename!=null and outintypename!=''">outintypename = #{outintypename}</if>
+		</trim>
+		where id = #{id}
 	</update>
 
 	<delete id="delete" parameterType="java.lang.Integer">
-		delete from
+		delete from STOUTINTYPE where id = #{id}
 	</delete>
 </mapper>

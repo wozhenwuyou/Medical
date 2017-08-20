@@ -255,10 +255,10 @@ public class PagePath {
 	public static final String BACK_DOMAIN_PHR_COVER = "/back/domain/phr/phrCover";
 	/** 后台页面 结束 */
 
-
+	//公司库存管理
 	public static final String BACK_DOMAIN_STOREROOM_DINGHUO = "/back/domain/storeroom/dinghuo";//订货
 	public static final String BACK_DOMAIN_STOREROOM_RUKU = "/back/domain/storeroom/ruku";//入库
-	public static final String BACK_DOMAIN_STOREROOM_CHUKU = "/back/domain/storeroomuku";//出库 
+	public static final String BACK_DOMAIN_STOREROOM_CHUKU = "/back/domain/storeroom/chuku";//出库 
 	public static final String BACK_DOMAIN_STOREROOM_KUCUN = "/back/domain/storeroom/kucun";//库存
 
 

@@ -11,22 +11,46 @@
 		<result column="inuserid" property="inuserid" jdbcType="INTEGER" />
 	</resultMap>
 	<select id="count" parameterType="java.lang.Integer">
-		SELECT COUNT(ID) FROM Storders
+		SELECT COUNT(ID) FROM Storders where 1=1
+		<if test="id!=null">and id = #{id}</if>
 	</select>
 
+	<sql id="baseColum">
+		id,inserttime,createtime,createuserid,updateuserid,updatetime,inuserid
+	</sql>
+
 	<select id="find" parameterType="com.lhfeiyu.po.Storders">
-		SELECT * FROM Storders
+		SELECT <include refid="baseColum"/> FROM Storders where 1=1
+		<trim>
+			<if test="id!=null">and id=#{id}</if>
+			<if test="inserttime!=null">and inserttime = #{inserttime}</if>
+			<if test="createtime!=null">and createtime = #{createtime}</if>
+			<if test="createuserid!=null">and createuserid = #{createuserid}</if>
+			<if test="updateuserid!=null">and updateuserid = #{updateuserid}</if>
+			<if test="updatetime!=null">and updatetime = #{updatetime} </if>
+			<if test="inuserid!=null">and inuserid = #{inuserid}</if>
+		</trim>
 	</select>
 
 	<insert id="add" parameterType="com.lhfeiyu.po.Storders">
-		insert into
+		insert into Storders (inserttime,createtime,createuserid,updateuserid,updatetime,inuserid)values
+		(#{inserttime},#{createtime},{#createuserid},#{updateuserid},#{updatetime},#{inuserid})
 	</insert>
 
 	<update id="update" parameterType="com.lhfeiyu.po.Storders">
-		update
+		update Storders
+		<trim suffix="set" suffixOverrides=",">
+			<if test="inserttime!=null">inserttime = #{inserttime},</if>
+			<if test="createtime!=null"> createtime = #{createtime},</if>
+			<if test="createuserid!=null"> createuserid = #{createuserid},</if>
+			<if test="updateuserid!=null"> updateuserid = #{updateuserid},</if>
+			<if test="updatetime!=null"> updatetime = #{updatetime}, </if>
+			<if test="inuserid!=null"> inuserid = #{inuserid},</if>
+		</trim> 
+		where id = #{id}
 	</update>
 
 	<delete id="delete" parameterType="java.lang.Integer">
-		delete from
+		delete from Storders where id = #{id}
 	</delete>
 </mapper>

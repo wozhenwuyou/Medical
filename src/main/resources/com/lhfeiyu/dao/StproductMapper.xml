@@ -17,23 +17,58 @@
 		<result column="updateuserid" property="updateuserid" jdbcType="INTEGER" />
 		<result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
 	</resultMap>
+
+	<sql id="baseColum">
+		id,productname,size,mununit,registrationnb,dealer,createproduct,remarks,createuserid,
+		createtime,updateuserid,updatetime
+	</sql>
+
 	<select id="count" parameterType="java.lang.Integer">
-		SELECT COUNT(ID) FROM Stproduct
+		SELECT COUNT(ID) FROM STPRODUCT where 1=1
+		<if test="id != null">id = #{id}</if>
 	</select>
 
 	<select id="find" parameterType="com.lhfeiyu.po.Stproduct">
-		SELECT * FROM Stproduct
+		SELECT <include refid="baseColum"/> FROM STPRODUCT
+		<trim>
+			<if test="productname!=null and productname!=''">and productname = #{productname}</if>
+			<if test="size!=null and size!=''">and size = #{size}</if>
+			<if test="mununit!=null and mununit!=''">and mununit = #{mununit}</if>
+			<if test="registrationnb!=null and registrationnb!=''">and registrationnb = #{registrationnb}</if>
+			<if test="dealer!=null and dealer!=''">and dealer = #{dealer}</if>
+			<if test="createproduct!=null and createproduct!=''">and createproduct = #{createproduct}</if>
+			<if test="remarks!=null and remarks!=''">and remarks = #{remarks}</if>
+			<if test="createuserid!=null and createuserid!=''">and createuserid = #{createuserid}</if>
+			<if test="createtime!=null and createtime!=''">and createtime #{createtime}</if>
+			<if test="updateuserid!=null and updateuserid!=''">and updateuserid = #{updateuserid}</if>
+			<if test="updatetime!=null and updatetime!=''">and updatetime = #{updatetime}</if>
+		</trim>
 	</select>
 
 	<insert id="add" parameterType="com.lhfeiyu.po.Stproduct">
-		insert into
+		insert into STPRODUCT(productname,size,mununit,registrationnb,dealer,createproduct,remarks,createuserid,
+		createtime,updateuserid,updatetime)values(#{productname},#{size},#{mununit},#{registrationnb},#{dealer},#{createproduct},#{remarks},#{createuserid},
+		#{createtime},#{updateuserid},#{updatetime})
 	</insert>
 
 	<update id="update" parameterType="com.lhfeiyu.po.Stproduct">
-		update
+		update STPRODUCT
+		<trim suffix="set" suffixOverrides=",">
+			<if test="productname!=null and productname!=''"> productname = #{productname},</if>
+			<if test="size!=null and size!=''"> size = #{size},</if>
+			<if test="mununit!=null and mununit!=''"> mununit = #{mununit}</if>
+			<if test="registrationnb!=null and registrationnb!=''"> registrationnb = #{registrationnb},</if>
+			<if test="dealer!=null and dealer!=''"> dealer = #{dealer},</if>
+			<if test="createproduct!=null and createproduct!=''"> createproduct = #{createproduct},</if>
+			<if test="remarks!=null and remarks!=''"> remarks = #{remarks},</if>
+			<if test="createuserid!=null and createuserid!=''">createuserid = #{createuserid},</if>
+			<if test="createtime!=null and createtime!=''">createtime #{createtime},</if>
+			<if test="updateuserid!=null and updateuserid!=''">updateuserid = #{updateuserid},</if>
+			<if test="updatetime!=null and updatetime!=''">updatetime = #{updatetime},</if>
+		</trim>
 	</update>
 
 	<delete id="delete" parameterType="INTEGER">
-		delete from
+		delete from STPRODUCT where id =#{id}
 	</delete>
 </mapper>

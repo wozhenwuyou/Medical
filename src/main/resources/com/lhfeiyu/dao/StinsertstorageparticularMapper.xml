@@ -16,31 +16,62 @@
 		<result column="expirationdate" property="expirationdate"
 			jdbcType="TIMESTAMP" />
 	</resultMap>
-	
-	
+
+
 	<sql id="limitCount"><!-- 分页 -->
-		 LIMIT ${start},${count}
+		LIMIT ${start},${count}
 	</sql>
-	
+
+	<sql id="baseColum">
+		id,insertstorageid,productid,productname,num,mununit,producttypeid,
+		size,lot,expirationdate
+	</sql>
+
 	<select id="count" parameterType="java.lang.Integer">
-		SELECT COUNT(ID) FROM STINSERTSTORAGEPARTICULAR
+		SELECT COUNT(ID) FROM STINSERTSTORAGEPARTICULAR where 1=1
+		<if test="id!=null">id = #{id}</if>
 	</select>
 
 	<select id="find" parameterType="com.lhfeiyu.po.Stinsertstorageparticular">
-		SELECT * FROM STINSERTSTORAGEPARTICULAR
-		
-		<include refid="limitCount"/>
+		SELECT <include refid="baseColum"/> FROM STINSERTSTORAGEPARTICULAR where 1=1
+		<trim suffix="and">
+			<if test="insertstorageid!=null">insertstorageid = #{insertstorageid}</if>
+			<if test="productid!=null">productid=#{productid}</if>
+			<if test="productname!=null and productname!=''">productname = #{productname}</if>
+			<if test="num != null">num = #{num}</if>
+			<if test="mununit!=null and mununit!=''">mununit = #{mununit}</if>
+			<if test="producttypeid!=null and producttypeid!=''">producttypeid = #{producttypeid}</if>
+			<if test="size!=null and size!=''">size = #{size}</if>
+			<if test="lot!=null and lot!=''">lot = #{lot}</if>
+			<if test="expirationdate!= null and expirationdate!=''">expirationdate = #{expirationdate}</if>
+		</trim>
+		<include refid="limitCount" />
 	</select>
 
 	<insert id="add" parameterType="com.lhfeiyu.po.Stinsertstorageparticular">
-		insert into
+		insert into STINSERTSTORAGEPARTICULAR (insertstorageid,productid,productname,num,mununit,producttypeid,
+		size,lot,expirationdate)values(
+			#{insertstorageid},#{productid},#{productname},#{num},#{mununit},#{producttypeid},#{size},#{lot},#{expirationdate}
+		)
 	</insert>
 
 	<update id="update" parameterType="com.lhfeiyu.po.Stinsertstorageparticular">
-		update
+		update STINSERTSTORAGEPARTICULAR 
+		<trim suffix="set" suffixOverrides=",">
+			<if test="insertstorageid!=null">insertstorageid = #{insertstorageid},</if>
+			<if test="productid!=null">productid=#{productid},</if>
+			<if test="productname!=null and productname!=''">productname = #{productname},</if>
+			<if test="num != null">num = #{num},</if>
+			<if test="mununit!=null and mununit!=''">mununit = #{mununit},</if>
+			<if test="producttypeid!=null and producttypeid!=''">producttypeid = #{producttypeid},</if>
+			<if test="size!=null and size!=''">size = #{size},</if>
+			<if test="lot!=null and lot!=''">lot = #{lot},</if>
+			<if test="expirationdate!= null and expirationdate!=''">expirationdate = #{expirationdate},</if>
+		</trim>
+		where id = #{id}
 	</update>
 
 	<delete id="delete" parameterType="java.lang.Integer">
-		delete from
+		delete from STINSERTSTORAGEPARTICULAR where id=#{id}
 	</delete>
 </mapper>

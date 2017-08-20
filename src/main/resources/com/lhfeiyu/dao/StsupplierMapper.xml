@@ -16,23 +16,53 @@
 		<result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
 		<result column="remark" property="remark" jdbcType="VARCHAR" />
 	</resultMap>
+
+	<sql id="baseColum">id,inserttime,dealer,createproduct,userid,updatetime,
+		address,remarks,inorouttypeid
+	</sql>
+
 	<select id="count" parameterType="java.lang.Integer">
-		SELECT COUNT(ID) FROM STINSERTSTORAGE
+		SELECT COUNT(ID) FROM
+		STINSERTSTORAGE where 1=1
+		<if test="id!=null">id = #{id}</if>
 	</select>
 
 	<select id="find" parameterType="com.lhfeiyu.po.Stsupplier">
-		SELECT * FROM STINSERTSTORAGE
+		SELECT <include refid=""></include> FROM STINSERTSTORAGE where 1=1
+		<trim>
+			<if test="inserttime!=null and inserttime!=''">and inserttime = #{inserttime}</if>
+			<if test="dealer!=null and dealer!=''">and dealer = #{dealer}</if>
+			<if test="createproduct!=null and createproduct!=''">and createproduct=#{createproduct}</if>
+			<if test="userid!=null and userid!=''">and userid = #{userid}</if>
+			<if test="updatetime!=null and updatetime!=''">and updatetime = #{updatetime}</if>
+			<if test="address!=null and address!=''">and address=#{address}</if>
+			<if test="remarks!=null and remarks!=''">and remarks=#{remarks}</if>
+			<if test="inorouttypeid!=null and inorouttypeid!=''">and inorouttypeid=#{inorouttypeid}</if>
+		</trim>
 	</select>
 
 	<insert id="add" parameterType="com.lhfeiyu.po.Stsupplier">
-		insert into
+		insert into STINSERTSTORAGE(inserttime,dealer,createproduct,userid,updatetime,
+		address,remarks,inorouttypeid)values(#{inserttime},#{dealer},#{createproduct},#{userid},#{updatetime},
+		#{address},#{remarks},#{inorouttypeid})
 	</insert>
 
 	<update id="update" parameterType="com.lhfeiyu.po.Stsupplier">
-		update
+		update  STINSERTSTORAGE
+		<trim suffix="set" suffixOverrides=",">
+			<if test="inserttime!=null and inserttime!=''">inserttime = #{inserttime},</if>
+			<if test="dealer!=null and dealer!=''"> dealer = #{dealer},</if>
+			<if test="createproduct!=null and createproduct!=''">createproduct=#{createproduct},</if>
+			<if test="userid!=null and userid!=''">userid = #{userid},</if>
+			<if test="updatetime!=null and updatetime!=''">updatetime = #{updatetime},</if>
+			<if test="address!=null and address!=''">address=#{address},</if>
+			<if test="remarks!=null and remarks!=''">remarks=#{remarks},</if>
+			<if test="inorouttypeid!=null and inorouttypeid!=''">inorouttypeid=#{inorouttypeid},</if>
+		</trim>
+		where id = #{id}
 	</update>
 
 	<delete id="delete" parameterType="INTEGER">
-		delete from
+		delete from STINSERTSTORAGE where id = #{id}
 	</delete>
 </mapper>
