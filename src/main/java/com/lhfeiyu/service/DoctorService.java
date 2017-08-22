@@ -1,10 +1,13 @@
 package com.lhfeiyu.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
@@ -19,7 +22,9 @@ import com.lhfeiyu.dao.DiagnoseMapper;
 import com.lhfeiyu.dao.DoctorMapper;
 import com.lhfeiyu.dao.FansMapper;
 import com.lhfeiyu.dao.MessageMapper;
+import com.lhfeiyu.dao.PhrBasicInfoMapper;
 import com.lhfeiyu.dao.UserMapper;
+import com.lhfeiyu.po.Admin;
 import com.lhfeiyu.po.Advertisement;
 import com.lhfeiyu.po.Announcement;
 import com.lhfeiyu.po.Article;
@@ -27,6 +32,7 @@ import com.lhfeiyu.po.Bespeak;
 import com.lhfeiyu.po.Doctor;
 import com.lhfeiyu.po.Fans;
 import com.lhfeiyu.po.Hospital;
+import com.lhfeiyu.po.PhrBasicInfo;
 import com.lhfeiyu.tools.Check;
 import com.lhfeiyu.tools.CommonGenerator;
 import com.lhfeiyu.tools.Result;
@@ -390,7 +396,6 @@ public class DoctorService extends CommonService<Doctor> {
 		}
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("userId", doctorId);
-		//map.put("fansUserId", doctorId);
 		map.put("mainStatus", 1);
 		map.put("exceptUserId", doctorId);
 		List<Fans> fansList = fansMapper.selectListByCondition(map);//粉丝或好友
@@ -529,6 +534,25 @@ public class DoctorService extends CommonService<Doctor> {
 	
 	public List<Doctor> selectDiagnoseSumByCondition(Map<String, Object> map) {
 		return doctorMapper.selectDiagnoseSumByCondition(map);
+	}
+
+	public ModelMap getAllFansData(ModelMap modelMap, Admin session_admin, Object object) {
+//		Doctor doctor = getDoctorInformation(db_doctor,doctorId);
+//		if(null == doctor){
+//			return Result.failure(modelMap, "您访问的医生信息不存在", "doctor_null");
+//		}
+//		if(null == doctorId){
+//			doctorId = doctor.getId();
+//		}
+		Map<String,Object> map = new HashMap<String,Object>();
+//		map.put("userId", doctorId);
+		map.put("mainStatus", 1);
+//		map.put("exceptUserId", doctorId);
+		List<Fans> fansList = fansMapper.selectListByCondition(map);//粉丝或好友
+		modelMap.put("fansList", fansList);
+//		modelMap.put("doctorId", doctorId);
+//		modelMap.put("doctor", doctor);
+		return modelMap;
 	}
 	
 	

@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -115,7 +116,8 @@ public class BackDoctorAction {
 			for(Doctor h:doctorList){
 				JSONObject json = new JSONObject();
 				json.put("id",h.getId());
-				json.put("name",h.getUsername());
+				json.put("name", StringUtils.isBlank(h.getRealname()) ? h.getUsername() : h.getRealname());
+				//json.put("name",h.getUsername());
 				array.add(json);
 			}
 		} catch (Exception e) {

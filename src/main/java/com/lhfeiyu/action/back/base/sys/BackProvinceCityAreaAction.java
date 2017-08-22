@@ -129,6 +129,28 @@ public class BackProvinceCityAreaAction {
 	}
 	
 	@ResponseBody
+	@RequestMapping(value = "/getCityArray2", method=RequestMethod.POST)
+	public JSONArray getCityArray2(HttpServletRequest request) {
+		JSONArray array = new JSONArray();
+		try {//自动获取所有参数（查询条件）
+			HashMap<String, Object> map = RequestUtil.getRequestParam(request);
+			map.put("mainStatus", 1);
+			map.put("orderBy", "id");
+			map.put("ascOrdesc", "ASC");
+			List<ProvinceCityArea> provinceCityAreaList = provinceCityAreaService.selectListByCondition(map);
+			for(ProvinceCityArea pc:provinceCityAreaList){
+				JSONObject json = new JSONObject();
+				json.put("id",pc.getId());
+				json.put("name",pc.getAreaName());
+				array.add(json);
+			}
+		} catch (Exception e) {
+			Result.catchError(e, logger, "LH_ERROR-ProvinceCityArea-AJAX-/back/getCityArray-加载市(县)数组列表出现异常", array);
+		}
+		return array;
+	}
+	
+	@ResponseBody
 	@RequestMapping(value = "/addOrUpdateProvinceCityArea", method = RequestMethod.POST)
 	public JSONObject addOrUpdateProvinceCityArea(@ModelAttribute ProvinceCityArea provinceCityArea,HttpServletRequest request){
 		JSONObject json = new JSONObject();

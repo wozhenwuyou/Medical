@@ -24,6 +24,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.lhfeiyu.config.PagePath;
 import com.lhfeiyu.dao.ArticleMapper;
 import com.lhfeiyu.dao.CommentMapper;
+import com.lhfeiyu.po.Admin;
 import com.lhfeiyu.po.Announcement;
 import com.lhfeiyu.po.Article;
 import com.lhfeiyu.po.Bespeak;
@@ -151,10 +152,36 @@ public class DoctorAction {
 			map.put("ascOrdesc", "ASC");
 			List<ProvinceCityArea> provinceCityAreaList = provinceCityAreaService.selectListByCondition(map);
 			modelMap.put("provinceCityAreaList", provinceCityAreaList);
-			//modelMap.put("doctorId", value)
 		}catch(Exception e){
 			path = PagePath.error;
 			Result.catchError(e, logger, "LH_ERROR-Doctor-PAGE-/patientLibrary-加载患者库出现异常", modelMap);
+		}
+		return new ModelAndView(path,modelMap);
+	}
+	
+	@RequestMapping(value="/patientLibrary4Select")
+	public ModelAndView  patientLibrary4Select(ModelMap modelMap,HttpServletRequest request){
+		String path = PagePath.patientLibrary4select;
+		try{
+			Doctor session_doctor = ActionUtil.checkSession4Doctor(request.getSession());//验证session中的user，存在即返回
+			//if(null == session_doctor)return Result.userSessionInvalid(modelMap,PagePath.doDctorLogin,"doctor");
+			if(session_doctor != null){
+				modelMap = doctorService.getFansData(modelMap,session_doctor,null);
+			}else{
+				Admin session_admin = ActionUtil.checkSession4Admin(request.getSession());
+				modelMap = doctorService.getAllFansData(modelMap,session_admin,null);
+			}
+			Map<String,Object> map = new HashMap<String,Object>();
+			map.put("higherIdISNULL", 1);
+			map.put("mainStatus", 1);
+			map.put("orderBy", "id");
+			map.put("ascOrdesc", "ASC");
+			List<ProvinceCityArea> provinceCityAreaList = provinceCityAreaService.selectListByCondition(map);
+			modelMap.put("provinceCityAreaList", provinceCityAreaList);
+			//modelMap.put("doctorId", value)
+		}catch(Exception e){
+			path = PagePath.error;
+			Result.catchError(e, logger, "LH_ERROR-Doctor-PAGE-/patientLibrary4Select-加载患者库出现异常", modelMap);
 		}
 		return new ModelAndView(path,modelMap);
 	}

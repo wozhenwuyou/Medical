@@ -23,6 +23,7 @@ public class Fans extends Parent {
 	private String provinceName;
 	private String userAttrStr;
 	private String fansAttrStr;
+	//private Integer phrBasicInfoId;
 	/**============================== 自定义字段 结束 _@CAUTION_SELF_FIELD_FINISH@_ ==============================*/
 
 	/** 自增整型ID  */
@@ -268,10 +269,7 @@ public class Fans extends Parent {
 	public void setFansAttrStr(String fansAttrStr) {
 		this.fansAttrStr = fansAttrStr;
 	}
-	
-	
-	
-	
+
 	/**=========================== 自定义GETSET方法结束 _@CAUTION_SELF_GETSET_FINISH@_ ===========================*/
 	
 }

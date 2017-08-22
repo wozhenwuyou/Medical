@@ -30,7 +30,7 @@ function loadHospitalGridData(page,size,count){
 		    	count:totalNumber,
 		    	toolbar:false,
 		    	callback:function(page,size,count){
-		    		loadGridData(page,size,count);
+		    		loadHospitalGridData(page,size,count);
 		    	}
 		    });
 		}else{
@@ -70,7 +70,7 @@ function loadDoctorGridData(page,size,count){
 				count:totalNumber,
 				toolbar:false,
 				callback:function(page,size,count){
-					loadGridData(page,size,count);
+					loadDoctorGridData(page,size,count);
 				}
 			});
 		}else{

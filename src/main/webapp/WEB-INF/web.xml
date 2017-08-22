@@ -136,5 +136,7 @@
 		<extension>ipa</extension>
 		<mime-type>application/octet-stream</mime-type>
 	</mime-mapping>
-
+	<session-config>
+		<session-timeout>120</session-timeout>
+	</session-config>
 </web-app>

@@ -41,6 +41,20 @@ function loadGridData(page,size,count){
 	});
 }
 
+function fnViewDangAn(basicInfoId, name){
+	var index = layer.open({
+		  type: 2,
+		  shade: false,
+		  scrollbar: false,
+		  title: '查看<font color=red>【{0}】</font>的档案信息'.format(name), //不显示标题
+		  area : [ '1000px', '680px' ],
+		  content: '/views/front/domain/doctor/catalog.jsp?openType=detail&basicInfoId=' + basicInfoId,
+		  cancel: function(){
+		  }
+	});
+	layer.full(index);
+}
+
 function buildDom(data){
 	if(!data) return '';
 	var obj = {
@@ -50,6 +64,12 @@ function buildDom(data){
 			},
 			getUsername:function(){
 				return this.realName || this.username;
+			},
+			fmtPhrBasicInfoId:function(){
+				if(this.phrBasicInfoId){
+					return '<button type="button" class="btn btn-primary btn-xs" onclick="fnViewDangAn({0}, \'{1}\');">查看</button>'.format(this.phrBasicInfoId, (this.realName || this.username));
+				}
+				return "";
 			}
 		} 
 		var template = $('#template').html();

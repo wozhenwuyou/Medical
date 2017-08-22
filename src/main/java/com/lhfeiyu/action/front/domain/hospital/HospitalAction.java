@@ -23,6 +23,7 @@ import com.lhfeiyu.config.PagePath;
 import com.lhfeiyu.po.Article;
 import com.lhfeiyu.po.Doctor;
 import com.lhfeiyu.po.Hospital;
+import com.lhfeiyu.po.PhrBasicInfo;
 import com.lhfeiyu.po.ProvinceCityArea;
 import com.lhfeiyu.po.User;
 import com.lhfeiyu.service.ArticleService;
@@ -32,6 +33,7 @@ import com.lhfeiyu.service.DiagnoseApplyService;
 import com.lhfeiyu.service.DoctorService;
 import com.lhfeiyu.service.HospitalService;
 import com.lhfeiyu.service.MessageService;
+import com.lhfeiyu.service.PhrBasicInfoService;
 import com.lhfeiyu.service.ProvinceCityAreaService;
 import com.lhfeiyu.tools.ActionUtil;
 import com.lhfeiyu.tools.Check;
@@ -40,6 +42,7 @@ import com.lhfeiyu.tools.Pagination;
 import com.lhfeiyu.tools.Result;
 import com.lhfeiyu.util.Md5Util;
 import com.lhfeiyu.util.RequestUtil;
+import com.lhfeiyu.vo.PhrBasicInfoCmd;
 
 @Controller
 @RequestMapping(value="/hospital")
@@ -61,6 +64,8 @@ public class HospitalAction {
 	private MessageService messageService;
 	@Autowired
 	private ArticleService articleService;
+	@Autowired
+	private PhrBasicInfoService phrBasicInfoService;
 	
 	private static Logger logger = Logger.getLogger("R");
 	
@@ -378,6 +383,48 @@ public class HospitalAction {
 			Result.catchError(e, logger, "LH_ERROR-hospital-PAGE-/internalMessage-加载站内信出现异常", modelMap);
 		}
 		return new ModelAndView(path,modelMap);
+	}
+	
+	//健康档案相关
+	@RequestMapping(value="/phrList", method=RequestMethod.GET)
+	public ModelAndView  phrList(ModelMap modelMap,HttpServletRequest request){
+		String path = PagePath.HOSPITAL_PHR_LIST;
+		try{
+			Hospital session_hospital = ActionUtil.checkSession4Hospital(request.getSession());//验证session中的user，存在即返回
+			if(null == session_hospital)return Result.userSessionInvalid(modelMap, "hospital");
+			
+			
+			modelMap = hospitalService.getHospitalData(modelMap, session_hospital, null);
+		
+		
+		}catch(Exception e){
+			path = PagePath.error;
+			Result.catchError(e, logger, "LH_ERROR-hospital-PAGE-/phrList-加载健康档案列表出现异常", modelMap);
+		}
+		return new ModelAndView(path,modelMap);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/phrList", method = RequestMethod.POST)
+	public JSONObject phrListPOST(PhrBasicInfoCmd cmd, HttpServletRequest request) {
+		JSONObject json = new JSONObject();
+		try {
+			// 验证session是否过期s
+			Hospital session_hospital = ActionUtil.checkSession4Hospital(request.getSession());//验证session中的user，存在即返回
+			if(null == session_hospital)return Result.userSessionInvalid(json, "hospital");
+
+			cmd.setHospital(session_hospital);
+			
+			List<PhrBasicInfo> hospitalList = phrBasicInfoService.selectListByCondition(cmd);
+
+			Integer total = phrBasicInfoService.selectCountByCondition(cmd);
+			Result.gridData(hospitalList, total, json);
+			Result.success(json, "健康档案管理页面加载成功", null);
+
+		} catch (Exception e) {
+			Result.catchError(e, logger, "LH_ERROR-Hospital-AJAX-/hospital/phrList-健康档案管理页面出现异常", json);
+		}
+		return json;
 	}
 	
 }

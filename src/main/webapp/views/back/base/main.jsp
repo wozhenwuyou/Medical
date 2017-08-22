@@ -7,8 +7,8 @@
 <head>
 <%@ include file="/views/common/meta_info.htm"%>
 <%@ include file="/views/common/common_back_css.htm"%>
-<link rel="stylesheet" type="text/css" href="/css/back/back.css"
-	title="v" />
+<link rel="stylesheet" type="text/css" href="/css/back/back.css" title="v" />
+<link rel="stylesheet" type="text/css" href="/third-party/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" />
 </head>
 
 <body id="main_layout" class="easyui-layout"
@@ -172,6 +172,7 @@
 	<%@ include file="/views/common/common_js.htm"%>
 	<%@ include file="/views/common/common_back_js.htm"%>
 	<script type="text/javascript" src="/js/back/base/main.js" title="v"></script>
+	<script type="text/javascript" src="/third-party/layer/layer.js" title="v"></script>
 
 </body>
 </html>
